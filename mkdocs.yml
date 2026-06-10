@@ -1,0 +1,41 @@
+site_name: AlphaMeterQC Documentation
+site_description: Документация ПО AlphaMeterQC
+
+# Явно указываем папку для сгенерированного сайта
+site_dir: site
+
+# Указываем, где лежат исходные markdown-файлы (относительно этого файла)
+docs_dir: docs/specs
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [../src] # Путь к исходному коду относительно файла mkdocs.yml
+          options:
+            docstring_style: google # Мы договорились использовать Google style
+            show_root_heading: true
+            show_source: true
+
+# Навигация: масштабируемая структура
+nav:
+  - Главная: index.md
+  - Артефакты модуля login_dialog:
+      - Концепция: login_dialog/01_concept.md
+      - Требования стейкхолдеров: login_dialog/02_stakeholders_requirements.md
+      - Пользовательские истории: login_dialog/03_user_stories.md
+      - SRS: login_dialog/04_srs.md
+      - Варианты использования: login_dialog/05_use_cases.md
+      - UC D0.01: login_dialog/05-1_UC.LOGIN.D0.01.md
+      - UC D1.01: login_dialog/05-2_UC.LOGIN.D1.01.md
+      - UC D2.01: login_dialog/05-3_UC.LOGIN.D2.01.md
+      - UC D2.02: login_dialog/05-4_UC.LOGIN.D2.02.md
+      - UC D3.01: login_dialog/05-5_UC.LOGIN.D3.01.md
+      - Матрица трассировки: login_dialog/06_rtm.md
+      - Модель предметной сферы: login_dialog/07_domain_model.md
+      - Техническое задание: login_dialog/08_technical_specification.md
+      - Дизайн UI: login_dialog/09_ui_design.md
+      - Трассировка UI: login_dialog/10_ui_traceability.md
+  - API Справка (Auto-generated из кода):
+      - Модуль login_dialog: api/login_dialog.md
