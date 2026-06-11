@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Концепция - AlphaMeterQC Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">AlphaMeterQC Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Главная</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Артефакты модуля login_dialog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Концепция</a>
+</li>
+                                    
+<li>
+    <a href="../02_stakeholders_requirements/" class="dropdown-item">Требования стейкхолдеров</a>
+</li>
+                                    
+<li>
+    <a href="../03_user_stories/" class="dropdown-item">Пользовательские истории</a>
+</li>
+                                    
+<li>
+    <a href="../04_srs/" class="dropdown-item">SRS</a>
+</li>
+                                    
+<li>
+    <a href="../05_use_cases/" class="dropdown-item">Варианты использования</a>
+</li>
+                                    
+<li>
+    <a href="../05-1_UC.LOGIN.D0.01/" class="dropdown-item">UC D0.01</a>
+</li>
+                                    
+<li>
+    <a href="../05-2_UC.LOGIN.D1.01/" class="dropdown-item">UC D1.01</a>
+</li>
+                                    
+<li>
+    <a href="../05-3_UC.LOGIN.D2.01/" class="dropdown-item">UC D2.01</a>
+</li>
+                                    
+<li>
+    <a href="../05-4_UC.LOGIN.D2.02/" class="dropdown-item">UC D2.02</a>
+</li>
+                                    
+<li>
+    <a href="../05-5_UC.LOGIN.D3.01/" class="dropdown-item">UC D3.01</a>
+</li>
+                                    
+<li>
+    <a href="../06_rtm/" class="dropdown-item">Матрица трассировки</a>
+</li>
+                                    
+<li>
+    <a href="../07_domain_model/" class="dropdown-item">Модель предметной сферы</a>
+</li>
+                                    
+<li>
+    <a href="../08_technical_specification/" class="dropdown-item">Техническое задание</a>
+</li>
+                                    
+<li>
+    <a href="../09_ui_design/" class="dropdown-item">Дизайн UI</a>
+</li>
+                                    
+<li>
+    <a href="../10_ui_traceability/" class="dropdown-item">Трассировка UI</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">API Справка (Auto-generated из кода)</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../api/login_dialog/" class="dropdown-item">Модуль login_dialog</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../.." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../02_stakeholders_requirements/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">КОНЦЕПЦИЯ СОЗДАНИЯ ПРОДУКТА / ФИЧИ</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. Название продукта / фичи</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. Цель создания</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. Стейкхолдеры</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. Целевая аудитория</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. Проблемы и потребности целевой аудитории</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. Проблемы и потребности стейкхолдеров</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. Ключевые характеристики продукта / фичи</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8-usp" class="nav-link">8. Уникальные преимущества (USP)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9" class="nav-link">9. Этапы реализации</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10" class="nav-link">10. Ожидаемые результаты и метрики успеха</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#11" class="nav-link">11. Ожидаемые риски и пути их минимизации</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">КОНЦЕПЦИЯ СОЗДАНИЯ ПРОДУКТА / ФИЧИ</h1>
+<p><strong>Модуль ввода идентификационных данных для подключения к БД</strong></p>
+<p><strong>Версия:</strong> 3.4 (итоговая)<br />
+<strong>Дата:</strong> 04.06.26/текущее время<br />
+<strong>Автор:</strong> В.Л. Солодюк<br />
+<strong>Проект:</strong> ПО «AlphaMeterQC» (анализ и контроль своевременности поступления, полноты и корректности данных, собранных со счётчиков электрической энергии и хранящихся в БД (Oracle) ПО АльфаЦЕНТР) / Модуль ввода идентификационных данных для подключения к БД<br />
+<strong>Статус:</strong> Утверждена</p>
+<hr />
+<h2 id="1">1. Название продукта / фичи</h2>
+<p>Модуль <code>login_dialog</code> — графический диалог для ввода идентификационных данных подключения к БД Oracle.</p>
+<h2 id="2">2. Цель создания</h2>
+<p>Разработать программный модуль <code>login_dialog</code> — графический интерфейс для ввода пользователем параметров подключения к БД Oracle (IP-адрес/хост, порт, имя пользователя, пароль, идентификатор службы), с функцией валидации формата вводимых данных, маскировкой пароля и последующей передачей этих данных вызывающему ПО. Модуль не выполняет самостоятельного подключения к БД, не проверяет достоверность учётных данных на сервере и не взаимодействует напрямую с модулем подключения к БД.</p>
+<p><strong>Бизнес-показатели успеха:</strong>
+- Сокращение среднего времени ввода учётных данных пользователем с 30 до 5 секунд за счёт автоподстановки сохранённых данных.
+- Исключение ошибок подключения к БД, вызванных неверным форматом вводимых данных (IP-адрес/хост, порт, пустые поля).</p>
+<h2 id="3">3. Стейкхолдеры</h2>
+<table>
+<thead>
+<tr>
+<th>Стейкхолдер</th>
+<th>Роль</th>
+<th>Ключевые интересы и потребности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Инженеры отдела системного сопровождения</td>
+<td>Непосредственные пользователи модуля</td>
+<td>Простота и скорость ввода учётных данных, минимизация ручного ввода, надёжность работы модуля</td>
+</tr>
+<tr>
+<td>Руководитель отдела системного сопровождения</td>
+<td>Внутренний заказчик</td>
+<td>Снижение обращений в поддержку, сокращение времени настройки рабочих мест</td>
+</tr>
+<tr>
+<td>Команда разработки планируемого настольного ПО</td>
+<td>Интеграция модуля</td>
+<td>Чёткий и простой интерфейс взаимодействия, стабильная работа без внешних зависимостей</td>
+</tr>
+<tr>
+<td>Администраторы БД Oracle</td>
+<td>Обеспечение доступности серверов</td>
+<td>Получение корректных параметров подключения, снижение ошибочных попыток подключения</td>
+</tr>
+<tr>
+<td>Отдел информационной безопасности</td>
+<td>Контроль безопасности учётных данных</td>
+<td>Отсутствие сохранения пароля на диске, хранение только неподтверждённых данных в защищённой области</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4">4. Целевая аудитория</h2>
+<ul>
+<li><strong>Основные пользователи:</strong> Инженеры отдела системного сопровождения — пользователи планируемого к разработке настольного ПО.</li>
+<li><strong>Демография / сегменты аудитории:</strong> Сотрудники технических специальностей с опытом работы с базами данных, уверенные пользователи ПК. Уровень цифровой грамотности — высокий.</li>
+<li><strong>География использования:</strong> Предприятия, на которых внедрена АСКУЭ. Предполагается работа в корпоративной сети предприятия.</li>
+<li><strong>Сценарий использования:</strong> При каждом запуске ПО «AlphaMeterQC» вызывает модуль <code>login_dialog</code> для получения параметров подключения. Пользователь вводит или изменяет параметры, вводит пароль и подтверждает ввод. Модуль возвращает введённые данные ПО. ПО передаёт полученные данные модулю подключения к БД для установки соединения.</li>
+</ul>
+<h2 id="5">5. Проблемы и потребности целевой аудитории</h2>
+<table>
+<thead>
+<tr>
+<th>Проблема</th>
+<th>Описание</th>
+<th>Как решает модуль</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Затраты времени на ручной ввод при каждом запуске</td>
+<td>Инженерам приходится каждый раз заново вводить IP-адрес/хост, порт, идентификатор службы и имя пользователя</td>
+<td>Сохранение этих данных между сеансами с автоматической подстановкой при следующем запуске</td>
+</tr>
+<tr>
+<td>Риск ошибок при вводе параметров подключения</td>
+<td>Ошибка в IP-адресе, порте или идентификаторе службы приводит к невозможности подключения к БД</td>
+<td>Встроенная проверка корректности ввода с подсветкой ошибок</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6">6. Проблемы и потребности стейкхолдеров</h2>
+<table>
+<thead>
+<tr>
+<th>Стейкхолдер</th>
+<th>Проблема / потребность</th>
+<th>Как решает модуль</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Инженеры отдела системного сопровождения</td>
+<td>Быстрый и безошибочный ввод учётных данных</td>
+<td>Автоподстановка сохранённых данных, проверка корректности ввода, скрытие пароля при вводе</td>
+</tr>
+<tr>
+<td>Руководитель отдела системного сопровождения</td>
+<td>Снижение времени на ввод данных и уменьшение ошибок подключения</td>
+<td>Сокращение ручного ввода, исключение ошибок на этапе ввода</td>
+</tr>
+<tr>
+<td>Команда разработки планируемого настольного ПО</td>
+<td>Простота интеграции модуля, отсутствие скрытых зависимостей</td>
+<td>Предоставление чёткого контракта взаимодействия, независимость от драйверов БД</td>
+</tr>
+<tr>
+<td>Администраторы БД Oracle</td>
+<td>Снижение числа некорректных попыток подключения</td>
+<td>Проверка формата IP-адреса/хоста, диапазона порта и идентификатора службы до передачи в БД</td>
+</tr>
+<tr>
+<td>Отдел информационной безопасности</td>
+<td>Обеспечение безопасности паролей</td>
+<td>Пароль не сохраняется на диске, поле ввода маскируется, пароль не передаётся в логи</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7">7. Ключевые характеристики продукта / фичи</h2>
+<h3 id="71">7.1. Функциональные возможности</h3>
+<ul>
+<li>Отображение окна с полями для ввода:</li>
+<li>IP-адрес / Хост</li>
+<li>Порт</li>
+<li>Имя пользователя</li>
+<li>Пароль (с маскировкой)</li>
+<li>Идентификатор службы (SID / Service Name)</li>
+<li>Кнопки управления: «Ок» (подтверждение), «Отмена» (отмена).</li>
+<li>Поле пароля скрывает вводимые символы (маскировка).</li>
+<li>Кнопка «Ок» неактивна, пока все поля не заполнены корректно согласно правилам проверки.</li>
+<li>Кнопка «Отмена» доступна всегда. При её нажатии модуль завершает работу с сигналом отмены.</li>
+<li>При нажатии «Ок» модуль возвращает введённые данные вызывающей системе (структура с полями: IP, порт, имя пользователя, пароль, идентификатор службы).</li>
+<li>Сохранение всех введённых данных, кроме пароля, локально в защищённой области пользователя.</li>
+<li>При следующем запуске сохранённые поля автоматически подставляются в соответствующие поля ввода. Поле пароля остаётся пустым.</li>
+<li>Контракт взаимодействия: Модуль предоставляет вызывающей системе публичный API для вызова и получения результата (данные или сигнал отмены). Интеграция не требует изменения кода вызывающей системы.</li>
+<li>Режимы интеграции: Модуль поддерживает два режима работы для исключения конфликтов графических циклов (Event Loop):</li>
+<li>Режим библиотеки (по умолчанию): Модуль импортируется как Python-пакет, функция вызывается напрямую.</li>
+<li>Режим отдельного процесса (альтернативный): Модуль запускается как самостоятельный процесс (subprocess), обмен данными происходит через stdout (JSON). Этот режим гарантирует совместимость с любой вызывающей системой (PyQt, C++, C# и т.д.).</li>
+<li>Безопасность: Пароль не передаётся в логи, консоль, внешние файлы или иные внешние источники.</li>
+<li>
+<p>Правила проверки корректности:
+  | Поле | Правило проверки |
+  |------|------------------|
+  | IP-адрес / Хост | Валидный IPv4-адрес (0-255) или DNS-имя хоста. Для DNS: строка после удаления пробелов по краям (<code>strip</code>) должна содержать хотя бы один буквенно-цифровой символ, не начинаться и не заканчиваться на '-' или '.', допустимые символы: латиница, цифры, '<em>', '-', '.', не более 255 символов. |
+  | Порт | Число от 1 до 65535 |
+  | Имя пользователя | Не пустое, не более 30 символов |
+  | Пароль | Не пустой (хотя бы 1 символ) |
+  | Идентификатор службы (SID/Service Name) | Не более 30 символов, допустимые символы: латиница, цифры, '</em>', '.', '-' |</p>
+</li>
+<li>
+<p>При невыполнении любого правила — кнопка «Ок» неактивна, поле с ошибкой визуально выделяется.</p>
+</li>
+<li>Модуль не выполняет подключение к БД, не проверяет доступность сервера и не вызывает внешние модули подключения.</li>
+<li>Обработка файла сохранения при чтении:</li>
+<li>При отсутствии файла сохранения — новый файл не создаётся, поля заполняются значениями по умолчанию (Порт = 1521, Идентификатор службы = ORCL, остальные пустые).</li>
+<li>При повреждении файла сохранения — повреждённый файл удаляется, новый файл не создаётся, поля заполняются значениями по умолчанию.</li>
+<li>Ошибки файловой системы при чтении обрабатываются молча, без вывода сообщений пользователю.</li>
+</ul>
+<h3 id="72">7.2. Нефункциональные требования</h3>
+<ul>
+<li>Язык реализации: Python 3.9 или выше.</li>
+<li>Графическая библиотека: CustomTkinter (современная надстройка над стандартным Tkinter, обеспечивает современный UI, минимальные зависимости и быструю упаковку в .exe через PyInstaller).</li>
+<li>Интеграция: Модуль должен быть совместим с упаковкой в исполняемый файл (.exe). Зависимость от Oracle отсутствует — модуль не требует установки драйверов БД.</li>
+<li>Тайм-аут ожидания ввода: не предусмотрен. Модуль ждёт действий пользователя бесконечно.</li>
+<li>Хранение данных: без шифрования, только в локальной пользовательской директории (<code>%LOCALAPPDATA%</code> для Windows, <code>~/.config/</code> для Linux).</li>
+<li>Производительность: окно должно отображаться после вызова модуля без заметной задержки для пользователя.</li>
+<li>Надёжность: модуль не должен зависать или выдавать необработанные ошибки при проблемах с файловой системой.</li>
+<li>Удобство использования: все элементы управления должны быть явно видимы и подписаны на русском языке.</li>
+<li>Безопасность: Пароль не передаётся в логи, консоль, файлы или иные внешние источники.</li>
+</ul>
+<h2 id="8-usp">8. Уникальные преимущества (USP)</h2>
+<ul>
+<li><strong>Целенаправленность:</strong> Модуль решает ровно одну задачу — сбор и передачу идентификационных данных для подключения к Oracle — без избыточного функционала.</li>
+<li><strong>Простота интеграции:</strong> Чёткий интерфейс взаимодействия и поддержка двух режимов (библиотека/subprocess) позволяют легко встроить модуль в любое настольное ПО без конфликтов GUI.</li>
+<li><strong>Современный UI:</strong> Использование CustomTkinter обеспечивает современный внешний вид при сохранении легковесности.</li>
+<li><strong>Безопасность по умолчанию:</strong> Пароль не сохраняется на диске, поле ввода маскируется, пароль не передаётся в логи.</li>
+<li><strong>Устойчивость к сбоям:</strong> При проблемах с чтением или записью файла сохранённых данных модуль продолжает работу без вывода ошибок пользователю.</li>
+</ul>
+<h2 id="9">9. Этапы реализации</h2>
+<table>
+<thead>
+<tr>
+<th>Этап</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0</strong></td>
+<td><strong>Spike (Исследование):</strong> Прототип запуска subprocess и парсинга JSON из stdout для снятия архитектурного риска.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Разработка графического интерфейса (CustomTkinter): Создание окна с 5 полями ввода, кнопками «Ок» и «Отмена», маскировкой пароля, подписями на русском языке.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Реализация проверки вводимых данных: Внедрение правил проверки для каждого поля (включая строгую поддержку DNS-имен), визуальное выделение ошибочных полей, управление доступностью кнопки «Ок».</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Реализация сохранения и загрузки данных: Чтение и запись файла с сохранёнными данными (кроме пароля) в защищённой области пользователя, автоматическая подстановка при запуске, обработка ошибок файловой системы.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Реализация интерфейса для вызывающей системы: Создание точки входа для вызова модуля из основного ПО (включая поддержку режима subprocess), возврат введённых данных или сигнала об отмены/ошибки.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Тестирование и проверка готовности к интеграции: Проверка соответствия критериям приёмки, подготовка модуля к встраиванию.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10">10. Ожидаемые результаты и метрики успеха</h2>
+<p><strong>Бизнес-метрики:</strong>
+- Сокращение среднего времени ввода учётных данных пользователем с 30 до 5 секунд.
+- Снижение количества ошибок подключения к БД, вызванных неверным форматом ввода, до нуля.</p>
+<p><strong>Ключевые критерии приёмки:</strong>
+1. Модуль интегрируется без изменения кода вызывающей системы.
+2. Окно содержит пять полей (IP/хост, порт, имя, пароль, идентификатор службы) и кнопки «Ок»/«Отмена».
+3. При некорректных данных кнопка «Ок» неактивна.
+4. При нажатии «Ок» модуль сохраняет параметры (кроме пароля) в файл и возвращает данные вызывающему ПО.
+5. При каждом вызове поля заполняются из файла, если он существует. При отсутствии или повреждении файла поля заполняются значениями по умолчанию (Порт = 1521, Идентификатор службы = ORCL, остальные пустые).
+6. При нажатии «Отмена» модуль возвращает сигнал отмены.
+7. Пароль маскируется при вводе.
+8. Пароль не передаётся в логи, консоль или внешние файлы.
+9. Ошибки файловой системы обрабатываются молча (работа продолжается).
+10. Окно отображается менее чем за 0,5 секунды.</p>
+<h2 id="11">11. Ожидаемые риски и пути их минимизации</h2>
+<table>
+<thead>
+<tr>
+<th>Риск</th>
+<th>Описание</th>
+<th>Стратегия минимизации</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Непринятие модуля отделом информационной безопасности</td>
+<td>Отсутствие шифрования сохранённых данных</td>
+<td>Пароль не сохраняется — ключевой аргумент. Запросить согласование формата хранения до начала разработки</td>
+</tr>
+<tr>
+<td>Ошибки при чтении или записи файла</td>
+<td>Отсутствие прав на запись или повреждение файла</td>
+<td>Устойчивое поведение: при отсутствии файла — подставлять значения по умолчанию; при повреждении — удалить файл; при ошибках записи — продолжить работу без сохранения; ошибки не показываются пользователю</td>
+</tr>
+<tr>
+<td>Некорректный ввод порта или идентификатора службы</td>
+<td>Ввод данных вне допустимых диапазонов</td>
+<td>Проверка на уровне интерфейса, блокировка передачи неверных данных</td>
+</tr>
+<tr>
+<td>Задержка при отображении окна</td>
+<td>Инициализация графического интерфейса</td>
+<td>Использование CustomTkinter, минимизация импортов</td>
+</tr>
+<tr>
+<td>Конфликт графических циклов (Event Loop) при интеграции</td>
+<td>Если вызывающая система использует PyQt/PySide, запуск Tkinter-окна в том же процессе может вызвать зависание</td>
+<td>Поддержка режима запуска в виде отдельного процесса (subprocess) с обменом данными через stdout/JSON</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

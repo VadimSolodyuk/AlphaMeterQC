@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Модель предметной сферы - AlphaMeterQC Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">AlphaMeterQC Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Главная</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Артефакты модуля login_dialog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../01_concept/" class="dropdown-item">Концепция</a>
+</li>
+                                    
+<li>
+    <a href="../02_stakeholders_requirements/" class="dropdown-item">Требования стейкхолдеров</a>
+</li>
+                                    
+<li>
+    <a href="../03_user_stories/" class="dropdown-item">Пользовательские истории</a>
+</li>
+                                    
+<li>
+    <a href="../04_srs/" class="dropdown-item">SRS</a>
+</li>
+                                    
+<li>
+    <a href="../05_use_cases/" class="dropdown-item">Варианты использования</a>
+</li>
+                                    
+<li>
+    <a href="../05-1_UC.LOGIN.D0.01/" class="dropdown-item">UC D0.01</a>
+</li>
+                                    
+<li>
+    <a href="../05-2_UC.LOGIN.D1.01/" class="dropdown-item">UC D1.01</a>
+</li>
+                                    
+<li>
+    <a href="../05-3_UC.LOGIN.D2.01/" class="dropdown-item">UC D2.01</a>
+</li>
+                                    
+<li>
+    <a href="../05-4_UC.LOGIN.D2.02/" class="dropdown-item">UC D2.02</a>
+</li>
+                                    
+<li>
+    <a href="../05-5_UC.LOGIN.D3.01/" class="dropdown-item">UC D3.01</a>
+</li>
+                                    
+<li>
+    <a href="../06_rtm/" class="dropdown-item">Матрица трассировки</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Модель предметной сферы</a>
+</li>
+                                    
+<li>
+    <a href="../08_technical_specification/" class="dropdown-item">Техническое задание</a>
+</li>
+                                    
+<li>
+    <a href="../09_ui_design/" class="dropdown-item">Дизайн UI</a>
+</li>
+                                    
+<li>
+    <a href="../10_ui_traceability/" class="dropdown-item">Трассировка UI</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">API Справка (Auto-generated из кода)</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../api/login_dialog/" class="dropdown-item">Модуль login_dialog</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../06_rtm/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../08_technical_specification/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">Модель предметной сферы</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. Таблица классов анализа</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-plantuml" class="nav-link">2. Диаграмма классов (PlantUML)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. Сводка по доменам</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. Сводка связей</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. Рекомендации перед началом проектирования</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-24" class="nav-link">6. Изменения по сравнению с версией 2.4</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">Модель предметной сферы</h1>
+<p><strong>Версия:</strong> 2.5 (итоговая)<br />
+<strong>Дата:</strong> 2026-06-06<br />
+<strong>Автор:</strong> Солодюк В.Л.<br />
+<strong>Проект:</strong> ПО «AlphaMeterQC» / Модуль ввода идентификационных данных для подключения к БД</p>
+<hr />
+<h2 id="1">1. Таблица классов анализа</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Название</th>
+<th>Домен</th>
+<th>Атрибуты</th>
+<th>Методы</th>
+<th>Связи</th>
+<th>Описание сущности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>En.LOGIN.D0.01</td>
+<td>LoginDialog</td>
+<td>Инициализация</td>
+<td>-</td>
+<td>+ show() <br> + showWithDefaults(...) <br> + runAsSubprocess()</td>
+<td>→ En.LOGIN.D1.01 (зависит) <br> → En.LOGIN.D3.01 (реализует)</td>
+<td>Главный класс модуля, предоставляющий API. Поддерживает запуск как библиотеки и как subprocess (вывод JSON в stdout).</td>
+</tr>
+<tr>
+<td>En.LOGIN.D0.02</td>
+<td>ConnectionConfig</td>
+<td>Инициализация</td>
+<td>- ipAddress: string <br> - port: int <br> - username: string <br> - serviceName: string</td>
+<td>+ loadFromFile(filePath) <br> + saveAtomically(filePath) <br> + getDefaults()</td>
+<td>→ En.LOGIN.D1.01 (используется)</td>
+<td><strong>Подмножество ConnectionData без пароля.</strong> Работа с конфигурацией (хранение между сессиями). <code>getDefaults()</code> возвращает <code>port=1521</code>, <code>service_name="ORCL"</code>. Путь: <code>%LOCALAPPDATA%</code> (Windows) / <code>~/.config/</code> (Linux).</td>
+</tr>
+<tr>
+<td>En.LOGIN.D1.01</td>
+<td>ConnectionDialog</td>
+<td>Управление вводом и валидацией</td>
+<td>- ipField: string <br> - portField: int <br> - usernameField: string <br> - passwordField: string <br> - serviceNameField: string <br> - okButtonEnabled: bool</td>
+<td>+ show() <br> + validateFields() <br> + highlightError(field) <br> + clearHighlight(field) <br> + enableOkButton() <br> + maskPassword() <br> + setSmartFocus()</td>
+<td>→ En.LOGIN.D0.02 (использует) <br> → En.LOGIN.D1.02 (использует) <br> → En.LOGIN.D2.01 (создаёт) <br> → En.LOGIN.D2.02 (создаёт) <br> → En.LOGIN.D3.03 (взаимодействует)</td>
+<td>Графическое окно на базе CustomTkinter. <code>setSmartFocus()</code> переводит фокус на «Пароль», если <code>ip</code> или <code>username</code> не пустые (согласно UC.LOGIN.D0.01 Шаг 6).</td>
+</tr>
+<tr>
+<td>En.LOGIN.D1.02</td>
+<td>Validator</td>
+<td>Управление вводом и валидацией</td>
+<td>- ipOrDnsPattern: regex <br> - portRange: [1,65535] <br> - usernameMaxLength: 30 <br> - serviceNamePattern: regex <br> - serviceNameOptional: bool</td>
+<td>+ validateIpOrDns(value) <br> + validatePort(port) <br> + validateUsername(username) <br> + validateServiceName(serviceName) <br> + validateAll()</td>
+<td>→ En.LOGIN.D1.01 (используется)</td>
+<td>Проверка корректности данных. Поддерживает валидацию IPv4 и строгого DNS (strip, запрет на <code>-</code>/<code>.</code> на краях, наличие буквенно-цифрового символа — согласно SRS п. 1.6).</td>
+</tr>
+<tr>
+<td>En.LOGIN.D2.01</td>
+<td>ConnectionData</td>
+<td>Завершение сеанса</td>
+<td>- ipAddress: string <br> - port: int <br> - username: string <br> - <strong>password: string</strong> <br> - serviceName: string</td>
+<td>+ toJson() <br> + fromJson(json) <br> + toStruct()</td>
+<td>→ En.LOGIN.D0.02 (сохраняется в: 1 → 0..1) <br> → En.LOGIN.D3.01 (передаётся)</td>
+<td><strong>Полная структура данных подключения (включая пароль).</strong> Используется только транзитно для передачи результатов вызывающей системе. <strong>Никогда не сериализуется в файл целиком</strong> (пароль исключается при сохранении).</td>
+</tr>
+<tr>
+<td>En.LOGIN.D2.02</td>
+<td>CancelSignal</td>
+<td>Завершение сеанса</td>
+<td>- signalType: enum (CANCEL)</td>
+<td>+ getSignal() <br> + toJson()</td>
+<td>→ En.LOGIN.D3.01 (передаётся)</td>
+<td>Сигнал отмены (F-6). В режиме subprocess сериализуется в JSON <code>{"status": "cancelled"}</code>.</td>
+</tr>
+<tr>
+<td>En.LOGIN.D3.01</td>
+<td>IConnectionDialog</td>
+<td>Интеграция</td>
+<td>-</td>
+<td>+ showDialog(): ConnectionData / CancelSignal</td>
+<td>← En.LOGIN.D0.01 (реализует) <br> → En.LOGIN.D2.01 (возвращает) <br> → En.LOGIN.D2.02 (возвращает)</td>
+<td>Интерфейс (API) для интеграции. Возвращает данные или сигнал отмены.</td>
+</tr>
+<tr>
+<td>En.LOGIN.D3.02</td>
+<td>CallerSystem</td>
+<td>Интеграция</td>
+<td>-</td>
+<td>+ callModule() <br> + processResult(result)</td>
+<td>→ En.LOGIN.D3.01 (вызывает)</td>
+<td>Внешняя вызывающая система (ПО «AlphaMeterQC»).</td>
+</tr>
+<tr>
+<td>En.LOGIN.D3.03</td>
+<td>User</td>
+<td>Интеграция</td>
+<td>-</td>
+<td>+ enterData() <br> + confirm() <br> + cancel()</td>
+<td>→ En.LOGIN.D1.01 (взаимодействует)</td>
+<td>Пользователь, взаимодействующий с графическим интерфейсом.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-plantuml">2. Диаграмма классов (PlantUML)</h2>
+<pre><code class="language-plantuml">@startuml
+left to right direction
+skinparam linetype ortho
+
+' === Инициализация ===
+package &quot;Инициализация&quot; {
+    class LoginDialog {
+        + show()
+        + showWithDefaults(defaultIp, defaultPort, defaultUsername, defaultServiceName)
+        + runAsSubprocess()
+    }
+
+    class ConnectionConfig {
+        - ipAddress: string
+        - port: int
+        - username: string
+        - serviceName: string
+        --
+        + loadFromFile(filePath)
+        + saveAtomically(filePath)
+        + getDefaults()
+    }
+}
+
+' === Управление вводом ===
+package &quot;Управление вводом и валидацией&quot; {
+    class ConnectionDialog {
+        - ipField: string
+        - portField: int
+        - usernameField: string
+        - passwordField: string
+        - serviceNameField: string
+        - okButtonEnabled: bool
+        --
+        + show()
+        + validateFields()
+        + highlightError(field)
+        + clearHighlight(field)
+        + enableOkButton()  
+        + maskPassword()
+        + setSmartFocus()
+    }
+
+    class Validator {
+        - ipOrDnsPattern: regex
+        - portRange: [1,65535]
+        - usernameMaxLength: 30 
+        - serviceNamePattern: regex
+        - serviceNameOptional: bool
+        --
+        + validateIpOrDns(value)
+        + validatePort(port)
+        + validateUsername(username)
+        + validateServiceName(serviceName)
+        + validateAll()
+    }
+}
+
+' === Завершение сеанса ===
+package &quot;Завершение сеанса&quot; {
+    class ConnectionData {
+        - ipAddress: string
+        - port: int
+        - username: string
+        - password: string
+        - serviceName: string
+        --
+        + toJson()
+        + fromJson(json)
+        + toStruct()
+    }
+
+    class CancelSignal {
+        - signalType: enum
+        --
+        + getSignal()
+        + toJson()
+    }
+}
+
+' === Интеграция ===
+package &quot;Интеграция&quot; {
+    interface IConnectionDialog {
+        + showDialog(): ConnectionData / CancelSignal
+    }
+
+    class CallerSystem {
+        + callModule()
+        + processResult(result)
+    }
+
+    class User {
+        + enterData()
+        + confirm()
+        + cancel()
+    }
+}
+
+' === Связи с подписями ===
+
+' Реализация API
+LoginDialog ..|&gt; IConnectionDialog : «реализует интерфейс API»
+
+' Создание и управление диалогом
+LoginDialog --&gt; ConnectionDialog : «создаёт и управляет\n(CustomTkinter)»
+
+' Загрузка конфигурации
+LoginDialog --&gt; ConnectionConfig : «загружает конфигурацию\nиз файла»
+
+' Использование валидатора
+ConnectionDialog --&gt; Validator : «использует для\nпроверки данных\n(IPv4 + строгий DNS)»
+
+' Создание результатов
+ConnectionDialog --&gt; ConnectionData : «создаёт при\nподтверждении (F-5)»
+ConnectionDialog --&gt; CancelSignal : «создаёт при\nотмене (F-6)»
+
+' ИСПРАВЛЕНО: ConnectionConfig использует данные из ConnectionData для сохранения
+ConnectionData --&gt; ConnectionConfig : «преобразуется в\nдля сохранения\n(без пароля)»
+
+' Возврат результатов через API
+ConnectionData ..&gt; IConnectionDialog : «возвращается при\nуспехе (F-5)»
+CancelSignal ..&gt; IConnectionDialog : «возвращается при\nотмене (F-6)»
+
+' Взаимодействие с внешними системами
+CallerSystem --&gt; IConnectionDialog : «вызывает API модуля\n(библиотека/subprocess)»
+User --&gt; ConnectionDialog : «взаимодействует\nчерез GUI»
+
+@enduml
+</code></pre>
+<hr />
+<h2 id="3">3. Сводка по доменам</h2>
+<table>
+<thead>
+<tr>
+<th>Домен</th>
+<th>Сущности</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Инициализация</td>
+<td>LoginDialog, ConnectionConfig</td>
+<td>Загрузка конфигурации (<code>%LOCALAPPDATA%</code> / <code>~/.config/</code>), API вызова, поддержка режима subprocess</td>
+</tr>
+<tr>
+<td>Управление вводом и валидацией</td>
+<td>ConnectionDialog, Validator</td>
+<td>Графический интерфейс (CustomTkinter), проверка данных (IPv4 + строгий DNS), умный фокус</td>
+</tr>
+<tr>
+<td>Завершение сеанса</td>
+<td>ConnectionData, CancelSignal</td>
+<td>Результаты работы (данные/отмена), сериализация в JSON для subprocess</td>
+</tr>
+<tr>
+<td>Интеграция</td>
+<td>IConnectionDialog, CallerSystem, User</td>
+<td>Интерфейсы и внешние акторы</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4">4. Сводка связей</h2>
+<table>
+<thead>
+<tr>
+<th>От</th>
+<th>К</th>
+<th>Тип</th>
+<th>Кратность</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LoginDialog</td>
+<td>ConnectionDialog</td>
+<td>Зависимость</td>
+<td>1 → 1</td>
+<td>LoginDialog создаёт и управляет ConnectionDialog (CustomTkinter)</td>
+</tr>
+<tr>
+<td>LoginDialog</td>
+<td>IConnectionDialog</td>
+<td>Реализация</td>
+<td>1 → 1</td>
+<td>LoginDialog реализует интерфейс API</td>
+</tr>
+<tr>
+<td>LoginDialog</td>
+<td>ConnectionConfig</td>
+<td>Использование</td>
+<td>1 → 1</td>
+<td>LoginDialog загружает конфигурацию</td>
+</tr>
+<tr>
+<td>ConnectionDialog</td>
+<td>Validator</td>
+<td>Использование</td>
+<td>1 → 1</td>
+<td>ConnectionDialog использует валидатор для проверки полей (IPv4 + строгий DNS)</td>
+</tr>
+<tr>
+<td>ConnectionDialog</td>
+<td>ConnectionData</td>
+<td>Создание</td>
+<td>1 → 1</td>
+<td>ConnectionDialog создаёт структуру данных при подтверждении (F-5)</td>
+</tr>
+<tr>
+<td>ConnectionDialog</td>
+<td>CancelSignal</td>
+<td>Создание</td>
+<td>1 → 1</td>
+<td>ConnectionDialog создаёт сигнал отмены (F-6)</td>
+</tr>
+<tr>
+<td>ConnectionConfig</td>
+<td>ConnectionData</td>
+<td>Сохранение</td>
+<td>1 → 0..1</td>
+<td>ConnectionConfig сохраняет данные атомарно через <code>os.replace</code> (опционально, без пароля)</td>
+</tr>
+<tr>
+<td>ConnectionData</td>
+<td>IConnectionDialog</td>
+<td>Возврат</td>
+<td>1 → 1</td>
+<td>ConnectionData возвращается через интерфейс при успехе (F-5)</td>
+</tr>
+<tr>
+<td>CancelSignal</td>
+<td>IConnectionDialog</td>
+<td>Возврат</td>
+<td>1 → 1</td>
+<td>CancelSignal возвращается через интерфейс при отмене (F-6)</td>
+</tr>
+<tr>
+<td>CallerSystem</td>
+<td>IConnectionDialog</td>
+<td>Вызов</td>
+<td>1 → 1</td>
+<td>Вызывающая система использует интерфейс для вызова модуля (библиотека/subprocess)</td>
+</tr>
+<tr>
+<td>User</td>
+<td>ConnectionDialog</td>
+<td>Взаимодействие</td>
+<td>1 → 1</td>
+<td>Пользователь взаимодействует с графическим окном</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5">5. Рекомендации перед началом проектирования</h2>
+<table>
+<thead>
+<tr>
+<th>№</th>
+<th>Рекомендация</th>
+<th>Приоритет</th>
+<th>Ссылка на источник</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Реализовать <code>Validator</code> как синхронный компонент с быстрым выполнением (&lt;0,1 с). Поддержать два regex: для IPv4 и для строгого DNS.</td>
+<td>Обязательно</td>
+<td>SRS п. 1.6</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Реализовать <code>ConnectionConfig.saveAtomically()</code> с созданием <code>.tmp</code> файла строго в той же директории и использованием <code>os.replace(src, dst)</code>.</td>
+<td>Обязательно</td>
+<td>ТЗ п. 4.1.5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Обеспечить, чтобы пароль не логировался ни в одном методе (включая режим <code>debug</code> и <code>subprocess</code>).</td>
+<td>Обязательно</td>
+<td>NF-3b</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Обеспечить неблокирующую валидацию в <code>ConnectionDialog</code>.</td>
+<td>Обязательно</td>
+<td>NF-2b</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Минимизировать импорты в <code>LoginDialog</code> для быстрого старта (&lt;0,5 с).</td>
+<td>Рекомендуется</td>
+<td>NF-4</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Реализовать метод <code>setSmartFocus()</code> в <code>ConnectionDialog</code>: если поле <code>ip</code> или <code>username</code> не пустое, фокус на «Пароль», иначе на «IP-адрес/хост».</td>
+<td>Обязательно</td>
+<td>UC.LOGIN.D0.01 Шаг 6</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Реализовать метод <code>runAsSubprocess()</code> в <code>LoginDialog</code>: при запуске из командной строки выводить результат в <code>stdout</code> в формате JSON (<code>{"status": "success", ...}</code>, <code>{"status": "cancelled"}</code> или <code>{"status": "error", ...}</code>) и завершать процесс с кодом 0 (или != 0 при ошибке).</td>
+<td>Обязательно</td>
+<td>UC.LOGIN.D3.01</td>
+</tr>
+<tr>
+<td>8</td>
+<td>В методе <code>getDefaults()</code> класса <code>ConnectionConfig</code> явно возвращать <code>port=1521</code> и <code>service_name="ORCL"</code>.</td>
+<td>Обязательно</td>
+<td>F-9</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-24">6. Изменения по сравнению с версией 2.4</h2>
+<table>
+<thead>
+<tr>
+<th>№</th>
+<th>Изменение</th>
+<th>Обоснование</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Диаграмма классов:</strong> Убраны избыточные стили (skinparam package, class, interface), упрощено расположение для лучшей читаемости</td>
+<td>Улучшение визуального восприятия без потери информативности</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>ConnectionConfig:</strong> Добавлен комментарий «Подмножество ConnectionData без пароля»</td>
+<td>Явное разделение ответственности для предотвращения случайного сохранения пароля</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>ConnectionData:</strong> Добавлен комментарий «Полная структура данных подключения (включая пароль). Никогда не сериализуется в файл целиком»</td>
+<td>Усиление требований безопасности</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Рекомендации:</strong> Заменены полные описания на краткие ссылки на ТЗ и UC</td>
+<td>Устранение дублирования информации между артефактами</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Validator:</strong> Добавлена ссылка на SRS п. 1.6 для строгой валидации DNS</td>
+<td>Синхронизация с требованиями</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>ConnectionDialog.setSmartFocus():</strong> Добавлена ссылка на UC.LOGIN.D0.01 Шаг 6</td>
+<td>Синхронизация с вариантами использования</td>
+</tr>
+</tbody>
+</table>
+<pre><code>
+---
+
+### 💡 Пояснение для обучения (Почему не объединяем классы?)
+
+Ты мог подумать: *«Зачем два класса с почти одинаковыми полями? Давайте объединим!»*
+
+**Почему это опасно:**
+
+1. **Принцип разделения ответственности (SRP)**: `ConnectionConfig` отвечает за **хранение настроек между сессиями**, `ConnectionData` — за **транзитную передачу результатов**. Это разные жизненные циклы.
+
+2. **Безопасность**: Если объединить классы, разработчик может случайно вызвать `saveAtomically()` на объекте с паролем, и пароль попадёт в файл. Разделение классов делает это **физически невозможным** — у `ConnectionConfig` просто нет атрибута `password`.
+
+3. **Разные методы**: У `ConnectionConfig` есть `loadFromFile()`/`saveAtomically()`, у `ConnectionData` — `toJson()`/`fromJson()`. Объединение создаст &quot;божественный объект&quot; с кучей методов, которые не всегда имеют смысл вместе.
+
+**Компромисс в коде**: При реализации можно использовать `dataclass` с общим базовым классом:
+```python
+from dataclasses import dataclass
+
+@dataclass
+class ConnectionBase:
+    ip: str
+    port: int
+    username: str
+    service_name: str
+
+@dataclass
+class ConnectionConfig(ConnectionBase):
+    # Методы для работы с файлом
+    def loadFromFile(self, filePath): ...
+    def saveAtomically(self, filePath): ...
+
+@dataclass  
+class ConnectionData(ConnectionBase):
+    password: str  # Единственное отличие
+    # Методы для сериализации
+    def toJson(self): ...
+</code></pre>
+<p>Это даёт <strong>переиспользование кода</strong> (DRY) без нарушения <strong>разделения ответственности</strong> (SRP).</p>
+<hr />
+<p><strong>Готово!</strong> Теперь база документации полностью синхронизирована и готова к переходу к коду. Напиши <strong>"Переходим к структуре и коду"</strong>, и мы начнём с Шага 1 (структура проекта) и Шага 2 (класс <code>Validator</code> с тестами).</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

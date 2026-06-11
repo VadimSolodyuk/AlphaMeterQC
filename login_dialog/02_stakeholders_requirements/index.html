@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Требования стейкхолдеров - AlphaMeterQC Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">AlphaMeterQC Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Главная</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Артефакты модуля login_dialog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../01_concept/" class="dropdown-item">Концепция</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Требования стейкхолдеров</a>
+</li>
+                                    
+<li>
+    <a href="../03_user_stories/" class="dropdown-item">Пользовательские истории</a>
+</li>
+                                    
+<li>
+    <a href="../04_srs/" class="dropdown-item">SRS</a>
+</li>
+                                    
+<li>
+    <a href="../05_use_cases/" class="dropdown-item">Варианты использования</a>
+</li>
+                                    
+<li>
+    <a href="../05-1_UC.LOGIN.D0.01/" class="dropdown-item">UC D0.01</a>
+</li>
+                                    
+<li>
+    <a href="../05-2_UC.LOGIN.D1.01/" class="dropdown-item">UC D1.01</a>
+</li>
+                                    
+<li>
+    <a href="../05-3_UC.LOGIN.D2.01/" class="dropdown-item">UC D2.01</a>
+</li>
+                                    
+<li>
+    <a href="../05-4_UC.LOGIN.D2.02/" class="dropdown-item">UC D2.02</a>
+</li>
+                                    
+<li>
+    <a href="../05-5_UC.LOGIN.D3.01/" class="dropdown-item">UC D3.01</a>
+</li>
+                                    
+<li>
+    <a href="../06_rtm/" class="dropdown-item">Матрица трассировки</a>
+</li>
+                                    
+<li>
+    <a href="../07_domain_model/" class="dropdown-item">Модель предметной сферы</a>
+</li>
+                                    
+<li>
+    <a href="../08_technical_specification/" class="dropdown-item">Техническое задание</a>
+</li>
+                                    
+<li>
+    <a href="../09_ui_design/" class="dropdown-item">Дизайн UI</a>
+</li>
+                                    
+<li>
+    <a href="../10_ui_traceability/" class="dropdown-item">Трассировка UI</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">API Справка (Auto-generated из кода)</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../api/login_dialog/" class="dropdown-item">Модуль login_dialog</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../01_concept/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../03_user_stories/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">Требования заинтересованных сторон</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">Термины и определения</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">Заинтересованные стороны</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">Требования заинтересованных сторон</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_5" class="nav-link">Правила проверки корректности полей (справочно)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10" class="nav-link">Соответствие критериям приёмки Концепции (раздел 10)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">Требования заинтересованных сторон</h1>
+<p><strong>Модуль ввода идентификационных данных для подключения к БД</strong></p>
+<p><strong>Версия документа:</strong> 2.5 (итоговая)<br />
+<strong>Дата:</strong> 2026-06-04<br />
+<strong>Автор:</strong> Бизнес-аналитик<br />
+<strong>Проект:</strong> ПО «AlphaMeterQC» / Модуль ввода идентификационных данных для подключения к БД</p>
+<hr />
+<h2 id="_2">Термины и определения</h2>
+<table>
+<thead>
+<tr>
+<th>Термин</th>
+<th>Определение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Система</strong></td>
+<td>Разрабатываемый программный модуль ввода идентификационных данных для подключения к БД.</td>
+</tr>
+<tr>
+<td><strong>Идентификационные данные</strong></td>
+<td>Совокупность параметров, необходимых для подключения к серверу БД Oracle: IP-адрес/хост, порт, имя пользователя, пароль, идентификатор службы (SID/Service Name).</td>
+</tr>
+<tr>
+<td><strong>Файл сохранённых данных</strong></td>
+<td>Локальный файл в защищённой области пользователя (<code>%LOCALAPPDATA%\alphameterqc\connection.json</code> для Windows или <code>~/.config/alphameterqc/connection.json</code> для Linux), в котором система сохраняет IP-адрес/хост, порт, имя пользователя и идентификатор службы между сеансами. Пароль не сохраняется.</td>
+</tr>
+<tr>
+<td><strong>Правила проверки</strong></td>
+<td>Набор формальных правил, определяющих корректность введённых данных (см. справочную таблицу ниже).</td>
+</tr>
+<tr>
+<td><strong>Режим библиотеки</strong></td>
+<td>Режим интеграции, при котором модуль импортируется как Python-пакет и вызывается напрямую.</td>
+</tr>
+<tr>
+<td><strong>Режим отдельного процесса</strong></td>
+<td>Режим интеграции, при котором модуль запускается как самостоятельный процесс (subprocess), обмен данными происходит через stdout (JSON). Используется для исключения конфликтов графических циклов (Event Loop).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_3">Заинтересованные стороны</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Заинтересованное лицо/сторона</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S-1</td>
+<td>Инженеры отдела системного сопровождения</td>
+<td>Основные конечные пользователи модуля. Ежедневно вводят идентификационные данные для подключения к БД.</td>
+</tr>
+<tr>
+<td>S-2</td>
+<td>Руководитель отдела системного сопровождения</td>
+<td>Внутренний заказчик. Отвечает за эффективность работы отдела, KPI по времени настройки и количеству ошибок подключения.</td>
+</tr>
+<tr>
+<td>S-3</td>
+<td>Команда разработки планируемого настольного ПО</td>
+<td>Технические специалисты, которые будут интегрировать модуль в основное приложение.</td>
+</tr>
+<tr>
+<td>S-4</td>
+<td>Администраторы БД Oracle</td>
+<td>Специалисты, обеспечивающие работу серверов БД. Заинтересованы в снижении количества ошибочных попыток подключения.</td>
+</tr>
+<tr>
+<td>S-5</td>
+<td>Отдел информационной безопасности</td>
+<td>Контролирующий орган. Следит за соблюдением политик хранения и передачи идентификационных данных.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_4">Требования заинтересованных сторон</h2>
+<h3 id="1">1. Отображение графического интерфейса</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Заинтересованное лицо</th>
+<th>Версия</th>
+<th>Содержание требования</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SR-1</td>
+<td>S-1</td>
+<td>v3</td>
+<td>Все подписи элементов управления должны быть выполнены на русском языке: «IP-адрес/хост», «Порт», «Имя пользователя», «Пароль», «Идентификатор службы (SID/Service Name)», «Ок», «Отмена». Графический интерфейс должен быть реализован с использованием библиотеки CustomTkinter для обеспечения современного внешнего вида.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2">2. Валидация данных и управление кнопкой «Ок»</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Заинтересованное лицо</th>
+<th>Версия</th>
+<th>Содержание требования</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SR-2</td>
+<td>S-4</td>
+<td>v2</td>
+<td>Система должна выполнять предварительную проверку формата IP-адреса/хоста (IPv4 или DNS-имя), порта и идентификатора службы до отправки любого запроса к серверу БД.</td>
+</tr>
+<tr>
+<td>SR-3</td>
+<td>S-1, S-4, S-5</td>
+<td>v3</td>
+<td>Система должна визуально выделять поле ввода, содержимое которого не соответствует правилам проверки, в реальном времени при изменении содержимого.</td>
+</tr>
+<tr>
+<td>SR-4</td>
+<td>S-1, S-4</td>
+<td>v2</td>
+<td>Кнопка «Ок» должна быть неактивна до тех пор, пока все обязательные поля не заполнены и не соответствуют правилам проверки. Кнопка «Отмена» должна быть активна всегда.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3">3. Автоподстановка и работа с файлом сохранённых данных</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Заинтересованное лицо</th>
+<th>Версия</th>
+<th>Содержание требования</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SR-5</td>
+<td>S-1</td>
+<td>v3</td>
+<td>Система должна при каждом запуске автоматически подставлять в соответствующие поля ранее сохранённые значения IP-адреса/хоста, порта, имени пользователя и идентификатора службы. При отсутствии файла или его повреждении поля заполняются значениями по умолчанию (порт = 1521, идентификатор службы = ORCL, остальные пустые). Поле пароля должно оставаться пустым.</td>
+</tr>
+<tr>
+<td>SR-6</td>
+<td>S-1</td>
+<td>v2</td>
+<td>Система должна обеспечивать стабильную работу без зависаний при вводе и проверке параметров подключения. Время отклика интерфейса не должно превышать 0,1 секунды.</td>
+</tr>
+<tr>
+<td>SR-7</td>
+<td>S-1, S-3</td>
+<td>v2</td>
+<td>При чтении файла сохранённых данных система должна обрабатывать следующие ситуации без вывода сообщений пользователю:<br>— при отсутствии файла — не создавать новый, поля заполняются значениями по умолчанию;<br>— при повреждении файла — удалить его, поля заполняются значениями по умолчанию;<br>— при любой ошибке файловой системы — продолжать работу, поля заполняются значениями по умолчанию.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-">4. Передача данных и бизнес-эффективность</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Заинтересованное лицо</th>
+<th>Версия</th>
+<th>Содержание требования</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SR-8</td>
+<td>S-2</td>
+<td>v2</td>
+<td>Система должна обеспечивать снижение среднего времени ввода идентификационных данных с 30 до 5 секунд на одно подключение.</td>
+</tr>
+<tr>
+<td>SR-9</td>
+<td>S-2</td>
+<td>v3</td>
+<td>Система должна снизить до нуля количество ошибок подключения к БД, вызванных неверным форматом вводимых данных (IP-адрес/хост, порт, пустые поля, идентификатор службы).</td>
+</tr>
+<tr>
+<td>SR-10</td>
+<td>S-2, S-3</td>
+<td>v3</td>
+<td>Система должна предоставлять графический интерфейс для ввода всех параметров подключения. Модуль должен поддерживать два режима интеграции: режим библиотеки (по умолчанию) и режим отдельного процесса (для исключения конфликтов графических циклов с вызывающей системой). Интеграция не должна требовать от основного ПО изменения кода или перекомпиляции.</td>
+</tr>
+<tr>
+<td>SR-11</td>
+<td>S-3</td>
+<td>v2</td>
+<td>Система должна предоставлять чёткий и задокументированный контракт взаимодействия (API) для вызова модуля и получения идентификационных данных.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5">5. Интеграция и технические ограничения</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Заинтересованное лицо</th>
+<th>Версия</th>
+<th>Содержание требования</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SR-12</td>
+<td>S-3</td>
+<td>v2</td>
+<td>Система не должна иметь скрытых зависимостей от драйверов Oracle или сторонних библиотек, требующих отдельной установки. Допускается использование CustomTkinter как единственной внешней зависимости (упаковывается вместе с приложением).</td>
+</tr>
+<tr>
+<td>SR-13</td>
+<td>S-3</td>
+<td>v2</td>
+<td>Система должна быть совместима с упаковкой в один исполняемый файл (.exe) с помощью PyInstaller.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6">6. Требования информационной безопасности</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Заинтересованное лицо</th>
+<th>Версия</th>
+<th>Содержание требования</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SR-14</td>
+<td>S-5</td>
+<td>v2</td>
+<td>Система не должна сохранять пароль на диске в открытом виде или в любом другом виде, допускающем его восстановление.</td>
+</tr>
+<tr>
+<td>SR-15</td>
+<td>S-5</td>
+<td>v2</td>
+<td>Поле ввода пароля в графическом интерфейсе должно быть замаскировано (отображать символы-заменители).</td>
+</tr>
+<tr>
+<td>SR-16</td>
+<td>S-5</td>
+<td>v2</td>
+<td>Система не должна передавать пароль в текстовом виде в логи, консоль, внешние файлы или любые другие внешние источники.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_5">Правила проверки корректности полей (справочно)</h2>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Правило проверки</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IP-адрес / Хост</strong></td>
+<td>Валидный IPv4-адрес (0-255) или DNS-имя хоста. Для DNS: строка после удаления пробелов по краям (<code>strip</code>) должна содержать хотя бы один буквенно-цифровой символ, не начинаться и не заканчиваться на '-' или '.', допустимые символы: латиница, цифры, '_', '-', '.', не более 255 символов.</td>
+</tr>
+<tr>
+<td><strong>Порт</strong></td>
+<td>Число от 1 до 65535.</td>
+</tr>
+<tr>
+<td><strong>Имя пользователя</strong></td>
+<td>Не пустое, не более 30 символов (латиница, цифры, '_', '-').</td>
+</tr>
+<tr>
+<td><strong>Пароль</strong></td>
+<td>Не пустой (хотя бы 1 символ, любые символы).</td>
+</tr>
+<tr>
+<td><strong>Идентификатор службы (SID/Service Name)</strong></td>
+<td>Не более 30 символов, допустимые символы: латиница, цифры, '_', '.', '-'. Поле опциональное (может быть пустым).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10">Соответствие критериям приёмки Концепции (раздел 10)</h2>
+<table>
+<thead>
+<tr>
+<th>Критерий Концепции</th>
+<th>Покрывающие требования ТЗС</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Интеграция без изменения кода</td>
+<td>SR-10, SR-11</td>
+</tr>
+<tr>
+<td>2. Пять полей и кнопки</td>
+<td>SR-1</td>
+</tr>
+<tr>
+<td>3. Кнопка «Ок» неактивна при ошибках</td>
+<td>SR-4</td>
+</tr>
+<tr>
+<td>4. Сохранение и возврат данных при «Ок»</td>
+<td>SR-5, SR-11, SR-14</td>
+</tr>
+<tr>
+<td>5. Заполнение полей из файла при вызове</td>
+<td>SR-5, SR-7</td>
+</tr>
+<tr>
+<td>6. Сигнал отмены</td>
+<td>SR-11</td>
+</tr>
+<tr>
+<td>7. Маскировка пароля</td>
+<td>SR-15</td>
+</tr>
+<tr>
+<td>8. Пароль не передаётся в логи</td>
+<td>SR-16</td>
+</tr>
+<tr>
+<td>9. Ошибки ФС обрабатываются молча</td>
+<td>SR-7</td>
+</tr>
+<tr>
+<td>10. Окно отображается &lt; 0,5 с</td>
+<td>SR-6</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
