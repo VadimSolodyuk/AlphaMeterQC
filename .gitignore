@@ -58,8 +58,8 @@ coverage.xml
 site/
 
 # === PyInstaller (для будущей сборки .exe) ===
-*.manifest
-*.spec
+.manifest
+.spec
 
 # === ОС ===
 .DS_Store
