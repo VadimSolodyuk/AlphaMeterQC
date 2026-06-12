@@ -17,6 +17,7 @@ echo ""
 echo "3. Проверка зависимостей:"
 python -c "import black; print(f'✅ black {black.__version__}')" || echo "❌ black не установлен"
 python -c "import isort; print(f'✅ isort {isort.__version__}')" || echo "❌ isort не установлен"
+python -c "import flake8; print(f'✅ isort {isort.__version__}')" || echo "❌ isort не установлен"
 mypy --version | grep -q "mypy" && echo "✅ $(mypy --version)" || echo "❌ mypy не установлен"
 echo ""
 

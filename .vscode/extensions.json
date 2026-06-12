@@ -6,17 +6,17 @@
         "ms-python.vscode-pylance", // Автодополнение
         "ms-python.black-formatter", // Форматирование (Black)
         "ms-python.isort", // Сортировка импортов
-        "ms-python.mypy-type-checker", // Проверка типов
         "ms-python.flake8", // Проверка стиля
-        // Docker и контейнеры
-        "ms-azuretools.vscode-docker", // Управление Docker
-        "ms-vscode-remote.remote-containers", // Dev Containers
+        "ms-python.mypy-type-checker", // Проверка типов
         // Git
         "eamodio.gitlens", // Расширенный Git
         // Форматы файлов
         "redhat.vscode-yaml", // YAML поддержка
         "bierner.markdown-preview-github-styles", // Markdown предпросмотр
         // Утилиты
-        "shardulm94.trailing-spaces" // Подсветка пробелов
+        "shardulm94.trailing-spaces", // Подсветка пробелов
+        // Docker и контейнеры
+        "ms-azuretools.vscode-docker", // Управление Docker
+        "ms-vscode-remote.remote-containers", // Dev Containers
     ]
 }
