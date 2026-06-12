@@ -19,6 +19,7 @@
         "ms-python.flake8", // Проверка стиля
         "ms-python.mypy-type-checker", // Проверка типов
         // Git
+        "github.vscode-github-actions",
         "eamodio.gitlens", // Расширенный Git
         // Форматы файлов
         "redhat.vscode-yaml", // YAML поддержка

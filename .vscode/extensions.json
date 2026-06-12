@@ -10,6 +10,7 @@
         "ms-python.mypy-type-checker", // Проверка типов
         // Git
         "eamodio.gitlens", // Расширенный Git
+        "github.vscode-github-actions",
         // Форматы файлов
         "redhat.vscode-yaml", // YAML поддержка
         "bierner.markdown-preview-github-styles", // Markdown предпросмотр
