@@ -60,6 +60,7 @@ site/
 # === PyInstaller (для будущей сборки .exe) ===
 .manifest
 .spec
+/pyinstaller_specs/
 
 # === ОС ===
 .DS_Store
