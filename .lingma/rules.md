@@ -53,7 +53,8 @@
 <!-- , используя [ВСТАВИТЬ: Jest / pytest / JUnit / NUnit]. -->
 
 ## 7. DevOps и документация
-- **Git:** Предлагай сообщения для коммитов на русском в формате Conventional Commits (например, `feat: add user authentication`, `fix: resolve null pointer in service`).
+- **Git:** Для принятых мной изменений файлов предлагай сообщения для коммитов на русском языке в формате Conventional Commits 
+<!-- (например, `feat: add user authentication`, `fix: resolve null pointer in service`). -->
 - **Документация:** Если ты создаешь новый API-эндпоинт или сложный модуль, кратко опиши его в формате JSDoc / Docstring или Markdown.
 
 ## 8. Ограничения и запреты
