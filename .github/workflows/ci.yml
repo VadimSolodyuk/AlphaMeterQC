@@ -159,7 +159,7 @@ jobs:
             --hidden-import customtkinter \
             --hidden-import customtkinter.windows.widgets \
             --hidden-import customtkinter.windows.widgets.theme \
-            --add-data "venv/lib/python3.12/site-packages/customtkinter:customtkinter" \
+            --collect-all customtkinter \
             src/alphameterqc/login_dialog/__main__.py
 
       - name: Build with PyInstaller (Windows)
@@ -170,7 +170,7 @@ jobs:
             --hidden-import customtkinter `
             --hidden-import customtkinter.windows.widgets `
             --hidden-import customtkinter.windows.widgets.theme `
-            --add-data "venv/Lib/site-packages/customtkinter;customtkinter" `
+            --collect-all customtkinter `
             src/alphameterqc/login_dialog/__main__.py
 
       - name: Upload artifact
