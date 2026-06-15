@@ -52,5 +52,6 @@
     "python.analysis.extraPaths": [
         "src"
     ],
-    "python-envs.defaultEnvManager": "ms-python.python:system" // Автодополнение из src/
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "remote.autoForwardPortsFallback": 0 // Автодополнение из src/
 }
