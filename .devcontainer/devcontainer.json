@@ -25,7 +25,9 @@
         "redhat.vscode-yaml", // YAML поддержка
         "bierner.markdown-preview-github-styles", // Markdown предпросмотр
         // Утилиты
-        "shardulm94.trailing-spaces" // Подсветка пробелов
+        "shardulm94.trailing-spaces", // Подсветка пробелов
+        // Русский язык
+        "ms-ceintl.vscode-language-pack-ru"
       ],
       "settings": {
         "python.defaultInterpreterPath": "/usr/local/bin/python",
