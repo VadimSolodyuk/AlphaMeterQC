@@ -6,6 +6,12 @@ prompt/
 *.local.json
 connection.json
 
+# === Секреты и API ключи (НИКОГДА не коммитить!) ===
+.env
+.env.local
+*.secret
+*.secrets
+
 # === Кэш и временные файлы ===
 cache/
 *.tmp
