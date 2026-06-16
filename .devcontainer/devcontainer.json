@@ -11,23 +11,19 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        // Python разработка
-        "ms-python.python", // Поддержка Python
-        "ms-python.vscode-pylance", // Автодополнение
-        "ms-python.black-formatter", // Форматирование (Black)
-        "ms-python.isort", // Сортировка импортов
-        "ms-python.flake8", // Проверка стиля
-        "ms-python.mypy-type-checker", // Проверка типов
-        // Git
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "ms-python.flake8",
+        "ms-python.mypy-type-checker",
         "github.vscode-github-actions",
-        "eamodio.gitlens", // Расширенный Git
-        // Форматы файлов
-        "redhat.vscode-yaml", // YAML поддержка
-        "bierner.markdown-preview-github-styles", // Markdown предпросмотр
-        // Утилиты
-        "shardulm94.trailing-spaces", // Подсветка пробелов
-        // Русский язык
-        "ms-ceintl.vscode-language-pack-ru"
+        "eamodio.gitlens",
+        "redhat.vscode-yaml",
+        "bierner.markdown-preview-github-styles",
+        "shardulm94.trailing-spaces",
+        "ms-ceintl.vscode-language-pack-ru",
+        "Alibaba-Cloud.tongyi-lingma"
       ],
       "settings": {
         "python.defaultInterpreterPath": "/usr/local/bin/python",

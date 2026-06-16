@@ -19,6 +19,6 @@
         // Docker и контейнеры
         "ms-azuretools.vscode-docker", // Управление Docker
         "ms-vscode-remote.remote-containers",
-        "alibaba-cloud.tongyi-lingma", // Dev Containers
+        "Alibaba-Cloud.tongyi-lingma"
     ]
 }
