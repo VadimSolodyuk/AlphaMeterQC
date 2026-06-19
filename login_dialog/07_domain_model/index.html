@@ -158,22 +158,6 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. Сводка по доменам</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. Сводка связей</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. Рекомендации перед началом проектирования</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6-24" class="nav-link">6. Изменения по сравнению с версией 2.4</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
         </ul>
@@ -185,7 +169,7 @@
 <p><strong>Версия:</strong> 2.5 (итоговая)<br />
 <strong>Дата:</strong> 2026-06-06<br />
 <strong>Автор:</strong> Солодюк В.Л.<br />
-<strong>Проект:</strong> ПО «AlphaMeterQC» / Модуль ввода идентификационных данных для подключения к БД</p>
+<strong>Проект:</strong> ПО «AlphaMeterQC» / Модуль ввода данных для подключения к БД</p>
 <hr />
 <h2 id="1">1. Таблица классов анализа</h2>
 <table>
@@ -286,32 +270,31 @@
 </table>
 <hr />
 <h2 id="2-plantuml">2. Диаграмма классов (PlantUML)</h2>
-<pre><code class="language-plantuml">@startuml
+<p>``plantuml
+@startuml
 left to right direction
-skinparam linetype ortho
-
-' === Инициализация ===
-package &quot;Инициализация&quot; {
+skinparam linetype ortho</p>
+<p>' === Инициализация ===
+package "Инициализация" {
     class LoginDialog {
         + show()
         + showWithDefaults(defaultIp, defaultPort, defaultUsername, defaultServiceName)
         + runAsSubprocess()
-    }
-
-    class ConnectionConfig {
-        - ipAddress: string
-        - port: int
-        - username: string
-        - serviceName: string
-        --
-        + loadFromFile(filePath)
-        + saveAtomically(filePath)
-        + getDefaults()
-    }
+    }</p>
+<pre><code>class ConnectionConfig {
+    - ipAddress: string
+    - port: int
+    - username: string
+    - serviceName: string
+    --
+    + loadFromFile(filePath)
+    + saveAtomically(filePath)
+    + getDefaults()
 }
-
-' === Управление вводом ===
-package &quot;Управление вводом и валидацией&quot; {
+</code></pre>
+<p>}</p>
+<p>' === Управление вводом ===
+package "Управление вводом и валидацией" {
     class ConnectionDialog {
         - ipField: string
         - portField: int
@@ -324,28 +307,27 @@ package &quot;Управление вводом и валидацией&quot; {
         + validateFields()
         + highlightError(field)
         + clearHighlight(field)
-        + enableOkButton()  
+        + enableOkButton()<br />
         + maskPassword()
         + setSmartFocus()
-    }
-
-    class Validator {
-        - ipOrDnsPattern: regex
-        - portRange: [1,65535]
-        - usernameMaxLength: 30 
-        - serviceNamePattern: regex
-        - serviceNameOptional: bool
-        --
-        + validateIpOrDns(value)
-        + validatePort(port)
-        + validateUsername(username)
-        + validateServiceName(serviceName)
-        + validateAll()
-    }
+    }</p>
+<pre><code>class Validator {
+    - ipOrDnsPattern: regex
+    - portRange: [1,65535]
+    - usernameMaxLength: 30 
+    - serviceNamePattern: regex
+    - serviceNameOptional: bool
+    --
+    + validateIpOrDns(value)
+    + validatePort(port)
+    + validateUsername(username)
+    + validateServiceName(serviceName)
+    + validateAll()
 }
-
-' === Завершение сеанса ===
-package &quot;Завершение сеанса&quot; {
+</code></pre>
+<p>}</p>
+<p>' === Завершение сеанса ===
+package "Завершение сеанса" {
     class ConnectionData {
         - ipAddress: string
         - port: int
@@ -356,313 +338,128 @@ package &quot;Завершение сеанса&quot; {
         + toJson()
         + fromJson(json)
         + toStruct()
-    }
-
-    class CancelSignal {
-        - signalType: enum
-        --
-        + getSignal()
-        + toJson()
-    }
+    }</p>
+<pre><code>class CancelSignal {
+    - signalType: enum
+    --
+    + getSignal()
+    + toJson()
 }
-
-' === Интеграция ===
-package &quot;Интеграция&quot; {
+</code></pre>
+<p>}</p>
+<p>' === Интеграция ===
+package "Интеграция" {
     interface IConnectionDialog {
         + showDialog(): ConnectionData / CancelSignal
-    }
-
-    class CallerSystem {
-        + callModule()
-        + processResult(result)
-    }
-
-    class User {
-        + enterData()
-        + confirm()
-        + cancel()
-    }
+    }</p>
+<pre><code>class CallerSystem {
+    + callModule()
+    + processResult(result)
 }
 
-' === Связи с подписями ===
-
-' Реализация API
-LoginDialog ..|&gt; IConnectionDialog : «реализует интерфейс API»
-
-' Создание и управление диалогом
-LoginDialog --&gt; ConnectionDialog : «создаёт и управляет\n(CustomTkinter)»
-
-' Загрузка конфигурации
-LoginDialog --&gt; ConnectionConfig : «загружает конфигурацию\nиз файла»
-
-' Использование валидатора
-ConnectionDialog --&gt; Validator : «использует для\nпроверки данных\n(IPv4 + строгий DNS)»
-
-' Создание результатов
-ConnectionDialog --&gt; ConnectionData : «создаёт при\nподтверждении (F-5)»
-ConnectionDialog --&gt; CancelSignal : «создаёт при\nотмене (F-6)»
-
-' ИСПРАВЛЕНО: ConnectionConfig использует данные из ConnectionData для сохранения
-ConnectionData --&gt; ConnectionConfig : «преобразуется в\nдля сохранения\n(без пароля)»
-
-' Возврат результатов через API
-ConnectionData ..&gt; IConnectionDialog : «возвращается при\nуспехе (F-5)»
-CancelSignal ..&gt; IConnectionDialog : «возвращается при\nотмене (F-6)»
-
-' Взаимодействие с внешними системами
-CallerSystem --&gt; IConnectionDialog : «вызывает API модуля\n(библиотека/subprocess)»
-User --&gt; ConnectionDialog : «взаимодействует\nчерез GUI»
-
-@enduml
+class User {
+    + enterData()
+    + confirm()
+    + cancel()
+}
 </code></pre>
-<hr />
-<h2 id="3">3. Сводка по доменам</h2>
-<table>
-<thead>
-<tr>
-<th>Домен</th>
-<th>Сущности</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Инициализация</td>
-<td>LoginDialog, ConnectionConfig</td>
-<td>Загрузка конфигурации (<code>%LOCALAPPDATA%</code> / <code>~/.config/</code>), API вызова, поддержка режима subprocess</td>
-</tr>
-<tr>
-<td>Управление вводом и валидацией</td>
-<td>ConnectionDialog, Validator</td>
-<td>Графический интерфейс (CustomTkinter), проверка данных (IPv4 + строгий DNS), умный фокус</td>
-</tr>
-<tr>
-<td>Завершение сеанса</td>
-<td>ConnectionData, CancelSignal</td>
-<td>Результаты работы (данные/отмена), сериализация в JSON для subprocess</td>
-</tr>
-<tr>
-<td>Интеграция</td>
-<td>IConnectionDialog, CallerSystem, User</td>
-<td>Интерфейсы и внешние акторы</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="4">4. Сводка связей</h2>
-<table>
-<thead>
-<tr>
-<th>От</th>
-<th>К</th>
-<th>Тип</th>
-<th>Кратность</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LoginDialog</td>
-<td>ConnectionDialog</td>
-<td>Зависимость</td>
-<td>1 → 1</td>
-<td>LoginDialog создаёт и управляет ConnectionDialog (CustomTkinter)</td>
-</tr>
-<tr>
-<td>LoginDialog</td>
-<td>IConnectionDialog</td>
-<td>Реализация</td>
-<td>1 → 1</td>
-<td>LoginDialog реализует интерфейс API</td>
-</tr>
-<tr>
-<td>LoginDialog</td>
-<td>ConnectionConfig</td>
-<td>Использование</td>
-<td>1 → 1</td>
-<td>LoginDialog загружает конфигурацию</td>
-</tr>
-<tr>
-<td>ConnectionDialog</td>
-<td>Validator</td>
-<td>Использование</td>
-<td>1 → 1</td>
-<td>ConnectionDialog использует валидатор для проверки полей (IPv4 + строгий DNS)</td>
-</tr>
-<tr>
-<td>ConnectionDialog</td>
-<td>ConnectionData</td>
-<td>Создание</td>
-<td>1 → 1</td>
-<td>ConnectionDialog создаёт структуру данных при подтверждении (F-5)</td>
-</tr>
-<tr>
-<td>ConnectionDialog</td>
-<td>CancelSignal</td>
-<td>Создание</td>
-<td>1 → 1</td>
-<td>ConnectionDialog создаёт сигнал отмены (F-6)</td>
-</tr>
-<tr>
-<td>ConnectionConfig</td>
-<td>ConnectionData</td>
-<td>Сохранение</td>
-<td>1 → 0..1</td>
-<td>ConnectionConfig сохраняет данные атомарно через <code>os.replace</code> (опционально, без пароля)</td>
-</tr>
-<tr>
-<td>ConnectionData</td>
-<td>IConnectionDialog</td>
-<td>Возврат</td>
-<td>1 → 1</td>
-<td>ConnectionData возвращается через интерфейс при успехе (F-5)</td>
-</tr>
-<tr>
-<td>CancelSignal</td>
-<td>IConnectionDialog</td>
-<td>Возврат</td>
-<td>1 → 1</td>
-<td>CancelSignal возвращается через интерфейс при отмене (F-6)</td>
-</tr>
-<tr>
-<td>CallerSystem</td>
-<td>IConnectionDialog</td>
-<td>Вызов</td>
-<td>1 → 1</td>
-<td>Вызывающая система использует интерфейс для вызова модуля (библиотека/subprocess)</td>
-</tr>
-<tr>
-<td>User</td>
-<td>ConnectionDialog</td>
-<td>Взаимодействие</td>
-<td>1 → 1</td>
-<td>Пользователь взаимодействует с графическим окном</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="5">5. Рекомендации перед началом проектирования</h2>
-<table>
-<thead>
-<tr>
-<th>№</th>
-<th>Рекомендация</th>
-<th>Приоритет</th>
-<th>Ссылка на источник</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Реализовать <code>Validator</code> как синхронный компонент с быстрым выполнением (&lt;0,1 с). Поддержать два regex: для IPv4 и для строгого DNS.</td>
-<td>Обязательно</td>
-<td>SRS п. 1.6</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Реализовать <code>ConnectionConfig.saveAtomically()</code> с созданием <code>.tmp</code> файла строго в той же директории и использованием <code>os.replace(src, dst)</code>.</td>
-<td>Обязательно</td>
-<td>ТЗ п. 4.1.5</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Обеспечить, чтобы пароль не логировался ни в одном методе (включая режим <code>debug</code> и <code>subprocess</code>).</td>
-<td>Обязательно</td>
-<td>NF-3b</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Обеспечить неблокирующую валидацию в <code>ConnectionDialog</code>.</td>
-<td>Обязательно</td>
-<td>NF-2b</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Минимизировать импорты в <code>LoginDialog</code> для быстрого старта (&lt;0,5 с).</td>
-<td>Рекомендуется</td>
-<td>NF-4</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Реализовать метод <code>setSmartFocus()</code> в <code>ConnectionDialog</code>: если поле <code>ip</code> или <code>username</code> не пустое, фокус на «Пароль», иначе на «IP-адрес/хост».</td>
-<td>Обязательно</td>
-<td>UC.LOGIN.D0.01 Шаг 6</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Реализовать метод <code>runAsSubprocess()</code> в <code>LoginDialog</code>: при запуске из командной строки выводить результат в <code>stdout</code> в формате JSON (<code>{"status": "success", ...}</code>, <code>{"status": "cancelled"}</code> или <code>{"status": "error", ...}</code>) и завершать процесс с кодом 0 (или != 0 при ошибке).</td>
-<td>Обязательно</td>
-<td>UC.LOGIN.D3.01</td>
-</tr>
-<tr>
-<td>8</td>
-<td>В методе <code>getDefaults()</code> класса <code>ConnectionConfig</code> явно возвращать <code>port=1521</code> и <code>service_name="ORCL"</code>.</td>
-<td>Обязательно</td>
-<td>F-9</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="6-24">6. Изменения по сравнению с версией 2.4</h2>
-<table>
-<thead>
-<tr>
-<th>№</th>
-<th>Изменение</th>
-<th>Обоснование</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td><strong>Диаграмма классов:</strong> Убраны избыточные стили (skinparam package, class, interface), упрощено расположение для лучшей читаемости</td>
-<td>Улучшение визуального восприятия без потери информативности</td>
-</tr>
-<tr>
-<td>2</td>
-<td><strong>ConnectionConfig:</strong> Добавлен комментарий «Подмножество ConnectionData без пароля»</td>
-<td>Явное разделение ответственности для предотвращения случайного сохранения пароля</td>
-</tr>
-<tr>
-<td>3</td>
-<td><strong>ConnectionData:</strong> Добавлен комментарий «Полная структура данных подключения (включая пароль). Никогда не сериализуется в файл целиком»</td>
-<td>Усиление требований безопасности</td>
-</tr>
-<tr>
-<td>4</td>
-<td><strong>Рекомендации:</strong> Заменены полные описания на краткие ссылки на ТЗ и UC</td>
-<td>Устранение дублирования информации между артефактами</td>
-</tr>
-<tr>
-<td>5</td>
-<td><strong>Validator:</strong> Добавлена ссылка на SRS п. 1.6 для строгой валидации DNS</td>
-<td>Синхронизация с требованиями</td>
-</tr>
-<tr>
-<td>6</td>
-<td><strong>ConnectionDialog.setSmartFocus():</strong> Добавлена ссылка на UC.LOGIN.D0.01 Шаг 6</td>
-<td>Синхронизация с вариантами использования</td>
-</tr>
-</tbody>
-</table>
+<p>}</p>
+<p>' === Связи с подписями ===</p>
+<p>' Реализация API
+LoginDialog ..|&gt; IConnectionDialog : «реализует интерфейс API»</p>
+<p>' Создание и управление диалогом
+LoginDialog --&gt; ConnectionDialog : «создаёт и управляет\n(CustomTkinter)»</p>
+<p>' Загрузка конфигурации
+LoginDialog --&gt; ConnectionConfig : «загружает конфигурацию\nиз файла»</p>
+<p>' Использование валидатора
+ConnectionDialog --&gt; Validator : «использует для\nпроверки данных\n(IPv4 + строгий DNS)»</p>
+<p>' Создание результатов
+ConnectionDialog --&gt; ConnectionData : «создаёт при\nподтверждении (F-5)»
+ConnectionDialog --&gt; CancelSignal : «создаёт при\nотмене (F-6)»</p>
+<p>' ИСПРАВЛЕНО: ConnectionConfig использует данные из ConnectionData для сохранения
+ConnectionData --&gt; ConnectionConfig : «преобразуется в\nдля сохранения\n(без пароля)»</p>
+<p>' Возврат результатов через API
+ConnectionData ..&gt; IConnectionDialog : «возвращается при\nуспехе (F-5)»
+CancelSignal ..&gt; IConnectionDialog : «возвращается при\nотмене (F-6)»</p>
+<p>' Взаимодействие с внешними системами
+CallerSystem --&gt; IConnectionDialog : «вызывает API модуля\n(библиотека/subprocess)»
+User --&gt; ConnectionDialog : «взаимодействует\nчерез GUI»</p>
+<p>@enduml</p>
 <pre><code>
 ---
 
-### 💡 Пояснение для обучения (Почему не объединяем классы?)
+## 3. Сводка по доменам
 
-Ты мог подумать: *«Зачем два класса с почти одинаковыми полями? Давайте объединим!»*
+| Домен | Сущности | Описание |
+|-------|----------|----------|
+| Инициализация | LoginDialog, ConnectionConfig | Загрузка конфигурации (`%LOCALAPPDATA%` / `~/.config/`), API вызова, поддержка режима subprocess |
+| Управление вводом и валидацией | ConnectionDialog, Validator | Графический интерфейс (CustomTkinter), проверка данных (IPv4 + строгий DNS), умный фокус |
+| Завершение сеанса | ConnectionData, CancelSignal | Результаты работы (данные/отмена), сериализация в JSON для subprocess |
+| Интеграция | IConnectionDialog, CallerSystem, User | Интерфейсы и внешние акторы |
 
-**Почему это опасно:**
+---
 
-1. **Принцип разделения ответственности (SRP)**: `ConnectionConfig` отвечает за **хранение настроек между сессиями**, `ConnectionData` — за **транзитную передачу результатов**. Это разные жизненные циклы.
+## 4. Сводка связей
 
-2. **Безопасность**: Если объединить классы, разработчик может случайно вызвать `saveAtomically()` на объекте с паролем, и пароль попадёт в файл. Разделение классов делает это **физически невозможным** — у `ConnectionConfig` просто нет атрибута `password`.
+| От | К | Тип | Кратность | Описание |
+|----|---|-----|-----------|----------|
+| LoginDialog | ConnectionDialog | Зависимость | 1 → 1 | LoginDialog создаёт и управляет ConnectionDialog (CustomTkinter) |
+| LoginDialog | IConnectionDialog | Реализация | 1 → 1 | LoginDialog реализует интерфейс API |
+| LoginDialog | ConnectionConfig | Использование | 1 → 1 | LoginDialog загружает конфигурацию |
+| ConnectionDialog | Validator | Использование | 1 → 1 | ConnectionDialog использует валидатор для проверки полей (IPv4 + строгий DNS) |
+| ConnectionDialog | ConnectionData | Создание | 1 → 1 | ConnectionDialog создаёт структуру данных при подтверждении (F-5) |
+| ConnectionDialog | CancelSignal | Создание | 1 → 1 | ConnectionDialog создаёт сигнал отмены (F-6) |
+| ConnectionConfig | ConnectionData | Сохранение | 1 → 0..1 | ConnectionConfig сохраняет данные атомарно через `os.replace` (опционально, без пароля) |
+| ConnectionData | IConnectionDialog | Возврат | 1 → 1 | ConnectionData возвращается через интерфейс при успехе (F-5) |
+| CancelSignal | IConnectionDialog | Возврат | 1 → 1 | CancelSignal возвращается через интерфейс при отмене (F-6) |
+| CallerSystem | IConnectionDialog | Вызов | 1 → 1 | Вызывающая система использует интерфейс для вызова модуля (библиотека/subprocess) |
+| User | ConnectionDialog | Взаимодействие | 1 → 1 | Пользователь взаимодействует с графическим окном |
 
-3. **Разные методы**: У `ConnectionConfig` есть `loadFromFile()`/`saveAtomically()`, у `ConnectionData` — `toJson()`/`fromJson()`. Объединение создаст &quot;божественный объект&quot; с кучей методов, которые не всегда имеют смысл вместе.
+---
 
-**Компромисс в коде**: При реализации можно использовать `dataclass` с общим базовым классом:
-```python
-from dataclasses import dataclass
+## 5. Рекомендации перед началом проектирования
+
+| № | Рекомендация | Приоритет | Ссылка на источник |
+|---|--------------|-----------|---------------------|
+| 1 | Реализовать `Validator` как синхронный компонент с быстрым выполнением (&lt;0,1 с). Поддержать два regex: для IPv4 и для строгого DNS. | Обязательно | SRS п. 1.6 |
+| 2 | Реализовать `ConnectionConfig.saveAtomically()` с созданием `.tmp` файла строго в той же директории и использованием `os.replace(src, dst)`. | Обязательно | ТЗ п. 4.1.5 |
+| 3 | Обеспечить, чтобы пароль не логировался ни в одном методе (включая режим `debug` и `subprocess`). | Обязательно | NF-3b |
+| 4 | Обеспечить неблокирующую валидацию в `ConnectionDialog`. | Обязательно | NF-2b |
+| 5 | Минимизировать импорты в `LoginDialog` для быстрого старта (&lt;0,5 с). | Рекомендуется | NF-4 |
+| 6 | Реализовать метод `setSmartFocus()` в `ConnectionDialog`: если поле `ip` или `username` не пустое, фокус на «Пароль», иначе на «IP-адрес/хост». | Обязательно | UC.LOGIN.D0.01 Шаг 6 |
+| 7 | Реализовать метод `runAsSubprocess()` в `LoginDialog`: при запуске из командной строки выводить результат в `stdout` в формате JSON (`{&quot;status&quot;: &quot;success&quot;, ...}`, `{&quot;status&quot;: &quot;cancelled&quot;}` или `{&quot;status&quot;: &quot;error&quot;, ...}`) и завершать процесс с кодом 0 (или != 0 при ошибке). | Обязательно | UC.LOGIN.D3.01 |
+| 8 | В методе `getDefaults()` класса `ConnectionConfig` явно возвращать `port=1521` и `service_name=&quot;ORCL&quot;`. | Обязательно | F-9 |
+
+---
+
+## 6. Изменения по сравнению с версией 2.4
+
+| № | Изменение | Обоснование |
+|---|-----------|-------------|
+| 1 | **Диаграмма классов:** Убраны избыточные стили (skinparam package, class, interface), упрощено расположение для лучшей читаемости | Улучшение визуального восприятия без потери информативности |
+| 2 | **ConnectionConfig:** Добавлен комментарий «Подмножество ConnectionData без пароля» | Явное разделение ответственности для предотвращения случайного сохранения пароля |
+| 3 | **ConnectionData:** Добавлен комментарий «Полная структура данных подключения (включая пароль). Никогда не сериализуется в файл целиком» | Усиление требований безопасности |
+| 4 | **Рекомендации:** Заменены полные описания на краткие ссылки на ТЗ и UC | Устранение дублирования информации между артефактами |
+| 5 | **Validator:** Добавлена ссылка на SRS п. 1.6 для строгой валидации DNS | Синхронизация с требованиями |
+| 6 | **ConnectionDialog.setSmartFocus():** Добавлена ссылка на UC.LOGIN.D0.01 Шаг 6 | Синхронизация с вариантами использования |
+</code></pre>
+<hr />
+<h3 id="_2">💡 Пояснение для обучения (Почему не объединяем классы?)</h3>
+<p>Ты мог подумать: <em>«Зачем два класса с почти одинаковыми полями? Давайте объединим!»</em></p>
+<p><strong>Почему это опасно:</strong></p>
+<ol>
+<li>
+<p><strong>Принцип разделения ответственности (SRP)</strong>: <code>ConnectionConfig</code> отвечает за <strong>хранение настроек между сессиями</strong>, <code>ConnectionData</code> — за <strong>транзитную передачу результатов</strong>. Это разные жизненные циклы.</p>
+</li>
+<li>
+<p><strong>Безопасность</strong>: Если объединить классы, разработчик может случайно вызвать <code>saveAtomically()</code> на объекте с паролем, и пароль попадёт в файл. Разделение классов делает это <strong>физически невозможным</strong> — у <code>ConnectionConfig</code> просто нет атрибута <code>password</code>.</p>
+</li>
+<li>
+<p><strong>Разные методы</strong>: У <code>ConnectionConfig</code> есть <code>loadFromFile()</code>/<code>saveAtomically()</code>, у <code>ConnectionData</code> — <code>toJson()</code>/<code>fromJson()</code>. Объединение создаст "божественный объект" с кучей методов, которые не всегда имеют смысл вместе.</p>
+</li>
+</ol>
+<p><strong>Компромисс в коде</strong>: При реализации можно использовать <code>dataclass</code> с общим базовым классом:</p>
+<pre><code>from dataclasses import dataclass
 
 @dataclass
 class ConnectionBase:

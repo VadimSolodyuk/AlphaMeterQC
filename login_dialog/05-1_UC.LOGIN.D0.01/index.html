@@ -174,10 +174,6 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7-plantuml" class="nav-link">7. Диаграмма последовательности (PlantUML)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
             <li class="nav-item" data-bs-level="2"><a href="#8-f" class="nav-link">8. Сводка покрытия требований (F)</a>
               <ul class="nav flex-column">
               </ul>
@@ -201,7 +197,7 @@
 <p><strong>Версия:</strong> 2.0 (итоговая)<br />
 <strong>Дата:</strong> 2026-06-04<br />
 <strong>Автор:</strong> Солодюк В.Л.<br />
-<strong>Проект:</strong> ПО «AlphaMeterQC» / Модуль ввода идентификационных данных для подключения к БД<br />
+<strong>Проект:</strong> ПО «AlphaMeterQC» / Модуль ввода данных для подключения к БД<br />
 <strong>Домен:</strong> Инициализация</p>
 <hr />
 <h2 id="1">1. Введение</h2>
@@ -370,7 +366,8 @@
 </table>
 <hr />
 <h2 id="6-plantuml">6. Диаграмма деятельности (PlantUML)</h2>
-<pre><code class="language-plantuml">@startuml
+<p>``plantuml
+@startuml
 start
 :Вызвать функцию модуля;
 :Отобразить окно (CustomTkinter, F-1);
@@ -379,25 +376,28 @@ if (Файл существует?) then (да)
   if (Файл корректен?) then (да)
     :Подставить ip, port, username, service_name в поля (F-8, F-13);
     if (ip или username не пустые?) then (да)
-      :Установить фокус на поле &quot;Пароль&quot; (Умный фокус, NF-1);
+      :Установить фокус на поле "Пароль" (Умный фокус, NF-1);
     else (нет)
-      :Установить фокус на поле &quot;IP-адрес/хост&quot;;
+      :Установить фокус на поле "IP-адрес/хост";
     endif
   else (нет)
     :Удалить повреждённый файл (F-9);
     :Использовать значения по умолчанию (Порт=1521, SID=ORCL);
-    :Установить фокус на поле &quot;IP-адрес/хост&quot;;
+    :Установить фокус на поле "IP-адрес/хост";
   endif
 else (нет)
   :Использовать значения по умолчанию (F-9);
-  :Установить фокус на поле &quot;IP-адрес/хост&quot;;
+  :Установить фокус на поле "IP-адрес/хост";
 endif
 stop
-@enduml
-</code></pre>
-<hr />
-<h2 id="7-plantuml">7. Диаграмма последовательности (PlantUML)</h2>
-<pre><code class="language-plantuml">@startuml
+@enduml</p>
+<pre><code>
+---
+
+## 7. Диаграмма последовательности (PlantUML)
+
+``plantuml
+@startuml
 actor &quot;Вызывающая система&quot; as Caller
 participant &quot;Модуль&quot; as Module
 database &quot;Файловая система&quot; as FS

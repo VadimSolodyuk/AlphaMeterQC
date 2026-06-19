@@ -201,7 +201,7 @@
 <p><strong>Версия:</strong> 1.1 (итоговая)<br />
 <strong>Дата:</strong> 2026-06-07<br />
 <strong>Автор:</strong> Солодюк В.Л.<br />
-<strong>Проект:</strong> ПО «AlphaMeterQC» / Модуль ввода идентификационных данных для подключения к БД<br />
+<strong>Проект:</strong> ПО «AlphaMeterQC» / Модуль ввода данных для подключения к БД<br />
 <strong>Домен:</strong> Проектирование UI/UX</p>
 <hr />
 <h2 id="1">1. Введение</h2>
@@ -959,36 +959,29 @@
 </table>
 <hr />
 <h2 id="9-plantuml">9. Диаграмма состояний интерфейса (PlantUML)</h2>
-<pre><code class="language-plantuml">@startuml
-state &quot;Окно открыто&quot; as Open
-
-state &quot;Поля пустые\n(кнопка Ок неактивна)&quot; as Empty
-state &quot;Поля заполнены\nнекорректно\n(подсветка ошибок)&quot; as Invalid
-state &quot;Поля заполнены\nкорректно\n(кнопка Ок активна)&quot; as Valid
-
-state &quot;Нажата кнопка Ок&quot; as Confirmed
-state &quot;Нажата кнопка Отмена\nили Esc, или ×&quot; as Cancelled
-
-Open --&gt; Empty : &quot;Первый запуск\n(все поля пусты)&quot;
-Open --&gt; Valid : &quot;Данные загружены\nиз файла и валидны&quot;
-Open --&gt; Invalid : &quot;Данные загружены\nиз файла и невалидны&quot;
-
-Empty --&gt; Invalid : &quot;Пользователь вводит\nнекорректные данные&quot;
-Empty --&gt; Valid : &quot;Пользователь вводит\nкорректные данные&quot;
-
-Invalid --&gt; Valid : &quot;Пользователь исправляет\nошибки&quot;
-Valid --&gt; Invalid : &quot;Пользователь вносит\nошибки&quot;
-
-Valid --&gt; Confirmed : &quot;Нажата кнопка Ок\nили Enter&quot;
-Invalid --&gt; Cancelled : &quot;Нажата кнопка Отмена\nили Esc, или ×&quot;
-Empty --&gt; Cancelled : &quot;Нажата кнопка Отмена\nили Esc, или ×&quot;
-Valid --&gt; Cancelled : &quot;Нажата кнопка Отмена\nили Esc, или ×&quot;
-
-Confirmed --&gt; [*] : &quot;Возврат данных,\nзакрытие окна&quot;
-Cancelled --&gt; [*] : &quot;Возврат отмены,\nзакрытие окна&quot;
-
-@enduml
-</code></pre>
+<p>``plantuml
+@startuml
+state "Окно открыто" as Open</p>
+<p>state "Поля пустые\n(кнопка Ок неактивна)" as Empty
+state "Поля заполнены\nнекорректно\n(подсветка ошибок)" as Invalid
+state "Поля заполнены\nкорректно\n(кнопка Ок активна)" as Valid</p>
+<p>state "Нажата кнопка Ок" as Confirmed
+state "Нажата кнопка Отмена\nили Esc, или ×" as Cancelled</p>
+<p>Open --&gt; Empty : "Первый запуск\n(все поля пусты)"
+Open --&gt; Valid : "Данные загружены\nиз файла и валидны"
+Open --&gt; Invalid : "Данные загружены\nиз файла и невалидны"</p>
+<p>Empty --&gt; Invalid : "Пользователь вводит\nнекорректные данные"
+Empty --&gt; Valid : "Пользователь вводит\nкорректные данные"</p>
+<p>Invalid --&gt; Valid : "Пользователь исправляет\nошибки"
+Valid --&gt; Invalid : "Пользователь вносит\nошибки"</p>
+<p>Valid --&gt; Confirmed : "Нажата кнопка Ок\nили Enter"
+Invalid --&gt; Cancelled : "Нажата кнопка Отмена\nили Esc, или ×"
+Empty --&gt; Cancelled : "Нажата кнопка Отмена\nили Esc, или ×"
+Valid --&gt; Cancelled : "Нажата кнопка Отмена\nили Esc, или ×"</p>
+<p>Confirmed --&gt; [<em>] : "Возврат данных,\nзакрытие окна"
+Cancelled --&gt; [</em>] : "Возврат отмены,\nзакрытие окна"</p>
+<p>@enduml
+```</p>
 <hr />
 <h2 id="10-10">10. Изменения по сравнению с версией 1.0</h2>
 <table>
