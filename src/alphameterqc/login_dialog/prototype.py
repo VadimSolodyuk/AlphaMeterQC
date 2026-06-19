@@ -15,7 +15,7 @@ import customtkinter as ctk
 
 class LoginDialogPrototype(ctk.CTk):  # type: ignore[misc]
     """
-    Прототип диалога ввода идентификационных данных.
+    Прототип диалога ввода данных.
 
     Размеры окна: 450×420 пикселей (уменьшена высота)
     Тема: Поддерживает Light и Dark

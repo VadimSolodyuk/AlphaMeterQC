@@ -21,7 +21,7 @@ from .model import ConnectionConfig, Validator
 
 class ConnectionDialog(ctk.CTk):  # type: ignore[misc]
     """
-    Диалог ввода идентификационных данных для подключения к БД.
+    Диалог ввода данных для подключения к БД.
 
     Реализует:
     - Отображение 5 полей ввода и 2 кнопок (F-1)

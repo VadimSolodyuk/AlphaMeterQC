@@ -44,21 +44,10 @@ class LoginDialog:
         debug: bool = False,
     ) -> Optional[dict[str, Any]]:
         """
-        Отображает диалог ввода идентификационных данных.
-
-        Args:
-            default_ip: Значение по умолчанию для IP-адреса
-            default_port: Значение по умолчанию для порта
-            default_username: Значение по умолчанию для имени пользователя
-            default_service_name: Значение по умолчанию для идентификатора
-            debug: Если True, ошибки логируются в stderr (без пароля)
+        Отображает диалог ввода данных.
 
         Returns:
-            Словарь с данными подключения при подтверждении,
-            None при отмене или критической ошибке
-
-        Raises:
-            Не генерирует исключений наружу (все ошибки обрабатываются)
+            ConnectionData | None: Введенные данные или None, если диалог отменен
         """
         if debug:
             logging.basicConfig(level=logging.DEBUG, stream=sys.stderr)

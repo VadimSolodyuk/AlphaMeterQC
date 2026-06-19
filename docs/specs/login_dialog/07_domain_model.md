@@ -3,7 +3,7 @@
 **Версия:** 2.5 (итоговая)  
 **Дата:** 2026-06-06  
 **Автор:** Солодюк В.Л.  
-**Проект:** ПО «AlphaMeterQC» / Модуль ввода идентификационных данных для подключения к БД
+**Проект:** ПО «AlphaMeterQC» / Модуль ввода данных для подключения к БД
 
 ---
 
@@ -25,7 +25,7 @@
 
 ## 2. Диаграмма классов (PlantUML)
 
-```plantuml
+``plantuml
 @startuml
 left to right direction
 skinparam linetype ortho
@@ -229,7 +229,7 @@ User --> ConnectionDialog : «взаимодействует\nчерез GUI»
 3. **Разные методы**: У `ConnectionConfig` есть `loadFromFile()`/`saveAtomically()`, у `ConnectionData` — `toJson()`/`fromJson()`. Объединение создаст "божественный объект" с кучей методов, которые не всегда имеют смысл вместе.
 
 **Компромисс в коде**: При реализации можно использовать `dataclass` с общим базовым классом:
-```python
+```
 from dataclasses import dataclass
 
 @dataclass

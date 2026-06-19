@@ -1,5 +1,5 @@
 """
-Модуль login_dialog — ввод идентификационных данных для подключения к БД.
+Модуль login_dialog — ввод данных для подключения к БД.
 
 Публичный API:
     from alphameterqc.login_dialog import show_dialog
