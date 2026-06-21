@@ -1,8 +1,14 @@
 ---
-name: Global
-globs: .*
+name: general-alphameterqc
+globs: 
 description: Глобальные правила проекта для AI-ассистента
 ---
+
+# Основной источники контекста
+- корненой каталог проекта alphameterqc
+
+# Дополнительные источники контекста
+- Для расширения Continue: https://docs.continue.dev/
 
 # Язык общения
 - Русский
