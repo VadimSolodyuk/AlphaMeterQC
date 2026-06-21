@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 # Add src to import path
-sys.path.insert(0, str(Path(__file__).parent / "src"))  # noqa: E402
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))  # noqa: E402
 
 from alphameterqc.ai_service import OllamaService  # noqa: E402
 

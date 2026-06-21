@@ -18,7 +18,7 @@
 
 ### Код проекта
 - [`src/alphameterqc/ai_service.py`](file:///home/vls/Documents/projects/AlphaMeterQC/src/alphameterqc/ai_service.py) - основной сервис для работы с Ollama
-- [`test_ollama.py`](file:///home/vls/Documents/projects/AlphaMeterQC/test_ollama.py) - скрипт тестирования подключения
+- [`test_ollama.py`](file:///home/vls/Documents/projects/AlphaMeterQC/examples/test_ollama.py) - скрипт тестирования подключения
 - [`examples/ollama_example.py`](file:///home/vls/Documents/projects/AlphaMeterQC/examples/ollama_example.py) - примеры использования
 
 ### Документация
