@@ -1,0 +1,67 @@
+name: alphameterqc Config
+version: 1.0.0
+schema: v1
+
+# Define which models can be used
+# https://docs.continue.dev/customization/models
+models:
+  - name: qwen2.5-coder:3b local
+    provider: ollama
+    model: qwen2.5-coder:3b
+    apiBase: http://localhost:11434
+    roles:
+      - apply
+      - autocomplete
+      - chat
+      - edit
+    defaultCompletionOptions:
+      maxTokens:
+      temperature: 0.5
+      topP: 0.85
+      stop:
+        - \n\n
+        - </s>
+    capabilities:
+      - tool_use
+      - image_input
+
+  # - name: Claude 4 Sonnet
+  #   provider: anthropic
+  #   model: claude-sonnet-4-20250514
+  #   apiKey: ${{ secrets.ANTHROPIC_API_KEY }}
+  #   roles:
+  #     - chat
+  #     - edit
+  #     - apply
+  #   defaultCompletionOptions:
+  #     contextLength: 200000
+  #     maxTokens: 64000
+  #   capabilities:
+  #     - tool_use
+  #     - image_input
+
+  # - name: mistral:7b
+  #   provider: ollama
+  #   model: mistral:7b
+  #   apiBase: http://localhost:11434
+  #   roles:
+  #     - chat
+  #     - apply
+  #   defaultCompletionOptions:
+  #     maxTokens: 4096 #8192
+  #   capabilities:
+  #     - tool_use
+  #     - image_input
+  # - name: qwen3.5:4b
+  #   provider: ollama
+  #   model: qwen3.5:4b
+  #   apiBase: http://localhost:11434
+  #   roles:
+  #     - chat
+  #     - apply
+  #     - autocomplete
+  #   defaultCompletionOptions:
+  #     maxTokens: 4096 #8192
+  #   capabilities:
+  #     - tool_use
+  #     - image_input
