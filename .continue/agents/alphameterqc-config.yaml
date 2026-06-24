@@ -1,0 +1,28 @@
+name: alphameterqc Config
+version: 0.0.1
+schema: v1
+models:
+  - name: qwen2.5-coder:3b local
+    provider: ollama
+    model: qwen2.5-coder:3b
+    apiBase: http://localhost:11434
+    roles:
+      - apply
+      - autocomplete
+      - chat
+      - edit
+    defaultCompletionOptions:
+      maxContextLength: 4096
+      maxTokens: 4096
+      temperature: 0.5
+      topP: 0.85
+      stop:
+        - \n\n
+        - </s>
+    capabilities:
+      - tool_use
+      - image_input
+context:
+  - provider: diff
+  - provider: terminal
+  - provider: file
