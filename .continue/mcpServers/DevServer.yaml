@@ -1,0 +1,10 @@
+name: DevServer
+version: 0.0.1
+schema: v1
+
+mcpServers:
+  - name: DevServer
+    command: npm
+    args:
+      - run
+      - dev

@@ -1,0 +1,54 @@
+name: qwen2.5-coder:3b-chat
+version: 1.0.0
+schema: v1
+
+# Define which models can be used
+# https://docs.continue.dev/customization/models
+models:
+  - name: qwen2.5-coder:3b-chat
+    provider: ollama
+    model: qwen2.5-coder:3b
+    #   apiKey: ${{ secrets.ANTHROPIC_API_KEY }}
+    apiBase: http://localhost:11434
+    roles:
+      - chat
+      # - autocomplete
+      - edit
+      - apply
+      - summarize
+      # - subagent
+      # - rerank
+      # - embed
+    defaultCompletionOptions:
+      contextLength: 16384 # 8192 # Реалистично для 16 GB RAM
+      maxTokens: 4096 # Для автодополнения обычно нужно 256-512. Для чата — 2048-4096 достаточно.
+      temperature: 0.4 # Для креативных задач (brainstorming архитектора) можно 0.4-0.6.
+      # topK: 0.85
+      # topP: 0.85
+      stop:
+        - </s>
+        # - \n\n # для autocomplete
+    capabilities:
+      - tool_use
+    #   - image_input
+
+# Характеристики:
+
+# Model
+#   architecture        qwen2
+#   parameters          3.1B
+#   context length      32768
+#   embedding length    2048
+#   quantization        Q4_K_M
+
+# Capabilities
+#   completion
+#   tools
+#   insert
+
+# System
+#   You are Qwen, created by Alibaba Cloud. You are a helpful assistant.
+
+# License
+#   Qwen RESEARCH LICENSE AGREEMENT
+#   Qwen RESEARCH LICENSE AGREEMENT Release Date: September 19, 2024
