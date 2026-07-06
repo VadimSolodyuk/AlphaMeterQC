@@ -1,0 +1,48 @@
+name: Business Analyst - Advanced
+version: 1.0.0
+schema: v1
+
+models:
+  - name: DeepSeek V4 Flash
+    provider: openai
+    model: gpt://${{ secrets.AISTUDIO__FOLDER_ID }}/deepseek-v4-flash/latest
+    apiBase: https://ai.api.cloud.yandex.net/v1
+    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    requestOptions:
+      headers:
+        OpenAI-Project: ${{ secrets.AISTUDIO__FOLDER_ID }}
+    roles:
+      - chat
+      - edit
+      - apply
+    capabilities:
+      - tool_use
+      - image_input
+    defaultCompletionOptions:
+      contextLength: 131072
+      maxTokens: 8192
+      temperature: 0.3 # 0.3 — баланс точности и креативности для анализа требований (BA)
+      topP: 0.95
+
+  - name: qwen2.5-coder:3b-ac
+    provider: ollama
+    model: qwen2.5-coder:3b
+    apiBase: http://localhost:11434
+    roles:
+      - autocomplete
+    defaultCompletionOptions:
+      contextLength: 2048 # 4096
+      maxTokens: 256 # 256 # Для автодополнения обычно нужно 256-512. Для чата — 2048-4096 достаточно.
+      temperature: 0.1 # 0.1 — точность для автодополнения кода
+      topP: 0.85
+      stop:
+        - </s>
+        - \n\n # для autocomplete
+    capabilities: []
+
+  - name: nomic-embed
+    provider: ollama
+    model: nomic-embed-text:latest
+    apiBase: http://localhost:11434
+    roles:
+      - embed

@@ -1,0 +1,23 @@
+{
+    // Рекомендуемые расширения VS Code
+    "recommendations": [
+        // Python разработка
+        "ms-python.python", // Поддержка Python
+        "ms-python.vscode-pylance", // Автодополнение
+        "ms-python.black-formatter", // Форматирование (Black)
+        "ms-python.isort", // Сортировка импортов
+        "ms-python.flake8", // Проверка стиля
+        "ms-python.mypy-type-checker", // Проверка типов
+        // Git
+        "eamodio.gitlens", // Расширенный Git
+        "github.vscode-github-actions",
+        // Форматы файлов
+        "redhat.vscode-yaml", // YAML поддержка
+        "bierner.markdown-preview-github-styles", // Markdown предпросмотр
+        // Утилиты
+        "shardulm94.trailing-spaces", // Подсветка пробелов
+        // Docker и контейнеры
+        "ms-azuretools.vscode-docker", // Управление Docker
+        "ms-vscode-remote.remote-containers"
+    ]
+}

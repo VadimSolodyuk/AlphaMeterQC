@@ -1,0 +1,80 @@
+# =============================================================================
+# КОНФИГУРАЦИЯ ПРОЕКТА AlphaMeterQC
+# =============================================================================
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alphameterqc"
+version = "0.1.0"
+description = "Система анализа и контроля данных АСКУЭ"
+requires-python = ">=3.9"  # Поддержка Python 3.9-3.12
+dependencies = [
+    "customtkinter>=5.2.0",  # GUI библиотека
+]
+
+# Зависимости для разработки (установка: pip install -e .[dev])
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",              # Тестирование
+    "pytest-cov>=4.1.0",          # Покрытие кода
+    "black>=23.7.0",              # Авто-форматирование
+    "isort>=5.12.0",              # Сортировка импортов
+    "flake8>=6.1.0",              # Проверка стиля
+    "mypy>=1.5.0",                # Проверка типов
+    "mkdocs>=1.5.0",              # Генерация документации
+    "mkdocstrings[python]>=0.22.0", # Документация из кода
+    "pre-commit>=3.3.0",          # Git хуки
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]  # Поиск пакетов в папке src/
+
+[tool.black]
+line-length = 88  # Длина строки
+target-version = ['py39', 'py310', 'py311', 'py312']
+skip-string-normalization = true  # Нормализует кавычки
+
+[tool.isort]
+profile = "black"  # Совместимость с Black
+line_length = 88
+
+[tool.mypy]
+strict = true
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["tests.*"]
+strict = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]  # Папка с тестами
+python_files = "test_*.py"  # Шаблон имён файлов тестов
+
+# Покрытие кода
+# --cov=alphameterqc измеряет покрытие импортируемого пакета
+# --cov-report=term-missing выводит в терминал, какие именно строки НЕ покрыты тестами
+addopts = "--cov=alphameterqc --cov-report=term-missing"  
+
+[tool.coverage.run]
+omit = [
+    "*/prototype.py",  # Исключить все файлы prototype.py
+    "*/__main__.py",   # Опционально: исключить точки входа
+    "*/view.py",  # GUI-код тестируется вручную
+]
+
+[tool.coverage.report]
+# Минимальный порог покрытия (опционально)
+fail_under = 80
+# Исключить строки с pragma: no cover
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+]
+
+[tool.flake8]
+max-line-length = 88  # Соответствует Black
+extend-ignore = ["E203", "W503"]  # Исключения для Black

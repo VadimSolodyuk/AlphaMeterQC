@@ -1,0 +1,18 @@
+name: nomic-embed
+version: 1.0.0
+schema: v1
+
+# Define which models can be used
+# https://docs.continue.dev/customization/models
+models:
+  - name: nomic-embed
+    provider: ollama
+    model: nomic-embed-text:latest
+    #   apiKey: ${{ secrets.ANTHROPIC_API_KEY }}
+    apiBase: http://localhost:11434
+    roles:
+      - embed
+
+    # embedOptions:
+    #   maxChunkSize: 500 # размер одного чанка (у меня 700 выдавал ошибки)
+    #   maxBatchSize: 16 # чанков за один пакет

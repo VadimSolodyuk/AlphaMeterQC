@@ -1,0 +1,87 @@
+# === Проектные файлы (временные) ===
+project_structure.txt
+prompt/
+AC_docs/
+
+
+# === Конфигурация подключения (безопасность) ===
+*.local.json
+connection.json
+
+# === Секреты и API ключи (НИКОГДА не коммитить!) ===
+.env
+.env.local
+*.secret
+*.secrets
+
+# === Кэш и временные файлы ===
+cache/
+*.tmp
+*.log
+*.bak
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# === Виртуальные окружения ===
+venv/
+ENV/
+env/
+.venv
+.env
+
+# === IDE и редакторы ===
+# .vscode/*.json
+.idea/
+*.swp
+*.swo
+*~
+
+# === Тестирование и покрытие ===
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+coverage.xml
+
+# === Документация (генерируемая) ===
+site/
+
+# === PyInstaller (для будущей сборки .exe) ===
+.manifest
+.spec
+
+# === ОС ===
+.DS_Store
+Thumbs.db
+
+# === Dev Containers ===
+.devcontainer/devcontainer.local.json
+
+# Архивы (могут превышать лимит GitHub)
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.rar
+*.7z
