@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Дизайн UI - AlphaMeterQC Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">AlphaMeterQC Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Главная</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Артефакты модуля login_dialog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../01_concept/" class="dropdown-item">Концепция</a>
+</li>
+                                    
+<li>
+    <a href="../02_stakeholders_requirements/" class="dropdown-item">Требования стейкхолдеров</a>
+</li>
+                                    
+<li>
+    <a href="../03_user_stories/" class="dropdown-item">Пользовательские истории</a>
+</li>
+                                    
+<li>
+    <a href="../04_srs/" class="dropdown-item">SRS</a>
+</li>
+                                    
+<li>
+    <a href="../05_use_cases/" class="dropdown-item">Варианты использования</a>
+</li>
+                                    
+<li>
+    <a href="../05-1_UC.LOGIN.D0.01/" class="dropdown-item">UC D0.01</a>
+</li>
+                                    
+<li>
+    <a href="../05-2_UC.LOGIN.D1.01/" class="dropdown-item">UC D1.01</a>
+</li>
+                                    
+<li>
+    <a href="../05-3_UC.LOGIN.D2.01/" class="dropdown-item">UC D2.01</a>
+</li>
+                                    
+<li>
+    <a href="../05-4_UC.LOGIN.D2.02/" class="dropdown-item">UC D2.02</a>
+</li>
+                                    
+<li>
+    <a href="../05-5_UC.LOGIN.D3.01/" class="dropdown-item">UC D3.01</a>
+</li>
+                                    
+<li>
+    <a href="../06_rtm/" class="dropdown-item">Матрица трассировки</a>
+</li>
+                                    
+<li>
+    <a href="../07_domain_model/" class="dropdown-item">Модель предметной сферы</a>
+</li>
+                                    
+<li>
+    <a href="../08_technical_specification/" class="dropdown-item">Техническое задание</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Дизайн UI</a>
+</li>
+                                    
+<li>
+    <a href="../10_ui_traceability/" class="dropdown-item">Трассировка UI</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">API Справка (Auto-generated из кода)</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../api/login_dialog/" class="dropdown-item">Модуль login_dialog</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../08_technical_specification/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../10_ui_traceability/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">Спецификация дизайна пользовательского интерфейса</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. Введение</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-wireframe" class="nav-link">2. Общий вид окна (Wireframe)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. Описание элементов интерфейса</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. Состояния элементов</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. Поведение и интерактивность</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-customtkinter" class="nav-link">6. Цветовая схема (CustomTkinter)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. Адаптивность и масштабирование</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. Соответствие требованиям</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9-plantuml" class="nav-link">9. Диаграмма состояний интерфейса (PlantUML)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10-10" class="nav-link">10. Изменения по сравнению с версией 1.0</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">Спецификация дизайна пользовательского интерфейса</h1>
+<p><strong>Версия:</strong> 1.1 (итоговая)<br />
+<strong>Дата:</strong> 2026-06-07<br />
+<strong>Автор:</strong> Солодюк В.Л.<br />
+<strong>Проект:</strong> ПО «AlphaMeterQC» / Модуль ввода данных для подключения к БД<br />
+<strong>Домен:</strong> Проектирование UI/UX</p>
+<hr />
+<h2 id="1">1. Введение</h2>
+<h3 id="11">1.1 Цель документа</h3>
+<p>Описать визуальный макет (wireframe/mockup) графического интерфейса модуля <code>login_dialog</code>, включая расположение элементов, их размеры, стили, состояния и поведение. Документ является основой для разработки прототипа и проверки соответствия функциональным требованиям.</p>
+<h3 id="12">1.2 Область применения</h3>
+<p>Документ предназначен для разработчиков и тестировщиков при реализации графического интерфейса на базе CustomTkinter.</p>
+<h3 id="13">1.3 Источники требований</h3>
+<ul>
+<li>Спецификация требований (SRS v2.9)</li>
+<li>Пользовательские истории (v2.3)</li>
+<li>Варианты использования (v5.6)</li>
+<li>Модель предметной сферы (v2.5)</li>
+</ul>
+<hr />
+<h2 id="2-wireframe">2. Общий вид окна (Wireframe)</h2>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│  Подключение к БД                                     [─][×] │
+─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  IP-адрес/хост:  ┌─────────────────────────────────────┐   │
+│                  │ 192.168.1.10                        │   │
+│                  └─────────────────────────────────────┘   │
+│                                                             │
+│  Порт:           ┌─────────────────────────────────────┐   │
+│                  │ 1521                                │   │
+│                  └─────────────────────────────────────┘   │
+│                                                             │
+│  Имя пользователя: ┌─────────────────────────────────────┐ │
+│                    │ admin                               │ │
+│                    └─────────────────────────────────────┘ │
+│                                                             │
+│  Пароль:         ┌─────────────────────────────────────┐   │
+│                  │ ••••••••                            │   │
+│                  └─────────────────────────────────────┘   │
+│                                                             │
+│  Идентификатор службы: ┌───────────────────────────────┐   │
+│                        │ ORCL                          │   │
+│                        └───────────────────────────────┘   │
+│                                                             │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │                                                     │   │
+│  │         [ Отмена ]              [ Ок ]              │   │
+│  │                                                     │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>Размеры окна:</strong> 450×520 пикселей (ширина × высота)<br />
+<strong>Отступы:</strong> 20 пикселей от краёв окна до элементов<br />
+<strong>Расстояние между полями:</strong> 15 пикселей<br />
+<strong>Высота поля ввода:</strong> 35 пикселей<br />
+<strong>Ширина поля ввода:</strong> 380 пикселей<br />
+<strong>Высота кнопок:</strong> 40 пикселей<br />
+<strong>Ширина кнопок:</strong> 140 пикселей каждая</p>
+<hr />
+<h2 id="3">3. Описание элементов интерфейса</h2>
+<h3 id="31">3.1 Заголовок окна</h3>
+<table>
+<thead>
+<tr>
+<th>Атрибут</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Текст</td>
+<td><strong>«Подключение к БД»</strong></td>
+</tr>
+<tr>
+<td>Шрифт</td>
+<td>CustomTkinter default, размер 16, жирный</td>
+</tr>
+<tr>
+<td>Выравнивание</td>
+<td>По центру</td>
+</tr>
+<tr>
+<td>Высота</td>
+<td>40 пикселей</td>
+</tr>
+<tr>
+<td>Цвет фона</td>
+<td>Акцентный цвет темы (синий/тёмно-синий)</td>
+</tr>
+<tr>
+<td>Цвет текста</td>
+<td>Белый</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32">3.2 Поля ввода</h3>
+<h4 id="ip-">Поле «IP-адрес/хост»</h4>
+<table>
+<thead>
+<tr>
+<th>Атрибут</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Подпись (label)</td>
+<td>«IP-адрес/хост:»</td>
+</tr>
+<tr>
+<td>Тип</td>
+<td><code>CTkEntry</code></td>
+</tr>
+<tr>
+<td>Ширина</td>
+<td>380 пикселей</td>
+</tr>
+<tr>
+<td>Высота</td>
+<td>35 пикселей</td>
+</tr>
+<tr>
+<td>Шрифт</td>
+<td>Размер 13</td>
+</tr>
+<tr>
+<td>Placeholder</td>
+<td>«Введите IP-адрес или DNS-имя»</td>
+</tr>
+<tr>
+<td>Значение по умолчанию</td>
+<td>Пустая строка</td>
+</tr>
+<tr>
+<td>Валидация</td>
+<td>IPv4 (0.0.0.0 – 255.255.255.255) или DNS (строка после <code>strip()</code> должна содержать хотя бы один буквенно-цифровой символ, не начинаться и не заканчиваться на <code>-</code> или <code>.</code>, допустимые символы: латиница, цифры, <code>_</code>, <code>-</code>, <code>.</code>, не более 255 символов)</td>
+</tr>
+<tr>
+<td>Порядок Tab</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_2">Поле «Порт»</h4>
+<table>
+<thead>
+<tr>
+<th>Атрибут</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Подпись (label)</td>
+<td>«Порт:»</td>
+</tr>
+<tr>
+<td>Тип</td>
+<td><code>CTkEntry</code></td>
+</tr>
+<tr>
+<td>Ширина</td>
+<td>380 пикселей</td>
+</tr>
+<tr>
+<td>Высота</td>
+<td>35 пикселей</td>
+</tr>
+<tr>
+<td>Шрифт</td>
+<td>Размер 13</td>
+</tr>
+<tr>
+<td>Placeholder</td>
+<td>«Введите номер порта (1–65535)»</td>
+</tr>
+<tr>
+<td>Значение по умолчанию</td>
+<td>«1521»</td>
+</tr>
+<tr>
+<td>Валидация</td>
+<td>Число от 1 до 65535</td>
+</tr>
+<tr>
+<td>Порядок Tab</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_3">Поле «Имя пользователя»</h4>
+<table>
+<thead>
+<tr>
+<th>Атрибут</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Подпись (label)</td>
+<td>«Имя пользователя:»</td>
+</tr>
+<tr>
+<td>Тип</td>
+<td><code>CTkEntry</code></td>
+</tr>
+<tr>
+<td>Ширина</td>
+<td>380 пикселей</td>
+</tr>
+<tr>
+<td>Высота</td>
+<td>35 пикселей</td>
+</tr>
+<tr>
+<td>Шрифт</td>
+<td>Размер 13</td>
+</tr>
+<tr>
+<td>Placeholder</td>
+<td>«Введите имя пользователя»</td>
+</tr>
+<tr>
+<td>Значение по умолчанию</td>
+<td>Пустая строка</td>
+</tr>
+<tr>
+<td>Валидация</td>
+<td>Не пустое, ≤ 30 символов (латиница, цифры, <code>_</code>, <code>-</code>)</td>
+</tr>
+<tr>
+<td>Порядок Tab</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_4">Поле «Пароль»</h4>
+<table>
+<thead>
+<tr>
+<th>Атрибут</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Подпись (label)</td>
+<td>«Пароль:»</td>
+</tr>
+<tr>
+<td>Тип</td>
+<td><code>CTkEntry</code> (show="•")</td>
+</tr>
+<tr>
+<td>Ширина</td>
+<td>380 пикселей</td>
+</tr>
+<tr>
+<td>Высота</td>
+<td>35 пикселей</td>
+</tr>
+<tr>
+<td>Шрифт</td>
+<td>Размер 13</td>
+</tr>
+<tr>
+<td>Placeholder</td>
+<td>«Введите пароль»</td>
+</tr>
+<tr>
+<td>Значение по умолчанию</td>
+<td>Пустая строка</td>
+</tr>
+<tr>
+<td>Валидация</td>
+<td>Не пустой (≥ 1 символа, любые символы)</td>
+</tr>
+<tr>
+<td>Маскировка</td>
+<td>Символ «•» (U+2022)</td>
+</tr>
+<tr>
+<td>Порядок Tab</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_5">Поле «Идентификатор службы»</h4>
+<table>
+<thead>
+<tr>
+<th>Атрибут</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Подпись (label)</td>
+<td>«Идентификатор службы (SID/Service Name):»</td>
+</tr>
+<tr>
+<td>Тип</td>
+<td><code>CTkEntry</code></td>
+</tr>
+<tr>
+<td>Ширина</td>
+<td>380 пикселей</td>
+</tr>
+<tr>
+<td>Высота</td>
+<td>35 пикселей</td>
+</tr>
+<tr>
+<td>Шрифт</td>
+<td>Размер 13</td>
+</tr>
+<tr>
+<td>Placeholder</td>
+<td>«Введите идентификатор службы (опционально)»</td>
+</tr>
+<tr>
+<td>Значение по умолчанию</td>
+<td>«ORCL»</td>
+</tr>
+<tr>
+<td>Валидация</td>
+<td>≤ 30 символов (латиница, цифры, <code>_</code>, <code>.</code>, <code>-</code>). Поле опционально.</td>
+</tr>
+<tr>
+<td>Порядок Tab</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33">3.3 Кнопки</h3>
+<h4 id="_6">Кнопка «Ок»</h4>
+<table>
+<thead>
+<tr>
+<th>Атрибут</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Текст</td>
+<td>«Ок»</td>
+</tr>
+<tr>
+<td>Тип</td>
+<td><code>CTkButton</code></td>
+</tr>
+<tr>
+<td>Ширина</td>
+<td>140 пикселей</td>
+</tr>
+<tr>
+<td>Высота</td>
+<td>40 пикселей</td>
+</tr>
+<tr>
+<td>Шрифт</td>
+<td>Размер 14, жирный</td>
+</tr>
+<tr>
+<td>Цвет фона (активна)</td>
+<td>Акцентный цвет темы (зелёный/синий)</td>
+</tr>
+<tr>
+<td>Цвет фона (неактивна)</td>
+<td>Серый (#A9A9A9)</td>
+</tr>
+<tr>
+<td>Цвет текста</td>
+<td>Белый</td>
+</tr>
+<tr>
+<td>Состояние по умолчанию</td>
+<td><strong>Неактивна</strong> (disabled)</td>
+</tr>
+<tr>
+<td>Активация</td>
+<td>Когда все обязательные поля валидны</td>
+</tr>
+<tr>
+<td>Действие</td>
+<td>Возврат данных вызывающей системе, сохранение параметров (кроме пароля) в файл, закрытие окна</td>
+</tr>
+<tr>
+<td>Горячая клавиша</td>
+<td>Enter (когда форма валидна)</td>
+</tr>
+<tr>
+<td>Порядок Tab</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_7">Кнопка «Отмена»</h4>
+<table>
+<thead>
+<tr>
+<th>Атрибут</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Текст</td>
+<td>«Отмена»</td>
+</tr>
+<tr>
+<td>Тип</td>
+<td><code>CTkButton</code></td>
+</tr>
+<tr>
+<td>Ширина</td>
+<td>140 пикселей</td>
+</tr>
+<tr>
+<td>Высота</td>
+<td>40 пикселей</td>
+</tr>
+<tr>
+<td>Шрифт</td>
+<td>Размер 14</td>
+</tr>
+<tr>
+<td>Цвет фона</td>
+<td>Вторичный цвет темы (серый/тёмно-серый)</td>
+</tr>
+<tr>
+<td>Цвет текста</td>
+<td>Белый</td>
+</tr>
+<tr>
+<td>Состояние</td>
+<td><strong>Всегда активна</strong></td>
+</tr>
+<tr>
+<td>Действие</td>
+<td>Возврат сигнала отмены (<code>None</code>), закрытие окна без сохранения</td>
+</tr>
+<tr>
+<td>Горячая клавиша</td>
+<td>Esc</td>
+</tr>
+<tr>
+<td>Порядок Tab</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4">4. Состояния элементов</h2>
+<h3 id="41">4.1 Состояния полей ввода</h3>
+<table>
+<thead>
+<tr>
+<th>Состояние</th>
+<th>Визуальное отображение</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Нормальное</strong></td>
+<td>Белая рамка, чёрный текст</td>
+<td>Поле пустое или содержит валидные данные</td>
+</tr>
+<tr>
+<td><strong>Фокус</strong></td>
+<td>Синяя рамка (2px), чёрный текст</td>
+<td>Поле активно, пользователь вводит данные</td>
+</tr>
+<tr>
+<td><strong>Ошибка</strong></td>
+<td>Красная рамка (2px), красный текст</td>
+<td>Содержимое не соответствует правилам валидации</td>
+</tr>
+<tr>
+<td><strong>Заполнено из файла</strong></td>
+<td>Светло-зелёная рамка (1px), чёрный текст</td>
+<td>Значение загружено из файла сохранения (опционально)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42">4.2 Состояния кнопок</h3>
+<table>
+<thead>
+<tr>
+<th>Состояние</th>
+<th>Визуальное отображение</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Активна</strong></td>
+<td>Яркий цвет фона, курсор pointer</td>
+<td>Кнопка доступна для нажатия</td>
+</tr>
+<tr>
+<td><strong>Неактивна</strong></td>
+<td>Серый цвет фона, курсор default</td>
+<td>Кнопка недоступна (только для «Ок»)</td>
+</tr>
+<tr>
+<td><strong>Нажата</strong></td>
+<td>Тёмный оттенок фона</td>
+<td>Визуальный отклик при клике</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5">5. Поведение и интерактивность</h2>
+<h3 id="51">5.1 Валидация в реальном времени</h3>
+<ul>
+<li>Валидация выполняется <strong>при каждом изменении</strong> содержимого поля (событие <code>KeyRelease</code> или <code>&lt;&lt;Modified&gt;&gt;</code>).</li>
+<li>При обнаружении ошибки:</li>
+<li>Рамка поля становится <strong>красной</strong> (2px).</li>
+<li>Кнопка «Ок» становится <strong>неактивной</strong> (если ещё не была).</li>
+<li>Появляется <strong>tooltip</strong> с описанием ошибки (при наведении на поле).</li>
+<li>При исправлении ошибки:</li>
+<li>Рамка поля возвращается к <strong>нормальному</strong> состоянию.</li>
+<li>Если все поля валидны — кнопка «Ок» становится <strong>активной</strong>.</li>
+</ul>
+<h3 id="52-tab">5.2 Навигация клавишей Tab</h3>
+<p>Порядок фокуса:</p>
+<pre><code>IP-адрес/хост → Порт → Имя пользователя → Пароль → Идентификатор службы → [Ок] → [Отмена]
+</code></pre>
+<ul>
+<li>При нажатии <code>Tab</code> фокус переходит к следующему элементу.</li>
+<li>При нажатии <code>Shift+Tab</code> фокус переходит к предыдущему элементу.</li>
+</ul>
+<h3 id="53-enter">5.3 Обработка клавиши Enter</h3>
+<ul>
+<li>Если форма <strong>валидна</strong> (кнопка «Ок» активна):</li>
+<li>Нажатие <code>Enter</code> в любом поле равносильно нажатию кнопки «Ок».</li>
+<li>Если форма <strong>невалидна</strong> (кнопка «Ок» неактивна):</li>
+<li>Нажатие <code>Enter</code> <strong>игнорируется</strong>, окно не закрывается.</li>
+</ul>
+<h3 id="54-esc">5.4 Обработка клавиши Esc</h3>
+<ul>
+<li>Нажатие <code>Esc</code> в любом месте окна равносильно нажатию кнопки «Отмена».</li>
+</ul>
+<h3 id="55">5.5 Закрытие окна</h3>
+<ul>
+<li>Закрытие через системную кнопку «×» равносильно нажатию кнопки «Отмена».</li>
+</ul>
+<h3 id="56">5.6 Умный фокус</h3>
+<p>При открытии окна:
+- Если поле <code>ip</code> <strong>или</strong> <code>username</code> не пустое (заполнено из файла или передано как default) → фокус на поле <strong>«Пароль»</strong>.
+- Иначе (первый запуск, все поля пусты) → фокус на поле <strong>«IP-адрес/хост»</strong>.</p>
+<hr />
+<h2 id="6-customtkinter">6. Цветовая схема (CustomTkinter)</h2>
+<p>Модуль поддерживает две темы: <strong>Light</strong> и <strong>Dark</strong>.</p>
+<h3 id="61-light">6.1 Светлая тема (Light)</h3>
+<table>
+<thead>
+<tr>
+<th>Элемент</th>
+<th>Цвет</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Фон окна</td>
+<td>#F5F5F5 (светло-серый)</td>
+</tr>
+<tr>
+<td>Фон полей ввода</td>
+<td>#FFFFFF (белый)</td>
+</tr>
+<tr>
+<td>Рамка полей (нормальная)</td>
+<td>#CCCCCC (серый)</td>
+</tr>
+<tr>
+<td>Рамка полей (фокус)</td>
+<td>#0078D4 (синий)</td>
+</tr>
+<tr>
+<td>Рамка полей (ошибка)</td>
+<td>#FF4444 (красный)</td>
+</tr>
+<tr>
+<td>Текст полей</td>
+<td>#000000 (чёрный)</td>
+</tr>
+<tr>
+<td>Фон кнопки «Ок» (активна)</td>
+<td>#0078D4 (синий)</td>
+</tr>
+<tr>
+<td>Фон кнопки «Ок» (неактивна)</td>
+<td>#A9A9A9 (серый)</td>
+</tr>
+<tr>
+<td>Фон кнопки «Отмена»</td>
+<td>#6C757D (тёмно-серый)</td>
+</tr>
+<tr>
+<td>Текст кнопок</td>
+<td>#FFFFFF (белый)</td>
+</tr>
+<tr>
+<td>Заголовок окна</td>
+<td>#0078D4 (синий)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-dark">6.2 Тёмная тема (Dark)</h3>
+<table>
+<thead>
+<tr>
+<th>Элемент</th>
+<th>Цвет</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Фон окна</td>
+<td>#2B2B2B (тёмно-серый)</td>
+</tr>
+<tr>
+<td>Фон полей ввода</td>
+<td>#3C3C3C (серый)</td>
+</tr>
+<tr>
+<td>Рамка полей (нормальная)</td>
+<td>#555555 (серый)</td>
+</tr>
+<tr>
+<td>Рамка полей (фокус)</td>
+<td>#4CC2FF (голубой)</td>
+</tr>
+<tr>
+<td>Рамка полей (ошибка)</td>
+<td>#FF6B6B (красный)</td>
+</tr>
+<tr>
+<td>Текст полей</td>
+<td>#FFFFFF (белый)</td>
+</tr>
+<tr>
+<td>Фон кнопки «Ок» (активна)</td>
+<td>#4CC2FF (голубой)</td>
+</tr>
+<tr>
+<td>Фон кнопки «Ок» (неактивна)</td>
+<td>#555555 (серый)</td>
+</tr>
+<tr>
+<td>Фон кнопки «Отмена»</td>
+<td>#6C757D (тёмно-серый)</td>
+</tr>
+<tr>
+<td>Текст кнопок</td>
+<td>#FFFFFF (белый)</td>
+</tr>
+<tr>
+<td>Заголовок окна</td>
+<td>#4CC2FF (голубой)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7">7. Адаптивность и масштабирование</h2>
+<ul>
+<li>Окно имеет <strong>фиксированный размер</strong> (450×520 пикселей), изменение размера запрещено.</li>
+<li>При изменении DPI системы (например, 150% в Windows) элементы масштабируются пропорционально.</li>
+<li>Минимальное разрешение экрана: 1024×768 пикселей.</li>
+</ul>
+<hr />
+<h2 id="8">8. Соответствие требованиям</h2>
+<table>
+<thead>
+<tr>
+<th>Элемент UI</th>
+<th>Требование SRS</th>
+<th>Статус</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5 полей ввода с подписями на русском</td>
+<td>F-1, SR-1</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Кнопки «Ок» и «Отмена»</td>
+<td>F-1, SR-1</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Валидация в реальном времени (IPv4 + строгий DNS)</td>
+<td>F-2, SR-2</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Подсветка ошибок (красная рамка)</td>
+<td>F-3, SR-3</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Кнопка «Ок» неактивна при ошибках</td>
+<td>F-4, SR-4</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Кнопка «Отмена» всегда активна</td>
+<td>F-4, SR-4</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Возврат данных при «Ок»</td>
+<td>F-5</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Возврат отмены при «Отмена»/Esc/×</td>
+<td>F-6</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Маскировка пароля (символ «•»)</td>
+<td>F-11, SR-15</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Значения по умолчанию (1521, ORCL)</td>
+<td>F-9, F-13</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Умный фокус (если <code>ip</code> или <code>username</code> не пустые)</td>
+<td>NF-1</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Навигация Tab</td>
+<td>F-1</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Игнорирование Enter при невалидной форме</td>
+<td>F-4</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Современный UI (CustomTkinter)</td>
+<td>SR-1, US-1</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-plantuml">9. Диаграмма состояний интерфейса (PlantUML)</h2>
+<p>``plantuml
+@startuml
+state "Окно открыто" as Open</p>
+<p>state "Поля пустые\n(кнопка Ок неактивна)" as Empty
+state "Поля заполнены\nнекорректно\n(подсветка ошибок)" as Invalid
+state "Поля заполнены\nкорректно\n(кнопка Ок активна)" as Valid</p>
+<p>state "Нажата кнопка Ок" as Confirmed
+state "Нажата кнопка Отмена\nили Esc, или ×" as Cancelled</p>
+<p>Open --&gt; Empty : "Первый запуск\n(все поля пусты)"
+Open --&gt; Valid : "Данные загружены\nиз файла и валидны"
+Open --&gt; Invalid : "Данные загружены\nиз файла и невалидны"</p>
+<p>Empty --&gt; Invalid : "Пользователь вводит\nнекорректные данные"
+Empty --&gt; Valid : "Пользователь вводит\nкорректные данные"</p>
+<p>Invalid --&gt; Valid : "Пользователь исправляет\nошибки"
+Valid --&gt; Invalid : "Пользователь вносит\nошибки"</p>
+<p>Valid --&gt; Confirmed : "Нажата кнопка Ок\nили Enter"
+Invalid --&gt; Cancelled : "Нажата кнопка Отмена\nили Esc, или ×"
+Empty --&gt; Cancelled : "Нажата кнопка Отмена\nили Esc, или ×"
+Valid --&gt; Cancelled : "Нажата кнопка Отмена\nили Esc, или ×"</p>
+<p>Confirmed --&gt; [<em>] : "Возврат данных,\nзакрытие окна"
+Cancelled --&gt; [</em>] : "Возврат отмены,\nзакрытие окна"</p>
+<p>@enduml
+```</p>
+<hr />
+<h2 id="10-10">10. Изменения по сравнению с версией 1.0</h2>
+<table>
+<thead>
+<tr>
+<th>№</th>
+<th>Изменение</th>
+<th>Обоснование</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Заголовок окна:</strong> Изменён с «Подключение к БД Oracle» на «Подключение к БД»</td>
+<td>Принцип слабой связанности: модуль не зависит от конкретной СУБД</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Умный фокус:</strong> Уточнено условие: «если <code>ip</code> <strong>или</strong> <code>username</code> не пустые»</td>
+<td>Упрощение логики для реального ускорения ввода (User-Centric Design)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Валидация DNS:</strong> Добавлены строгие правила: <code>strip()</code>, запрет на <code>-</code>/<code>.</code> на краях, наличие буквенно-цифрового символа</td>
+<td>Исключение невалидных строк вида <code>---</code> или <code>...</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Пути файлов:</strong> Удалены упоминания macOS, оставлены только Windows (<code>%LOCALAPPDATA%</code>) и Linux (<code>~/.config/</code>)</td>
+<td>Фокусировка на целевых платформах проекта</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Атомарная запись:</strong> Указано использование <code>os.replace</code> вместо устаревших методов</td>
+<td>Упрощение кроссплатформенной реализации (принцип KISS)</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

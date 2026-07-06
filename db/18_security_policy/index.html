@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Политика безопасности справочной базы данных AlphaMeterQC - AlphaMeterQC Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">AlphaMeterQC Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Главная</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Артефакты модуля login_dialog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../login_dialog/01_concept/" class="dropdown-item">Концепция</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/02_stakeholders_requirements/" class="dropdown-item">Требования стейкхолдеров</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/03_user_stories/" class="dropdown-item">Пользовательские истории</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/04_srs/" class="dropdown-item">SRS</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05_use_cases/" class="dropdown-item">Варианты использования</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-1_UC.LOGIN.D0.01/" class="dropdown-item">UC D0.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-2_UC.LOGIN.D1.01/" class="dropdown-item">UC D1.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-3_UC.LOGIN.D2.01/" class="dropdown-item">UC D2.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-4_UC.LOGIN.D2.02/" class="dropdown-item">UC D2.02</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-5_UC.LOGIN.D3.01/" class="dropdown-item">UC D3.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/06_rtm/" class="dropdown-item">Матрица трассировки</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/07_domain_model/" class="dropdown-item">Модель предметной сферы</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/08_technical_specification/" class="dropdown-item">Техническое задание</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/09_ui_design/" class="dropdown-item">Дизайн UI</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/10_ui_traceability/" class="dropdown-item">Трассировка UI</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">API Справка (Auto-generated из кода)</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../api/login_dialog/" class="dropdown-item">Модуль login_dialog</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#alphameterqc" class="nav-link">Политика безопасности справочной базы данных AlphaMeterQC</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. Назначение документа</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. Ролевая модель разграничения доступа</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. Аудит изменений данных</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. Защита соединений</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. Резервное копирование и восстановление</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. Мониторинг безопасности</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. Процедуры реагирования на инциденты</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. Соответствие требованиям технического задания</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="alphameterqc">Политика безопасности справочной базы данных AlphaMeterQC</h1>
+<p><strong>Автор:</strong> В.Л. Солодюк
+<strong>Проект:</strong> ПО «AlphaMeterQC» (анализ и контроль своевременности поступления, полноты и корректности данных, собранных со счётчиков электрической энергии и хранящихся в БД (Oracle) ПО АльфаЦЕНТР) / Модуль справочной БД</p>
+<hr />
+<h2 id="1">1. Назначение документа</h2>
+<p>Настоящий документ определяет политику безопасности справочной БД AlphaMeterQC, включая ролевую модель разграничения доступа, аудит изменений, защиту соединений и процедуры реагирования на инциденты. Документ разработан в рамках этапа «Администрирование и безопасность БД» (раздел 5 отчёта) на основе требований технического задания (Приложение Д, раздел 3.4).</p>
+<hr />
+<h2 id="2">2. Ролевая модель разграничения доступа</h2>
+<h3 id="21">2.1. Принципы</h3>
+<p>Разграничение прав доступа к справочной БД AlphaMeterQC основано на следующих принципах:</p>
+<ol>
+<li><strong>Принцип минимальных привилегий (POLP)</strong> — каждый пользователь получает только те права, которые необходимы для выполнения его должностных обязанностей.</li>
+<li><strong>Разделение обязанностей</strong> — роли чтения и записи разделены; пользователь, имеющий право на изменение данных, не может быть одновременно обычным читающим пользователем.</li>
+<li><strong>Административный контроль</strong> — управление правами доступа осуществляется только через роль администратора.</li>
+</ol>
+<h3 id="22">2.2. Определение ролей</h3>
+<p>Созданы три роли доступа (реализованы в DCL-скрипте, Приложение Л):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Роль</th>
+<th style="text-align: left;">Права</th>
+<th style="text-align: left;">Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>amqc_reader</code></td>
+<td style="text-align: left;">SELECT на все таблицы схемы <code>справочная_бд</code></td>
+<td style="text-align: left;">Все авторизованные пользователи ПО AlphaMeterQC</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>amqc_writer</code></td>
+<td style="text-align: left;">SELECT, INSERT, UPDATE, DELETE на все таблицы; USAGE на последовательности</td>
+<td style="text-align: left;">Уполномоченные сотрудники, ответственные за ведение справочных данных</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>amqc_admin</code></td>
+<td style="text-align: left;">ALL PRIVILEGES на все объекты схемы</td>
+<td style="text-align: left;">Администраторы базы данных</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23">2.3. Матрица доступа</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Объект / Действие</th>
+<th style="text-align: center;">amqc_reader</th>
+<th style="text-align: center;">amqc_writer</th>
+<th style="text-align: center;">amqc_admin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">SELECT (все таблицы)</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">INSERT (все таблицы)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">UPDATE (все таблицы)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">DELETE (все таблицы)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">USAGE на SEQUENCE</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">CREATE/ALTER/DROP объектов</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">GRANT/REVOKE прав</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">DELETE/UPDATE на ЖурналАудита</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24">2.4. Создание пользователей и назначение ролей</h3>
+<p>Создание пользователей и назначение ролей выполняется администратором БД. Примеры команд:</p>
+<pre><code class="language-sql">-- Пользователь для чтения (для АРМ инженеров)
+CREATE USER amqc_user_reader WITH PASSWORD '***' IN ROLE amqc_reader;
+
+-- Пользователь для записи (для уполномоченных сотрудников)
+CREATE USER amqc_user_writer WITH PASSWORD '***' IN ROLE amqc_writer;
+
+-- Пользователь-администратор
+CREATE USER amqc_user_admin WITH PASSWORD '***' IN ROLE amqc_admin;
+</code></pre>
+<p>Пароли должны соответствовать политике информационной безопасности ООО «Газпром Энерго» (не менее 12 символов, включая буквы верхнего и нижнего регистра, цифры и специальные символы).</p>
+<hr />
+<h2 id="3">3. Аудит изменений данных</h2>
+<h3 id="31">3.1. Журнал аудита</h3>
+<p>Для фиксации всех изменений данных создана таблица <code>ЖурналАудита</code> (Приложение Л, раздел 7.1) со следующей структурой:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Столбец</th>
+<th style="text-align: left;">Тип</th>
+<th style="text-align: left;">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ИД_Записи</td>
+<td style="text-align: left;">BIGINT (PK)</td>
+<td style="text-align: left;">Уникальный идентификатор записи аудита</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИмяПользователя</td>
+<td style="text-align: left;">VARCHAR(128)</td>
+<td style="text-align: left;">Имя пользователя, выполнившего операцию (current_user)</td>
+</tr>
+<tr>
+<td style="text-align: left;">ВремяИзменения</td>
+<td style="text-align: left;">TIMESTAMP</td>
+<td style="text-align: left;">Время выполнения операции</td>
+</tr>
+<tr>
+<td style="text-align: left;">ТипОперации</td>
+<td style="text-align: left;">VARCHAR(10)</td>
+<td style="text-align: left;">INSERT, UPDATE, DELETE</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИмяТаблицы</td>
+<td style="text-align: left;">VARCHAR(128)</td>
+<td style="text-align: left;">Имя изменённой таблицы</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИД_ЗаписиТаблицы</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">Идентификатор изменённой записи</td>
+</tr>
+<tr>
+<td style="text-align: left;">СтарыеЗначения</td>
+<td style="text-align: left;">JSONB</td>
+<td style="text-align: left;">Значения до изменения (для UPDATE и DELETE)</td>
+</tr>
+<tr>
+<td style="text-align: left;">НовыеЗначения</td>
+<td style="text-align: left;">JSONB</td>
+<td style="text-align: left;">Значения после изменения (для INSERT и UPDATE)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32">3.2. Триггеры аудита</h3>
+<p>Для каждой из 9 таблиц создан триггер <code>AFTER INSERT OR UPDATE OR DELETE</code>, вызывающий функцию <code>фн_аудит_изменений()</code>. Функция в зависимости от типа операции формирует запись в журнале аудита:</p>
+<p>а) <strong>INSERT</strong> — фиксируется имя пользователя, время, тип операции, имя таблицы, идентификатор записи и новые значения (JSONB);
+б) <strong>UPDATE</strong> — фиксируются старые и новые значения (JSONB) для отслеживания изменений;
+в) <strong>DELETE</strong> — фиксируются старые значения (JSONB) для возможности восстановления.</p>
+<h3 id="33">3.3. Защита журнала аудита</h3>
+<p>Журнал аудита защищён от несанкционированного изменения и удаления:</p>
+<p>а) Права <code>DELETE</code> и <code>UPDATE</code> на таблицу <code>ЖурналАудита</code> отозваны у ролей <code>amqc_reader</code> и <code>amqc_writer</code>;
+б) Только роль <code>amqc_admin</code> имеет полный доступ к журналу;
+в) Для ускорения поиска созданы индексы по полям <code>ВремяИзменения</code>, <code>ИмяТаблицы</code> и <code>ИмяПользователя</code>.</p>
+<h3 id="34">3.4. Запросы для работы с журналом аудита</h3>
+<p><strong>Просмотр последних изменений:</strong></p>
+<pre><code class="language-sql">SELECT ИмяПользователя, ВремяИзменения, ТипОперации, ИмяТаблицы, ИД_ЗаписиТаблицы
+FROM справочная_бд.ЖурналАудита
+ORDER BY ВремяИзменения DESC
+LIMIT 100;
+</code></pre>
+<p><strong>Просмотр изменений по конкретной таблице:</strong></p>
+<pre><code class="language-sql">SELECT ИмяПользователя, ВремяИзменения, ТипОперации, ИД_ЗаписиТаблицы,
+       СтарыеЗначения, НовыеЗначения
+FROM справочная_бд.ЖурналАудита
+WHERE ИмяТаблицы = 'ТочкаУчёта'
+ORDER BY ВремяИзменения DESC;
+</code></pre>
+<p><strong>Просмотр изменений по конкретному пользователю:</strong></p>
+<pre><code class="language-sql">SELECT ВремяИзменения, ТипОперации, ИмяТаблицы, ИД_ЗаписиТаблицы
+FROM справочная_бд.ЖурналАудита
+WHERE ИмяПользователя = 'amqc_user_writer'
+ORDER BY ВремяИзменения DESC;
+</code></pre>
+<hr />
+<h2 id="4">4. Защита соединений</h2>
+<h3 id="41">4.1. Требования к защите соединений</h3>
+<p>В соответствии с требованиями технического задания (Приложение Д, раздел 3.4.3) передача данных между справочной БД и АРМ инженеров должна осуществляться по защищённому протоколу (TLS/SSL) в рамках корпоративной сети.</p>
+<h3 id="42-tlsssl-postgresql">4.2. Настройка TLS/SSL в PostgreSQL</h3>
+<p><strong>Генерация сертификатов:</strong></p>
+<pre><code class="language-bash"># Создание директории для сертификатов
+sudo mkdir -p /etc/postgresql/15/main/certs
+cd /etc/postgresql/15/main/certs
+
+# Генерация самоподписанного сертификата (для тестовой среды)
+sudo openssl req -new -x509 -days 365 -nodes \
+    -out server.crt \
+    -keyout server.key \
+    -subj &quot;/CN=alphameterqc-server&quot;
+
+# Установка прав доступа
+sudo chmod 600 server.key
+sudo chown postgres:postgres server.crt server.key
+</code></pre>
+<p><strong>Настройка postgresql.conf:</strong></p>
+<pre><code>ssl = on
+ssl_cert_file = '/etc/postgresql/15/main/certs/server.crt'
+ssl_key_file = '/etc/postgresql/15/main/certs/server.key'
+ssl_ca_file = ''
+</code></pre>
+<p><strong>Настройка pg_hba.conf для обязательного SSL:</strong></p>
+<pre><code># Подключения с SSL для всех ролей
+hostssl    alphameterqc    amqc_reader     192.168.0.0/16    scram-sha-256
+hostssl    alphameterqc    amqc_writer     192.168.0.0/16    scram-sha-256
+hostssl    alphameterqc    amqc_admin      127.0.0.1/32      scram-sha-256
+</code></pre>
+<p><strong>Перезапуск PostgreSQL:</strong></p>
+<pre><code class="language-bash">sudo systemctl restart postgresql
+</code></pre>
+<h3 id="43-ssl-alphameterqc">4.3. Строка подключения с SSL (для ПО AlphaMeterQC)</h3>
+<pre><code>postgresql://amqc_reader:password@192.168.1.100:5432/alphameterqc?sslmode=require
+</code></pre>
+<h3 id="44">4.4. Сетевая изоляция</h3>
+<p>а) Сервер БД размещается в выделенном сегменте локальной сети;
+б) Доступ к порту 5432 разрешён только с АРМ инженеров (список разрешённых IP-адресов);
+в) Доступ к серверу БД по SSH — только для администраторов;
+г) Рекомендуется использование файрвола (iptables/nftables) для ограничения доступа.</p>
+<hr />
+<h2 id="5">5. Резервное копирование и восстановление</h2>
+<h3 id="51">5.1. Стратегия резервного копирования</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Тип копирования</th>
+<th style="text-align: left;">Периодичность</th>
+<th style="text-align: left;">Время выполнения</th>
+<th style="text-align: left;">Срок хранения</th>
+<th style="text-align: left;">Инструмент</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Полная (custom format)</td>
+<td style="text-align: left;">Ежедневно</td>
+<td style="text-align: left;">02:00</td>
+<td style="text-align: left;">30 дней</td>
+<td style="text-align: left;">pg_dump</td>
+</tr>
+<tr>
+<td style="text-align: left;">Непрерывное архивирование WAL</td>
+<td style="text-align: left;">Непрерывно</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">7 дней</td>
+<td style="text-align: left;">WAL archiving</td>
+</tr>
+</tbody>
+</table>
+<h3 id="52">5.2. Скрипты резервного копирования и восстановления</h3>
+<p>Разработаны два скрипта (Приложение С):</p>
+<ol>
+<li><strong><code>16_backup_script.sh</code></strong> — скрипт полного резервного копирования в custom-формате с автоматической ротацией (хранение 30 дней). Особенности:</li>
+<li>проверка доступности PostgreSQL перед началом копирования;</li>
+<li>ведение журнала операций;</li>
+<li>
+<p>автоматическое удаление копий старше 30 дней.</p>
+</li>
+<li>
+<p><strong><code>17_restore_script.sh</code></strong> — скрипт восстановления из резервной копии. Особенности:</p>
+</li>
+<li>завершение активных подключений к БД перед восстановлением;</li>
+<li>использование <code>--clean</code> и <code>--if-exists</code> для пересоздания объектов;</li>
+<li>ведение журнала операций.</li>
+</ol>
+<h3 id="53-cron">5.3. Настройка автоматического резервного копирования (cron)</h3>
+<pre><code class="language-bash"># Добавление задачи в crontab
+sudo crontab -e
+
+# Ежедневное резервное копирование в 02:00
+0 2 * * * /usr/local/bin/backup_alphameterqc.sh &gt;&gt; /var/log/alphameterqc_backup.log 2&gt;&amp;1
+</code></pre>
+<h3 id="54">5.4. Процедура восстановления</h3>
+<ol>
+<li>Остановить ПО AlphaMeterQC (завершить подключения к БД).</li>
+<li>Выполнить скрипт восстановления:
+   <code>bash
+   sudo ./17_restore_script.sh /backup/alphameterqc/alphameterqc_20260504_120000.dump</code></li>
+<li>Проверить целостность восстановленных данных:
+   <code>sql
+   SELECT COUNT(*) AS Таблиц FROM information_schema.tables WHERE table_schema = 'справочная_бд';
+   SELECT COUNT(*) AS Записей FROM справочная_бд.ТочкаУчёта;</code></li>
+<li>Запустить ПО AlphaMeterQC.</li>
+<li>Проверить корректность формирования экранных форм.</li>
+</ol>
+<hr />
+<h2 id="6">6. Мониторинг безопасности</h2>
+<h3 id="61">6.1. Мониторинг попыток несанкционированного доступа</h3>
+<pre><code class="language-sql">-- Проверка неудачных попыток подключения (из журнала PostgreSQL)
+SELECT count(*) AS Неудачных_подключений
+FROM pg_stat_activity
+WHERE state = 'failed';
+</code></pre>
+<h3 id="62">6.2. Мониторинг активности пользователей</h3>
+<pre><code class="language-sql">-- Текущие активные подключения
+SELECT usename AS Пользователь, client_addr AS IP_адрес,
+       application_name AS Приложение, state AS Состояние,
+       query AS Запрос
+FROM pg_stat_activity
+WHERE datname = 'alphameterqc' AND pid &lt;&gt; pg_backend_pid();
+</code></pre>
+<h3 id="63">6.3. Мониторинг размера журнала аудита</h3>
+<pre><code class="language-sql">SELECT
+    pg_size_pretty(pg_total_relation_size('справочная_бд.ЖурналАудита')) AS РазмерЖурнала,
+    COUNT(*) AS КоличествоЗаписей
+FROM справочная_бд.ЖурналАудита;
+</code></pre>
+<hr />
+<h2 id="7">7. Процедуры реагирования на инциденты</h2>
+<h3 id="71">7.1. Обнаружение несанкционированного изменения данных</h3>
+<ol>
+<li>
+<p>Выполнить запрос к журналу аудита для выявления подозрительных операций:
+   <code>sql
+   SELECT * FROM справочная_бд.ЖурналАудита
+   WHERE ИмяПользователя NOT IN ('amqc_user_writer', 'amqc_user_admin')
+   ORDER BY ВремяИзменения DESC;</code></p>
+</li>
+<li>
+<p>При обнаружении несанкционированных изменений — определить объём изменённых данных и временной промежуток.</p>
+</li>
+<li>
+<p>Выполнить восстановление изменённых данных из резервной копии.</p>
+</li>
+</ol>
+<h3 id="72">7.2. Утеря пароля пользователя</h3>
+<ol>
+<li>
+<p>Администратор БД создаёт новый пароль для пользователя:
+   <code>sql
+   ALTER USER amqc_user_writer WITH PASSWORD 'новый_пароль';</code></p>
+</li>
+<li>
+<p>Пользователь обновляет строку подключения в ПО AlphaMeterQC.</p>
+</li>
+</ol>
+<h3 id="73-tls">7.3. Компрометация сертификата TLS</h3>
+<ol>
+<li>Сгенерировать новый сертификат сервера.</li>
+<li>Обновить файлы сертификатов на сервере БД.</li>
+<li>Перезапустить PostgreSQL.</li>
+<li>Обновить сертификаты на всех АРМ инженеров.</li>
+</ol>
+<hr />
+<h2 id="8">8. Соответствие требованиям технического задания</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Требование ТЗ (Приложение Д)</th>
+<th style="text-align: left;">Реализация</th>
+<th style="text-align: center;">Статус</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Раздел 3.4.1: как минимум две роли (reader, writer)</td>
+<td style="text-align: left;">Созданы 3 роли: amqc_reader, amqc_writer, amqc_admin</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">Раздел 3.4.1: роль reader для всех авторизованных пользователей</td>
+<td style="text-align: left;">amqc_reader с SELECT на все таблицы + ALTER DEFAULT PRIVILEGES</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">Раздел 3.4.1: роль writer для уполномоченных сотрудников</td>
+<td style="text-align: left;">amqc_writer с SELECT, INSERT, UPDATE, DELETE + USAGE на SEQUENCE</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">Раздел 3.4.2: журнал аудита с фиксацией пользователя, времени, типа операции, таблицы, идентификатора записи</td>
+<td style="text-align: left;">Таблица ЖурналАудита с 8 столбцами, включая СтарыеЗначения и НовыеЗначения (JSONB)</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">Раздел 3.4.2: защита журнала аудита от удаления и модификации</td>
+<td style="text-align: left;">REVOKE DELETE, UPDATE ON ЖурналАудита FROM amqc_reader, amqc_writer</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">Раздел 3.4.3: защита соединений (TLS/SSL)</td>
+<td style="text-align: left;">Настройка ssl = on, hostssl в pg_hba.conf</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

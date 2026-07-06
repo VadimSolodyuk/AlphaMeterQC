@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Анализ и устранение узких мест в производительности справочной БД AlphaMeterQC - AlphaMeterQC Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">AlphaMeterQC Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Главная</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Артефакты модуля login_dialog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../login_dialog/01_concept/" class="dropdown-item">Концепция</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/02_stakeholders_requirements/" class="dropdown-item">Требования стейкхолдеров</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/03_user_stories/" class="dropdown-item">Пользовательские истории</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/04_srs/" class="dropdown-item">SRS</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05_use_cases/" class="dropdown-item">Варианты использования</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-1_UC.LOGIN.D0.01/" class="dropdown-item">UC D0.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-2_UC.LOGIN.D1.01/" class="dropdown-item">UC D1.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-3_UC.LOGIN.D2.01/" class="dropdown-item">UC D2.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-4_UC.LOGIN.D2.02/" class="dropdown-item">UC D2.02</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-5_UC.LOGIN.D3.01/" class="dropdown-item">UC D3.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/06_rtm/" class="dropdown-item">Матрица трассировки</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/07_domain_model/" class="dropdown-item">Модель предметной сферы</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/08_technical_specification/" class="dropdown-item">Техническое задание</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/09_ui_design/" class="dropdown-item">Дизайн UI</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/10_ui_traceability/" class="dropdown-item">Трассировка UI</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">API Справка (Auto-generated из кода)</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../api/login_dialog/" class="dropdown-item">Модуль login_dialog</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#alphameterqc" class="nav-link">Анализ и устранение узких мест в производительности справочной БД AlphaMeterQC</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. Назначение документа</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. Методика анализа</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. Результаты нагрузочного тестирования (сводка)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. Идентифицированные узкие места</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. Матрица узких мест</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. Выводы</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="alphameterqc">Анализ и устранение узких мест в производительности справочной БД AlphaMeterQC</h1>
+<p><strong>Автор:</strong> В.Л. Солодюк
+<strong>Проект:</strong> ПО «AlphaMeterQC» (анализ и контроль своевременности поступления, полноты и корректности данных, собранных со счётчиков электрической энергии и хранящихся в БД (Oracle) ПО АльфаЦЕНТР) / Модуль справочной БД</p>
+<hr />
+<h2 id="1">1. Назначение документа</h2>
+<p>Настоящий документ содержит анализ узких мест в производительности справочной БД AlphaMeterQC, выявленных в ходе нагрузочного тестирования (Приложение О), а также рекомендации по их устранению. Документ разработан в рамках этапа «Оптимизация и тестирование БД» (раздел 4 отчёта).</p>
+<hr />
+<h2 id="2">2. Методика анализа</h2>
+<p>Анализ узких мест проводился в следующем порядке:</p>
+<ol>
+<li><strong>Сбор данных о производительности</strong> — на основе результатов нагрузочного тестирования (10 сценариев, Приложение О) и оптимизации запросов (8 типовых запросов, Приложение Н).</li>
+<li><strong>Идентификация потенциальных узких мест</strong> — выявление запросов с наибольшим временем выполнения, операций полного сканирования таблиц (Seq Scan), неоптимальных планов выполнения.</li>
+<li><strong>Оценка влияния</strong> — определение критичности каждого узкого места для эксплуатации БД при текущих и прогнозируемых объёмах данных.</li>
+<li><strong>Разработка рекомендаций</strong> — предложения по устранению или смягчению выявленных узких мест.</li>
+</ol>
+<hr />
+<h2 id="3">3. Результаты нагрузочного тестирования (сводка)</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">№</th>
+<th style="text-align: left;">Сценарий</th>
+<th style="text-align: left;">Тип</th>
+<th style="text-align: center;">Время (мс)</th>
+<th style="text-align: left;">План выполнения</th>
+<th style="text-align: left;">Ключевой показатель</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">T1</td>
+<td style="text-align: left;">Список ТУ по объекту</td>
+<td style="text-align: left;">SELECT</td>
+<td style="text-align: center;">0,045</td>
+<td style="text-align: left;">Index Scan (idx_ту_объект)</td>
+<td style="text-align: left;">4 buffers</td>
+</tr>
+<tr>
+<td style="text-align: center;">T2</td>
+<td style="text-align: left;">Полная иерархия (5 таблиц)</td>
+<td style="text-align: left;">SELECT</td>
+<td style="text-align: center;">0,112</td>
+<td style="text-align: left;">Nested Loop (5 Index Scan)</td>
+<td style="text-align: left;">14 buffers</td>
+</tr>
+<tr>
+<td style="text-align: center;">T3</td>
+<td style="text-align: left;">Поиск ТУ по номеру присоединения</td>
+<td style="text-align: left;">SELECT</td>
+<td style="text-align: center;">0,038</td>
+<td style="text-align: left;">Index Scan (idx_ту_номер_присоединения)</td>
+<td style="text-align: left;">4 buffers</td>
+</tr>
+<tr>
+<td style="text-align: center;">T4</td>
+<td style="text-align: left;">Статистика ТУ по статусам</td>
+<td style="text-align: left;">SELECT</td>
+<td style="text-align: center;">2,168</td>
+<td style="text-align: left;">Seq Scan (ТочкаУчёта) + HashAggregate</td>
+<td style="text-align: left;">45 buffers</td>
+</tr>
+<tr>
+<td style="text-align: center;">T5</td>
+<td style="text-align: left;">Заявки по ТУ с фильтром по дате</td>
+<td style="text-align: left;">SELECT</td>
+<td style="text-align: center;">0,022</td>
+<td style="text-align: left;">Index Scan (idx_заявка_ту)</td>
+<td style="text-align: left;">3 buffers</td>
+</tr>
+<tr>
+<td style="text-align: center;">T6</td>
+<td style="text-align: left;">Вставка одной ТУ</td>
+<td style="text-align: left;">INSERT</td>
+<td style="text-align: center;">0,131</td>
+<td style="text-align: left;">Index Insert</td>
+<td style="text-align: left;">3 buffers</td>
+</tr>
+<tr>
+<td style="text-align: center;">T7</td>
+<td style="text-align: left;">Массовая вставка 100 ТУ</td>
+<td style="text-align: left;">INSERT</td>
+<td style="text-align: center;">1,345</td>
+<td style="text-align: left;">Bulk Insert</td>
+<td style="text-align: left;">45 buffers</td>
+</tr>
+<tr>
+<td style="text-align: center;">T8</td>
+<td style="text-align: left;">Обновление статуса одной ТУ</td>
+<td style="text-align: left;">UPDATE</td>
+<td style="text-align: center;">0,198</td>
+<td style="text-align: left;">Index Scan + Update</td>
+<td style="text-align: left;">4 buffers</td>
+</tr>
+<tr>
+<td style="text-align: center;">T9</td>
+<td style="text-align: left;">Массовое обновление 10 ТУ</td>
+<td style="text-align: left;">UPDATE</td>
+<td style="text-align: center;">0,412</td>
+<td style="text-align: left;">Index Scan + Update</td>
+<td style="text-align: left;">8 buffers</td>
+</tr>
+<tr>
+<td style="text-align: center;">T10</td>
+<td style="text-align: left;">Удаление одной ТУ (каскадное)</td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: center;">0,312</td>
+<td style="text-align: left;">Index Scan + Delete + Triggers</td>
+<td style="text-align: left;">8 buffers</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4">4. Идентифицированные узкие места</h2>
+<h3 id="41-no1-t4">4.1. Узкое место №1: Полное сканирование таблицы ТочкаУчёта в агрегирующем запросе (T4)</h3>
+<p><strong>Описание.</strong> Запрос статистики ТУ по статусам (T4) выполняет полное сканирование (Seq Scan) таблицы <code>ТочкаУчёта</code> при 10 000 записей. Время выполнения — 2,168 мс, количество прочитанных буферов — 45.</p>
+<p><strong>План выполнения (10 000 записей):</strong></p>
+<pre><code>Hash Right Join (actual time=0.018..1.245 rows=10000 loops=1)
+  -&gt;  Seq Scan on ТочкаУчёта tu (actual time=0.005..0.512 rows=10000 loops=1)
+        Buffers: shared hit=45
+  -&gt;  Hash (actual time=0.004..0.004 rows=6 loops=1)
+        -&gt;  Seq Scan on СтатусТУ s (actual time=0.002..0.002 rows=6 loops=1)
+</code></pre>
+<p><strong>Причина.</strong> Для агрегирующего запроса, которому необходимо прочитать все строки таблицы, оптимизатор PostgreSQL обоснованно выбирает полное сканирование вместо индексного. Seq Scan читает всю таблицу последовательно, что для 10 000 строк эффективнее, чем random access через индекс с последующим чтением каждой строки.</p>
+<p><strong>Критичность.</strong> Низкая. Время 2,168 мс значительно ниже порога в 1 000 мс. Однако при росте объёма данных до 100 000 записей и более время выполнения будет расти линейно.</p>
+<p><strong>Прогноз при росте объёма:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Объём ТУ</th>
+<th style="text-align: center;">Прогнозируемое время (Seq Scan)</th>
+<th style="text-align: center;">Запас до порога 1 000 мс</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">10 000</td>
+<td style="text-align: center;">2,2 мс</td>
+<td style="text-align: center;">454×</td>
+</tr>
+<tr>
+<td style="text-align: center;">50 000</td>
+<td style="text-align: center;">~11 мс</td>
+<td style="text-align: center;">90×</td>
+</tr>
+<tr>
+<td style="text-align: center;">100 000</td>
+<td style="text-align: center;">~22 мс</td>
+<td style="text-align: center;">45×</td>
+</tr>
+<tr>
+<td style="text-align: center;">500 000</td>
+<td style="text-align: center;">~110 мс</td>
+<td style="text-align: center;">9×</td>
+</tr>
+<tr>
+<td style="text-align: center;">1 000 000</td>
+<td style="text-align: center;">~220 мс</td>
+<td style="text-align: center;">4,5×</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Рекомендации по устранению:</strong></p>
+<ol>
+<li><strong>Материализованное представление (Materialized View)</strong> — создать материализованное представление, которое будет хранить предрассчитанную статистику и обновляться по расписанию или после массовых изменений:</li>
+</ol>
+<pre><code class="language-sql">CREATE MATERIALIZED VIEW справочная_бд.мв_статистика_ту_по_статусам AS
+SELECT
+    s.ИД_Статуса,
+    s.Наименование AS Статус,
+    COUNT(tu.ИД_ТУ) AS КоличествоТУ,
+    s.МаксВремяОтсутствияДанныхЧас
+FROM справочная_бд.СтатусТУ s
+    LEFT JOIN справочная_бд.ТочкаУчёта tu ON s.ИД_Статуса = tu.ИД_Статуса
+GROUP BY s.ИД_Статуса, s.Наименование, s.МаксВремяОтсутствияДанныхЧас
+ORDER BY s.Наименование;
+
+-- Индекс для быстрого доступа
+CREATE UNIQUE INDEX idx_мв_статистика_статус
+    ON справочная_бд.мв_статистика_ту_по_статусам(ИД_Статуса);
+
+-- Обновление по расписанию (ежедневно)
+-- REFRESH MATERIALIZED VIEW справочная_бд.мв_статистика_ту_по_статусам;
+</code></pre>
+<ol>
+<li><strong>Покрывающий индекс</strong> — если требуется выполнять запрос без полного сканирования, можно создать покрывающий индекс, включающий все необходимые столбцы:</li>
+</ol>
+<pre><code class="language-sql">CREATE INDEX idx_ту_статус_covering
+    ON справочная_бд.ТочкаУчёта(ИД_Статуса) INCLUDE (ИД_ТУ);
+</code></pre>
+<p>Однако для агрегирующего запроса, читающего все строки, покрывающий индекс не даст значительного выигрыша по сравнению с Seq Scan.</p>
+<hr />
+<h3 id="42-no2-t2">4.2. Узкое место №2: Отсутствие композитного индекса для иерархического запроса (T2)</h3>
+<p><strong>Описание.</strong> Запрос полной иерархии (T2) соединяет 5 таблиц последовательными вложенными циклами (Nested Loop). При текущем объёме данных (10 000 ТУ) время выполнения составляет 0,112 мс, что является отличным показателем. Однако при росте объёма данных до 50 000–100 000 ТУ количество итераций вложенных циклов может привести к увеличению времени.</p>
+<p><strong>План выполнения (10 000 ТУ):</strong></p>
+<pre><code>Nested Loop (actual time=0.035..0.078 rows=2 loops=1)
+  -&gt;  Nested Loop (actual time=0.024..0.038 rows=2 loops=1)
+        -&gt;  Index Scan on Организация (pk) — 1 строка
+        -&gt;  Nested Loop (actual time=0.010..0.019 rows=2 loops=1)
+              -&gt;  Index Scan on СтруктурноеПодразделение (idx_подразделение_организация)
+              -&gt;  Index Scan on Объект (idx_объект_подразделение)
+  -&gt;  Index Scan on ТочкаУчёта (idx_ту_объект)
+  -&gt;  Index Scan on СтатусТУ (pk)
+</code></pre>
+<p><strong>Причина.</strong> Каждый уровень иерархии добавляет вложенный цикл. Хотя каждый цикл использует индексный поиск, при большом количестве строк на каждом уровне (например, 100 подразделений у организации, 10 объектов у подразделения, 10 ТУ у объекта) количество итераций растёт мультипликативно.</p>
+<p><strong>Критичность.</strong> Низкая. При текущем объёме данных (10 000 ТУ) время 0,112 мс не является проблемой.</p>
+<p><strong>Прогноз при росте объёма:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Сценарий</th>
+<th style="text-align: center;">Текущее время</th>
+<th style="text-align: center;">Прогноз при 100 000 ТУ</th>
+<th style="text-align: center;">Запас до порога 1 000 мс</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">T2 (полная иерархия)</td>
+<td style="text-align: center;">0,112 мс</td>
+<td style="text-align: center;">~1–2 мс</td>
+<td style="text-align: center;">500×</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Рекомендации по устранению:</strong></p>
+<ol>
+<li><strong>Композитный индекс</strong> (как рекомендовано в Приложении Н, раздел 4.1) для покрытия соединения ТочкаУчёта → СтатусТУ:</li>
+</ol>
+<pre><code class="language-sql">CREATE INDEX idx_ту_объект_статус
+    ON справочная_бд.ТочкаУчёта(ИД_Объекта, ИД_Статуса);
+</code></pre>
+<p>Этот индекс позволит выполнять Index Only Scan для соединения ТУ со статусом, без обращения к таблице.</p>
+<ol>
+<li><strong>При достижении 50 000 записей</strong> — пересмотреть план выполнения и при необходимости добавить композитные индексы для других уровней иерархии.</li>
+</ol>
+<hr />
+<h3 id="43-no3-t5">4.3. Узкое место №3: Отсутствие индекса для фильтрации заявок по дате (T5)</h3>
+<p><strong>Описание.</strong> Запрос T5 выполняет поиск заявок по ТУ с фильтром по дате окончания. При текущем объёме (30 000 заявок) запрос использует Index Scan по <code>idx_заявка_ту</code> с последующей фильтрацией (Filter) по условию даты. Время — 0,022 мс.</p>
+<p><strong>План выполнения:</strong></p>
+<pre><code>Index Scan using idx_заявка_ту on Заявка z
+    (cost=0.29..8.57 rows=2 width=46) (actual time=0.010..0.013 rows=2 loops=1)
+  Index Cond: (ИД_ТУ = 1)
+  Filter: ((ДатаОкончания IS NULL) OR (ДатаОкончания &gt;= '2026-01-01'::date))
+</code></pre>
+<p><strong>Причина.</strong> Индекс <code>idx_заявка_ту</code> покрывает только условие <code>ИД_ТУ = ?</code>. Фильтрация по дате выполняется как дополнительное условие (Filter) после индексного поиска. При большом количестве заявок на одну ТУ (например, 100+) фильтрация по дате будет выполняться в памяти для каждой найденной строки.</p>
+<p><strong>Критичность.</strong> Низкая. При текущем объёме данных время 0,022 мс не является проблемой.</p>
+<p><strong>Рекомендации по устранению:</strong></p>
+<ol>
+<li><strong>Композитный индекс</strong> для покрытия обоих условий:</li>
+</ol>
+<pre><code class="language-sql">CREATE INDEX idx_заявка_ту_дата
+    ON справочная_бд.Заявка(ИД_ТУ, ДатаОкончания);
+</code></pre>
+<p>Этот индекс позволит выполнять Index Scan с двумя условиями (Index Cond) без дополнительной фильтрации.</p>
+<ol>
+<li><strong>Частичный индекс</strong> для часто используемого фильтра (только открытые заявки):</li>
+</ol>
+<pre><code class="language-sql">CREATE INDEX idx_заявка_ту_открытые
+    ON справочная_бд.Заявка(ИД_ТУ)
+    WHERE ДатаОкончания IS NULL;
+</code></pre>
+<hr />
+<h3 id="44-no4-t10">4.4. Узкое место №4: Каскадное удаление при массовых операциях (T10)</h3>
+<p><strong>Описание.</strong> При удалении ТУ (T10) выполняются каскадные операции: удаление связанных заявок и примечаний через триггеры внешних ключей. При текущем объёме время удаления одной ТУ — 0,312 мс, из которых 0,033 мс приходится на каскадные триггеры.</p>
+<p><strong>План выполнения:</strong></p>
+<pre><code>Delete on ТочкаУчёта (actual time=0.245..0.245 rows=0 loops=1)
+  -&gt;  Index Scan using pk_точкаучёта (actual time=0.010..0.011 rows=1 loops=1)
+  Trigger for constraint fk_заявка_ту: time=0.018 calls=1
+  Trigger for constraint fk_примечание_ту: time=0.015 calls=1
+</code></pre>
+<p><strong>Причина.</strong> Каскадное удаление требует поиска и удаления связанных записей в таблицах <code>Заявка</code> и <code>Примечание</code>. При массовом удалении (например, удаление объекта со всеми ТУ) количество каскадных операций растёт пропорционально количеству ТУ.</p>
+<p><strong>Критичность.</strong> Средняя. При единичных операциях время незначительно. При массовом удалении (например, удаление организации с каскадным удалением всех связанных записей) время может стать заметным.</p>
+<p><strong>Прогноз при массовом удалении:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Операция</th>
+<th style="text-align: center;">Количество каскадных записей</th>
+<th style="text-align: center;">Прогнозируемое время</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Удаление 1 ТУ</td>
+<td style="text-align: center;">~3 заявки + ~3 примечания</td>
+<td style="text-align: center;">0,3 мс</td>
+</tr>
+<tr>
+<td style="text-align: left;">Удаление объекта (10 ТУ)</td>
+<td style="text-align: center;">~30 заявок + ~30 примечаний</td>
+<td style="text-align: center;">~3 мс</td>
+</tr>
+<tr>
+<td style="text-align: left;">Удаление подразделения (100 ТУ)</td>
+<td style="text-align: center;">~300 заявок + ~300 примечаний</td>
+<td style="text-align: center;">~30 мс</td>
+</tr>
+<tr>
+<td style="text-align: left;">Удаление организации (500 ТУ)</td>
+<td style="text-align: center;">~1 500 заявок + ~1 500 примечаний</td>
+<td style="text-align: center;">~150 мс</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Рекомендации по устранению:</strong></p>
+<ol>
+<li>
+<p><strong>Индексы на внешних ключах</strong> — уже созданы (<code>idx_заявка_ту</code>, <code>idx_примечание_ту</code>), что обеспечивает эффективный поиск связанных записей при каскадном удалении. Дополнительное индексирование не требуется.</p>
+</li>
+<li>
+<p><strong>Пакетное удаление</strong> — при необходимости массового удаления рекомендуется выполнять операцию в транзакции с предварительным удалением дочерних записей:</p>
+</li>
+</ol>
+<pre><code class="language-sql">BEGIN;
+DELETE FROM справочная_бд.Примечание WHERE ИД_ТУ IN (SELECT ИД_ТУ FROM справочная_бд.ТочкаУчёта WHERE ИД_Объекта = 1);
+DELETE FROM справочная_бд.Заявка WHERE ИД_ТУ IN (SELECT ИД_ТУ FROM справочная_бд.ТочкаУчёта WHERE ИД_Объекта = 1);
+DELETE FROM справочная_бд.ТочкаУчёта WHERE ИД_Объекта = 1;
+COMMIT;
+</code></pre>
+<ol>
+<li><strong>Отложенное каскадное удаление</strong> — для очень больших объёмов (более 10 000 записей) рассмотреть возможность использования пакетной обработки с фиксацией транзакции после каждого пакета (например, по 1 000 записей).</li>
+</ol>
+<hr />
+<h3 id="45-no5-dml-">4.5. Узкое место №5: Разрастание мёртвых кортежей при интенсивных DML-операциях</h3>
+<p><strong>Описание.</strong> PostgreSQL использует механизм MVCC (Multi-Version Concurrency Control), при котором UPDATE и DELETE не изменяют существующие строки, а создают новые версии (кортежи). Старые версии помечаются как «мёртвые» и подлежат удалению процессом autovacuum. При интенсивных DML-операциях (частые обновления статусов ТУ, массовые вставки заявок) количество мёртвых кортежей может расти быстрее, чем autovacuum успевает их обрабатывать.</p>
+<p><strong>Причина.</strong> Механизм MVCC PostgreSQL. Каждая операция UPDATE создаёт новую версию строки; старая версия остаётся до обработки autovacuum.</p>
+<p><strong>Критичность.</strong> Низкая — средняя (зависит от интенсивности DML-операций).</p>
+<p><strong>Рекомендации по устранению:</strong></p>
+<ol>
+<li><strong>Настройка autovacuum</strong> для таблиц с высокой интенсивностью DML:</li>
+</ol>
+<pre><code class="language-sql">-- Для таблицы ТочкаУчёта (частые обновления статусов)
+ALTER TABLE справочная_бд.ТочкаУчёта SET (
+    autovacuum_vacuum_scale_factor = 0.01,    -- Срабатывание при 1% мёртвых кортежей
+    autovacuum_vacuum_threshold = 50,          -- Минимальный порог мёртвых кортежей
+    autovacuum_analyze_scale_factor = 0.005,   -- Анализ при 0.5% изменений
+    autovacuum_vacuum_cost_limit = 1000        -- Увеличение интенсивности vacuum
+);
+
+-- Для таблицы Заявка (частые вставки и обновления)
+ALTER TABLE справочная_бд.Заявка SET (
+    autovacuum_vacuum_scale_factor = 0.02,
+    autovacuum_vacuum_threshold = 100,
+    autovacuum_analyze_scale_factor = 0.01
+);
+</code></pre>
+<ol>
+<li><strong>Мониторинг мёртвых кортежей</strong> — регулярный контроль с помощью запроса:</li>
+</ol>
+<pre><code class="language-sql">SELECT
+    relname AS Таблица,
+    n_dead_tup AS МёртвыеКортежи,
+    n_live_tup AS ЖивыеКортежи,
+    round(n_dead_tup * 100.0 / GREATEST(n_live_tup + n_dead_tup, 1), 1) AS ПроцентМёртвых
+FROM pg_stat_user_tables
+WHERE schemaname = 'справочная_бд'
+ORDER BY n_dead_tup DESC;
+</code></pre>
+<ol>
+<li><strong>Ручной VACUUM</strong> при превышении 20 % мёртвых кортежей:</li>
+</ol>
+<pre><code class="language-sql">VACUUM (VERBOSE, ANALYZE) справочная_бд.ТочкаУчёта;
+</code></pre>
+<hr />
+<h3 id="46-no6">4.6. Узкое место №6: Отсутствие мониторинга производительности</h3>
+<p><strong>Описание.</strong> В текущей конфигурации не настроен мониторинг производительности БД. При росте объёма данных или изменении характера нагрузки ухудшение производительности может быть обнаружено только по жалобам пользователей.</p>
+<p><strong>Критичность.</strong> Средняя. Отсутствие мониторинга увеличивает время реакции на проблемы производительности.</p>
+<p><strong>Рекомендации по устранению:</strong></p>
+<ol>
+<li><strong>Базовый мониторинг</strong> с использованием системных представлений PostgreSQL:</li>
+</ol>
+<pre><code class="language-sql">-- Топ-10 самых медленных запросов (требуется pg_stat_statements)
+SELECT
+    queryid,
+    round(total_exec_time::numeric, 2) AS ОбщееВремяМс,
+    calls AS КоличествоВызовов,
+    round(mean_exec_time::numeric, 2) AS СреднееВремяМс,
+    round(max_exec_time::numeric, 2) AS МаксВремяМс,
+    query
+FROM pg_stat_statements
+WHERE query NOT LIKE '%pg_stat%'
+ORDER BY total_exec_time DESC
+LIMIT 10;
+</code></pre>
+<ol>
+<li><strong>Мониторинг размера таблиц</strong> для отслеживания роста данных:</li>
+</ol>
+<pre><code class="language-sql">SELECT
+    relname AS Таблица,
+    pg_size_pretty(pg_total_relation_size(relid)) AS ОбщийРазмер,
+    pg_size_pretty(pg_relation_size(relid)) AS РазмерТаблицы,
+    pg_size_pretty(pg_indexes_size(relid)) AS РазмерИндексов,
+    n_live_tup AS КоличествоЗаписей
+FROM pg_catalog.pg_statio_user_tables
+WHERE schemaname = 'справочная_бд'
+ORDER BY pg_total_relation_size(relid) DESC;
+</code></pre>
+<ol>
+<li><strong>Рекомендуемые пороги оповещения:</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Метрика</th>
+<th style="text-align: left;">Порог</th>
+<th style="text-align: left;">Действие</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Время выполнения запроса</td>
+<td style="text-align: left;">&gt; 500 мс</td>
+<td style="text-align: left;">Анализ плана выполнения</td>
+</tr>
+<tr>
+<td style="text-align: left;">Количество мёртвых кортежей</td>
+<td style="text-align: left;">&gt; 20 %</td>
+<td style="text-align: left;">VACUUM</td>
+</tr>
+<tr>
+<td style="text-align: left;">Размер таблицы</td>
+<td style="text-align: left;">&gt; 1 GB</td>
+<td style="text-align: left;">Рассмотреть партиционирование</td>
+</tr>
+<tr>
+<td style="text-align: left;">Размер индекса</td>
+<td style="text-align: left;">&gt; 500 MB</td>
+<td style="text-align: left;">Рассмотреть REINDEX</td>
+</tr>
+<tr>
+<td style="text-align: left;">Свободное место на диске</td>
+<td style="text-align: left;">&lt; 20 %</td>
+<td style="text-align: left;">Расширение дискового пространства</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5">5. Матрица узких мест</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">№</th>
+<th style="text-align: left;">Узкое место</th>
+<th style="text-align: center;">Текущее влияние</th>
+<th style="text-align: center;">Прогнозируемое влияние</th>
+<th style="text-align: center;">Критичность</th>
+<th style="text-align: center;">Приоритет устранения</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Seq Scan в агрегирующем запросе (T4)</td>
+<td style="text-align: center;">2,2 мс (10 000 записей)</td>
+<td style="text-align: center;">~220 мс (1 000 000 записей)</td>
+<td style="text-align: center;">Низкая</td>
+<td style="text-align: center;">Низкий</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Отсутствие композитного индекса (T2)</td>
+<td style="text-align: center;">0,1 мс (10 000 записей)</td>
+<td style="text-align: center;">~2 мс (100 000 записей)</td>
+<td style="text-align: center;">Низкая</td>
+<td style="text-align: center;">Низкий</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Отсутствие индекса по дате (T5)</td>
+<td style="text-align: center;">0,02 мс (30 000 заявок)</td>
+<td style="text-align: center;">~0,5 мс (300 000 заявок)</td>
+<td style="text-align: center;">Низкая</td>
+<td style="text-align: center;">Низкий</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Каскадное удаление (T10)</td>
+<td style="text-align: center;">0,3 мс (1 ТУ)</td>
+<td style="text-align: center;">~150 мс (500 ТУ)</td>
+<td style="text-align: center;">Средняя</td>
+<td style="text-align: center;">Средний</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Разрастание мёртвых кортежей</td>
+<td style="text-align: center;">Не проявляется</td>
+<td style="text-align: center;">При интенсивных DML</td>
+<td style="text-align: center;">Средняя</td>
+<td style="text-align: center;">Средний</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Отсутствие мониторинга</td>
+<td style="text-align: center;">Не проявляется</td>
+<td style="text-align: center;">При росте объёмов</td>
+<td style="text-align: center;">Средняя</td>
+<td style="text-align: center;">Высокий</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6">6. Выводы</h2>
+<ol>
+<li>
+<p><strong>Критических узких мест не выявлено.</strong> Все типовые запросы и операции DML выполняются за время, значительно ниже установленных требований (запас прочности от 460× до 3 800×).</p>
+</li>
+<li>
+<p><strong>Потенциальные узкие места</strong> носят прогнозируемый характер и проявятся только при значительном росте объёма данных (от 100 000 записей и более).</p>
+</li>
+<li>
+<p><strong>Рекомендации по устранению</strong> подготовлены для каждого узкого места и могут быть реализованы по мере роста объёма данных:</p>
+</li>
+<li>Материализованное представление для агрегирующих запросов (узкое место №1);</li>
+<li>Композитные индексы для иерархических запросов (узкое место №2, №3);</li>
+<li>Пакетное удаление для массовых операций (узкое место №4);</li>
+<li>Настройка autovacuum для таблиц с интенсивными DML (узкое место №5);</li>
+<li>
+<p>Внедрение базового мониторинга производительности (узкое место №6).</p>
+</li>
+<li>
+<p><strong>Наивысший приоритет</strong> имеет внедрение мониторинга производительности (узкое место №6), так как без него невозможно своевременно обнаружить деградацию производительности при росте объёмов данных.</p>
+</li>
+</ol></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

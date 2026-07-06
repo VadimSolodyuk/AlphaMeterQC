@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Нормализация данных - AlphaMeterQC Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">AlphaMeterQC Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Главная</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Артефакты модуля login_dialog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../login_dialog/01_concept/" class="dropdown-item">Концепция</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/02_stakeholders_requirements/" class="dropdown-item">Требования стейкхолдеров</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/03_user_stories/" class="dropdown-item">Пользовательские истории</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/04_srs/" class="dropdown-item">SRS</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05_use_cases/" class="dropdown-item">Варианты использования</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-1_UC.LOGIN.D0.01/" class="dropdown-item">UC D0.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-2_UC.LOGIN.D1.01/" class="dropdown-item">UC D1.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-3_UC.LOGIN.D2.01/" class="dropdown-item">UC D2.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-4_UC.LOGIN.D2.02/" class="dropdown-item">UC D2.02</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-5_UC.LOGIN.D3.01/" class="dropdown-item">UC D3.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/06_rtm/" class="dropdown-item">Матрица трассировки</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/07_domain_model/" class="dropdown-item">Модель предметной сферы</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/08_technical_specification/" class="dropdown-item">Техническое задание</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/09_ui_design/" class="dropdown-item">Дизайн UI</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/10_ui_traceability/" class="dropdown-item">Трассировка UI</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">API Справка (Auto-generated из кода)</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../api/login_dialog/" class="dropdown-item">Модуль login_dialog</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">Нормализация данных</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. Назначение документа</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-0" class="nav-link">2. Исходная ненормализованная форма (0НФ)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-1" class="nav-link">3. Приведение к первой нормальной форме (1НФ)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-2" class="nav-link">4. Приведение ко второй нормальной форме (2НФ)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-3" class="nav-link">5. Приведение к третьей нормальной форме (3НФ)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. Проверка соответствия нормальным формам</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. Дополнительные проверки</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. Выводы</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">Нормализация данных</h1>
+<p><strong>Модуль справочной БД для ПО AlphaMeterQC</strong></p>
+<p><strong>Автор:</strong> В.Л. Солодюк
+<strong>Проект:</strong> ПО «AlphaMeterQC» (анализ и контроль своевременности поступления, полноты и корректности данных, собранных со счётчиков электрической энергии и хранящихся в БД (Oracle) ПО АльфаЦЕНТР) / Модуль справочной БД</p>
+<hr />
+<h2 id="1">1. Назначение документа</h2>
+<p>Настоящий документ содержит детальное описание процесса нормализации данных справочной БД AlphaMeterQC. Нормализация выполнена на основе концептуальной ER-диаграммы (Приложение Г) и логической модели (Приложение Е) и подтверждает соответствие разработанной структуры данных требованиям первой (1НФ), второй (2НФ) и третьей (3НФ) нормальных форм.</p>
+<p>Для наглядности процесс нормализации демонстрируется «обратным ходом»: от гипотетической ненормализованной структуры (единая таблица, отражающая «плоский» сбор данных) к нормализованной реляционной схеме.</p>
+<hr />
+<h2 id="2-0">2. Исходная ненормализованная форма (0НФ)</h2>
+<p>В качестве исходной точки рассмотрим гипотетическую таблицу, в которой вся справочная информация хранится в одной плоской структуре — так, как данные могли бы собираться, например, в электронной таблице Excel до внедрения базы данных.</p>
+<h3 id="21-0">2.1. Структура 0НФ</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Столбец</th>
+<th style="text-align: left;">Пример значения</th>
+<th style="text-align: left;">Проблема</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Организация</td>
+<td style="text-align: left;">ООО «Газпром Энерго»</td>
+<td style="text-align: left;">Повторяется для каждой ТУ</td>
+</tr>
+<tr>
+<td style="text-align: left;">ПризнакПотребителя</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">Повторяется для каждой ТУ</td>
+</tr>
+<tr>
+<td style="text-align: left;">Подразделение</td>
+<td style="text-align: left;">Уренгойский отдел ИТЦ</td>
+<td style="text-align: left;">Повторяется для каждой ТУ</td>
+</tr>
+<tr>
+<td style="text-align: left;">КонтактноеЛицо_Фамилия</td>
+<td style="text-align: left;">Иванов</td>
+<td style="text-align: left;">Повторяется для каждой ТУ</td>
+</tr>
+<tr>
+<td style="text-align: left;">КонтактноеЛицо_Имя</td>
+<td style="text-align: left;">Иван</td>
+<td style="text-align: left;">Повторяется для каждой ТУ</td>
+</tr>
+<tr>
+<td style="text-align: left;">КонтактноеЛицо_Отчество</td>
+<td style="text-align: left;">Иванович</td>
+<td style="text-align: left;">Повторяется для каждой ТУ</td>
+</tr>
+<tr>
+<td style="text-align: left;">КонтактноеЛицо_Должность</td>
+<td style="text-align: left;">Начальник отдела</td>
+<td style="text-align: left;">Повторяется для каждой ТУ</td>
+</tr>
+<tr>
+<td style="text-align: left;">КонтактноеЛицо_Телефон</td>
+<td style="text-align: left;">+7 (349) 111-22-33</td>
+<td style="text-align: left;">Повторяется для каждой ТУ</td>
+</tr>
+<tr>
+<td style="text-align: left;">КонтактноеЛицо_Email</td>
+<td style="text-align: left;">ivanov@example.com</td>
+<td style="text-align: left;">Повторяется для каждой ТУ</td>
+</tr>
+<tr>
+<td style="text-align: left;">МестоРасположения</td>
+<td style="text-align: left;">г. Новый Уренгой, ул. Промышленная, 1</td>
+<td style="text-align: left;">Повторяется для каждой ТУ</td>
+</tr>
+<tr>
+<td style="text-align: left;">Объект</td>
+<td style="text-align: left;">РП-1</td>
+<td style="text-align: left;">Повторяется для каждой ТУ</td>
+</tr>
+<tr>
+<td style="text-align: left;">НомерОбъектаВБД</td>
+<td style="text-align: left;">OBJ-001</td>
+<td style="text-align: left;">Повторяется для каждой ТУ</td>
+</tr>
+<tr>
+<td style="text-align: left;">НомерПрисоединения</td>
+<td style="text-align: left;">FDR-001-01</td>
+<td style="text-align: left;">Уникален</td>
+</tr>
+<tr>
+<td style="text-align: left;">НаименованиеТУ</td>
+<td style="text-align: left;">ТУ-1 (РП-1, ф. 1)</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">СтатусТУ</td>
+<td style="text-align: left;">ОРЭМ</td>
+<td style="text-align: left;">Повторяется</td>
+</tr>
+<tr>
+<td style="text-align: left;">МаксВремяОтсутствияДанных</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Повторяется для статуса</td>
+</tr>
+<tr>
+<td style="text-align: left;">НомерЗаявки</td>
+<td style="text-align: left;">З-2026-001</td>
+<td style="text-align: left;">Может быть несколько (повторяющаяся группа)</td>
+</tr>
+<tr>
+<td style="text-align: left;">ДатаНачалаЗаявки</td>
+<td style="text-align: left;">01.02.2026</td>
+<td style="text-align: left;">Может быть несколько (повторяющаяся группа)</td>
+</tr>
+<tr>
+<td style="text-align: left;">ДатаОкончанияЗаявки</td>
+<td style="text-align: left;">28.02.2026</td>
+<td style="text-align: left;">Может быть несколько (повторяющаяся группа)</td>
+</tr>
+<tr>
+<td style="text-align: left;">ТекстПримечания</td>
+<td style="text-align: left;">Счётчик заменён 15.01.2026</td>
+<td style="text-align: left;">Может быть несколько (повторяющаяся группа)</td>
+</tr>
+<tr>
+<td style="text-align: left;">ДатаСозданияПримечания</td>
+<td style="text-align: left;">15.01.2026 10:30</td>
+<td style="text-align: left;">Может быть несколько (повторяющаяся группа)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-0">2.2. Выявленные аномалии 0НФ</h3>
+<ol>
+<li><strong>Повторяющиеся группы:</strong> для одной ТУ может быть несколько заявок и несколько примечаний — это приводит к многозначным столбцам или к дублированию строк.</li>
+<li><strong>Избыточное дублирование:</strong> данные организации, подразделения, контактного лица, места расположения, объекта и статуса повторяются для каждой ТУ.</li>
+<li><strong>Аномалии обновления:</strong> изменение наименования организации требует обновления всех строк, где она упоминается.</li>
+<li><strong>Аномалии удаления:</strong> при удалении последней ТУ организации теряется информация о самой организации.</li>
+<li><strong>Аномалии вставки:</strong> невозможно добавить новую организацию, пока у неё нет хотя бы одной ТУ.</li>
+</ol>
+<hr />
+<h2 id="3-1">3. Приведение к первой нормальной форме (1НФ)</h2>
+<h3 id="31-1">3.1. Требования 1НФ</h3>
+<p>Отношение находится в 1НФ, если:
+1. Все атрибуты атомарны (неделимы).
+2. Каждый кортеж содержит только одно значение на пересечении строки и столбца.
+3. Отсутствуют повторяющиеся группы.
+4. Отношение имеет первичный ключ.</p>
+<h3 id="32">3.2. Преобразования</h3>
+<p><strong>Шаг 1. Устранение повторяющихся групп.</strong></p>
+<p>Повторяющиеся группы «Заявка» и «Примечание» выносятся в отдельные отношения. Для каждой ТУ теперь может быть 0, 1 или несколько записей в таблицах <code>Заявка</code> и <code>Примечание</code>.</p>
+<p><strong>Шаг 2. Обеспечение атомарности.</strong></p>
+<p>Все атрибуты в исходной таблице уже являются атомарными (не содержат составных значений, списков или вложенных структур). Проверка:
+а) <code>Фамилия</code>, <code>Имя</code>, <code>Отчество</code> — разделены на отдельные атрибуты (а не одно поле «ФИО»);
+б) <code>Телефон</code> и <code>Email</code> — отдельные атрибуты;
+в) <code>ДатаНачала</code> и <code>ДатаОкончания</code> — отдельные атрибуты.</p>
+<p><strong>Шаг 3. Определение первичного ключа.</strong></p>
+<p>Для таблицы <code>ТочкаУчёта</code> первичным ключом выбран суррогатный идентификатор <code>ИД_ТУ</code>, так как бизнес-ключ <code>НомерПрисоединения</code> уникален, но может быть длинным и неудобным для использования в качестве внешнего ключа.</p>
+<h3 id="33-1">3.3. Результат 1НФ</h3>
+<p>В результате приведения к 1НФ получены следующие отношения:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">№</th>
+<th style="text-align: left;">Отношение</th>
+<th style="text-align: left;">Первичный ключ</th>
+<th style="text-align: left;">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">ТочкаУчёта_0</td>
+<td style="text-align: left;">ИД_ТУ</td>
+<td style="text-align: left;">Основная таблица с атрибутами ТУ (все неключевые атрибуты из 0НФ, кроме заявок и примечаний)</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Заявка</td>
+<td style="text-align: left;">ИД_Заявки</td>
+<td style="text-align: left;">Заявки по ТУ (НомерЗаявки, ДатаНачала, ДатаОкончания, ИД_ТУ)</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Примечание</td>
+<td style="text-align: left;">ИД_Примечания</td>
+<td style="text-align: left;">Примечания по ТУ (Текст, ДатаСоздания, ИД_ТУ)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-2">4. Приведение ко второй нормальной форме (2НФ)</h2>
+<h3 id="41-2">4.1. Требования 2НФ</h3>
+<p>Отношение находится в 2НФ, если:
+1. Оно находится в 1НФ.
+2. Каждый неключевой атрибут функционально полно зависит от первичного ключа (отсутствует частичная зависимость).</p>
+<h3 id="42">4.2. Анализ частичных зависимостей</h3>
+<p>В отношении <code>ТочкаУчёта_0</code> первичный ключ — <code>ИД_ТУ</code> (простой, одноатрибутный). Поскольку первичный ключ состоит из одного атрибута, частичная зависимость невозможна по определению — любой неключевой атрибут либо полностью зависит от ключа, либо не зависит вовсе.</p>
+<p>Однако в отношении <code>ТочкаУчёта_0</code> присутствуют <strong>транзитивные зависимости</strong> (будут рассмотрены в 3НФ), а также функциональные зависимости между неключевыми атрибутами:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Зависимость</th>
+<th style="text-align: left;">Тип</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>НомерПрисоединения</code> → <code>НаименованиеТУ</code></td>
+<td style="text-align: left;">Полная зависимость от ключа</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ИД_Объекта</code> → <code>НаименованиеОбъекта</code>, <code>НомерОбъектаВБД</code>, <code>ИД_МестаРасположения</code>, <code>НаименованиеМестаРасположения</code>, <code>ИД_Подразделения</code>, <code>НаименованиеПодразделения</code>, <code>ИД_Организации</code>, <code>НаименованиеОрганизации</code>, <code>ПризнакПотребителя</code></td>
+<td style="text-align: left;">Зависимость от неключевого атрибута (транзитивная)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ИД_Подразделения</code> → <code>НаименованиеПодразделения</code>, <code>ИД_Организации</code>, <code>НаименованиеОрганизации</code>, <code>ПризнакПотребителя</code></td>
+<td style="text-align: left;">Зависимость от неключевого атрибута (транзитивная)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ИД_Организации</code> → <code>НаименованиеОрганизации</code>, <code>ПризнакПотребителя</code></td>
+<td style="text-align: left;">Зависимость от неключевого атрибута (транзитивная)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ИД_Статуса</code> → <code>НаименованиеСтатуса</code>, <code>МаксВремяОтсутствияДанных</code></td>
+<td style="text-align: left;">Зависимость от неключевого атрибута (транзитивная)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ИД_МестаРасположения</code> → <code>НаименованиеМестаРасположения</code></td>
+<td style="text-align: left;">Зависимость от неключевого атрибута (транзитивная)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-2">4.3. Результат 2НФ</h3>
+<p>Поскольку первичные ключи всех отношений — простые (одноатрибутные), все отношения автоматически соответствуют 2НФ. Частичные зависимости отсутствуют. Однако транзитивные зависимости требуют приведения к 3НФ.</p>
+<hr />
+<h2 id="5-3">5. Приведение к третьей нормальной форме (3НФ)</h2>
+<h3 id="51-3">5.1. Требования 3НФ</h3>
+<p>Отношение находится в 3НФ, если:
+1. Оно находится в 2НФ.
+2. Каждый неключевой атрибут нетранзитивно зависит от первичного ключа (отсутствует зависимость неключевых атрибутов от других неключевых атрибутов).</p>
+<h3 id="52">5.2. Выявление транзитивных зависимостей</h3>
+<p>В отношении <code>ТочкаУчёта_0</code> выявлены следующие транзитивные зависимости:</p>
+<pre><code>ИД_ТУ → ИД_Объекта → {НаименованиеОбъекта, НомерОбъектаВБД, ИД_МестаРасположения, 
+                       НаименованиеМестаРасположения, ИД_Подразделения, 
+                       НаименованиеПодразделения, ИД_Организации, 
+                       НаименованиеОрганизации, ПризнакПотребителя}
+</code></pre>
+<p>То есть через атрибут <code>ИД_Объекта</code> (неключевой) мы получаем доступ к атрибутам, описывающим объект, место расположения, подразделение и организацию. Это транзитивная зависимость: <code>ИД_ТУ → ИД_Объекта → {атрибуты объекта, места, подразделения, организации}</code>.</p>
+<p>Аналогично:</p>
+<pre><code>ИД_ТУ → ИД_Статуса → {НаименованиеСтатуса, МаксВремяОтсутствияДанных}
+</code></pre>
+<h3 id="53">5.3. Устранение транзитивных зависимостей</h3>
+<p>Для устранения транзитивных зависимостей применяется декомпозиция — выделение каждой группы атрибутов, зависящих от одного детерминанта, в отдельное отношение.</p>
+<h4 id="531">5.3.1. Выделение сущности «Объект»</h4>
+<p>Атрибуты, зависящие от <code>ИД_Объекта</code>:
+а) <code>НаименованиеОбъекта</code>
+б) <code>НомерОбъектаВБД</code> (уникальный)
+в) <code>ИД_МестаРасположения</code> (ссылка на место расположения)
+г) <code>ИД_Подразделения</code> (ссылка на подразделение-эксплуатанта)</p>
+<p>Выделяются в отношение <code>Объект</code> с первичным ключом <code>ИД_Объекта</code>.</p>
+<h4 id="532">5.3.2. Выделение сущности «МестоРасположения»</h4>
+<p>Атрибуты, зависящие от <code>ИД_МестаРасположения</code>:
+а) <code>НаименованиеМестаРасположения</code></p>
+<p>Выделяются в отношение <code>МестоРасположения</code> с первичным ключом <code>ИД_МестаРасположения</code>.</p>
+<h4 id="533">5.3.3. Выделение сущности «СтруктурноеПодразделение»</h4>
+<p>Атрибуты, зависящие от <code>ИД_Подразделения</code>:
+а) <code>НаименованиеПодразделения</code>
+б) <code>ИД_Организации</code> (ссылка на организацию)</p>
+<p>Выделяются в отношение <code>СтруктурноеПодразделение</code> с первичным ключом <code>ИД_Подразделения</code>.</p>
+<h4 id="534">5.3.4. Выделение сущности «Организация»</h4>
+<p>Атрибуты, зависящие от <code>ИД_Организации</code>:
+а) <code>НаименованиеОрганизации</code>
+б) <code>ПризнакПотребителя</code></p>
+<p>Выделяются в отношение <code>Организация</code> с первичным ключом <code>ИД_Организации</code>.</p>
+<h4 id="535">5.3.5. Выделение сущности «СтатусТУ»</h4>
+<p>Атрибуты, зависящие от <code>ИД_Статуса</code>:
+а) <code>НаименованиеСтатуса</code>
+б) <code>МаксВремяОтсутствияДанных</code></p>
+<p>Выделяются в отношение <code>СтатусТУ</code> с первичным ключом <code>ИД_Статуса</code>.</p>
+<h4 id="536">5.3.6. Выделение сущности «КонтактноеЛицо»</h4>
+<p>Атрибуты контактного лица зависят от <code>ИД_КонтактногоЛица</code> и связаны с подразделением через <code>ИД_Подразделения</code>. Выделяются в отношение <code>КонтактноеЛицо</code> с первичным ключом <code>ИД_КонтактногоЛица</code>.</p>
+<h3 id="54-3">5.4. Результат 3НФ</h3>
+<p>После устранения всех транзитивных зависимостей получена следующая схема из 9 отношений:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">№</th>
+<th style="text-align: left;">Отношение</th>
+<th style="text-align: left;">Первичный ключ</th>
+<th style="text-align: left;">Внешние ключи</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Организация</td>
+<td style="text-align: left;">ИД_Организации</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">СтруктурноеПодразделение</td>
+<td style="text-align: left;">ИД_Подразделения</td>
+<td style="text-align: left;">ИД_Организации → Организация</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">КонтактноеЛицо</td>
+<td style="text-align: left;">ИД_КонтактногоЛица</td>
+<td style="text-align: left;">ИД_Подразделения → СтруктурноеПодразделение</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">МестоРасположения</td>
+<td style="text-align: left;">ИД_МестаРасположения</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Объект</td>
+<td style="text-align: left;">ИД_Объекта</td>
+<td style="text-align: left;">ИД_МестаРасположения → МестоРасположения, ИД_Подразделения → СтруктурноеПодразделение</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">ТочкаУчёта</td>
+<td style="text-align: left;">ИД_ТУ</td>
+<td style="text-align: left;">ИД_Объекта → Объект, ИД_Статуса → СтатусТУ</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">СтатусТУ</td>
+<td style="text-align: left;">ИД_Статуса</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Заявка</td>
+<td style="text-align: left;">ИД_Заявки</td>
+<td style="text-align: left;">ИД_ТУ → ТочкаУчёта</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Примечание</td>
+<td style="text-align: left;">ИД_Примечания</td>
+<td style="text-align: left;">ИД_ТУ → ТочкаУчёта</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6">6. Проверка соответствия нормальным формам</h2>
+<h3 id="61-1">6.1. Первая нормальная форма (1НФ)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Требование</th>
+<th style="text-align: center;">Статус</th>
+<th style="text-align: left;">Обоснование</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Атомарность атрибутов</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: left;">Все атрибуты неделимы (ФИО разделены на фамилию, имя, отчество; даты — отдельные поля)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Отсутствие повторяющихся групп</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: left;">Заявки и примечания вынесены в отдельные таблицы</td>
+</tr>
+<tr>
+<td style="text-align: left;">Наличие первичного ключа</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: left;">Каждая таблица имеет суррогатный первичный ключ (ИД_*)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-2">6.2. Вторая нормальная форма (2НФ)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Требование</th>
+<th style="text-align: center;">Статус</th>
+<th style="text-align: left;">Обоснование</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Находится в 1НФ</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: left;">Выполнено</td>
+</tr>
+<tr>
+<td style="text-align: left;">Полная функциональная зависимость неключевых атрибутов от PK</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: left;">Все первичные ключи — простые (одноатрибутные), поэтому частичная зависимость невозможна</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-3">6.3. Третья нормальная форма (3НФ)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Требование</th>
+<th style="text-align: center;">Статус</th>
+<th style="text-align: left;">Обоснование</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Находится в 2НФ</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: left;">Выполнено</td>
+</tr>
+<tr>
+<td style="text-align: left;">Отсутствие транзитивных зависимостей</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: left;">Все неключевые атрибуты описывают только ту сущность, которой принадлежат; ссылки на другие сущности — только через внешние ключи</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7">7. Дополнительные проверки</h2>
+<h3 id="71">7.1. Доменная целостность</h3>
+<p>Для каждого атрибута определён домен (тип данных и ограничения), что обеспечивает доменную целостность на уровне логической модели. Детальная спецификация доменов приведена в Приложении Е (раздел 6 «Домены атрибутов»).</p>
+<h3 id="72">7.2. Ссылочная целостность</h3>
+<p>Для каждой связи между таблицами определён внешний ключ с явно заданным правилом каскадного удаления (CASCADE или RESTRICT). Детальная спецификация внешних ключей приведена в Приложении Е (раздел 3 «Сводная схема связей»).</p>
+<h3 id="73-">7.3. Бизнес-правила</h3>
+<p>Нормализованная схема обеспечивает выполнение следующих бизнес-правил:
+а) Организация может существовать без подразделений и ТУ (свободная вставка).
+б) Подразделение может существовать без закреплённых объектов.
+в) ТУ не может существовать без объекта и статуса (NOT NULL на внешних ключах).
+г) Заявка и примечание не могут существовать без ТУ (NOT NULL на внешних ключах).
+д) При удалении организации каскадно удаляются её подразделения, но объекты, закреплённые за подразделением, блокируют удаление (RESTRICT).</p>
+<hr />
+<h2 id="8">8. Выводы</h2>
+<p>Разработанная логическая модель справочной БД AlphaMeterQC соответствует требованиям третьей нормальной формы (3НФ). Нормализация обеспечивает:</p>
+<ol>
+<li><strong>Устранение избыточности данных</strong> — каждый факт хранится в единственном месте (SSOT — Single Source of Truth).</li>
+<li><strong>Предотвращение аномалий обновления</strong> — изменение данных в одном месте автоматически отражается во всех связанных записях.</li>
+<li><strong>Предотвращение аномалий удаления</strong> — удаление данных не приводит к потере связанной информации (благодаря правилам RESTRICT).</li>
+<li><strong>Предотвращение аномалий вставки</strong> — новые сущности могут быть добавлены независимо от наличия связанных данных.</li>
+<li><strong>Целостность данных</strong> — ссылочная целостность обеспечивается на уровне внешних ключей.</li>
+</ol>
+<p>Дальнейшее повышение нормализации до нормальной формы Бойса-Кодда (НФБК/BCNF) не требуется, так как в схеме отсутствуют пересекающиеся потенциальные ключи и сложные функциональные зависимости. Текущий уровень нормализации (3НФ) является оптимальным для задач оперативного хранения и обработки справочных данных.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

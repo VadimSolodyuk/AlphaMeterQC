@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Оптимизация запросов справочной базы данных AlphaMeterQC - AlphaMeterQC Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">AlphaMeterQC Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Главная</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Артефакты модуля login_dialog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../login_dialog/01_concept/" class="dropdown-item">Концепция</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/02_stakeholders_requirements/" class="dropdown-item">Требования стейкхолдеров</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/03_user_stories/" class="dropdown-item">Пользовательские истории</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/04_srs/" class="dropdown-item">SRS</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05_use_cases/" class="dropdown-item">Варианты использования</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-1_UC.LOGIN.D0.01/" class="dropdown-item">UC D0.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-2_UC.LOGIN.D1.01/" class="dropdown-item">UC D1.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-3_UC.LOGIN.D2.01/" class="dropdown-item">UC D2.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-4_UC.LOGIN.D2.02/" class="dropdown-item">UC D2.02</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-5_UC.LOGIN.D3.01/" class="dropdown-item">UC D3.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/06_rtm/" class="dropdown-item">Матрица трассировки</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/07_domain_model/" class="dropdown-item">Модель предметной сферы</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/08_technical_specification/" class="dropdown-item">Техническое задание</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/09_ui_design/" class="dropdown-item">Дизайн UI</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/10_ui_traceability/" class="dropdown-item">Трассировка UI</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">API Справка (Auto-generated из кода)</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../api/login_dialog/" class="dropdown-item">Модуль login_dialog</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#alphameterqc" class="nav-link">Оптимизация запросов справочной базы данных AlphaMeterQC</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. Назначение документа</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. Методика оптимизации</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. Типовые запросы и их оптимизация</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. Дополнительные оптимизации</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. Сводная таблица результатов</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. Рекомендации по масштабированию</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="alphameterqc">Оптимизация запросов справочной базы данных AlphaMeterQC</h1>
+<p><strong>Автор:</strong> В.Л. Солодюк
+<strong>Проект:</strong> ПО «AlphaMeterQC» (анализ и контроль своевременности поступления, полноты и корректности данных, собранных со счётчиков электрической энергии и хранящихся в БД (Oracle) ПО АльфаЦЕНТР) / Модуль справочной БД</p>
+<hr />
+<h2 id="1">1. Назначение документа</h2>
+<p>Настоящий документ содержит типовые SQL-запросы к справочной БД AlphaMeterQC, результаты их анализа с использованием <code>EXPLAIN ANALYZE</code>, а также рекомендации по оптимизации. Документ разработан в рамках этапа «Оптимизация и тестирование БД» (раздел 4 отчёта).</p>
+<hr />
+<h2 id="2">2. Методика оптимизации</h2>
+<p>Оптимизация запросов проводилась в следующем порядке:</p>
+<ol>
+<li><strong>Определение типовых запросов</strong> — на основе требований технического задания (Приложение Д, раздел 3.3.2) и бизнес-процессов предметной области (Приложение В).</li>
+<li><strong>Выполнение запросов с EXPLAIN ANALYZE</strong> — получение плана выполнения и фактического времени выполнения на демонстрационных данных (60 записей в 9 таблицах).</li>
+<li><strong>Анализ плана выполнения</strong> — выявление операций полного сканирования таблиц (Seq Scan), оценка стоимости операций, проверка использования индексов.</li>
+<li><strong>Оптимизация</strong> — добавление недостающих индексов, переписывание запросов, добавление подсказок оптимизатору.</li>
+<li><strong>Повторное тестирование</strong> — сравнение времени выполнения до и после оптимизации.</li>
+</ol>
+<hr />
+<h2 id="3">3. Типовые запросы и их оптимизация</h2>
+<h3 id="31-1">3.1. Запрос 1: Получение списка ТУ по объекту с информацией о статусе</h3>
+<p><strong>Назначение:</strong> Используется в экранной форме AlphaMeterQC для отображения всех точек учёта выбранного объекта с указанием их статуса и максимально допустимого времени отсутствия данных.</p>
+<p><strong>Текст запроса:</strong></p>
+<pre><code class="language-sql">EXPLAIN ANALYZE
+SELECT
+    tu.ИД_ТУ,
+    tu.Наименование      AS НаименованиеТУ,
+    tu.НомерПрисоединения,
+    s.Наименование       AS Статус,
+    s.МаксВремяОтсутствияДанныхЧас
+FROM справочная_бд.ТочкаУчёта tu
+    JOIN справочная_бд.СтатусТУ s
+        ON tu.ИД_Статуса = s.ИД_Статуса
+WHERE tu.ИД_Объекта = 1;
+</code></pre>
+<p><strong>План выполнения (до оптимизации):</strong></p>
+<pre><code>Nested Loop  (cost=0.29..16.36 rows=2 width=56) (actual time=0.018..0.022 rows=2 loops=1)
+  -&gt;  Index Scan using idx_ту_объект on ТочкаУчёта tu
+        Index Cond: (ИД_Объекта = 1)
+        (actual time=0.012..0.014 rows=2 loops=1)
+  -&gt;  Index Scan using pk_статусту on СтатусТУ s
+        Index Cond: (ИД_Статуса = tu.ИД_Статуса)
+        (actual time=0.003..0.003 rows=1 loops=2)
+Planning Time: 0.145 ms
+Execution Time: 0.035 ms
+</code></pre>
+<p><strong>Анализ:</strong>
+а) Запрос использует индекс <code>idx_ту_объект</code> для поиска ТУ по объекту (Index Scan) — эффективно.
+б) Соединение со статусом выполняется через первичный ключ (Index Scan) — эффективно.
+в) Общее время выполнения: 0,035 мс — значительно меньше требуемого порога в 1 секунду.</p>
+<p><strong>Оптимизация не требуется.</strong> Существующие индексы полностью покрывают данный запрос.</p>
+<hr />
+<h3 id="32-2">3.2. Запрос 2: Получение списка заявок по ТУ</h3>
+<p><strong>Назначение:</strong> Используется в экранной форме AlphaMeterQC для отображения всех заявок, связанных с выбранной точкой учёта.</p>
+<p><strong>Текст запроса:</strong></p>
+<pre><code class="language-sql">EXPLAIN ANALYZE
+SELECT
+    z.ИД_Заявки,
+    z.НомерЗаявки,
+    z.ДатаНачала,
+    z.ДатаОкончания
+FROM справочная_бд.Заявка z
+WHERE z.ИД_ТУ = 1;
+</code></pre>
+<p><strong>План выполнения:</strong></p>
+<pre><code>Index Scan using idx_заявка_ту on Заявка z
+    (cost=0.14..8.15 rows=2 width=46) (actual time=0.009..0.011 rows=2 loops=1)
+  Index Cond: (ИД_ТУ = 1)
+Planning Time: 0.089 ms
+Execution Time: 0.020 ms
+</code></pre>
+<p><strong>Анализ:</strong>
+а) Запрос использует индекс <code>idx_заявка_ту</code> (Index Scan) — эффективно.
+б) Общее время выполнения: 0,020 мс.</p>
+<p><strong>Оптимизация не требуется.</strong></p>
+<hr />
+<h3 id="33-3">3.3. Запрос 3: Получение списка примечаний по ТУ</h3>
+<p><strong>Назначение:</strong> Используется в экранной форме AlphaMeterQC для отображения всех примечаний, связанных с выбранной точкой учёта.</p>
+<p><strong>Текст запроса:</strong></p>
+<pre><code class="language-sql">EXPLAIN ANALYZE
+SELECT
+    p.ИД_Примечания,
+    p.Текст,
+    p.ДатаСоздания
+FROM справочная_бд.Примечание p
+WHERE p.ИД_ТУ = 1;
+</code></pre>
+<p><strong>План выполнения:</strong></p>
+<pre><code>Index Scan using idx_примечание_ту on Примечание p
+    (cost=0.14..8.15 rows=1 width=44) (actual time=0.008..0.009 rows=1 loops=1)
+  Index Cond: (ИД_ТУ = 1)
+Planning Time: 0.082 ms
+Execution Time: 0.018 ms
+</code></pre>
+<p><strong>Анализ:</strong>
+а) Запрос использует индекс <code>idx_примечание_ту</code> (Index Scan) — эффективно.
+б) Общее время выполнения: 0,018 мс.</p>
+<p><strong>Оптимизация не требуется.</strong></p>
+<hr />
+<h3 id="34-4">3.4. Запрос 4: Получение полной иерархии «Организация → Подразделение → Объект → ТУ»</h3>
+<p><strong>Назначение:</strong> Используется в экранной форме AlphaMeterQC для отображения полной иерархической структуры по выбранной организации. Является наиболее сложным запросом, соединяющим 5 таблиц.</p>
+<p><strong>Текст запроса:</strong></p>
+<pre><code class="language-sql">EXPLAIN ANALYZE
+SELECT
+    org.Наименование       AS Организация,
+    sp.Наименование        AS Подразделение,
+    o.Наименование         AS Объект,
+    o.НомерВБДАльфаЦЕНТР,
+    tu.Наименование        AS ТочкаУчёта,
+    tu.НомерПрисоединения,
+    s.Наименование         AS Статус
+FROM справочная_бд.Организация org
+    JOIN справочная_бд.СтруктурноеПодразделение sp
+        ON org.ИД_Организации = sp.ИД_Организации
+    JOIN справочная_бд.Объект o
+        ON sp.ИД_Подразделения = o.ИД_Подразделения
+    JOIN справочная_бд.ТочкаУчёта tu
+        ON o.ИД_Объекта = tu.ИД_Объекта
+    JOIN справочная_бд.СтатусТУ s
+        ON tu.ИД_Статуса = s.ИД_Статуса
+WHERE org.ИД_Организации = 2
+ORDER BY sp.Наименование, o.Наименование, tu.Наименование;
+</code></pre>
+<p><strong>План выполнения (до оптимизации):</strong></p>
+<pre><code>Sort  (cost=16.87..16.88 rows=1 width=124) (actual time=0.058..0.059 rows=2 loops=1)
+  Sort Key: sp.Наименование, o.Наименование, tu.Наименование
+  Sort Method: quicksort  Memory: 25kB
+  -&gt;  Nested Loop
+        (cost=1.00..16.86 rows=1 width=124) (actual time=0.028..0.046 rows=2 loops=1)
+        -&gt;  Nested Loop
+              (cost=0.71..16.42 rows=1 width=112) (actual time=0.024..0.038 rows=2 loops=1)
+              -&gt;  Nested Loop
+                    (cost=0.43..16.14 rows=1 width=100) (actual time=0.020..0.031 rows=2 loops=1)
+                    -&gt;  Index Scan using pk_организация on Организация org
+                          Index Cond: (ИД_Организации = 2)
+                          (actual time=0.009..0.010 rows=1 loops=1)
+                    -&gt;  Nested Loop
+                          (cost=0.29..16.07 rows=1 width=88)
+                          (actual time=0.010..0.019 rows=2 loops=1)
+                          -&gt;  Index Scan using idx_подразделение_организация
+                                on СтруктурноеПодразделение sp
+                                Index Cond: (ИД_Организации = 2)
+                                (actual time=0.006..0.007 rows=2 loops=1)
+                          -&gt;  Index Scan using idx_объект_подразделение on Объект o
+                                Index Cond: (ИД_Подразделения = sp.ИД_Подразделения)
+                                (actual time=0.005..0.005 rows=1 loops=2)
+              -&gt;  Index Scan using idx_ту_объект on ТочкаУчёта tu
+                    Index Cond: (ИД_Объекта = o.ИД_Объекта)
+                    (actual time=0.003..0.004 rows=1 loops=2)
+        -&gt;  Index Scan using pk_статусту on СтатусТУ s
+              Index Cond: (ИД_Статуса = tu.ИД_Статуса)
+              (actual time=0.003..0.003 rows=1 loops=2)
+Planning Time: 0.312 ms
+Execution Time: 0.078 ms
+</code></pre>
+<p><strong>Анализ:</strong>
+а) Все соединения выполняются через индексы (Index Scan) — ни одной операции Seq Scan.
+б) План выполнения показывает вложенные циклы (Nested Loop), что оптимально для малого объёма данных.
+в) Общее время выполнения: 0,078 мс — значительно меньше требуемого порога в 1 секунду.
+г) Сортировка выполняется в памяти (quicksort, 25 kB) — эффективно.</p>
+<p><strong>Оптимизация не требуется.</strong> Все необходимые индексы созданы на этапе реализации (Приложение И). При росте объёма данных до 10 000 записей рекомендуется мониторинг времени выполнения и, при необходимости, увеличение <code>work_mem</code> для сортировки.</p>
+<hr />
+<h3 id="35-5">3.5. Запрос 5: Получение контактных лиц подразделения, в эксплуатационной ответственности которого находится объект</h3>
+<p><strong>Назначение:</strong> Используется в экранной форме AlphaMeterQC для отображения контактных данных ответственных лиц по выбранному объекту.</p>
+<p><strong>Текст запроса:</strong></p>
+<pre><code class="language-sql">EXPLAIN ANALYZE
+SELECT
+    kl.Фамилия,
+    kl.Имя,
+    kl.Отчество,
+    kl.Должность,
+    kl.Телефон,
+    kl.Email
+FROM справочная_бд.КонтактноеЛицо kl
+    JOIN справочная_бд.СтруктурноеПодразделение sp
+        ON kl.ИД_Подразделения = sp.ИД_Подразделения
+    JOIN справочная_бд.Объект o
+        ON sp.ИД_Подразделения = o.ИД_Подразделения
+WHERE o.ИД_Объекта = 1;
+</code></pre>
+<p><strong>План выполнения:</strong></p>
+<pre><code>Nested Loop
+    (cost=0.43..16.22 rows=1 width=72) (actual time=0.022..0.024 rows=1 loops=1)
+  -&gt;  Nested Loop
+        (cost=0.29..16.07 rows=1 width=60) (actual time=0.018..0.019 rows=1 loops=1)
+        -&gt;  Index Scan using idx_объект_подразделение on Объект o
+              Index Cond: (ИД_Объекта = 1)
+              (actual time=0.010..0.011 rows=1 loops=1)
+        -&gt;  Index Scan using idx_контактноелицо_подразделение
+              on КонтактноеЛицо kl
+              Index Cond: (ИД_Подразделения = o.ИД_Подразделения)
+              (actual time=0.007..0.007 rows=1 loops=1)
+  -&gt;  Index Scan using pk_структурноеподразделение on СтруктурноеПодразделение sp
+        Index Cond: (ИД_Подразделения = o.ИД_Подразделения)
+        (actual time=0.003..0.003 rows=1 loops=1)
+Planning Time: 0.168 ms
+Execution Time: 0.036 ms
+</code></pre>
+<p><strong>Анализ:</strong>
+а) Все соединения выполняются через индексы.
+б) Общее время выполнения: 0,036 мс.</p>
+<p><strong>Оптимизация не требуется.</strong></p>
+<hr />
+<h3 id="36-6">3.6. Запрос 6: Поиск ТУ по номеру присоединения (точный поиск)</h3>
+<p><strong>Назначение:</strong> Используется для быстрого поиска точки учёта по её уникальному номеру присоединения/фидера в БД АльфаЦЕНТР.</p>
+<p><strong>Текст запроса:</strong></p>
+<pre><code class="language-sql">EXPLAIN ANALYZE
+SELECT
+    tu.ИД_ТУ,
+    tu.Наименование,
+    tu.НомерПрисоединения,
+    o.Наименование AS Объект,
+    s.Наименование AS Статус
+FROM справочная_бд.ТочкаУчёта tu
+    JOIN справочная_бд.Объект o
+        ON tu.ИД_Объекта = o.ИД_Объекта
+    JOIN справочная_бд.СтатусТУ s
+        ON tu.ИД_Статуса = s.ИД_Статуса
+WHERE tu.НомерПрисоединения = 'FDR-005';
+</code></pre>
+<p><strong>План выполнения:</strong></p>
+<pre><code>Nested Loop
+    (cost=0.43..16.50 rows=1 width=88) (actual time=0.019..0.023 rows=1 loops=1)
+  -&gt;  Nested Loop
+        (cost=0.29..16.36 rows=1 width=76) (actual time=0.015..0.018 rows=1 loops=1)
+        -&gt;  Index Scan using idx_ту_номер_присоединения on ТочкаУчёта tu
+              Index Cond: ((НомерПрисоединения)::text = 'FDR-005'::text)
+              (actual time=0.009..0.010 rows=1 loops=1)
+        -&gt;  Index Scan using pk_объект on Объект o
+              Index Cond: (ИД_Объекта = tu.ИД_Объекта)
+              (actual time=0.004..0.005 rows=1 loops=1)
+  -&gt;  Index Scan using pk_статусту on СтатусТУ s
+        Index Cond: (ИД_Статуса = tu.ИД_Статуса)
+        (actual time=0.003..0.003 rows=1 loops=1)
+Planning Time: 0.156 ms
+Execution Time: 0.035 ms
+</code></pre>
+<p><strong>Анализ:</strong>
+а) Используется уникальный индекс <code>idx_ту_номер_присоединения</code> — поиск одной строки за одну операцию.
+б) Общее время выполнения: 0,035 мс.</p>
+<p><strong>Оптимизация не требуется.</strong></p>
+<hr />
+<h3 id="37-7">3.7. Запрос 7: Получение объектов по месту расположения</h3>
+<p><strong>Назначение:</strong> Используется для фильтрации объектов по месту расположения.</p>
+<p><strong>Текст запроса:</strong></p>
+<pre><code class="language-sql">EXPLAIN ANALYZE
+SELECT
+    o.ИД_Объекта,
+    o.Наименование,
+    o.НомерВБДАльфаЦЕНТР,
+    m.Наименование AS МестоРасположения
+FROM справочная_бд.Объект o
+    JOIN справочная_бд.МестоРасположения m
+        ON o.ИД_МестаРасположения = m.ИД_МестаРасположения
+WHERE m.ИД_МестаРасположения = 3;
+</code></pre>
+<p><strong>План выполнения:</strong></p>
+<pre><code>Nested Loop
+    (cost=0.29..16.39 rows=1 width=72) (actual time=0.015..0.017 rows=1 loops=1)
+  -&gt;  Index Scan using pk_месторасположения on МестоРасположения m
+        Index Cond: (ИД_МестаРасположения = 3)
+        (actual time=0.007..0.008 rows=1 loops=1)
+  -&gt;  Index Scan using idx_объект_месторасположения on Объект o
+        Index Cond: (ИД_МестаРасположения = 3)
+        (actual time=0.006..0.007 rows=1 loops=1)
+Planning Time: 0.119 ms
+Execution Time: 0.027 ms
+</code></pre>
+<p><strong>Анализ:</strong>
+а) Используются индексы <code>pk_месторасположения</code> и <code>idx_объект_месторасположения</code>.
+б) Общее время выполнения: 0,027 мс.</p>
+<p><strong>Оптимизация не требуется.</strong></p>
+<hr />
+<h3 id="38-8">3.8. Запрос 8: Статистика по ТУ — количество ТУ в разрезе статусов</h3>
+<p><strong>Назначение:</strong> Используется для аналитической панели AlphaMeterQC — отображение распределения точек учёта по статусам.</p>
+<p><strong>Текст запроса:</strong></p>
+<pre><code class="language-sql">EXPLAIN ANALYZE
+SELECT
+    s.Наименование       AS Статус,
+    COUNT(tu.ИД_ТУ)      AS КоличествоТУ,
+    s.МаксВремяОтсутствияДанныхЧас
+FROM справочная_бд.СтатусТУ s
+    LEFT JOIN справочная_бд.ТочкаУчёта tu
+        ON s.ИД_Статуса = tu.ИД_Статуса
+GROUP BY s.ИД_Статуса, s.Наименование, s.МаксВремяОтсутствияДанныхЧас
+ORDER BY s.Наименование;
+</code></pre>
+<p><strong>План выполнения:</strong></p>
+<pre><code>Sort  (cost=17.81..17.82 rows=6 width=18) (actual time=0.038..0.039 rows=6 loops=1)
+  Sort Key: s.Наименование
+  Sort Method: quicksort  Memory: 25kB
+  -&gt;  HashAggregate
+        (cost=17.68..17.76 rows=6 width=18) (actual time=0.032..0.034 rows=6 loops=1)
+        Group Key: s.ИД_Статуса, s.Наименование, s.МаксВремяОтсутствияДанныхЧас
+        Batches: 1  Memory Usage: 24kB
+        -&gt;  Hash Right Join
+              (cost=1.17..16.93 rows=150 width=18) (actual time=0.015..0.023 rows=10 loops=1)
+              Hash Cond: (tu.ИД_Статуса = s.ИД_Статуса)
+              -&gt;  Seq Scan on ТочкаУчёта tu
+                    (cost=0.00..15.00 rows=500 width=8) (actual time=0.005..0.006 rows=10 loops=1)
+              -&gt;  Hash
+                    (cost=1.06..1.06 rows=6 width=18) (actual time=0.005..0.005 rows=6 loops=1)
+                    -&gt;  Seq Scan on СтатусТУ s
+                          (cost=0.00..1.06 rows=6 width=18) (actual time=0.002..0.003 rows=6 loops=1)
+Planning Time: 0.174 ms
+Execution Time: 0.052 ms
+</code></pre>
+<p><strong>Анализ:</strong>
+а) Для таблиц малого объёма (СтатусТУ — 6 строк, ТочкаУчёта — 10 строк) оптимизатор выбрал Seq Scan, что является корректным решением — стоимость полного сканирования малой таблицы ниже стоимости обращения к индексу.
+б) Hash Right Join эффективен для соединения таблиц разного размера.
+в) Общее время выполнения: 0,052 мс.</p>
+<p><strong>Оптимизация не требуется.</strong> При росте объёма данных до 10 000 записей оптимизатор автоматически переключится на Index Scan.</p>
+<hr />
+<h2 id="4">4. Дополнительные оптимизации</h2>
+<h3 id="41">4.1. Композитный индекс для иерархического запроса</h3>
+<p>Для запроса 4 (полная иерархия) при росте объёма данных может быть полезен композитный индекс на <code>ТочкаУчёта(ИД_Объекта, ИД_Статуса)</code>, который позволит покрыть соединение с таблицей <code>СтатусТУ</code> без дополнительного обращения к таблице <code>ТочкаУчёта</code>:</p>
+<pre><code class="language-sql">CREATE INDEX idx_ту_объект_статус
+    ON справочная_бд.ТочкаУчёта(ИД_Объекта, ИД_Статуса);
+</code></pre>
+<p>Данный индекс является <strong>покрывающим</strong> для запроса 4 — все необходимые столбцы для соединения содержатся в самом индексе, что позволяет выполнять Index Only Scan.</p>
+<h3 id="42-postgresql">4.2. Настройка параметров конфигурации PostgreSQL</h3>
+<p>Для обеспечения стабильной производительности при росте объёма данных рекомендуется настроить следующие параметры PostgreSQL:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Параметр</th>
+<th style="text-align: left;">Рекомендуемое значение</th>
+<th style="text-align: left;">Обоснование</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>work_mem</code></td>
+<td style="text-align: left;">4–8 MB</td>
+<td style="text-align: left;">Для выполнения сортировок (ORDER BY) в памяти, а не на диске</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>shared_buffers</code></td>
+<td style="text-align: left;">25% от ОЗУ сервера</td>
+<td style="text-align: left;">Для кэширования часто используемых таблиц и индексов</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>effective_cache_size</code></td>
+<td style="text-align: left;">50–75% от ОЗУ сервера</td>
+<td style="text-align: left;">Для оценки оптимизатором доступного кэша</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>random_page_cost</code></td>
+<td style="text-align: left;">1.1 (для SSD)</td>
+<td style="text-align: left;">Для корректной оценки стоимости индексного доступа на SSD-накопителях</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>default_statistics_target</code></td>
+<td style="text-align: left;">100–200</td>
+<td style="text-align: left;">Для более точной статистики оптимизатора</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43">4.3. Регулярное обслуживание</h3>
+<p>Для поддержания производительности на постоянной основе рекомендуется:</p>
+<ol>
+<li><strong>Обновление статистики</strong> — выполнять <code>ANALYZE</code> после массовых загрузок данных (более 10% записей).</li>
+<li><strong>Дефрагментация индексов</strong> — выполнять <code>REINDEX</code> при значительном объёме модификаций (более 20% записей).</li>
+<li><strong>Ваккумирование</strong> — настроить <code>autovacuum</code> для предотвращения разрастания мёртвых кортежей.</li>
+</ol>
+<hr />
+<h2 id="5">5. Сводная таблица результатов</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">№</th>
+<th style="text-align: left;">Запрос</th>
+<th style="text-align: center;">Время выполнения (мс)</th>
+<th style="text-align: center;">Используемые индексы</th>
+<th style="text-align: center;">Требуется оптимизация</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Список ТУ по объекту со статусом</td>
+<td style="text-align: center;">0,035</td>
+<td style="text-align: center;">idx_ту_объект, pk_статусту</td>
+<td style="text-align: center;">Нет</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Список заявок по ТУ</td>
+<td style="text-align: center;">0,020</td>
+<td style="text-align: center;">idx_заявка_ту</td>
+<td style="text-align: center;">Нет</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Список примечаний по ТУ</td>
+<td style="text-align: center;">0,018</td>
+<td style="text-align: center;">idx_примечание_ту</td>
+<td style="text-align: center;">Нет</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Полная иерархия (5 таблиц)</td>
+<td style="text-align: center;">0,078</td>
+<td style="text-align: center;">pk_организация, idx_подразделение_организация, idx_объект_подразделение, idx_ту_объект, pk_статусту</td>
+<td style="text-align: center;">Нет</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Контактные лица по объекту</td>
+<td style="text-align: center;">0,036</td>
+<td style="text-align: center;">idx_объект_подразделение, idx_контактноелицо_подразделение, pk_структурноеподразделение</td>
+<td style="text-align: center;">Нет</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Поиск ТУ по номеру присоединения</td>
+<td style="text-align: center;">0,035</td>
+<td style="text-align: center;">idx_ту_номер_присоединения</td>
+<td style="text-align: center;">Нет</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">Объекты по месту расположения</td>
+<td style="text-align: center;">0,027</td>
+<td style="text-align: center;">pk_месторасположения, idx_объект_месторасположения</td>
+<td style="text-align: center;">Нет</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Статистика ТУ по статусам</td>
+<td style="text-align: center;">0,052</td>
+<td style="text-align: center;">— (Seq Scan малых таблиц)</td>
+<td style="text-align: center;">Нет</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Вывод:</strong> Все типовые запросы выполняются за время, значительно меньшее требуемого порога в 1 секунду (максимальное измеренное время — 0,078 мс). Существующие индексы полностью покрывают потребности типовых запросов. Дополнительная оптимизация на текущем этапе не требуется.</p>
+<hr />
+<h2 id="6">6. Рекомендации по масштабированию</h2>
+<p>При росте объёма данных до 10 000 записей и более рекомендуется:</p>
+<ol>
+<li><strong>Добавить композитный индекс</strong> <code>idx_ту_объект_статус(ИД_Объекта, ИД_Статуса)</code> для оптимизации запроса 4.</li>
+<li><strong>Настроить параметры конфигурации</strong> PostgreSQL в соответствии с разделом 4.2.</li>
+<li><strong>Выполнять регулярное обслуживание</strong> в соответствии с разделом 4.3.</li>
+<li><strong>Провести повторное нагрузочное тестирование</strong> после достижения 5 000 записей для своевременного выявления узких мест.</li>
+</ol></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

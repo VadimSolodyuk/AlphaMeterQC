@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Техническое задание - AlphaMeterQC Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">AlphaMeterQC Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Главная</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Артефакты модуля login_dialog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../01_concept/" class="dropdown-item">Концепция</a>
+</li>
+                                    
+<li>
+    <a href="../02_stakeholders_requirements/" class="dropdown-item">Требования стейкхолдеров</a>
+</li>
+                                    
+<li>
+    <a href="../03_user_stories/" class="dropdown-item">Пользовательские истории</a>
+</li>
+                                    
+<li>
+    <a href="../04_srs/" class="dropdown-item">SRS</a>
+</li>
+                                    
+<li>
+    <a href="../05_use_cases/" class="dropdown-item">Варианты использования</a>
+</li>
+                                    
+<li>
+    <a href="../05-1_UC.LOGIN.D0.01/" class="dropdown-item">UC D0.01</a>
+</li>
+                                    
+<li>
+    <a href="../05-2_UC.LOGIN.D1.01/" class="dropdown-item">UC D1.01</a>
+</li>
+                                    
+<li>
+    <a href="../05-3_UC.LOGIN.D2.01/" class="dropdown-item">UC D2.01</a>
+</li>
+                                    
+<li>
+    <a href="../05-4_UC.LOGIN.D2.02/" class="dropdown-item">UC D2.02</a>
+</li>
+                                    
+<li>
+    <a href="../05-5_UC.LOGIN.D3.01/" class="dropdown-item">UC D3.01</a>
+</li>
+                                    
+<li>
+    <a href="../06_rtm/" class="dropdown-item">Матрица трассировки</a>
+</li>
+                                    
+<li>
+    <a href="../07_domain_model/" class="dropdown-item">Модель предметной сферы</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Техническое задание</a>
+</li>
+                                    
+<li>
+    <a href="../09_ui_design/" class="dropdown-item">Дизайн UI</a>
+</li>
+                                    
+<li>
+    <a href="../10_ui_traceability/" class="dropdown-item">Трассировка UI</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">API Справка (Auto-generated из кода)</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../api/login_dialog/" class="dropdown-item">Модуль login_dialog</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../07_domain_model/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../09_ui_design/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">ТЕХНИЧЕСКОЕ ЗАДАНИЕ</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. ОСНОВАНИЕ ДЛЯ РАЗРАБОТКИ</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. НАЗНАЧЕНИЕ РАЗРАБОТКИ</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. АРХИТЕКТУРА МОДУЛЯ</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. ТРЕБОВАНИЯ К ПРОГРАММНОМУ МОДУЛЮ</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. УСЛОВИЯ ТЕСТИРОВАНИЯ</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-" class="nav-link">6. ТЕХНИКО-ЭКОНОМИЧЕСКИЕ ПОКАЗАТЕЛИ</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. ТРЕБОВАНИЯ К ПРОГРАММНОЙ ДОКУМЕНТАЦИИ</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. СТАДИИ И ЭТАПЫ РАЗРАБОТКИ</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9" class="nav-link">9. ПОРЯДОК КОНТРОЛЯ И ПРИЁМКИ</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">ТЕХНИЧЕСКОЕ ЗАДАНИЕ</h1>
+<p>на разработку программного модуля «login_dialog»</p>
+<p><strong>Версия:</strong> 2.9 (итоговая)<br />
+<strong>Дата:</strong> 2026-06-06<br />
+<strong>Автор:</strong> Солодюк В.Л.<br />
+<strong>Проект:</strong> ПО «AlphaMeterQC» / Модуль ввода данных для подключения к БД</p>
+<hr />
+<h2 id="1">1. ОСНОВАНИЕ ДЛЯ РАЗРАБОТКИ</h2>
+<p>Основанием для разработки является задание на прохождение производственной практики в составе профессионального модуля ПМ.02 «Осуществление интеграции программных модулей».<br />
+План-график работ приведён в Приложении А.<br />
+Перечень нормативно-технических документов приведён в Приложении В.</p>
+<h2 id="2">2. НАЗНАЧЕНИЕ РАЗРАБОТКИ</h2>
+<p>Модуль <code>login_dialog</code> предназначен для ввода пользователем идентификационных данных для подключения к БД Oracle, валидации формата вводимых данных, маскировки пароля и передачи данных вызывающей системе (ПО «AlphaMeterQC»). Модуль не выполняет самостоятельного подключения к БД и не проверяет достоверность учётных данных на сервере.</p>
+<h2 id="3">3. АРХИТЕКТУРА МОДУЛЯ</h2>
+<p>Модуль реализует архитектурный паттерн <strong>MVC (Model-View-Controller)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Компонент</th>
+<th>Реализация</th>
+<th>Ответственность</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Model</strong></td>
+<td><code>ConnectionConfig</code>, <code>Validator</code></td>
+<td>Загрузка/сохранение JSON, правила валидации</td>
+</tr>
+<tr>
+<td><strong>View</strong></td>
+<td><code>ConnectionDialog</code></td>
+<td>Графический интерфейс (CustomTkinter)</td>
+</tr>
+<tr>
+<td><strong>Controller</strong></td>
+<td><code>LoginDialog</code></td>
+<td>API вызова, координация Model и View</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Режимы интеграции:</strong> Для исключения конфликтов графических циклов (Event Loop) модуль поддерживает два режима работы:
+1. <strong>Режим библиотеки (по умолчанию):</strong> Модуль импортируется как Python-пакет, функция <code>show_dialog()</code> вызывается напрямую. Рекомендуется, если вызывающая система использует Tkinter/CustomTkinter.
+2. <strong>Режим отдельного процесса (альтернативный):</strong> Модуль упаковывается в самостоятельный <code>.exe</code> файл. Вызывающая система запускает его через <code>subprocess</code>. Результат передаётся через <code>stdout</code> в формате JSON. Гарантирует совместимость с любой вызывающей системой (PyQt, PySide, C++, C# и т.д.).</p>
+<p><strong>Инициализация:</strong> При импорте модуля GUI не инициализируется. Инициализация происходит при первом вызове <code>show_dialog()</code>. <code>Validator</code> создаётся при инициализации <code>ConnectionDialog</code>.<br />
+<strong>Конкурентный доступ к файлу:</strong> При одновременной работе нескольких экземпляров модуля последний экземпляр перезаписывает файл. Блокировки не требуются.<br />
+<strong>Потокобезопасность:</strong> Все вызовы GUI должны выполняться в главном потоке процесса. Модуль не создаёт дополнительных фоновых потоков.<br />
+<strong>Обработка исключений:</strong> Модуль не генерирует необработанных исключений наружу. Все ошибки файловой системы обрабатываются внутри модуля молча.</p>
+<hr />
+<h2 id="4">4. ТРЕБОВАНИЯ К ПРОГРАММНОМУ МОДУЛЮ</h2>
+<h3 id="41">4.1. Требования к функциональным характеристикам</h3>
+<h4 id="411-f-1">4.1.1. Отображение графического интерфейса (F-1)</h4>
+<p>Модуль должен отображать графическое окно со следующими элементами (реализовано на базе CustomTkinter):</p>
+<table>
+<thead>
+<tr>
+<th>Элемент</th>
+<th>Тип</th>
+<th>Подпись на русском языке</th>
+<th>Обоснование</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IP-адрес / Хост</td>
+<td>Поле ввода</td>
+<td>«IP-адрес/хост»</td>
+<td>SR-1, US-1</td>
+</tr>
+<tr>
+<td>Порт</td>
+<td>Поле ввода</td>
+<td>«Порт»</td>
+<td>SR-1, US-1</td>
+</tr>
+<tr>
+<td>Имя пользователя</td>
+<td>Поле ввода</td>
+<td>«Имя пользователя»</td>
+<td>SR-1, US-1</td>
+</tr>
+<tr>
+<td>Пароль</td>
+<td>Поле ввода (маскированное)</td>
+<td>«Пароль»</td>
+<td>SR-1, US-1</td>
+</tr>
+<tr>
+<td>Идентификатор службы</td>
+<td>Поле ввода</td>
+<td>«Идентификатор службы»</td>
+<td>SR-1, US-1</td>
+</tr>
+<tr>
+<td>Ок</td>
+<td>Кнопка</td>
+<td>«Ок»</td>
+<td>SR-1, US-1</td>
+</tr>
+<tr>
+<td>Отмена</td>
+<td>Кнопка</td>
+<td>«Отмена»</td>
+<td>SR-1, US-1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Порядок навигации клавишей Tab:</strong><br />
+IP-адрес/хост → Порт → Имя пользователя → Пароль → Идентификатор службы → «Ок» → «Отмена».</p>
+<p><strong>Обработка нажатия Enter:</strong><br />
+Если форма валидна (кнопка «Ок» активна), нажатие Enter в любом поле ввода равносильно нажатию кнопки «Ок».<br />
+Если форма невалидна (кнопка «Ок» неактивна), нажатие Enter игнорируется, окно не закрывается.</p>
+<p><strong>Закрытие окна:</strong> Закрытие окна через системную кнопку «X» равносильно нажатию кнопки «Отмена» (возврат <code>None</code>).</p>
+<h4 id="412-f-2">4.1.2. Валидация вводимых данных (F-2)</h4>
+<p>Модуль должен выполнять проверку корректности полей в реальном времени при изменении содержимого.</p>
+<p><strong>Правила валидации:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Правило</th>
+<th>Обоснование</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IP-адрес / Хост</td>
+<td>Валидный IPv4-адрес (0-255) <strong>или</strong> DNS-имя хоста. Для DNS: строка после удаления пробелов по краям (<code>strip</code>) должна содержать хотя бы один буквенно-цифровой символ, не начинаться и не заканчиваться на '-' или '.', допустимые символы: латиница, цифры, '_', '-', '.', не более 255 символов.</td>
+<td>SR-2, US-2</td>
+</tr>
+<tr>
+<td>Порт</td>
+<td>Число от 1 до 65535</td>
+<td>SR-2, US-2</td>
+</tr>
+<tr>
+<td>Имя пользователя</td>
+<td>Не пустое, ≤ 30 символов (латиница, цифры, '_', '-')</td>
+<td>SR-2, US-2</td>
+</tr>
+<tr>
+<td>Пароль</td>
+<td>Не пустой (≥ 1 символа, любые символы). Длина не ограничена</td>
+<td>SR-2, US-2</td>
+</tr>
+<tr>
+<td>Идентификатор службы</td>
+<td>≤ 30 символов (латиница, цифры, '_', '.', '-'). Поле опционально</td>
+<td>SR-2, US-2</td>
+</tr>
+</tbody>
+</table>
+<p>Метод <code>validateAll()</code> возвращает <code>bool</code> — <code>True</code>, если все поля валидны.<br />
+<strong>Обработка недопустимых символов:</strong> Недопустимые символы не блокируются на уровне ввода. Поле подсвечивается, кнопка «Ок» остаётся неактивной до исправления.</p>
+<p><strong>Граничные значения для тестирования:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Мин.</th>
+<th>Макс.</th>
+<th>Негативные значения</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IP-адрес/Хост (IPv4)</td>
+<td><code>0.0.0.0</code></td>
+<td><code>255.255.255.255</code></td>
+<td><code>256.1.1.1</code>, <code>1.2.3</code>, пустая строка, кириллица</td>
+</tr>
+<tr>
+<td>IP-адрес/Хост (DNS)</td>
+<td><code>a</code> (1 символ)</td>
+<td>255 символов</td>
+<td><code>---</code>, <code>...</code>, <code>oracle..db.local</code> (двойная точка), строка из 256 символов, кириллица</td>
+</tr>
+<tr>
+<td>Порт</td>
+<td>1</td>
+<td>65535</td>
+<td>0, 65536, «abc», пустая строка</td>
+</tr>
+<tr>
+<td>Имя пользователя</td>
+<td>1 символ</td>
+<td>30 символов</td>
+<td>пустая строка, 31 символ, спецсимволы</td>
+</tr>
+<tr>
+<td>Пароль</td>
+<td>1 символ</td>
+<td>не ограничен</td>
+<td>пустая строка</td>
+</tr>
+<tr>
+<td>Идентификатор службы</td>
+<td>0 символов</td>
+<td>30 символов</td>
+<td>31 символ, недопустимые символы</td>
+</tr>
+</tbody>
+</table>
+<p>При невыполнении правила поле должно визуально подсвечиваться (F-3).</p>
+<h4 id="413-f-4">4.1.3. Управление кнопкой «Ок» (F-4)</h4>
+<p>Кнопка «Ок» должна быть неактивна, пока любое обязательное поле пустое или не соответствует правилам проверки. Кнопка «Отмена» должна быть активна всегда.</p>
+<h4 id="414-f-8-f-13">4.1.4. Загрузка сохранённых параметров (F-8, F-13)</h4>
+<p>При запуске модуль должен читать JSON-файл из локальной защищённой области пользователя по пути:</p>
+<table>
+<thead>
+<tr>
+<th>Операционная система</th>
+<th>Путь к файлу</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows</td>
+<td><code>%LOCALAPPDATA%\alphameterqc\connection.json</code></td>
+</tr>
+<tr>
+<td>Linux</td>
+<td><code>~/.config/alphameterqc/connection.json</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Реализация пути:</strong> Использовать проверку платформы для формирования корректного пути. Кодировка файла — UTF-8.</p>
+<p><strong>Формат файла (F-13):</strong></p>
+<pre><code class="language-json">{
+  &quot;ip&quot;: &quot;192.168.1.10&quot;,
+  &quot;port&quot;: 1521,
+  &quot;username&quot;: &quot;admin&quot;,
+  &quot;service_name&quot;: &quot;ORCL&quot;
+}
+</code></pre>
+<p><em>Примечание:</em> Поле <code>port</code> всегда сериализуется как целое число (integer). При десериализации модуль должен корректно обрабатывать приведение строки к <code>int</code>, если файл был отредактирован вручную.</p>
+<p><strong>Обработка ошибок при чтении (F-9):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ситуация</th>
+<th>Действие</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Файл отсутствует</td>
+<td>Новый файл не создаётся. Поля заполняются значениями по умолчанию.</td>
+</tr>
+<tr>
+<td>Файл повреждён или содержит некорректный JSON</td>
+<td>Файл удаляется. Поля заполняются значениями по умолчанию.</td>
+</tr>
+<tr>
+<td>Некорректный тип данных (например, port = «abc»)</td>
+<td>Файл удаляется. Поля заполняются значениями по умолчанию.</td>
+</tr>
+<tr>
+<td>Ошибки файловой системы (нет прав на чтение)</td>
+<td>Обрабатываются молча. Поля заполняются значениями по умолчанию.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Значения по умолчанию для отсутствующих в JSON полей:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Значение по умолчанию</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ip</code></td>
+<td>Пустая строка <code>""</code></td>
+</tr>
+<tr>
+<td><code>port</code></td>
+<td><code>1521</code></td>
+</tr>
+<tr>
+<td><code>username</code></td>
+<td>Пустая строка <code>""</code></td>
+</tr>
+<tr>
+<td><code>service_name</code></td>
+<td><code>"ORCL"</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Умный фокус (NF-1):</strong> После загрузки данных модуль устанавливает фокус ввода на поле «Пароль», если поле <code>ip</code> или <code>username</code> не пустое (заполнено из файла или передано как default). В противном случае (первый запуск, все поля пусты) фокус устанавливается на поле «IP-адрес/хост».</p>
+<h4 id="415-f-7">4.1.5. Сохранение параметров (F-7)</h4>
+<p>При нажатии «Ок» модуль должен сохранять IP-адрес/хост, порт, имя пользователя и идентификатор службы в JSON-файл по указанному выше пути. Пароль не сохраняется.</p>
+<p><strong>Требование к атомарности записи:</strong> Для гарантии атомарности операции на всех ОС, временный файл (<code>.tmp</code>) должен создаваться строго в той же директории, что и целевой файл <code>connection.json</code>, перед использованием стандартной функции Python <code>os.replace(src, dst)</code>. Эта функция гарантирует атомарную замену на POSIX-системах и корректно выполняет замену существующего файла на Windows, не требуя использования сторонних библиотек (ctypes).</p>
+<h4 id="416">4.1.6. Возврат результата вызывающей системе</h4>
+<p>При нажатии «Ок» модуль должен возвращать вызывающей системе структуру в формате Python dict (F-5):</p>
+<pre><code class="language-json">{
+  &quot;ip&quot;: str,
+  &quot;port&quot;: int,
+  &quot;username&quot;: str,
+  &quot;password&quot;: str,
+  &quot;service_name&quot;: str
+}
+</code></pre>
+<p>При нажатии «Отмена», закрытии окна через «X» или нажатии Esc модуль должен возвращать сигнал отмены (<code>None</code>) (F-6).</p>
+<h4 id="417-f-11">4.1.7. Маскировка пароля (F-11)</h4>
+<p>При вводе в поле «Пароль» символы должны отображаться в виде символов-заменителей (например, «•»).</p>
+<h3 id="42-f-12-nf-5">4.2. Требования к интеграции (F-12, NF-5)</h3>
+<p>Модуль предоставляет вызывающей системе API. В зависимости от режима интеграции:</p>
+<ol>
+<li>
+<p><strong>Режим библиотеки (по умолчанию):</strong>
+   <code>python
+   def show_dialog(
+       default_ip: str = "",
+       default_port: int = 1521,
+       default_username: str = "",
+       default_service_name: str = "ORCL",
+       debug: bool = False
+   ) -&gt; Union[dict, None]</code>
+   <em>Входные параметры</em> — значения по умолчанию для полей.<br />
+<em>debug</em> — если <code>True</code>, ошибки логируются в <code>stderr</code> (без пароля).<br />
+<em>Возврат</em> — словарь с данными или <code>None</code> при отмене.</p>
+</li>
+<li>
+<p><strong>Режим отдельного процесса (subprocess):</strong><br />
+   Вызывающая система запускает исполняемый файл модуля: <code>subprocess.run(['login_dialog.exe'], capture_output=True, text=True)</code><br />
+   Модуль выводит результат в <code>stdout</code> в формате JSON:</p>
+</li>
+<li><strong>Успех:</strong> <code>{"status": "success", "data": {"ip": "...", "port": 1521, ...}}</code></li>
+<li><strong>Отмена:</strong> <code>{"status": "cancelled"}</code></li>
+<li><strong>Ошибка (критическая):</strong> <code>{"status": "error", "message": "..."}</code> (код возврата процесса <code>!= 0</code>)</li>
+</ol>
+<p>Модуль не должен иметь скрытых зависимостей от драйверов Oracle или сторонних библиотек, требующих отдельной установки (NF-7).</p>
+<h3 id="43">4.3. Требования к информационной совместимости</h3>
+<table>
+<thead>
+<tr>
+<th>Требование</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Формат обмена данными</td>
+<td>JSON (UTF-8)</td>
+</tr>
+<tr>
+<td>Структура данных</td>
+<td>Словарь Python, сериализуемый в JSON</td>
+</tr>
+<tr>
+<td>Кодировка</td>
+<td>UTF-8</td>
+</tr>
+</tbody>
+</table>
+<h3 id="44">4.4. Требования к техническим средствам</h3>
+<table>
+<thead>
+<tr>
+<th>Требование</th>
+<th>Значение</th>
+<th>Обоснование</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Целевая ОС</td>
+<td>Windows, Linux</td>
+<td>NF-6</td>
+</tr>
+<tr>
+<td>Упаковка</td>
+<td>Совместимость с PyInstaller (один .exe для Windows)</td>
+<td>NF-7</td>
+</tr>
+<tr>
+<td>Наличие Oracle Client</td>
+<td>Не требуется</td>
+<td>NF-6</td>
+</tr>
+</tbody>
+</table>
+<h3 id="45">4.5. Требования к программной совместимости</h3>
+<table>
+<thead>
+<tr>
+<th>Требование</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Язык реализации</td>
+<td>Python 3.9 – 3.12</td>
+</tr>
+<tr>
+<td>Графическая библиотека</td>
+<td>CustomTkinter (единственная допустимая внешняя зависимость). <strong>При сборке через PyInstaller необходимо использовать аргумент <code>--hidden-import customtkinter</code> и убедиться, что директория <code>customtkinter/assets</code> включена в сборку для корректного отображения тем.</strong></td>
+</tr>
+<tr>
+<td>Внешние зависимости</td>
+<td>Отсутствуют (кроме CustomTkinter)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="46">4.6. Требования к надёжности</h3>
+<table>
+<thead>
+<tr>
+<th>Требование</th>
+<th>Значение</th>
+<th>Способ проверки</th>
+<th>Обоснование</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Зависания интерфейса</td>
+<td>Нет зависаний &gt;0,5 с</td>
+<td>100 быстрых нажатий клавиш в поле ввода, макс. время обработки одного нажатия</td>
+<td>NF-2b</td>
+</tr>
+<tr>
+<td>Обработка ошибок ФС</td>
+<td>Нет необработанных исключений</td>
+<td>Негативное тестирование (удаление прав, повреждение файла)</td>
+<td>NF-2c</td>
+</tr>
+<tr>
+<td>Отсутствие прав на запись</td>
+<td>Работа без сохранения, без сообщений</td>
+<td>Негативное тестирование</td>
+<td>F-10</td>
+</tr>
+<tr>
+<td>Длинный пароль (1000+ символов)</td>
+<td>Не вызывает зависаний</td>
+<td>Функциональное тестирование</td>
+<td>NF-2b</td>
+</tr>
+</tbody>
+</table>
+<h3 id="47">4.7. Требования к производительности</h3>
+<table>
+<thead>
+<tr>
+<th>Требование</th>
+<th>Значение</th>
+<th>Способ проверки</th>
+<th>Обоснование</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Время отклика интерфейса</td>
+<td>≤0,1 с (99% случаев)</td>
+<td>Инструментальный замер обработчика</td>
+<td>NF-2a</td>
+</tr>
+<tr>
+<td>Время открытия окна</td>
+<td>≤0,5 с от вызова функции</td>
+<td>Инструментальный замер</td>
+<td>NF-4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="48">4.8. Требования к безопасности</h3>
+<table>
+<thead>
+<tr>
+<th>Требование</th>
+<th>Значение</th>
+<th>Способ проверки</th>
+<th>Обоснование</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Сохранение пароля на диск</td>
+<td>Не допускается</td>
+<td>Проверка файла <code>connection.json</code></td>
+<td>NF-3a</td>
+</tr>
+<tr>
+<td>Передача пароля в логи</td>
+<td>Не допускается</td>
+<td>Проверка логов, консоли (в т.ч. в режиме debug)</td>
+<td>NF-3b</td>
+</tr>
+</tbody>
+</table>
+<h3 id="49">4.9. Требования к хранению и архивированию</h3>
+<table>
+<thead>
+<tr>
+<th>Требование</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Формат хранения</td>
+<td>JSON (UTF-8)</td>
+</tr>
+<tr>
+<td>Расположение</td>
+<td>Локальная защищённая область пользователя (<code>%LOCALAPPDATA%</code> / <code>~/.config/</code>)</td>
+</tr>
+<tr>
+<td>Резервное копирование</td>
+<td>Не требуется (файл может быть пересоздан со значениями по умолчанию)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="410">4.10. Требования к эксплуатации и обслуживанию</h3>
+<table>
+<thead>
+<tr>
+<th>Требование</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Обновление модуля</td>
+<td>Замена исполняемого файла (.exe) или библиотеки</td>
+</tr>
+<tr>
+<td>Совместимость версий</td>
+<td>API сохраняет стабильность между версиями</td>
+</tr>
+</tbody>
+</table>
+<h3 id="411">4.11. Требования к исходному коду</h3>
+<table>
+<thead>
+<tr>
+<th>Требование</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Стандарт кодирования</td>
+<td>PEP8 (проверка flake8)</td>
+</tr>
+<tr>
+<td>Аннотации типов</td>
+<td>mypy — strict mode</td>
+</tr>
+<tr>
+<td>Документация</td>
+<td>Docstring в формате Google</td>
+</tr>
+<tr>
+<td>Логирование</td>
+<td><code>logging</code> (исключая пароль)</td>
+</tr>
+<tr>
+<td>Запрещено</td>
+<td><code>print()</code> в production-коде</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5">5. УСЛОВИЯ ТЕСТИРОВАНИЯ</h2>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ОС</td>
+<td>Windows 10/11 (основная), Linux Ubuntu 20.04/22.04</td>
+</tr>
+<tr>
+<td>Версия Python</td>
+<td>3.9 – 3.12 (совместимость)</td>
+</tr>
+<tr>
+<td>Среда</td>
+<td>Чистая установка без дополнительных библиотек (кроме CustomTkinter)</td>
+</tr>
+<tr>
+<td>Автоматизация</td>
+<td>pytest, unittest</td>
+</tr>
+<tr>
+<td>Негативные сценарии</td>
+<td>Отсутствие прав на чтение/запись, повреждённый файл, занятый файл, неверный тип данных в JSON</td>
+</tr>
+<tr>
+<td>Пустой идентификатор службы</td>
+<td>Не блокирует кнопку «Ок» (поле опционально)</td>
+</tr>
+<tr>
+<td>Табуляция</td>
+<td>Проверить порядок навигации Tab согласно п.4.1.1</td>
+</tr>
+<tr>
+<td>Длинный пароль</td>
+<td>Проверить, что пароль длиной 1000+ символов не вызывает зависаний</td>
+</tr>
+<tr>
+<td>Валидация DNS</td>
+<td>Проверить принятие <code>localhost</code>, <code>oracle-db.local</code>, и отклонение <code>---</code>, <code>...</code>, <code>oracle..db.local</code>, строки длиной 256 символов</td>
+</tr>
+<tr>
+<td>Интеграция subprocess</td>
+<td>Проверить корректный возврат JSON через stdout, включая обработку <code>{"status": "error"}</code></td>
+</tr>
+<tr>
+<td>Smoke-тесты</td>
+<td>Провести на Windows 10/11 и Ubuntu 20.04/22.04</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-">6. ТЕХНИКО-ЭКОНОМИЧЕСКИЕ ПОКАЗАТЕЛИ</h2>
+<table>
+<thead>
+<tr>
+<th>Показатель</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ориентировочная трудоёмкость</td>
+<td>44 человеко-часа</td>
+</tr>
+<tr>
+<td>Ориентировочный срок разработки</td>
+<td>5.5 рабочих дней</td>
+</tr>
+<tr>
+<td>Целевая платформа</td>
+<td>Windows (совместимость с Linux)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7">7. ТРЕБОВАНИЯ К ПРОГРАММНОЙ ДОКУМЕНТАЦИИ</h2>
+<p>Документация должна включать:
+1. Спецификацию вариантов использования (5 UC с маркировкой <code>UC.LOGIN...</code>) — Markdown
+2. Модель предметной сферы (диаграмма классов PlantUML)
+3. Инструкцию по интеграции (описание API для обоих режимов)</p>
+<hr />
+<h2 id="8">8. СТАДИИ И ЭТАПЫ РАЗРАБОТКИ</h2>
+<table>
+<thead>
+<tr>
+<th>Этап</th>
+<th>Содержание</th>
+<th>Срок (дни)</th>
+<th>Критерии успеха</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0</strong></td>
+<td><strong>Spike (Исследование):</strong> Прототип запуска subprocess и парсинга JSON из stdout для снятия архитектурного риска</td>
+<td>0.5 (4 часа)</td>
+<td>1. Прототип успешно запускает CustomTkinter окно через subprocess.<br>2. Родительский процесс корректно парсит JSON из stdout.<br>3. Обработаны сценарии: успех, отмена, критическая ошибка.<br>4. Время от запуска до получения результата &lt; 1 секунды.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Разработка графического интерфейса (CustomTkinter) с 5 полями и 2 кнопками</td>
+<td>1</td>
+<td>Окно отображается, все поля и кнопки присутствуют, навигация Tab работает.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Валидация (вкл. строгий DNS), подсветка ошибок, управление кнопкой «Ок», обработка Enter</td>
+<td>1</td>
+<td>Все правила валидации работают, кнопка «Ок» активируется только при валидной форме, Enter игнорируется при невалидной форме.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Загрузка/сохранение JSON, атомарная запись (<code>os.replace</code>), обработка ошибок ФС</td>
+<td>1</td>
+<td>Файл читается/записывается корректно, атомарная запись работает, ошибки ФС обрабатываются молча.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>API для вызывающей системы (библиотека + subprocess), возврат данных/отмены/ошибки</td>
+<td>1</td>
+<td>Оба режима интеграции работают, возвращаются корректные структуры данных/JSON.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Тестирование и проверка критериев приёмки</td>
+<td>1</td>
+<td>Все 13 критериев приёмки (Раздел 9) выполнены, покрытие тестами ≥ 80%.</td>
+</tr>
+<tr>
+<td><strong>Итого</strong></td>
+<td></td>
+<td><strong>5.5</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9">9. ПОРЯДОК КОНТРОЛЯ И ПРИЁМКИ</h2>
+<table>
+<thead>
+<tr>
+<th>№</th>
+<th>Критерий</th>
+<th>Способ проверки</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Интеграция без изменения кода вызывающей системы (в обоих режимах)</td>
+<td>Интеграционное тестирование</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Окно содержит 5 полей и 2 кнопки, современный UI (CustomTkinter)</td>
+<td>Визуальная проверка</td>
+</tr>
+<tr>
+<td>3</td>
+<td>При некорректных данных кнопка «Ок» неактивна, Enter игнорируется</td>
+<td>Функциональное тестирование</td>
+</tr>
+<tr>
+<td>4</td>
+<td>При «Ок» — атомарное сохранение параметров (кроме пароля) и возврат данных</td>
+<td>Интеграционное тестирование</td>
+</tr>
+<tr>
+<td>5</td>
+<td>При каждом вызове поля заполняются из файла. При отсутствии/повреждении файла — заполняются значениями по умолчанию (Порт=1521, SID=ORCL)</td>
+<td>Функциональное тестирование</td>
+</tr>
+<tr>
+<td>6</td>
+<td>При «Отмена» — возврат <code>None</code> (или <code>{"status": "cancelled"}</code> в subprocess)</td>
+<td>Функциональное тестирование</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Маскировка пароля</td>
+<td>Визуальная проверка</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Пароль не передаётся в логи/консоль/файлы</td>
+<td>Проверка логов</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Ошибки ФС обрабатываются молча (работа продолжается, поля заполнены дефолтами)</td>
+<td>Негативное тестирование</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Окно открывается &lt;0,5 с</td>
+<td>Инструментальный замер</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Умный фокус: если <code>ip</code> или <code>username</code> не пустые, фокус на «Пароль», иначе на «IP-адрес/хост»</td>
+<td>Функциональное тестирование</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Порядок навигации Tab соответствует п.4.1.1</td>
+<td>Функциональное тестирование</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Валидация принимает валидные DNS-имена (например, <code>localhost</code>) и отклоняет невалидные (<code>---</code>, <code>...</code>, <code>oracle..db.local</code>)</td>
+<td>Функциональное тестирование</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="-">Приложение А. План-график работ</h3>
+<table>
+<thead>
+<tr>
+<th>Этап</th>
+<th>Наименование</th>
+<th>Исполнитель</th>
+<th>Срок (дни)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Spike (Исследование)</td>
+<td>Разработчик</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Графический интерфейс (CustomTkinter)</td>
+<td>Разработчик</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Валидация (IPv4+DNS), управление, Enter</td>
+<td>Разработчик</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>JSON, атомарная запись (<code>os.replace</code>), ошибки ФС</td>
+<td>Разработчик</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>API (библиотека + subprocess), debug</td>
+<td>Разработчик</td>
+<td>1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Тестирование</td>
+<td>Тестировщик</td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>Итого</strong></td>
+<td></td>
+<td></td>
+<td><strong>5.5</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_2">Приложение Б. Трассировка требований</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Описание</th>
+<th>Источник</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F-1</td>
+<td>Отображение окна с 5 полями (CustomTkinter)</td>
+<td>Концепция п.7.1, SR-1, US-1</td>
+</tr>
+<tr>
+<td>F-2</td>
+<td>Валидация в реальном времени (IPv4 + строгий DNS)</td>
+<td>Концепция п.7.1, SR-2, US-2</td>
+</tr>
+<tr>
+<td>F-3</td>
+<td>Подсветка некорректных полей</td>
+<td>Концепция п.7.1, SR-3, US-2</td>
+</tr>
+<tr>
+<td>F-4</td>
+<td>Управление кнопкой «Ок» (игнорирование Enter при невалидной форме)</td>
+<td>Концепция п.7.1, SR-4, US-2</td>
+</tr>
+<tr>
+<td>F-5</td>
+<td>Возврат структуры при «Ок»</td>
+<td>Концепция п.7.1, SR-11, US-4</td>
+</tr>
+<tr>
+<td>F-6</td>
+<td>Возврат сигнала отмены</td>
+<td>Концепция п.7.1, SR-11, US-4</td>
+</tr>
+<tr>
+<td>F-7</td>
+<td>Сохранение параметров (атомарная запись через <code>os.replace</code>)</td>
+<td>Концепция п.7.1, SR-5, US-3</td>
+</tr>
+<tr>
+<td>F-8</td>
+<td>Подстановка из файла + умный фокус (упрощённый)</td>
+<td>Концепция п.7.1, SR-5, US-3</td>
+</tr>
+<tr>
+<td>F-9</td>
+<td>Обработка ошибок файла (значения по умолчанию)</td>
+<td>Концепция п.7.1, SR-7, US-6</td>
+</tr>
+<tr>
+<td>F-10</td>
+<td>Отсутствие прав на запись</td>
+<td>Концепция п.7.1, SR-7, US-6</td>
+</tr>
+<tr>
+<td>F-11</td>
+<td>Маскировка пароля</td>
+<td>Концепция п.7.1, SR-15, US-5</td>
+</tr>
+<tr>
+<td>F-12</td>
+<td>Контракт взаимодействия (библиотека + subprocess + error)</td>
+<td>Концепция п.7.1, SR-11, US-4</td>
+</tr>
+<tr>
+<td>F-13</td>
+<td>JSON-формат, значения по умолчанию (1521, ORCL), <code>%LOCALAPPDATA%</code></td>
+<td>Концепция п.7.1, SR-5, SR-7, US-3, US-6</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="-_1">Приложение В. Перечень нормативно-технических документов</h3>
+<table>
+<thead>
+<tr>
+<th>Обозначение</th>
+<th>Наименование</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ГОСТ 34.602-2020</td>
+<td>Информационная технология. Техническое задание на создание автоматизированной системы</td>
+</tr>
+<tr>
+<td>ГОСТ Р ИСО/МЭК 12207-2010</td>
+<td>Информационная технология. Процессы жизненного цикла программных средств</td>
+</tr>
+<tr>
+<td>ГОСТ Р ИСО/МЭК 25010-2015</td>
+<td>Системная и программная инженерия. Требования и оценка качества систем и программного обеспечения (SQuaRE)</td>
+</tr>
+<tr>
+<td>ISO/IEC 29148:2018</td>
+<td>Systems and software engineering — Life cycle processes — Requirements engineering</td>
+</tr>
+<tr>
+<td>PEP 8</td>
+<td>Style Guide for Python Code</td>
+</tr>
+<tr>
+<td>PEP 484</td>
+<td>Type Hints</td>
+</tr>
+<tr>
+<td>Oracle Database Net Services Administrator's Guide</td>
+<td>Настройка подключений к Oracle Database</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="pyinstaller">Приложение Г. Пример команды сборки PyInstaller</h3>
+<p>Для корректной упаковки модуля в <code>.exe</code> с поддержкой тем CustomTkinter использовать следующую команду:</p>
+<pre><code class="language-bash">pyinstaller --onefile \
+  --hidden-import customtkinter \
+  --add-data &quot;customtkinter/assets:customtkinter/assets&quot; \
+  --name login_dialog \
+  src/alphameterqc/login_dialog/__main__.py
+</code></pre>
+<p><strong>Пояснение аргументов:</strong>
+- <code>--onefile</code> — упаковать всё в один <code>.exe</code> файл.
+- <code>--hidden-import customtkinter</code> — явно включить модуль CustomTkinter (иначе PyInstaller может его пропустить).
+- <code>--add-data "customtkinter/assets:customtkinter/assets"</code> — включить папку с темами и ресурсами CustomTkinter (критически важно для отображения UI).
+- <code>--name login_dialog</code> — имя выходного файла.
+- Последний аргумент — точка входа в модуль.</p>
+<p><strong>Для Windows:</strong> разделитель в <code>--add-data</code> — точка с запятой (<code>;</code>):
+```bash
+pyinstaller --onefile --hidden-import customtkinter --add-data "customtkinter/assets;customtkinter/assets" --name login_dialog src/alphameterqc/login_dialog/<strong>main</strong>.py</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

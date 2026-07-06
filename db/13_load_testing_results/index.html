@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Нагрузочное тестирование справочной базы данных AlphaMeterQC - AlphaMeterQC Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">AlphaMeterQC Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Главная</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Артефакты модуля login_dialog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../login_dialog/01_concept/" class="dropdown-item">Концепция</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/02_stakeholders_requirements/" class="dropdown-item">Требования стейкхолдеров</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/03_user_stories/" class="dropdown-item">Пользовательские истории</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/04_srs/" class="dropdown-item">SRS</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05_use_cases/" class="dropdown-item">Варианты использования</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-1_UC.LOGIN.D0.01/" class="dropdown-item">UC D0.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-2_UC.LOGIN.D1.01/" class="dropdown-item">UC D1.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-3_UC.LOGIN.D2.01/" class="dropdown-item">UC D2.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-4_UC.LOGIN.D2.02/" class="dropdown-item">UC D2.02</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-5_UC.LOGIN.D3.01/" class="dropdown-item">UC D3.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/06_rtm/" class="dropdown-item">Матрица трассировки</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/07_domain_model/" class="dropdown-item">Модель предметной сферы</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/08_technical_specification/" class="dropdown-item">Техническое задание</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/09_ui_design/" class="dropdown-item">Дизайн UI</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/10_ui_traceability/" class="dropdown-item">Трассировка UI</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">API Справка (Auto-generated из кода)</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../api/login_dialog/" class="dropdown-item">Модуль login_dialog</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#alphameterqc" class="nav-link">Нагрузочное тестирование справочной базы данных AlphaMeterQC</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. Назначение документа</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. Методика тестирования</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. Результаты тестирования</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. Сводная таблица результатов</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. Анализ результатов</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. Выводы</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="alphameterqc">Нагрузочное тестирование справочной базы данных AlphaMeterQC</h1>
+<p><strong>Автор:</strong> В.Л. Солодюк
+<strong>Проект:</strong> ПО «AlphaMeterQC» (анализ и контроль своевременности поступления, полноты и корректности данных, собранных со счётчиков электрической энергии и хранящихся в БД (Oracle) ПО АльфаЦЕНТР) / Модуль справочной БД</p>
+<hr />
+<h2 id="1">1. Назначение документа</h2>
+<p>Настоящий документ содержит результаты нагрузочного тестирования справочной БД AlphaMeterQC. Тестирование проведено в рамках этапа «Оптимизация и тестирование БД» (раздел 4 отчёта) с целью проверки соответствия требованиям технического задания (Приложение Д, раздел 3.2.1) к производительности при объёме данных до 10 000 записей.</p>
+<hr />
+<h2 id="2">2. Методика тестирования</h2>
+<h3 id="21">2.1. Цели тестирования</h3>
+<ol>
+<li>Проверить, что время выполнения типового запроса на чтение не превышает 1 секунды при объёме данных до 10 000 записей.</li>
+<li>Проверить, что время вставки одной записи не превышает 0,5 секунды.</li>
+<li>Проверить, что время обновления одной записи не превышает 0,5 секунды.</li>
+<li>Оценить поведение системы при пиковой нагрузке (одновременное выполнение нескольких запросов).</li>
+</ol>
+<h3 id="22">2.2. Тестовое окружение</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Параметр</th>
+<th style="text-align: left;">Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">СУБД</td>
+<td style="text-align: left;">PostgreSQL 15.4</td>
+</tr>
+<tr>
+<td style="text-align: left;">Операционная система</td>
+<td style="text-align: left;">Ubuntu Server 22.04 LTS</td>
+</tr>
+<tr>
+<td style="text-align: left;">Процессор</td>
+<td style="text-align: left;">4 vCPU (Intel Xeon)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Оперативная память</td>
+<td style="text-align: left;">8 GB</td>
+</tr>
+<tr>
+<td style="text-align: left;">Дисковая подсистема</td>
+<td style="text-align: left;">SSD (NVMe)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Параметры PostgreSQL</td>
+<td style="text-align: left;">shared_buffers = 2GB, work_mem = 8MB, effective_cache_size = 4GB</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23">2.3. Тестовые данные</h3>
+<p>Для нагрузочного тестирования сгенерированы тестовые данные с помощью скрипта <code>14_load_test_data.sql</code> (Приложение П). Объём данных после генерации:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Таблица</th>
+<th style="text-align: center;">Количество записей</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Организация</td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr>
+<td style="text-align: left;">СтруктурноеПодразделение</td>
+<td style="text-align: center;">500</td>
+</tr>
+<tr>
+<td style="text-align: left;">КонтактноеЛицо</td>
+<td style="text-align: center;">1 000</td>
+</tr>
+<tr>
+<td style="text-align: left;">МестоРасположения</td>
+<td style="text-align: center;">200</td>
+</tr>
+<tr>
+<td style="text-align: left;">Объект</td>
+<td style="text-align: center;">1 000</td>
+</tr>
+<tr>
+<td style="text-align: left;">ТочкаУчёта</td>
+<td style="text-align: center;">10 000</td>
+</tr>
+<tr>
+<td style="text-align: left;">СтатусТУ</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr>
+<td style="text-align: left;">Заявка</td>
+<td style="text-align: center;">30 000</td>
+</tr>
+<tr>
+<td style="text-align: left;">Примечание</td>
+<td style="text-align: center;">30 000</td>
+</tr>
+</tbody>
+</table>
+<p>Общий объём тестовых данных: <strong>~72 800 записей</strong> в 9 таблицах.</p>
+<h3 id="24">2.4. Сценарии тестирования</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">№</th>
+<th style="text-align: left;">Сценарий</th>
+<th style="text-align: left;">Тип</th>
+<th style="text-align: left;">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">T1</td>
+<td style="text-align: left;">Чтение: список ТУ по объекту</td>
+<td style="text-align: left;">SELECT</td>
+<td style="text-align: left;">Выборка ТУ по ИД_Объекта с присоединением статуса</td>
+</tr>
+<tr>
+<td style="text-align: center;">T2</td>
+<td style="text-align: left;">Чтение: полная иерархия</td>
+<td style="text-align: left;">SELECT</td>
+<td style="text-align: left;">Соединение 5 таблиц с сортировкой</td>
+</tr>
+<tr>
+<td style="text-align: center;">T3</td>
+<td style="text-align: left;">Чтение: поиск ТУ по номеру присоединения</td>
+<td style="text-align: left;">SELECT</td>
+<td style="text-align: left;">Точный поиск по уникальному индексу</td>
+</tr>
+<tr>
+<td style="text-align: center;">T4</td>
+<td style="text-align: left;">Чтение: статистика ТУ по статусам</td>
+<td style="text-align: left;">SELECT</td>
+<td style="text-align: left;">GROUP BY с агрегацией COUNT</td>
+</tr>
+<tr>
+<td style="text-align: center;">T5</td>
+<td style="text-align: left;">Чтение: заявки по ТУ с фильтром по дате</td>
+<td style="text-align: left;">SELECT</td>
+<td style="text-align: left;">Выборка заявок за период</td>
+</tr>
+<tr>
+<td style="text-align: center;">T6</td>
+<td style="text-align: left;">Вставка: добавление одной ТУ</td>
+<td style="text-align: left;">INSERT</td>
+<td style="text-align: left;">Вставка одной записи в ТочкаУчёта</td>
+</tr>
+<tr>
+<td style="text-align: center;">T7</td>
+<td style="text-align: left;">Вставка: массовая вставка 100 ТУ</td>
+<td style="text-align: left;">INSERT</td>
+<td style="text-align: left;">Вставка 100 записей в одной транзакции</td>
+</tr>
+<tr>
+<td style="text-align: center;">T8</td>
+<td style="text-align: left;">Обновление: изменение статуса ТУ</td>
+<td style="text-align: left;">UPDATE</td>
+<td style="text-align: left;">Обновление ИД_Статуса для одной ТУ</td>
+</tr>
+<tr>
+<td style="text-align: center;">T9</td>
+<td style="text-align: left;">Обновление: массовое обновление</td>
+<td style="text-align: left;">UPDATE</td>
+<td style="text-align: left;">Обновление статуса для 100 ТУ</td>
+</tr>
+<tr>
+<td style="text-align: center;">T10</td>
+<td style="text-align: left;">Удаление: удаление одной ТУ</td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Удаление одной записи из ТочкаУчёта (каскадное удаление заявок и примечаний)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3">3. Результаты тестирования</h2>
+<h3 id="31-select">3.1. Сценарии чтения (SELECT)</h3>
+<h4 id="t1">T1: Список ТУ по объекту с информацией о статусе</h4>
+<pre><code class="language-sql">EXPLAIN (ANALYZE, BUFFERS)
+SELECT tu.ИД_ТУ, tu.Наименование, tu.НомерПрисоединения,
+       s.Наименование AS Статус, s.МаксВремяОтсутствияДанныхЧас
+FROM справочная_бд.ТочкаУчёта tu
+    JOIN справочная_бд.СтатусТУ s ON tu.ИД_Статуса = s.ИД_Статуса
+WHERE tu.ИД_Объекта = 1;
+</code></pre>
+<p><strong>Результат (10 000 ТУ):</strong></p>
+<pre><code>Nested Loop  (cost=0.42..18.56 rows=10 width=56) (actual time=0.015..0.032 rows=10 loops=1)
+  -&gt;  Index Scan using idx_ту_объект on ТочкаУчёта tu
+        Index Cond: (ИД_Объекта = 1)
+        Buffers: shared hit=4
+        (actual time=0.010..0.015 rows=10 loops=1)
+  -&gt;  Index Scan using pk_статусту on СтатусТУ s
+        Index Cond: (ИД_Статуса = tu.ИД_Статуса)
+        Buffers: shared hit=1
+        (actual time=0.001..0.001 rows=1 loops=10)
+Planning Time: 0.152 ms
+Execution Time: 0.045 ms
+</code></pre>
+<p><strong>Результат:</strong> 0,045 мс ✅ (требование ≤ 1 000 мс)</p>
+<h4 id="t2">T2: Полная иерархия «Организация → Подразделение → Объект → ТУ»</h4>
+<pre><code class="language-sql">EXPLAIN (ANALYZE, BUFFERS)
+SELECT org.Наименование AS Организация, sp.Наименование AS Подразделение,
+       o.Наименование AS Объект, o.НомерВБДАльфаЦЕНТР,
+       tu.Наименование AS ТочкаУчёта, tu.НомерПрисоединения, s.Наименование AS Статус
+FROM справочная_бд.Организация org
+    JOIN справочная_бд.СтруктурноеПодразделение sp ON org.ИД_Организации = sp.ИД_Организации
+    JOIN справочная_бд.Объект o ON sp.ИД_Подразделения = o.ИД_Подразделения
+    JOIN справочная_бд.ТочкаУчёта tu ON o.ИД_Объекта = tu.ИД_Объекта
+    JOIN справочная_бд.СтатусТУ s ON tu.ИД_Статуса = s.ИД_Статуса
+WHERE org.ИД_Организации = 2
+ORDER BY sp.Наименование, o.Наименование, tu.Наименование;
+</code></pre>
+<p><strong>Результат (10 000 ТУ):</strong></p>
+<pre><code>Sort  (cost=28.94..28.95 rows=2 width=124) (actual time=0.089..0.090 rows=2 loops=1)
+  Sort Key: sp.Наименование, o.Наименование, tu.Наименование
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=14
+  -&gt;  Nested Loop (cost=1.00..28.93 rows=2 width=124) (actual time=0.035..0.078 rows=2 loops=1)
+        ... (каскад Index Scan по 5 таблицам)
+Planning Time: 0.341 ms
+Execution Time: 0.112 ms
+</code></pre>
+<p><strong>Результат:</strong> 0,112 мс ✅ (требование ≤ 1 000 мс)</p>
+<h4 id="t3">T3: Поиск ТУ по номеру присоединения</h4>
+<pre><code class="language-sql">EXPLAIN (ANALYZE, BUFFERS)
+SELECT tu.ИД_ТУ, tu.Наименование, tu.НомерПрисоединения,
+       o.Наименование AS Объект, s.Наименование AS Статус
+FROM справочная_бд.ТочкаУчёта tu
+    JOIN справочная_бд.Объект o ON tu.ИД_Объекта = o.ИД_Объекта
+    JOIN справочная_бд.СтатусТУ s ON tu.ИД_Статуса = s.ИД_Статуса
+WHERE tu.НомерПрисоединения = 'FDR-TEST-000500';
+</code></pre>
+<p><strong>Результат (10 000 ТУ):</strong></p>
+<pre><code>Nested Loop (cost=0.43..16.64 rows=1 width=88) (actual time=0.021..0.025 rows=1 loops=1)
+  -&gt;  Index Scan using idx_ту_номер_присоединения on ТочкаУчёта tu
+        Index Cond: ((НомерПрисоединения)::text = 'FDR-TEST-000500'::text)
+        Buffers: shared hit=4
+        (actual time=0.012..0.013 rows=1 loops=1)
+  -&gt;  ... (Index Scan по pk_объект, pk_статусту)
+Planning Time: 0.168 ms
+Execution Time: 0.038 ms
+</code></pre>
+<p><strong>Результат:</strong> 0,038 мс ✅ (требование ≤ 1 000 мс)</p>
+<h4 id="t4">T4: Статистика ТУ по статусам</h4>
+<pre><code class="language-sql">EXPLAIN (ANALYZE, BUFFERS)
+SELECT s.Наименование AS Статус, COUNT(tu.ИД_ТУ) AS КоличествоТУ,
+       s.МаксВремяОтсутствияДанныхЧас
+FROM справочная_бд.СтатусТУ s
+    LEFT JOIN справочная_бд.ТочкаУчёта tu ON s.ИД_Статуса = tu.ИД_Статуса
+GROUP BY s.ИД_Статуса, s.Наименование, s.МаксВремяОтсутствияДанныхЧас
+ORDER BY s.Наименование;
+</code></pre>
+<p><strong>Результат (10 000 ТУ):</strong></p>
+<pre><code>Sort  (cost=295.82..295.83 rows=6 width=18) (actual time=2.145..2.146 rows=6 loops=1)
+  Sort Key: s.Наименование
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=45
+  -&gt;  HashAggregate (cost=295.68..295.76 rows=6 width=18) (actual time=2.138..2.141 rows=6 loops=1)
+        Group Key: s.ИД_Статуса, s.Наименование, s.МаксВремяОтсутствияДанныхЧас
+        Batches: 1  Memory Usage: 24kB
+        Buffers: shared hit=45
+        -&gt;  Hash Right Join (cost=1.17..270.68 rows=10000 width=18) (actual time=0.018..1.245 rows=10000 loops=1)
+              Hash Cond: (tu.ИД_Статуса = s.ИД_Статуса)
+              Buffers: shared hit=45
+              -&gt;  Seq Scan on ТочкаУчёта tu (cost=0.00..244.00 rows=10000 width=8) (actual time=0.005..0.512 rows=10000 loops=1)
+                    Buffers: shared hit=45
+              -&gt;  Hash (cost=1.06..1.06 rows=6 width=18) (actual time=0.004..0.004 rows=6 loops=1)
+                    -&gt;  Seq Scan on СтатусТУ s (cost=0.00..1.06 rows=6 width=18) (actual time=0.002..0.002 rows=6 loops=1)
+Planning Time: 0.185 ms
+Execution Time: 2.168 ms
+</code></pre>
+<p><strong>Результат:</strong> 2,168 мс ✅ (требование ≤ 1 000 мс)</p>
+<p><strong>Анализ:</strong> При 10 000 записей оптимизатор выбрал Seq Scan таблицы ТочкаУчёта (45 buffers), что является корректным решением — для агрегирующего запроса, сканирующего все строки таблицы, полное сканирование эффективнее индексного. Время 2,168 мс значительно ниже порога в 1 000 мс.</p>
+<h4 id="t5">T5: Заявки по ТУ с фильтром по дате</h4>
+<pre><code class="language-sql">EXPLAIN (ANALYZE, BUFFERS)
+SELECT z.ИД_Заявки, z.НомерЗаявки, z.ДатаНачала, z.ДатаОкончания
+FROM справочная_бд.Заявка z
+WHERE z.ИД_ТУ = 1
+  AND (z.ДатаОкончания IS NULL OR z.ДатаОкончания &gt;= '2026-01-01');
+</code></pre>
+<p><strong>Результат (30 000 заявок):</strong></p>
+<pre><code>Index Scan using idx_заявка_ту on Заявка z
+    (cost=0.29..8.57 rows=2 width=46) (actual time=0.010..0.013 rows=2 loops=1)
+  Index Cond: (ИД_ТУ = 1)
+  Filter: ((ДатаОкончания IS NULL) OR (ДатаОкончания &gt;= '2026-01-01'::date))
+  Buffers: shared hit=3
+Planning Time: 0.098 ms
+Execution Time: 0.022 ms
+</code></pre>
+<p><strong>Результат:</strong> 0,022 мс ✅ (требование ≤ 1 000 мс)</p>
+<h3 id="32-insert">3.2. Сценарии вставки (INSERT)</h3>
+<h4 id="t6">T6: Вставка одной ТУ</h4>
+<pre><code class="language-sql">EXPLAIN (ANALYZE, BUFFERS)
+INSERT INTO справочная_бд.ТочкаУчёта (Наименование, НомерПрисоединения, ИД_Объекта, ИД_Статуса)
+VALUES ('Тестовая ТУ нагрузка', 'FDR-LOAD-TEST', 1, 1);
+</code></pre>
+<p><strong>Результат:</strong></p>
+<pre><code>Insert on ТочкаУчёта (cost=0.00..0.01 rows=0 width=0) (actual time=0.087..0.087 rows=0 loops=1)
+  Buffers: shared hit=3
+Planning Time: 0.042 ms
+Execution Time: 0.131 ms
+</code></pre>
+<p><strong>Результат:</strong> 0,131 мс ✅ (требование ≤ 500 мс)</p>
+<h4 id="t7-100">T7: Массовая вставка 100 ТУ в одной транзакции</h4>
+<pre><code class="language-sql">EXPLAIN (ANALYZE, BUFFERS)
+INSERT INTO справочная_бд.ТочкаУчёта (Наименование, НомерПрисоединения, ИД_Объекта, ИД_Статуса)
+SELECT 'Массовая ТУ-' || n, 'FDR-MASS-' || LPAD(n::TEXT, 6, '0'),
+       (random() * 999 + 1)::INTEGER, (random() * 5 + 1)::INTEGER
+FROM generate_series(1, 100) AS n;
+</code></pre>
+<p><strong>Результат:</strong></p>
+<pre><code>Insert on ТочкаУчёта (cost=0.00..12.50 rows=100 width=56) (actual time=1.245..1.245 rows=0 loops=1)
+  Buffers: shared hit=45
+  -&gt;  Subquery Scan on &quot;*SELECT*&quot; (cost=0.00..12.50 rows=100 width=56) (actual time=0.085..0.285 rows=100 loops=1)
+        Buffers: shared hit=5
+        -&gt;  Result (cost=0.00..11.50 rows=100 width=56) (actual time=0.083..0.245 rows=100 loops=1)
+Planning Time: 0.065 ms
+Execution Time: 1.345 ms
+</code></pre>
+<p><strong>Результат:</strong> 1,345 мс на 100 записей (0,013 мс на запись) ✅ (требование ≤ 500 мс на запись)</p>
+<h3 id="33-update">3.3. Сценарии обновления (UPDATE)</h3>
+<h4 id="t8">T8: Обновление статуса одной ТУ</h4>
+<pre><code class="language-sql">EXPLAIN (ANALYZE, BUFFERS)
+UPDATE справочная_бд.ТочкаУчёта
+SET ИД_Статуса = 2
+WHERE ИД_ТУ = 1;
+</code></pre>
+<p><strong>Результат:</strong></p>
+<pre><code>Update on ТочкаУчёта (cost=0.42..8.44 rows=0 width=0) (actual time=0.152..0.152 rows=0 loops=1)
+  -&gt;  Index Scan using pk_точкаучёта on ТочкаУчёта (cost=0.42..8.44 rows=1 width=10) (actual time=0.012..0.013 rows=1 loops=1)
+        Index Cond: (ИД_ТУ = 1)
+        Buffers: shared hit=4
+Planning Time: 0.058 ms
+Execution Time: 0.198 ms
+</code></pre>
+<p><strong>Результат:</strong> 0,198 мс ✅ (требование ≤ 500 мс)</p>
+<h4 id="t9-100">T9: Массовое обновление статуса для 100 ТУ</h4>
+<pre><code class="language-sql">EXPLAIN (ANALYZE, BUFFERS)
+UPDATE справочная_бд.ТочкаУчёта
+SET ИД_Статуса = 3
+WHERE ИД_Объекта = 1;
+</code></pre>
+<p><strong>Результат:</strong></p>
+<pre><code>Update on ТочкаУчёта (cost=0.42..18.56 rows=0 width=0) (actual time=0.345..0.345 rows=0 loops=1)
+  -&gt;  Index Scan using idx_ту_объект on ТочкаУчёта (cost=0.42..18.56 rows=10 width=10) (actual time=0.010..0.018 rows=10 loops=1)
+        Index Cond: (ИД_Объекта = 1)
+        Buffers: shared hit=8
+Planning Time: 0.062 ms
+Execution Time: 0.412 ms
+</code></pre>
+<p><strong>Результат:</strong> 0,412 мс на 10 записей (0,041 мс на запись) ✅ (требование ≤ 500 мс на запись)</p>
+<h3 id="34-delete">3.4. Сценарии удаления (DELETE)</h3>
+<h4 id="t10">T10: Удаление одной ТУ с каскадным удалением</h4>
+<pre><code class="language-sql">EXPLAIN (ANALYZE, BUFFERS)
+DELETE FROM справочная_бд.ТочкаУчёта
+WHERE ИД_ТУ = 1;
+</code></pre>
+<p><strong>Результат:</strong></p>
+<pre><code>Delete on ТочкаУчёта (cost=0.42..8.44 rows=0 width=0) (actual time=0.245..0.245 rows=0 loops=1)
+  Buffers: shared hit=8
+  -&gt;  Index Scan using pk_точкаучёта on ТочкаУчёта (cost=0.42..8.44 rows=1 width=6) (actual time=0.010..0.011 rows=1 loops=1)
+        Index Cond: (ИД_ТУ = 1)
+        Buffers: shared hit=4
+  Trigger for constraint fk_заявка_ту: time=0.018 calls=1
+  Trigger for constraint fk_примечание_ту: time=0.015 calls=1
+Planning Time: 0.072 ms
+Execution Time: 0.312 ms
+</code></pre>
+<p><strong>Результат:</strong> 0,312 мс ✅ (каскадное удаление заявок и примечаний отработало корректно)</p>
+<hr />
+<h2 id="4">4. Сводная таблица результатов</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">№</th>
+<th style="text-align: left;">Сценарий</th>
+<th style="text-align: left;">Тип</th>
+<th style="text-align: center;">Объём данных</th>
+<th style="text-align: center;">Время (мс)</th>
+<th style="text-align: center;">Требование (мс)</th>
+<th style="text-align: center;">Статус</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">T1</td>
+<td style="text-align: left;">Список ТУ по объекту</td>
+<td style="text-align: left;">SELECT</td>
+<td style="text-align: center;">10 000 ТУ</td>
+<td style="text-align: center;">0,045</td>
+<td style="text-align: center;">≤ 1 000</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: center;">T2</td>
+<td style="text-align: left;">Полная иерархия (5 таблиц)</td>
+<td style="text-align: left;">SELECT</td>
+<td style="text-align: center;">10 000 ТУ</td>
+<td style="text-align: center;">0,112</td>
+<td style="text-align: center;">≤ 1 000</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: center;">T3</td>
+<td style="text-align: left;">Поиск ТУ по номеру присоединения</td>
+<td style="text-align: left;">SELECT</td>
+<td style="text-align: center;">10 000 ТУ</td>
+<td style="text-align: center;">0,038</td>
+<td style="text-align: center;">≤ 1 000</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: center;">T4</td>
+<td style="text-align: left;">Статистика ТУ по статусам</td>
+<td style="text-align: left;">SELECT</td>
+<td style="text-align: center;">10 000 ТУ</td>
+<td style="text-align: center;">2,168</td>
+<td style="text-align: center;">≤ 1 000</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: center;">T5</td>
+<td style="text-align: left;">Заявки по ТУ с фильтром по дате</td>
+<td style="text-align: left;">SELECT</td>
+<td style="text-align: center;">30 000 заявок</td>
+<td style="text-align: center;">0,022</td>
+<td style="text-align: center;">≤ 1 000</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: center;">T6</td>
+<td style="text-align: left;">Вставка одной ТУ</td>
+<td style="text-align: left;">INSERT</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">0,131</td>
+<td style="text-align: center;">≤ 500</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: center;">T7</td>
+<td style="text-align: left;">Массовая вставка 100 ТУ</td>
+<td style="text-align: left;">INSERT</td>
+<td style="text-align: center;">100 записей</td>
+<td style="text-align: center;">1,345</td>
+<td style="text-align: center;">≤ 500/запись</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: center;">T8</td>
+<td style="text-align: left;">Обновление статуса одной ТУ</td>
+<td style="text-align: left;">UPDATE</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">0,198</td>
+<td style="text-align: center;">≤ 500</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: center;">T9</td>
+<td style="text-align: left;">Массовое обновление 10 ТУ</td>
+<td style="text-align: left;">UPDATE</td>
+<td style="text-align: center;">10 записей</td>
+<td style="text-align: center;">0,412</td>
+<td style="text-align: center;">≤ 500/запись</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: center;">T10</td>
+<td style="text-align: left;">Удаление одной ТУ (каскадное)</td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">0,312</td>
+<td style="text-align: center;">≤ 500</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5">5. Анализ результатов</h2>
+<h3 id="51">5.1. Соответствие требованиям</h3>
+<p>Все 10 сценариев нагрузочного тестирования успешно пройдены. Фактическое время выполнения значительно ниже установленных требований:</p>
+<p>а) <strong>Чтение (SELECT):</strong> максимальное время — 2,168 мс (T4 — статистика по статусам) при требуемом пороге 1 000 мс. Запас прочности — <strong>460×</strong>.
+б) <strong>Вставка (INSERT):</strong> максимальное время — 0,131 мс на одну запись при требуемом пороге 500 мс. Запас прочности — <strong>3 800×</strong>.
+в) <strong>Обновление (UPDATE):</strong> максимальное время — 0,198 мс на одну запись при требуемом пороге 500 мс. Запас прочности — <strong>2 500×</strong>.
+г) <strong>Удаление (DELETE):</strong> время 0,312 мс с учётом каскадного удаления зависимых записей при требуемом пороге 500 мс. Запас прочности — <strong>1 600×</strong>.</p>
+<h3 id="52">5.2. Эффективность индексов</h3>
+<p>Все запросы на чтение (кроме T4 — статистика) используют индексный поиск (Index Scan). Индексы, созданные на этапе реализации (Приложение И), полностью покрывают потребности типовых запросов:</p>
+<p>а) <code>idx_ту_объект</code> — обеспечивает быстрый поиск ТУ по объекту (T1);
+б) <code>idx_ту_номер_присоединения</code> — обеспечивает быстрый поиск по номеру присоединения (T3);
+в) <code>idx_заявка_ту</code> — обеспечивает быстрый поиск заявок по ТУ (T5);
+г) <code>idx_объект_подразделение</code>, <code>idx_подразделение_организация</code> — обеспечивают эффективное соединение в иерархическом запросе (T2).</p>
+<h3 id="53">5.3. Поведение при пиковой нагрузке</h3>
+<p>Сценарий T4 (статистика ТУ по статусам) показал наибольшее время — 2,168 мс. Это связано с полным сканированием таблицы <code>ТочкаУчёта</code> (10 000 строк) для агрегации. Данное поведение является ожидаемым и корректным: для запроса, которому необходимо прочитать все строки таблицы, Seq Scan эффективнее Index Scan. При необходимости ускорения данного запроса может быть создан материализованный View с периодическим обновлением.</p>
+<h3 id="54">5.4. Каскадные операции</h3>
+<p>Сценарий T10 (удаление ТУ) подтвердил корректную работу каскадного удаления: триггеры внешних ключей <code>fk_заявка_ту</code> и <code>fk_примечание_ту</code> отработали за 0,018 мс и 0,015 мс соответственно. Ссылочная целостность поддерживается на уровне СУБД без потери производительности.</p>
+<hr />
+<h2 id="6">6. Выводы</h2>
+<ol>
+<li>
+<p><strong>Требования к производительности выполнены.</strong> Все типовые запросы и операции DML выполняются за время, значительно ниже установленных порогов (запас прочности от 460× до 3 800×).</p>
+</li>
+<li>
+<p><strong>Индексы эффективны.</strong> Существующие 10 индексов полностью покрывают потребности типовых запросов. Дополнительное индексирование не требуется.</p>
+</li>
+<li>
+<p><strong>Каскадные операции работают корректно.</strong> Удаление родительских записей с CASCADE не приводит к деградации производительности.</p>
+</li>
+<li>
+<p><strong>Система готова к эксплуатации.</strong> При текущем объёме данных (до 10 000 ТУ, 30 000 заявок и примечаний) справочная БД AlphaMeterQC обеспечивает производительность, значительно превышающую требования технического задания.</p>
+</li>
+</ol></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Логическая модель базы данных - AlphaMeterQC Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">AlphaMeterQC Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Главная</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Артефакты модуля login_dialog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../login_dialog/01_concept/" class="dropdown-item">Концепция</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/02_stakeholders_requirements/" class="dropdown-item">Требования стейкхолдеров</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/03_user_stories/" class="dropdown-item">Пользовательские истории</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/04_srs/" class="dropdown-item">SRS</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05_use_cases/" class="dropdown-item">Варианты использования</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-1_UC.LOGIN.D0.01/" class="dropdown-item">UC D0.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-2_UC.LOGIN.D1.01/" class="dropdown-item">UC D1.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-3_UC.LOGIN.D2.01/" class="dropdown-item">UC D2.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-4_UC.LOGIN.D2.02/" class="dropdown-item">UC D2.02</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-5_UC.LOGIN.D3.01/" class="dropdown-item">UC D3.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/06_rtm/" class="dropdown-item">Матрица трассировки</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/07_domain_model/" class="dropdown-item">Модель предметной сферы</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/08_technical_specification/" class="dropdown-item">Техническое задание</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/09_ui_design/" class="dropdown-item">Дизайн UI</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/10_ui_traceability/" class="dropdown-item">Трассировка UI</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">API Справка (Auto-generated из кода)</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../api/login_dialog/" class="dropdown-item">Модуль login_dialog</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">Логическая модель базы данных</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. Назначение логической модели</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. Спецификация таблиц</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. Сводная схема связей (внешних ключей)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. Индексы</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. Ограничения целостности</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. Домены атрибутов</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. Соответствие концептуальной и логической модели</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. Нормализация</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">Логическая модель базы данных</h1>
+<p><strong>Модуль справочной БД для ПО AlphaMeterQC</strong></p>
+<p><strong>Автор:</strong> В.Л. Солодюк
+<strong>Проект:</strong> ПО «AlphaMeterQC» (анализ и контроль своевременности поступления, полноты и корректности данных, собранных со счётчиков электрической энергии и хранящихся в БД (Oracle) ПО АльфаЦЕНТР) / Модуль справочной БД</p>
+<hr />
+<h2 id="1">1. Назначение логической модели</h2>
+<p>Логическая модель данных является промежуточным звеном между концептуальной ER-диаграммой (Приложение Г) и физической реализацией в СУБД PostgreSQL. Она описывает структуру данных в терминах реляционной модели: таблицы, столбцы, типы данных, ограничения целостности, первичные и внешние ключи, индексы — без привязки к конкретным особенностям реализации СУБД.</p>
+<hr />
+<h2 id="2">2. Спецификация таблиц</h2>
+<h3 id="21">2.1. Таблица <code>Организация</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Столбец</th>
+<th style="text-align: left;">Тип данных</th>
+<th style="text-align: left;">Ограничения</th>
+<th style="text-align: left;">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ИД_Организации</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">PK, GENERATED ALWAYS AS IDENTITY</td>
+<td style="text-align: left;">Уникальный идентификатор организации</td>
+</tr>
+<tr>
+<td style="text-align: left;">Наименование</td>
+<td style="text-align: left;">VARCHAR(255)</td>
+<td style="text-align: left;">NOT NULL</td>
+<td style="text-align: left;">Полное наименование организации</td>
+</tr>
+<tr>
+<td style="text-align: left;">ПризнакПотребителя</td>
+<td style="text-align: left;">BOOLEAN</td>
+<td style="text-align: left;">DEFAULT FALSE</td>
+<td style="text-align: left;">Флаг: TRUE — организация является потребителем электроэнергии</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Первичный ключ:</strong> <code>ИД_Организации</code></p>
+<h3 id="22">2.2. Таблица <code>СтруктурноеПодразделение</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Столбец</th>
+<th style="text-align: left;">Тип данных</th>
+<th style="text-align: left;">Ограничения</th>
+<th style="text-align: left;">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ИД_Подразделения</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">PK, GENERATED ALWAYS AS IDENTITY</td>
+<td style="text-align: left;">Уникальный идентификатор подразделения</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИД_Организации</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">FK → Организация(ИД_Организации), NOT NULL</td>
+<td style="text-align: left;">Ссылка на организацию</td>
+</tr>
+<tr>
+<td style="text-align: left;">Наименование</td>
+<td style="text-align: left;">VARCHAR(255)</td>
+<td style="text-align: left;">NOT NULL</td>
+<td style="text-align: left;">Наименование подразделения</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Первичный ключ:</strong> <code>ИД_Подразделения</code>
+<strong>Внешний ключ:</strong> <code>ИД_Организации</code> → <code>Организация(ИД_Организации)</code> ON DELETE CASCADE
+<strong>Индекс:</strong> по <code>ИД_Организации</code></p>
+<h3 id="23">2.3. Таблица <code>КонтактноеЛицо</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Столбец</th>
+<th style="text-align: left;">Тип данных</th>
+<th style="text-align: left;">Ограничения</th>
+<th style="text-align: left;">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ИД_КонтактногоЛица</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">PK, GENERATED ALWAYS AS IDENTITY</td>
+<td style="text-align: left;">Уникальный идентификатор контактного лица</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИД_Подразделения</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">FK → СтруктурноеПодразделение(ИД_Подразделения), NOT NULL</td>
+<td style="text-align: left;">Ссылка на структурное подразделение</td>
+</tr>
+<tr>
+<td style="text-align: left;">Фамилия</td>
+<td style="text-align: left;">VARCHAR(100)</td>
+<td style="text-align: left;">NOT NULL</td>
+<td style="text-align: left;">Фамилия</td>
+</tr>
+<tr>
+<td style="text-align: left;">Имя</td>
+<td style="text-align: left;">VARCHAR(100)</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Имя</td>
+</tr>
+<tr>
+<td style="text-align: left;">Отчество</td>
+<td style="text-align: left;">VARCHAR(100)</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Отчество</td>
+</tr>
+<tr>
+<td style="text-align: left;">Должность</td>
+<td style="text-align: left;">VARCHAR(255)</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Должность</td>
+</tr>
+<tr>
+<td style="text-align: left;">Телефон</td>
+<td style="text-align: left;">VARCHAR(50)</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Контактный телефон</td>
+</tr>
+<tr>
+<td style="text-align: left;">Email</td>
+<td style="text-align: left;">VARCHAR(255)</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Адрес электронной почты</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Первичный ключ:</strong> <code>ИД_КонтактногоЛица</code>
+<strong>Внешний ключ:</strong> <code>ИД_Подразделения</code> → <code>СтруктурноеПодразделение(ИД_Подразделения)</code> ON DELETE CASCADE
+<strong>Индекс:</strong> по <code>ИД_Подразделения</code></p>
+<h3 id="24">2.4. Таблица <code>МестоРасположения</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Столбец</th>
+<th style="text-align: left;">Тип данных</th>
+<th style="text-align: left;">Ограничения</th>
+<th style="text-align: left;">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ИД_МестаРасположения</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">PK, GENERATED ALWAYS AS IDENTITY</td>
+<td style="text-align: left;">Уникальный идентификатор места расположения</td>
+</tr>
+<tr>
+<td style="text-align: left;">Наименование</td>
+<td style="text-align: left;">VARCHAR(255)</td>
+<td style="text-align: left;">NOT NULL</td>
+<td style="text-align: left;">Наименование места расположения</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Первичный ключ:</strong> <code>ИД_МестаРасположения</code></p>
+<h3 id="25">2.5. Таблица <code>Объект</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Столбец</th>
+<th style="text-align: left;">Тип данных</th>
+<th style="text-align: left;">Ограничения</th>
+<th style="text-align: left;">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ИД_Объекта</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">PK, GENERATED ALWAYS AS IDENTITY</td>
+<td style="text-align: left;">Уникальный идентификатор объекта</td>
+</tr>
+<tr>
+<td style="text-align: left;">Наименование</td>
+<td style="text-align: left;">VARCHAR(255)</td>
+<td style="text-align: left;">NOT NULL</td>
+<td style="text-align: left;">Наименование объекта/электроустановки</td>
+</tr>
+<tr>
+<td style="text-align: left;">НомерВБДАльфаЦЕНТР</td>
+<td style="text-align: left;">VARCHAR(50)</td>
+<td style="text-align: left;">NOT NULL, UNIQUE</td>
+<td style="text-align: left;">Уникальный номер объекта в БД АльфаЦЕНТР</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИД_МестаРасположения</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">FK → МестоРасположения(ИД_МестаРасположения), NOT NULL</td>
+<td style="text-align: left;">Ссылка на место расположения</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИД_Подразделения</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">FK → СтруктурноеПодразделение(ИД_Подразделения), NOT NULL</td>
+<td style="text-align: left;">Ссылка на подразделение-эксплуатанта</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Первичный ключ:</strong> <code>ИД_Объекта</code>
+<strong>Внешние ключи:</strong>
+- <code>ИД_МестаРасположения</code> → <code>МестоРасположения(ИД_МестаРасположения)</code> ON DELETE RESTRICT
+- <code>ИД_Подразделения</code> → <code>СтруктурноеПодразделение(ИД_Подразделения)</code> ON DELETE RESTRICT
+<strong>Индексы:</strong> по <code>ИД_МестаРасположения</code>, по <code>ИД_Подразделения</code>, по <code>НомерВБДАльфаЦЕНТР</code> (UNIQUE)</p>
+<h3 id="26">2.6. Таблица <code>ТочкаУчёта</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Столбец</th>
+<th style="text-align: left;">Тип данных</th>
+<th style="text-align: left;">Ограничения</th>
+<th style="text-align: left;">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ИД_ТУ</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">PK, GENERATED ALWAYS AS IDENTITY</td>
+<td style="text-align: left;">Уникальный идентификатор точки учёта</td>
+</tr>
+<tr>
+<td style="text-align: left;">Наименование</td>
+<td style="text-align: left;">VARCHAR(255)</td>
+<td style="text-align: left;">NOT NULL</td>
+<td style="text-align: left;">Наименование точки учёта</td>
+</tr>
+<tr>
+<td style="text-align: left;">НомерПрисоединения</td>
+<td style="text-align: left;">VARCHAR(50)</td>
+<td style="text-align: left;">NOT NULL, UNIQUE</td>
+<td style="text-align: left;">Уникальный номер присоединения/фидера в БД АльфаЦЕНТР</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИД_Объекта</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">FK → Объект(ИД_Объекта), NOT NULL</td>
+<td style="text-align: left;">Ссылка на объект</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИД_Статуса</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">FK → СтатусТУ(ИД_Статуса), NOT NULL</td>
+<td style="text-align: left;">Ссылка на статус ТУ</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Первичный ключ:</strong> <code>ИД_ТУ</code>
+<strong>Внешние ключи:</strong>
+- <code>ИД_Объекта</code> → <code>Объект(ИД_Объекта)</code> ON DELETE CASCADE
+- <code>ИД_Статуса</code> → <code>СтатусТУ(ИД_Статуса)</code> ON DELETE RESTRICT
+<strong>Индексы:</strong> по <code>ИД_Объекта</code>, по <code>ИД_Статуса</code>, по <code>НомерПрисоединения</code> (UNIQUE)</p>
+<h3 id="27">2.7. Таблица <code>СтатусТУ</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Столбец</th>
+<th style="text-align: left;">Тип данных</th>
+<th style="text-align: left;">Ограничения</th>
+<th style="text-align: left;">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ИД_Статуса</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">PK, GENERATED ALWAYS AS IDENTITY</td>
+<td style="text-align: left;">Уникальный идентификатор статуса</td>
+</tr>
+<tr>
+<td style="text-align: left;">Наименование</td>
+<td style="text-align: left;">VARCHAR(50)</td>
+<td style="text-align: left;">NOT NULL, UNIQUE</td>
+<td style="text-align: left;">Наименование статуса (ОРЭМ, МТП, ДСД, ...)</td>
+</tr>
+<tr>
+<td style="text-align: left;">МаксВремяОтсутствияДанныхЧас</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">NOT NULL, CHECK(&gt; 0)</td>
+<td style="text-align: left;">Максимально допустимое время отсутствия данных в часах</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Первичный ключ:</strong> <code>ИД_Статуса</code>
+<strong>Ограничение CHECK:</strong> <code>МаксВремяОтсутствияДанныхЧас &gt; 0</code></p>
+<h3 id="28">2.8. Таблица <code>Заявка</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Столбец</th>
+<th style="text-align: left;">Тип данных</th>
+<th style="text-align: left;">Ограничения</th>
+<th style="text-align: left;">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ИД_Заявки</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">PK, GENERATED ALWAYS AS IDENTITY</td>
+<td style="text-align: left;">Уникальный идентификатор заявки</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИД_ТУ</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">FK → ТочкаУчёта(ИД_ТУ), NOT NULL</td>
+<td style="text-align: left;">Ссылка на точку учёта</td>
+</tr>
+<tr>
+<td style="text-align: left;">НомерЗаявки</td>
+<td style="text-align: left;">VARCHAR(100)</td>
+<td style="text-align: left;">NOT NULL</td>
+<td style="text-align: left;">Номер заявки</td>
+</tr>
+<tr>
+<td style="text-align: left;">ДатаНачала</td>
+<td style="text-align: left;">DATE</td>
+<td style="text-align: left;">NOT NULL</td>
+<td style="text-align: left;">Дата начала заявки</td>
+</tr>
+<tr>
+<td style="text-align: left;">ДатаОкончания</td>
+<td style="text-align: left;">DATE</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Дата окончания заявки</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Первичный ключ:</strong> <code>ИД_Заявки</code>
+<strong>Внешний ключ:</strong> <code>ИД_ТУ</code> → <code>ТочкаУчёта(ИД_ТУ)</code> ON DELETE CASCADE
+<strong>Индекс:</strong> по <code>ИД_ТУ</code></p>
+<h3 id="29">2.9. Таблица <code>Примечание</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Столбец</th>
+<th style="text-align: left;">Тип данных</th>
+<th style="text-align: left;">Ограничения</th>
+<th style="text-align: left;">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ИД_Примечания</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">PK, GENERATED ALWAYS AS IDENTITY</td>
+<td style="text-align: left;">Уникальный идентификатор примечания</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИД_ТУ</td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">FK → ТочкаУчёта(ИД_ТУ), NOT NULL</td>
+<td style="text-align: left;">Ссылка на точку учёта</td>
+</tr>
+<tr>
+<td style="text-align: left;">Текст</td>
+<td style="text-align: left;">TEXT</td>
+<td style="text-align: left;">NOT NULL</td>
+<td style="text-align: left;">Текст примечания</td>
+</tr>
+<tr>
+<td style="text-align: left;">ДатаСоздания</td>
+<td style="text-align: left;">TIMESTAMP</td>
+<td style="text-align: left;">DEFAULT CURRENT_TIMESTAMP</td>
+<td style="text-align: left;">Дата и время создания примечания</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Первичный ключ:</strong> <code>ИД_Примечания</code>
+<strong>Внешний ключ:</strong> <code>ИД_ТУ</code> → <code>ТочкаУчёта(ИД_ТУ)</code> ON DELETE CASCADE
+<strong>Индекс:</strong> по <code>ИД_ТУ</code></p>
+<hr />
+<h2 id="3">3. Сводная схема связей (внешних ключей)</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Внешний ключ</th>
+<th style="text-align: left;">Таблица-источник</th>
+<th style="text-align: left;">Таблица-назначение</th>
+<th style="text-align: left;">Правило удаления</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ИД_Организации</td>
+<td style="text-align: left;">СтруктурноеПодразделение</td>
+<td style="text-align: left;">Организация</td>
+<td style="text-align: left;">CASCADE</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИД_Подразделения</td>
+<td style="text-align: left;">КонтактноеЛицо</td>
+<td style="text-align: left;">СтруктурноеПодразделение</td>
+<td style="text-align: left;">CASCADE</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИД_Подразделения</td>
+<td style="text-align: left;">Объект</td>
+<td style="text-align: left;">СтруктурноеПодразделение</td>
+<td style="text-align: left;">RESTRICT</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИД_МестаРасположения</td>
+<td style="text-align: left;">Объект</td>
+<td style="text-align: left;">МестоРасположения</td>
+<td style="text-align: left;">RESTRICT</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИД_Объекта</td>
+<td style="text-align: left;">ТочкаУчёта</td>
+<td style="text-align: left;">Объект</td>
+<td style="text-align: left;">CASCADE</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИД_Статуса</td>
+<td style="text-align: left;">ТочкаУчёта</td>
+<td style="text-align: left;">СтатусТУ</td>
+<td style="text-align: left;">RESTRICT</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИД_ТУ</td>
+<td style="text-align: left;">Заявка</td>
+<td style="text-align: left;">ТочкаУчёта</td>
+<td style="text-align: left;">CASCADE</td>
+</tr>
+<tr>
+<td style="text-align: left;">ИД_ТУ</td>
+<td style="text-align: left;">Примечание</td>
+<td style="text-align: left;">ТочкаУчёта</td>
+<td style="text-align: left;">CASCADE</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4">4. Индексы</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">№</th>
+<th style="text-align: left;">Таблица</th>
+<th style="text-align: left;">Столбец(ы)</th>
+<th style="text-align: left;">Тип индекса</th>
+<th style="text-align: left;">Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">СтруктурноеПодразделение</td>
+<td style="text-align: left;">ИД_Организации</td>
+<td style="text-align: left;">B-tree</td>
+<td style="text-align: left;">Ускорение поиска подразделений по организации</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">КонтактноеЛицо</td>
+<td style="text-align: left;">ИД_Подразделения</td>
+<td style="text-align: left;">B-tree</td>
+<td style="text-align: left;">Ускорение поиска контактных лиц по подразделению</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Объект</td>
+<td style="text-align: left;">ИД_МестаРасположения</td>
+<td style="text-align: left;">B-tree</td>
+<td style="text-align: left;">Ускорение поиска объектов по месту расположения</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Объект</td>
+<td style="text-align: left;">ИД_Подразделения</td>
+<td style="text-align: left;">B-tree</td>
+<td style="text-align: left;">Ускорение поиска объектов по подразделению</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Объект</td>
+<td style="text-align: left;">НомерВБДАльфаЦЕНТР</td>
+<td style="text-align: left;">B-tree (UNIQUE)</td>
+<td style="text-align: left;">Уникальность и быстрый поиск по номеру в АльфаЦЕНТР</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">ТочкаУчёта</td>
+<td style="text-align: left;">ИД_Объекта</td>
+<td style="text-align: left;">B-tree</td>
+<td style="text-align: left;">Ускорение поиска ТУ по объекту</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">ТочкаУчёта</td>
+<td style="text-align: left;">ИД_Статуса</td>
+<td style="text-align: left;">B-tree</td>
+<td style="text-align: left;">Ускорение поиска ТУ по статусу</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">ТочкаУчёта</td>
+<td style="text-align: left;">НомерПрисоединения</td>
+<td style="text-align: left;">B-tree (UNIQUE)</td>
+<td style="text-align: left;">Уникальность и быстрый поиск по номеру присоединения</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Заявка</td>
+<td style="text-align: left;">ИД_ТУ</td>
+<td style="text-align: left;">B-tree</td>
+<td style="text-align: left;">Ускорение поиска заявок по ТУ</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">Примечание</td>
+<td style="text-align: left;">ИД_ТУ</td>
+<td style="text-align: left;">B-tree</td>
+<td style="text-align: left;">Ускорение поиска примечаний по ТУ</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5">5. Ограничения целостности</h2>
+<h3 id="51-not-null">5.1. Ограничения NOT NULL</h3>
+<p>Все столбцы, помеченные как NOT NULL в спецификации таблиц (раздел 2), являются обязательными для заполнения. Нарушение этого требования приводит к ошибке уровня СУБД.</p>
+<h3 id="52-unique">5.2. Ограничения UNIQUE</h3>
+<p>а) <code>Объект.НомерВБДАльфаЦЕНТР</code> — уникальный номер объекта в БД АльфаЦЕНТР.
+б) <code>ТочкаУчёта.НомерПрисоединения</code> — уникальный номер присоединения/фидера.
+в) <code>СтатусТУ.Наименование</code> — уникальное наименование статуса.</p>
+<h3 id="53-default">5.3. Ограничения DEFAULT</h3>
+<p>а) <code>Организация.ПризнакПотребителя</code> = FALSE (по умолчанию организация не является потребителем).
+б) <code>Примечание.ДатаСоздания</code> = CURRENT_TIMESTAMP (автоматическая фиксация времени создания).</p>
+<h3 id="54-check">5.4. Ограничения CHECK</h3>
+<p>а) <code>СтатусТУ.МаксВремяОтсутствияДанныхЧас &gt; 0</code> — максимальное время отсутствия данных должно быть положительным числом.</p>
+<hr />
+<h2 id="6">6. Домены атрибутов</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Атрибут</th>
+<th style="text-align: left;">Домен</th>
+<th style="text-align: left;">Допустимые значения</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ИД_* (все первичные ключи)</td>
+<td style="text-align: left;">Целые положительные числа</td>
+<td style="text-align: left;">INTEGER, ≥ 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Наименование (все сущности)</td>
+<td style="text-align: left;">Строка произвольных символов</td>
+<td style="text-align: left;">VARCHAR(255)</td>
+</tr>
+<tr>
+<td style="text-align: left;">НомерВБДАльфаЦЕНТР</td>
+<td style="text-align: left;">Строка цифр и букв латиницы</td>
+<td style="text-align: left;">VARCHAR(50)</td>
+</tr>
+<tr>
+<td style="text-align: left;">НомерПрисоединения</td>
+<td style="text-align: left;">Строка цифр и букв латиницы</td>
+<td style="text-align: left;">VARCHAR(50)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Фамилия, Имя, Отчество</td>
+<td style="text-align: left;">Строка букв кириллицы</td>
+<td style="text-align: left;">VARCHAR(100)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Телефон</td>
+<td style="text-align: left;">Строка цифр, символов '+', '-', '(', ')'</td>
+<td style="text-align: left;">VARCHAR(50)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Email</td>
+<td style="text-align: left;">Строка в формате email</td>
+<td style="text-align: left;">VARCHAR(255)</td>
+</tr>
+<tr>
+<td style="text-align: left;">ПризнакПотребителя</td>
+<td style="text-align: left;">Логическое значение</td>
+<td style="text-align: left;">TRUE / FALSE</td>
+</tr>
+<tr>
+<td style="text-align: left;">МаксВремяОтсутствияДанныхЧас</td>
+<td style="text-align: left;">Целое положительное число</td>
+<td style="text-align: left;">INTEGER, &gt; 0</td>
+</tr>
+<tr>
+<td style="text-align: left;">НомерЗаявки</td>
+<td style="text-align: left;">Строка произвольных символов</td>
+<td style="text-align: left;">VARCHAR(100)</td>
+</tr>
+<tr>
+<td style="text-align: left;">ДатаНачала, ДатаОкончания</td>
+<td style="text-align: left;">Календарная дата</td>
+<td style="text-align: left;">DATE</td>
+</tr>
+<tr>
+<td style="text-align: left;">Текст (примечание)</td>
+<td style="text-align: left;">Произвольный текст</td>
+<td style="text-align: left;">TEXT</td>
+</tr>
+<tr>
+<td style="text-align: left;">ДатаСоздания</td>
+<td style="text-align: left;">Дата и время</td>
+<td style="text-align: left;">TIMESTAMP</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7">7. Соответствие концептуальной и логической модели</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Концептуальная сущность</th>
+<th style="text-align: left;">Логическая таблица</th>
+<th style="text-align: center;">Количество атрибутов</th>
+<th style="text-align: center;">Количество связей</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Организация</td>
+<td style="text-align: left;">Организация</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1 (исходящая)</td>
+</tr>
+<tr>
+<td style="text-align: left;">СтруктурноеПодразделение</td>
+<td style="text-align: left;">СтруктурноеПодразделение</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1 входящая, 2 исходящие</td>
+</tr>
+<tr>
+<td style="text-align: left;">КонтактноеЛицо</td>
+<td style="text-align: left;">КонтактноеЛицо</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">1 входящая</td>
+</tr>
+<tr>
+<td style="text-align: left;">МестоРасположения</td>
+<td style="text-align: left;">МестоРасположения</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1 исходящая</td>
+</tr>
+<tr>
+<td style="text-align: left;">Объект</td>
+<td style="text-align: left;">Объект</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">2 входящие, 1 исходящая</td>
+</tr>
+<tr>
+<td style="text-align: left;">ТочкаУчёта</td>
+<td style="text-align: left;">ТочкаУчёта</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">2 входящие, 2 исходящие</td>
+</tr>
+<tr>
+<td style="text-align: left;">СтатусТУ</td>
+<td style="text-align: left;">СтатусТУ</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1 исходящая</td>
+</tr>
+<tr>
+<td style="text-align: left;">Заявка</td>
+<td style="text-align: left;">Заявка</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">1 входящая</td>
+</tr>
+<tr>
+<td style="text-align: left;">Примечание</td>
+<td style="text-align: left;">Примечание</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1 входящая</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8">8. Нормализация</h2>
+<p>Логическая модель соответствует требованиям нормальных форм:</p>
+<p>а) <strong>Первая нормальная форма (1НФ):</strong> все атрибуты атомарны, каждая таблица имеет первичный ключ, повторяющиеся группы отсутствуют.
+б) <strong>Вторая нормальная форма (2НФ):</strong> каждый неключевой атрибут функционально полно зависит от первичного ключа (частичной зависимости нет, так как первичные ключи — простые, одноатрибутные).
+в) <strong>Третья нормальная форма (3НФ):</strong> каждый неключевой атрибут нетранзитивно зависит от первичного ключа (все неключевые атрибуты описывают только ту сущность, которой принадлежат).</p>
+<p>Детальное описание процесса нормализации приведено в Приложении Ж «Нормализация данных».</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
