@@ -5,7 +5,7 @@ Provides integration with Ollama local AI server.
 
 import logging
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 try:
     import requests
@@ -149,7 +149,7 @@ class OllamaService:
         tokens = max_tokens or self.max_tokens
         temp = temperature if temperature is not None else self.temperature
 
-        payload = {
+        payload: dict[str, Any] = {
             "model": model_name,
             "prompt": prompt,
             "stream": False,
@@ -210,7 +210,7 @@ class OllamaService:
         model_name = model or self.model
         temp = temperature if temperature is not None else self.temperature
 
-        payload = {
+        payload: dict[str, Any] = {
             "model": model_name,
             "messages": messages,
             "stream": False,

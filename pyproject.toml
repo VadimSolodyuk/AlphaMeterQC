@@ -13,6 +13,7 @@ description = "Система анализа и контроля данных А
 requires-python = ">=3.9"  # Поддержка Python 3.9-3.12
 dependencies = [
     "customtkinter>=5.2.0",  # GUI библиотека
+    "requests>=2.28.0",      # HTTP-запросы (AI Service)
 ]
 
 # Зависимости для разработки (установка: pip install -e .[dev])
@@ -63,6 +64,7 @@ omit = [
     "*/prototype.py",  # Исключить все файлы prototype.py
     "*/__main__.py",   # Опционально: исключить точки входа
     "*/view.py",  # GUI-код тестируется вручную
+    "*/ai_service.py",  # Требует внешний сервер Ollama
 ]
 
 [tool.coverage.report]
