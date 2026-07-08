@@ -13,7 +13,7 @@ description = "Система анализа и контроля данных А
 requires-python = ">=3.9"  # Поддержка Python 3.9-3.12
 dependencies = [
     "customtkinter>=5.2.0",  # GUI библиотека
-    "requests>=2.28.0",      # HTTP-запросы (AI Service)
+#    "requests>=2.28.0",      # HTTP-запросы (AI Service)
 ]
 
 # Зависимости для разработки (установка: pip install -e .[dev])
