@@ -23,7 +23,7 @@ models:
       maxTokens: 2048 # 4096
       temperature: 0.1 # 0.1 — точность для кода, архитектуры и QA (Arch-Dev-QA-DevOps)
       topP: 0.9
-      reasoning_effort: "none"
+      # reasoning_effort: "none"
 
   - name: qwen2.5-coder:3b-ac
     provider: ollama
@@ -47,10 +47,3 @@ models:
     apiBase: http://localhost:11434
     roles:
       - embed
-
-rules:
-  - НЕ используй размышления (Thought)
-  - НЕ пиши размышления (Thought) перед действиями
-#   - uses: ../rules/efficient-agent.md
-# prompts:
-#   - uses: ../prompts/edit-safety-rules.md

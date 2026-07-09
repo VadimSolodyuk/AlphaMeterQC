@@ -15,15 +15,15 @@ models:
       - chat
       - edit
       - apply
-    # capabilities:
-    #   - tool_use
-    #   - image_input
+    capabilities:
+      - tool_use
+      - image_input
     defaultCompletionOptions:
       contextLength: 32768
       maxTokens: 2048 # 4096
       temperature: 0.1 # 0.1 — точность для кода и QA (Dev-QA-DevOps)
       topP: 0.9
-      reasoning_effort: "none"
+      # reasoning_effort: "none"
 
   - name: qwen2.5-coder:3b-ac
     provider: ollama
