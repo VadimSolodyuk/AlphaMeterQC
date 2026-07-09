@@ -53,5 +53,14 @@
         "src"
     ],
     "python-envs.defaultEnvManager": "ms-python.python:system",
-    "remote.autoForwardPortsFallback": 0 // Автодополнение из src/
+    "remote.autoForwardPortsFallback": 0,
+    "yaml.disableSchemaDetection": [
+        "**/.github/workflows/*.yml",
+        "**/.github/workflows/*.yaml",
+        "**/.gitea/workflows/*.yml",
+        "**/.gitea/workflows/*.yaml",
+        "**/.forgejo/workflows/*.yml",
+        "**/.forgejo/workflows/*.yaml",
+        "file:///c%3A/Users/V.Solodyuk/Documents/projects/AlphaMeterQC/.continue/agents/dev-qa-devOps_m.yaml"
+    ] // Автодополнение из src/
 }

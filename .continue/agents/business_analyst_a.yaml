@@ -19,10 +19,11 @@ models:
       - tool_use
       - image_input
     defaultCompletionOptions:
-      contextLength: 131072
-      maxTokens: 8192
+      contextLength: 32768 # 131072
+      maxTokens: 2048 # 4096
       temperature: 0.3 # 0.3 — баланс точности и креативности для анализа требований (BA)
       topP: 0.95
+      reasoning_effort: "none"
 
   - name: qwen2.5-coder:3b-ac
     provider: ollama

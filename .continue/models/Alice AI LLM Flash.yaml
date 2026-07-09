@@ -22,3 +22,4 @@ models:
       contextLength: 32768
       maxTokens: 4096
       topP: 0.9
+      reasoning_effort: "none"

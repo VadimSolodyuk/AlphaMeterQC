@@ -23,3 +23,4 @@ models:
       maxTokens: 8192
       temperature: 0.2 # 0.3 — баланс точности и креативности для анализа требований (BA)
       topP: 0.9
+      reasoning_effort: "none"

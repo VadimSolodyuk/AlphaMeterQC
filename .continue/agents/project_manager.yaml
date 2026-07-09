@@ -20,8 +20,9 @@ models:
     defaultCompletionOptions:
       temperature: 0.1 # 0.1 — точность для координации и контроля качества (PM)
       contextLength: 32768
-      maxTokens: 4096
+      maxTokens: 2048 # 4096
       topP: 0.9
+      reasoning_effort: "none"
 
   - name: qwen2.5-coder:3b-ac
     provider: ollama
