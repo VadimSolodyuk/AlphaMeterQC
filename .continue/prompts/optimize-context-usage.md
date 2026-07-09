@@ -2,7 +2,7 @@
 name: Optimize Context Usage
 description: Оптимизация использования контекста для снижения расхода токенов и
   повышения эффективности
-alwaysApply: true
+alwaysApply: false
 priority: maximum
 ---
 

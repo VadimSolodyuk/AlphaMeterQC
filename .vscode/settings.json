@@ -61,6 +61,14 @@
         "**/.gitea/workflows/*.yaml",
         "**/.forgejo/workflows/*.yml",
         "**/.forgejo/workflows/*.yaml",
-        "file:///c%3A/Users/V.Solodyuk/Documents/projects/AlphaMeterQC/.continue/agents/dev-qa-devOps_m.yaml"
-    ] // Автодополнение из src/
+        "file:///c%3A/Users/V.Solodyuk/Documents/projects/AlphaMeterQC/.continue/agents/dev-qa-devOps_m.yaml",
+        "file:///c%3A/Users/V.Solodyuk/Documents/projects/AlphaMeterQC/.continue/agents/arch-dev-qa-devOps_e.yaml"
+    ],
+    "yaml.schemas": {
+        "file:///c%3A/Users/V.Solodyuk/.vscode/extensions/continue.continue-2.0.0-win32-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "https://www.schemastore.org/yamlfmt.json": "file:///c%3A/Users/V.Solodyuk/Documents/projects/AlphaMeterQC/.continue/agents/arch-dev-qa-devOps_e.yaml",
+        "https://www.schemastore.org/yamllint.json": "file:///c%3A/Users/V.Solodyuk/Documents/projects/AlphaMeterQC/.continue/agents/arch-dev-qa-devOps_e.yaml"
+    } // Автодополнение из src/
 }

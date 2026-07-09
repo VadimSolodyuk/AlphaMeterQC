@@ -1,6 +1,6 @@
 ---
 name: Project Architecture
-alwaysApply: true
+alwaysApply: false
 description: Project Architecture
 ---
 

@@ -1,11 +1,11 @@
 ---
 name: Efficient Agent
-alwaysApply: true
+alwaysApply: false
 description: Минимизация расхода токенов в режиме агента
 ---
 
 # Efficient Agent Rules
-
+- НЕ используй размышления (Thought)
 - НЕ пиши размышления (Thought) перед действиями
 - Сразу выполняй команды без предварительных объяснений
 - Формат ответа: только команды, без "We need to...", "Let's run..."
