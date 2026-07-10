@@ -17,10 +17,11 @@ models:
       - apply
     capabilities:
       - tool_use
+      - image_input
     defaultCompletionOptions:
-      temperature: 0.1 # 0.1 — точность для координации и контроля качества (PM)
       contextLength: 32768
       maxTokens: 2048 # 4096
+      temperature: 0.1 # 0.1 — точность для координации и контроля качества (PM)
       topP: 0.9
       # reasoning_effort: "none"
 

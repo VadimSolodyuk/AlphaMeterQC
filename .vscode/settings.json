@@ -54,4 +54,17 @@
     ],
     "python-envs.defaultEnvManager": "ms-python.python:system",
     "remote.autoForwardPortsFallback": 0,
+    "yaml.disableSchemaDetection": [
+        "**/.github/workflows/*.yml",
+        "**/.github/workflows/*.yaml",
+        "**/.gitea/workflows/*.yml",
+        "**/.gitea/workflows/*.yaml",
+        "**/.forgejo/workflows/*.yml",
+        "**/.forgejo/workflows/*.yaml"
+        // ".continue/**/*.yml",
+        // ".continue/**/*.yaml"
+    ],
+    "yaml.schemas": {
+        "file:///c%3A/Users/V.Solodyuk/.vscode/extensions/continue.continue-2.0.0-win32-x64/config-yaml-schema.json": ".continue/**/*.yaml"
+    }
 }
