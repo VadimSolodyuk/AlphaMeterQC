@@ -7,7 +7,7 @@
   "features": {
     "ghcr.io/devcontainers/features/git:1": {}
   },
-  "postCreateCommand": "git config --global user.name 'VadimSolodyuk' && git config --global user.email 'vadim.l.solodyuk@gmail.com' && pip install -e .[dev] && pre-commit install && chmod +x scripts/*.sh 2>/dev/null || true && scripts/check_env.sh",
+  "postCreateCommand": "git config --global user.name 'VadimSolodyuk' && git config --global user.email 'vadim.l.solodyuk@gmail.com' && pre-commit install && chmod +x scripts/*.sh 2>/dev/null || true && scripts/check_env.sh || true",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -26,13 +26,12 @@
         "Alibaba-Cloud.tongyi-lingma"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python",
-        "python.formatting.provider": "black"
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
       }
     }
   },
   "containerEnv": {
     "DISPLAY": "${localEnv:DISPLAY}"
   },
-  "remoteUser": "root"
+  "remoteUser": "vscode"
 }

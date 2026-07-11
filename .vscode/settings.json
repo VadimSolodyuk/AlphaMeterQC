@@ -1,0 +1,58 @@
+{
+    // === ФОРМАТИРОВАНИЕ КОДА ===
+    "editor.formatOnSave": true, // Авто-форматирование при сохранении
+    "[python]": {
+        "editor.rulers": [
+            88
+        ],
+        "editor.defaultFormatter": "ms-python.black-formatter", // Black
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit" // Сортировка импортов (isort)
+        }
+    },
+    // === СТАТИЧЕСКИЙ АНАЛИЗ (MyPy) ===
+    "mypy.run": "onSave", // Проверка типов при сохранении
+    "mypy.configFile": "pyproject.toml", // Конфигурация в pyproject.toml
+    "mypy.targets": [
+        "src"
+    ], // Проверка только src/
+    "mypy.ignoreMissingImports": true, // Игнор отсутствующих типов
+    // === ПРОВЕРКА СТИЛЯ (Flake8) ===
+    "flake8.args": [
+        "--max-line-length=88",
+        "--extend-ignore=E203,W503"
+    ],
+    // === ИСКЛЮЧЕНИЯ ИЗ ПОИСКА ===
+    "files.watcherExclude": {
+        "**/.pytest_cache/**": true,
+        "**/docs/site/**": true,
+        "**/.mypy_cache/**": true,
+        "**/__pycache__/**": true,
+        "**/venv/**": true,
+        "**/.venv/**": true,
+        "**/.git/**": true
+    },
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/.mypy_cache": true,
+        "**/htmlcov": true
+    },
+    // === НАСТРОЙКИ MARKDOWN ===
+    "[markdown]": {
+        "editor.wordWrap": "on", // Перенос строк
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        }
+    },
+    // === PYTHON ИНТЕРПРЕТАТОР ===
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv", // Автоопределение (venv/контейнер)
+    "python.analysis.extraPaths": [
+        "src"
+    ],
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "remote.autoForwardPortsFallback": 0, // Автодополнение из src/
+    "python.terminal.useEnvFile": true //
+}

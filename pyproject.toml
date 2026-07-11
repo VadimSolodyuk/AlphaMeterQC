@@ -55,9 +55,9 @@ testpaths = ["tests"]  # Папка с тестами
 python_files = "test_*.py"  # Шаблон имён файлов тестов
 
 # Покрытие кода
-# --cov=alphameterqc измеряет покрытие импортируемого пакета
-# --cov-report=term-missing выводит в терминал, какие именно строки НЕ покрыты тестами
-addopts = "--cov=alphameterqc --cov-report=term-missing"  
+# --cov=alphameterqc  # измеряет покрытие импортируемого пакета
+# --cov-report=term-missing  # выводит в терминал, какие именно строки НЕ покрыты тестами
+addopts = "--cov=alphameterqc --cov-report=term-missing"
 
 [tool.coverage.run]
 omit = [
