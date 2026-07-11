@@ -50,7 +50,7 @@ env/
 .env
 
 # === IDE и редакторы ===
-# .vscode/*.json
+.vscode/*.json
 .idea/
 *.swp
 *.swo
