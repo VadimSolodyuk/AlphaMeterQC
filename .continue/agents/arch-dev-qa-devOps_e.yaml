@@ -23,7 +23,7 @@ models:
       maxTokens: 2048 # 4096
       temperature: 0.1 # 0.1 — точность для кода, архитектуры и QA (Arch-Dev-QA-DevOps)
       topP: 0.9
-      # reasoning_effort: "none"
+      reasoning: false
 
   - name: qwen2.5-coder:3b-ac
     provider: ollama

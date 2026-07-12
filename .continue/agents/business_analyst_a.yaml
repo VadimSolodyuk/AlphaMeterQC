@@ -23,7 +23,7 @@ models:
       maxTokens: 4096 # 4096
       temperature: 0.3 # 0.3 — баланс точности и креативности для анализа требований (BA)
       topP: 0.95
-      # reasoning_effort: "none"
+      reasoning: false
 
   - name: qwen2.5-coder:3b-ac
     provider: ollama
