@@ -1,7 +1,7 @@
 # AlphaMeterQC
 
 [![CI/CD Pipeline](https://github.com/VadimSolodyuk/AlphaMeterQC/actions/workflows/ci.yml/badge.svg)](https://github.com/VadimSolodyuk/AlphaMeterQC/actions/workflows/ci.yml)
-[![Docs](https://github.com/VadimSolodyuk/AlphaMeterQC/actions/workflows/ci.yml/badge.svg?branch=main&label=docs)](https://vadimsolodyuk.github.io/AlphaMeterQC/)
+[![Docs](https://github.com/VadimSolodyuk/AlphaMeterQC/actions/workflows/docs.yml/badge.svg)](https://github.com/VadimSolodyuk/AlphaMeterQC/actions/workflows/docs.yml)
 
 **Версия:** 0.2.0  
 **Статус:** Разработка  

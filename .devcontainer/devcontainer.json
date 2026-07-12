@@ -26,12 +26,19 @@
         "Alibaba-Cloud.tongyi-lingma"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python"
-      }
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "/bin/bash",
+            "args": [
+              "-l"
+            ]
+          }
+        }
+      },
+      "containerEnv": {
+        "DISPLAY": "${localEnv:DISPLAY}"
+      },
+      "remoteUser": "vscode"
     }
-  },
-  "containerEnv": {
-    "DISPLAY": "${localEnv:DISPLAY}"
-  },
-  "remoteUser": "vscode"
-}
