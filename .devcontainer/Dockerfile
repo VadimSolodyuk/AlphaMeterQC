@@ -26,14 +26,17 @@ RUN pip install --upgrade pip
 
 WORKDIR /workspace
 
+# Копируем только pyproject.toml для кэширования слоя зависимостей
 COPY pyproject.toml ./
 
-# Создаем минимальную структуру пакета (подставь имя своего пакета)
+# Создаём минимальную структуру пакета для editable install
 RUN mkdir -p src/alphameterqc && touch src/alphameterqc/__init__.py
 
-RUN pip install --no-cache-dir -e .[dev] \
-    # Отдаем права на рабочую директорию пользователю vscode
-    && chown -R $USERNAME:$USERNAME /workspace
+# Устанавливаем зависимости
+RUN pip install --no-cache-dir -e .[dev]
+
+# Отдаём права на рабочую директорию пользователю vscode
+RUN chown -R $USERNAME:$USERNAME /workspace
 
 # Отключение буферизации вывода (критично для subprocess)
 ENV PYTHONUNBUFFERED=1
