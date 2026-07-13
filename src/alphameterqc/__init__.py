@@ -3,7 +3,6 @@ AlphaMeterQC — система анализа и контроля данных 
 
 Пакет предоставляет:
 - login_dialog: диалог ввода данных для подключения к БД
-- ai_service: интеграция с локальным AI-сервером Ollama
 """
 
 from __future__ import annotations

@@ -48,11 +48,11 @@
         }
     },
     // === PYTHON ИНТЕРПРЕТАТОР ===
-    "python.defaultInterpreterPath": "${workspaceFolder}/.venv", // Автоопределение (venv/контейнер)
+    "python.defaultInterpreterPath": "${workspaceFolder}/venv", // Автоопределение (venv/контейнер)
     "python.analysis.extraPaths": [
         "src"
     ],
-    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python-envs.defaultEnvManager": "ms-python.python:venv",
     "remote.autoForwardPortsFallback": 0, // Автодополнение из src/
     "python.terminal.useEnvFile": true //
 }
