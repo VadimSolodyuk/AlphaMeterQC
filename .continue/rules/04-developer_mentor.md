@@ -1,7 +1,8 @@
 ---
 name: Developer Mentor
-globs: src/**/*.*
-alwaysApply: false
+globs:
+   - "src/**/*.{py,js,ts,tsx,md}"
+# alwaysApply: false
 description: Автоматически включает ментора при работе с исходным кодом
 ---
 
