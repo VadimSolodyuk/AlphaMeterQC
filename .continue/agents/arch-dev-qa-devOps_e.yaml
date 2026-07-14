@@ -24,6 +24,11 @@ models:
       temperature: 0.1 # 0.1 — точность для кода, архитектуры и QA (Arch-Dev-QA-DevOps)
       topP: 0.9
       reasoning: false
+      # reasoningBudgetTokens:
+      promptCaching: true
+    cacheBehavior:
+      cacheSystemMessage: true # Системные промпты (роли BA)
+      cacheConversation: true
 
   - name: qwen2.5-coder:3b-ac
     provider: ollama
@@ -39,6 +44,15 @@ models:
       stop:
         - </s>
         - \n\n # для autocomplete
+    autocompleteOptions:
+      maxPromptTokens: 500 # 300 | 800
+      prefixPercentage: 0.6 # 0.8 | 0.5
+      maxSuffixPercentage: 0.2 # 0.1 | 0.3
+      useCache: true
+      useImports: true
+      useRecentlyEdited: true
+      useRecentlyOpened: false
+      onlyMyCode: true
     capabilities: []
 
   - name: nomic-embed
