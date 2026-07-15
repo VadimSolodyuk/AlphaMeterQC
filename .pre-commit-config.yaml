@@ -23,3 +23,27 @@ repos:
       - id: mypy
         exclude: ^tests/
         additional_dependencies: ["types-requests"]
+
+  # --- Хуки для синхронизации документации ---
+  - repo: https://github.com/pycqa/pydocstyle
+    rev: 6.3.0
+    hooks:
+      - id: pydocstyle
+        args: ["--convention=google"]
+        # Проверяет только файлы из src/ (изменённые в коммите)
+        files: ^src/.*\.py$
+
+  - repo: local
+    hooks:
+      - id: mkdocs-build
+        name: Build MkDocs
+        entry: mkdocs build --strict
+        language: system
+        pass_filenames: false
+        # Срабатывает, если изменены любые .md файлы или src/
+        files: >-
+          (?x)^(
+            docs/.*\.md|
+            src/.*\.py|
+            mkdocs\.yml
+          )$
