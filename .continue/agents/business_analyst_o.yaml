@@ -19,12 +19,12 @@ models:
       - tool_use
       - image_input
     defaultCompletionOptions:
-      contextLength: 65536 # 32768 # 131072
-      maxTokens: 4096 # 4096
+      contextLength: 32768 # 65536 #   131072
+      maxTokens: 2048 # 4096 # 4096
       temperature: 0.3 # 0.3 — баланс точности и креативности для анализа требований (BA)
       topP: 0.95
       reasoning: false
-      # reasoningBudgetTokens:
+      #   # reasoningBudgetTokens:
       promptCaching: true
     cacheBehavior:
       cacheSystemMessage: true # Системные промпты (роли BA)

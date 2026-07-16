@@ -9,7 +9,7 @@ invokable: true
 | Этап | Роль | Действия | Создаваемые артефакты |
 |------|------|----------|-----------------------|
 | **1. Specification & Architecture** | Spec Analyst | - Формализовать требования (следуй шаблонам из `docs/templates/specs/`)<br>- Спроектировать архитектуру (доменная модель, ADR)<br>- Обновить RTM | `docs/specs/<module>/` (концепция, use cases, SRS, ADR, RTM)<br>`docs/temp/<module>/<module>-spec-arch-<дата>.md` |
-| **2. Implementation** | Code Guardian | - Реализовать код согласно спецификациям и ADR<br>- Написать unit-тесты<br>- **Обновить docstrings в коде (Google-style)**<br>- **Проверить, что `mkdocs build --strict` проходит**<br>- Провести code review (если применимо) | `src/`, `tests/`<br>`docs/temp/<module>/<module>-impl-<дата>.md` |
+| **2. Implementation** | Code Guardian | - Реализовать код согласно спецификациям и ADR<br>- Написать unit-тесты<br>- **Обновить docstrings в коде (в соответствии с правилами Code Guardian)**<br>- **Проверить, что `mkdocs build --strict` проходит**<br>- Провести code review (если применимо) | `src/`, `tests/`<br>`docs/temp/<module>/<module>-impl-<дата>.md` |
 | **3. Quality Assurance** | Code Guardian | - Проверить код на уязвимости, качество, покрытие тестами<br>- Задокументировать граничные случаи | `docs/temp/<module>/<module>-qa-<дата>.md` |
 | **4. Documentation & Environment** | DevOps | - Обновить README, mkdocs, env.example<br>- Настроить CI/CD, зависимости<br>- Сгенерировать документацию | `docs/temp/<module>/<module>-docs-<дата>.md` |
 

@@ -19,7 +19,7 @@ models:
       - tool_use
     defaultCompletionOptions:
       contextLength: 32768
-      maxTokens: 2048 # 4096
+      maxTokens: 2048 # 4096 # 2048 #
       temperature: 0.2 # 0.2 — чуть выше для креативных архитектурных решений (Super)
       topP: 0.9
       reasoning: false

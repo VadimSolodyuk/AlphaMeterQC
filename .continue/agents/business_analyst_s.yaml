@@ -19,7 +19,7 @@ models:
       - tool_use
     defaultCompletionOptions:
       contextLength: 32768
-      maxTokens: 2048 # 4096
+      maxTokens: 2048 # 4096 #
       temperature: 0.3 # 0.3 — баланс точности и креативности для анализа требований (BA)
       topP: 0.95
       reasoning: false
