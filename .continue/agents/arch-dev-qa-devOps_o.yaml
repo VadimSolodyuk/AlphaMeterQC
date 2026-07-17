@@ -21,7 +21,7 @@ models:
     defaultCompletionOptions:
       contextLength: 32768 # возможные: 16384, 65536, 131072 (32768 — баланс скорость/качество)
       maxTokens: 2048 # возможные: 1024, 4096 (2048 — достаточно для ответов)
-      temperature: 0.1 # возможные: 0.0–0.3 (0.1 — точность для кода/архитектуры)
+      temperature: 0.2 # возможные: 0.0–0.3 (0.1 — точность для кода/архитектуры)
       topP: 0.9 # возможные: 0.8–1.0 (0.9 — стабильность без излишней жёсткости)
       reasoning: false # возможные: true/false (false — быстрее, true — глубже)
       promptCaching: true # возможные: true/false (true — экономия токенов)
@@ -78,7 +78,7 @@ models:
       cacheConversation: true
 
   # ========= Автодополнение (локальный coder) =========
-  - name: qwen2.5-coder:3b-ac
+  - name: qwen2.5-coder:3b
     provider: ollama
     model: qwen2.5-coder:3b
     apiBase: http://localhost:11434

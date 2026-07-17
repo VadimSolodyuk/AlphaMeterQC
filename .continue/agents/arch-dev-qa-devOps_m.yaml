@@ -18,7 +18,7 @@ models:
     defaultCompletionOptions:
       contextLength: 32768
       maxTokens: 2048 # 4096
-      temperature: 0.1
+      temperature: 0.2
       topP: 0.9
       reasoning: false
       promptCaching: true
@@ -63,7 +63,7 @@ models:
     defaultCompletionOptions:
       contextLength: 32768
       maxTokens: 2048
-      temperature: 0.1
+      temperature: 0.3
       topP: 0.9
       reasoning: false
       promptCaching: true
@@ -72,9 +72,9 @@ models:
       cacheConversation: true
 
   # ========= Автодополнение (локальный coder) =========
-  - name: qwen2.5-coder:1.5b
+  - name: qwen2.5-coder:3b
     provider: ollama
-    model: qwen2.5-coder:1.5b
+    model: qwen2.5-coder:3b
     apiBase: http://localhost:11434
     roles:
       - autocomplete
