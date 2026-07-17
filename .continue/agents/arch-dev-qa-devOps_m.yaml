@@ -1,0 +1,105 @@
+name: Arch-Dev-QA-DevOps - Maximal
+version: 1.0.0
+schema: v1
+
+models:
+  # ========= Чат и сабджент =========
+  - name: Qwen3 235B
+    provider: openai
+    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/qwen3-235b-a22b-fp8
+    apiBase: https://ai.api.cloud.yandex.net/v1
+    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    requestOptions:
+      headers:
+        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+    roles:
+      - chat
+      - subagent
+    defaultCompletionOptions:
+      contextLength: 32768
+      maxTokens: 2048 # 4096
+      temperature: 0.1
+      topP: 0.9
+      reasoning: false
+      promptCaching: true
+    cacheBehavior:
+      cacheSystemMessage: true
+      cacheConversation: true
+
+  # ========= Редактирование и применение =========
+  - name: DeepSeek V4 Flash
+    provider: openai
+    model: gpt://${{ secrets.AISTUDIO__FOLDER_ID }}/deepseek-v4-flash/latest
+    apiBase: https://ai.api.cloud.yandex.net/v1
+    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    requestOptions:
+      headers:
+        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+    roles:
+      - edit
+      - apply
+    defaultCompletionOptions:
+      contextLength: 32768
+      maxTokens: 2048
+      temperature: 0.1
+      topP: 0.9
+      reasoning: false
+      promptCaching: true
+    cacheBehavior:
+      cacheSystemMessage: true
+      cacheConversation: true
+
+  # ========= Суммаризация =========
+  - name: Alice AI LLM Flash
+    provider: openai
+    model: gpt://${{ secrets.AISTUDIO__FOLDER_ID }}/aliceai-llm-flash/latest
+    apiBase: https://ai.api.cloud.yandex.net/v1
+    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    requestOptions:
+      headers:
+        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+    roles:
+      - summarize
+    defaultCompletionOptions:
+      contextLength: 32768
+      maxTokens: 2048
+      temperature: 0.1
+      topP: 0.9
+      reasoning: false
+      promptCaching: true
+    cacheBehavior:
+      cacheSystemMessage: true
+      cacheConversation: true
+
+  # ========= Автодополнение (локальный coder) =========
+  - name: qwen2.5-coder:1.5b
+    provider: ollama
+    model: qwen2.5-coder:1.5b
+    apiBase: http://localhost:11434
+    roles:
+      - autocomplete
+    defaultCompletionOptions:
+      contextLength: 2048 # 4096
+      maxTokens: 256 # Для автодополнения обычно нужно 256-512
+      temperature: 0.1
+      topP: 0.85
+      stop:
+        - </s>
+        - \n\n
+    autocompleteOptions:
+      maxPromptTokens: 500
+      prefixPercentage: 0.6
+      maxSuffixPercentage: 0.3
+      useCache: true
+      useImports: true
+      useRecentlyEdited: true
+      useRecentlyOpened: false
+      onlyMyCode: true
+
+  # ========= Эмбеддинги =========
+  - name: nomic-embed
+    provider: ollama
+    model: nomic-embed-text:latest
+    apiBase: http://localhost:11434
+    roles:
+      - embed

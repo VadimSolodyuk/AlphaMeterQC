@@ -1,5 +1,3 @@
-# .continue/config.yaml
-# Единый файл конфигурации контекста для ALPHAMETERQC
 name: Main context
 version: 1.0.0
 schema: v1

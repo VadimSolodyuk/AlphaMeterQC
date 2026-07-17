@@ -1,5 +1,6 @@
 ---
 name: Spec Analyst
+showInSlashCommandMenu: true
 globs:
  - docs/**/*.md
  - specs/**/*.md
