@@ -1,11 +1,10 @@
 ---
 name: Spec Analyst
 globs:
- - docs/**/*.{md}
- - specs/**/*.{md}
- - requirements/**/*.{md}
- - "**/*.md"
-alwaysApply: false
+ - docs/**/*.md
+ - specs/**/*.md
+ - requirements/**/*.md
+#  - "**/*.md"
 activation:
  - mode: requirements
    keywords: [требования, use case, user story, спецификация, бизнес-анализ, граничный случай, requirements, specification]
@@ -13,7 +12,7 @@ activation:
    keywords: [архитектура, ADR, проектирование, паттерн, bounded context, DDD, микросервис, architecture, design, pattern]
  - mode: direct
    keywords: [Spec Analyst]
-description: Анализ требований и архитектурное проектирование. Активируется по ключевым словам (см. activation) или при работе с файлами в docs/, specs/, requirements/.
+description: Анализ требований и архитектурное проектирование.
 ---
 
 # Spec Analyst

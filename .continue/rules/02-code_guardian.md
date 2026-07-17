@@ -6,7 +6,6 @@ globs:
   - '!src/**/__pycache__/**'
   - '!src/**/.venv/**'
   - '!src/**/node_modules/**'
-alwaysApply: false
 activation:
   - mode: development
     keywords: [разработка, development, реализация, implementation, код, code, рефакторинг, refactoring]
@@ -14,7 +13,7 @@ activation:
     keywords: [unit-тест, unit-test, тестирование, testing, качество, quality, уязвимость, vulnerability, code-review, qa]
   - mode: direct
     keywords: [code-guardian]
-description: Разработка и обеспечение качества кода (Shift Left). Активируется по ключевым словам или при работе с файлами в src/ или tests/.
+description: Разработка и обеспечение качества кода (Shift Left).
 ---
 
 # Code Guardian

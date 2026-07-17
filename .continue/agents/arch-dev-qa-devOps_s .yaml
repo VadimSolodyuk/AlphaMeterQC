@@ -46,7 +46,7 @@ models:
     autocompleteOptions:
       maxPromptTokens: 500 # 300 | 800
       prefixPercentage: 0.6 # 0.8 | 0.5
-      maxSuffixPercentage: 0.2 # 0.1 | 0.3
+      maxSuffixPercentage: 0.3 # 0.1 | 0.3
       useCache: true
       useImports: true
       useRecentlyEdited: true
