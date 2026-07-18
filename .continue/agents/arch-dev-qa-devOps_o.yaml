@@ -19,12 +19,12 @@ models:
       - tool_use
       - image_input
     defaultCompletionOptions:
-      contextLength: 32768 # возможные: 16384, 65536, 131072 (32768 — баланс скорость/качество)
-      maxTokens: 2048 # возможные: 1024, 4096 (2048 — достаточно для ответов)
-      temperature: 0.2 # возможные: 0.0–0.3 (0.1 — точность для кода/архитектуры)
-      topP: 0.9 # возможные: 0.8–1.0 (0.9 — стабильность без излишней жёсткости)
-      reasoning: false # возможные: true/false (false — быстрее, true — глубже)
-      promptCaching: true # возможные: true/false (true — экономия токенов)
+      contextLength: 32768 # 16384 | 65536 | 131072 (32768 — баланс скорость/качество)
+      maxTokens: 2048 # 1024 | 4096 (2048 — достаточно для ответов)
+      temperature: 0.2 # 0.0 | 0.1 | 0.2 | 0.3 (0.1 — точность для кода/архитектуры)
+      topP: 0.9 # 0.8 | 0.9 | 1.0 (0.9 — стабильность без излишней жёсткости)
+      reasoning: false # true | false (false — быстрее, true — глубже)
+      promptCaching: true # true | false (true — экономия токенов)
     cacheBehavior:
       cacheSystemMessage: true
       cacheConversation: true
@@ -45,12 +45,12 @@ models:
       - tool_use
       - image_input
     defaultCompletionOptions:
-      contextLength: 32768 # возможные: 16384, 65536 (32768 — достаточно для правок)
-      maxTokens: 2048 # возможные: 1024, 4096 (2048 — типичный размер правки)
-      temperature: 0.1 # возможные: 0.0–0.2 (0.1 — минимальная креативность)
-      topP: 0.9 # возможные: 0.8–1.0
-      reasoning: false # возможные: true/false (false — быстрее)
-      promptCaching: true
+      contextLength: 32768 # 16384 | 65536 (32768 — достаточно для правок)
+      maxTokens: 2048 # 1024 | 4096 (2048 — типичный размер правки)
+      temperature: 0.1 # 0.0 | 0.1 | 0.2 (0.1 — минимальная креативность)
+      topP: 0.9 # 0.8 | 0.9 | 1.0
+      reasoning: false # true | false (false — быстрее)
+      promptCaching: true # true | false
     cacheBehavior:
       cacheSystemMessage: true
       cacheConversation: true
@@ -67,12 +67,12 @@ models:
     roles:
       - summarize
     defaultCompletionOptions:
-      contextLength: 32768 # возможные: 16384, 65536 (32768 — достаточно для контекста)
-      maxTokens: 1024 # возможные: 512, 2048 (1024 — краткая суммаризация)
-      temperature: 0.3 # возможные: 0.1–0.5 (0.3 — баланс сжатия и связности)
-      topP: 0.9
-      reasoning: false
-      promptCaching: true
+      contextLength: 32768 # 16384 | 65536 (32768 — достаточно для контекста)
+      maxTokens: 1024 # 512 | 2048 (1024 — краткая суммаризация)
+      temperature: 0.3 # 0.1 | 0.2 | 0.3 | 0.5 (0.3 — баланс сжатия и связности)
+      topP: 0.9 # 0.8 | 0.9 | 1.0
+      reasoning: false # true | false
+      promptCaching: true # true | false
     cacheBehavior:
       cacheSystemMessage: true
       cacheConversation: true
@@ -85,22 +85,22 @@ models:
     roles:
       - autocomplete
     defaultCompletionOptions:
-      contextLength: 2048 # возможные: 1024, 4096 (2048 — оптимально для автодополнения)
-      maxTokens: 256 # возможные: 128, 512 (256 — типичная длина продолжения)
-      temperature: 0.1 # возможные: 0.0–0.2 (0.1 — предсказуемость)
-      topP: 0.85 # возможные: 0.8–0.95 (0.85 — стабильность)
+      contextLength: 2048 # 1024 | 2048 | 4096 (2048 — оптимально для автодополнения)
+      maxTokens: 256 # 128 | 256 | 512 (256 — типичная длина продолжения)
+      temperature: 0.1 # 0.0 | 0.1 | 0.2 (0.1 — предсказуемость)
+      topP: 0.85 # 0.8 | 0.85 | 0.9 | 0.95 (0.85 — стабильность)
       stop:
         - </s>
         - \n\n
     autocompleteOptions:
-      maxPromptTokens: 500 # возможные: 300, 800 (500 — баланс контекста и скорости)
-      prefixPercentage: 0.6 # возможные: 0.5–0.8 (0.6 — больше внимания префиксу)
-      maxSuffixPercentage: 0.3 # возможные: 0.1–0.3 (0.3 — достаточно суффикса)
-      useCache: true
-      useImports: true
-      useRecentlyEdited: true
-      useRecentlyOpened: false
-      onlyMyCode: true
+      maxPromptTokens: 500 # 300 | 500 | 800 (500 — баланс контекста и скорости)
+      prefixPercentage: 0.6 # 0.5 | 0.6 | 0.8 (0.6 — больше внимания префиксу)
+      maxSuffixPercentage: 0.3 # 0.1 | 0.2 | 0.3 (0.3 — достаточно суффикса)
+      useCache: true # true | false
+      useImports: true # true | false
+      useRecentlyEdited: true # true | false
+      useRecentlyOpened: false # true | false
+      onlyMyCode: true # true | false
     capabilities: []
 
   # ========= Эмбеддинги =========

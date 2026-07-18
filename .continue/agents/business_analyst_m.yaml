@@ -1,12 +1,12 @@
-name: Business Analyst - Advanced
+name: Business Analyst - Maximal
 version: 1.0.0
 schema: v1
 
 models:
   # ========= Чат и сабджент =========
-  - name: DeepSeek V4 Flash
+  - name: Qwen3 235B
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/deepseek-v4-flash/latest
+    model: gpt://${{ secrets.AISTUDIO__FOLDER_ID }}/qwen3-235b-a22b-fp8
     apiBase: https://ai.api.cloud.yandex.net/v1
     apiKey: ${{ secrets.AISTUDIO_API_KEY }}
     requestOptions:
@@ -16,10 +16,10 @@ models:
       - chat
       - subagent
     defaultCompletionOptions:
-      contextLength: 65536 # 8192 | 16384 | 32768 | 65536 (32768 — баланс для сложных диалогов)
-      maxTokens: 2048 # 1024 | 2048 | 4096 (2048 — достаточно для развёрнутых ответов)
-      temperature: 0.2 # 0.0 | 0.1 | 0.2 | 0.3 | 0.5 (0.2 — точность при генерации)
-      topP: 0.9 # 0.1 | 0.5 | 0.9 | 1.0 (0.9 — стабильность)
+      contextLength: 65536 # 32768 | 65536 | 131072 (65536 — макс. контекст для глубокого анализа требований)
+      maxTokens: 4096 # 2048 | 4096 (4096 — для развёрнутых ответов BA)
+      temperature: 0.3 # 0.3 — баланс точности и креативности для анализа требований
+      topP: 0.95
       reasoning: false
       promptCaching: true
     cacheBehavior:
@@ -39,10 +39,10 @@ models:
       - edit
       - apply
     defaultCompletionOptions:
-      contextLength: 32768 # 8192 | 16384 | 32768 | 65536 (32768 — макс. контекст для анализа кода)
-      maxTokens: 4096 # 1024 | 2048 | 4096 (4096 — для крупных правок)
-      temperature: 0.2 # 0.0 | 0.1 | 0.2 | 0.3 | 0.5 (0.3 — лёгкая вариативность)
-      topP: 0.95 # 0.1 | 0.5 | 0.9 | 0.95 | 1.0 (0.95 — баланс)
+      contextLength: 32768 # 8192 | 16384 | 32768 (32768 — достаточно для правок документов BA)
+      maxTokens: 2048 # 1024 | 2048 | 4096 (2048 — для точных изменений без избыточности)
+      temperature: 0.1 # 0.0 | 0.1 | 0.2 (0.1 — макс. детерминированность для правок)
+      topP: 0.9
       reasoning: false
       promptCaching: true
     cacheBehavior:
@@ -50,9 +50,9 @@ models:
       cacheConversation: true
 
   # ========= Суммаризация =========
-  - name: Alice AI LLM Flash
+  - name: DeepSeek V4 Flash
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/aliceai-llm-flash/latest
+    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/deepseek-v4-flash/latest
     apiBase: https://ai.api.cloud.yandex.net/v1
     apiKey: ${{ secrets.AISTUDIO_API_KEY }}
     requestOptions:
@@ -61,10 +61,10 @@ models:
     roles:
       - summarize
     defaultCompletionOptions:
-      contextLength: 32768 # 8192 | 16384 | 32768 | 65536 (32768 — длинный контекст)
+      contextLength: 32768 # 8192 | 16384 | 32768 (32768 — для длинных логов/требований)
       maxTokens: 2048 # 1024 | 2048 | 4096 (2048 — для полных итогов)
-      temperature: 0.3 # 0.0 | 0.1 | 0.2 | 0.3 | 0.5 (0.3 — лёгкое разнообразие)
-      topP: 0.9 # 0.1 | 0.5 | 0.9 | 1.0 (0.9 — баланс)
+      temperature: 0.3 # 0.0 | 0.1 | 0.2 | 0.3 (0.3 — лёгкое разнообразие при сохранении точности)
+      topP: 0.9
       reasoning: false
       promptCaching: true
     cacheBehavior:
@@ -79,24 +79,24 @@ models:
     roles:
       - autocomplete
     defaultCompletionOptions:
-      contextLength: 2048 # 1024 | 2048 | 4096 (2048 — достаточно для контекста редактирования)
-      maxTokens: 256 # 128 | 256 | 512 (256 — оптимально для коротких дополнений)
-      temperature: 0.1 # 0.0 | 0.1 | 0.2 (0.1 — предсказуемость)
-      topP: 0.85 # 0.5 | 0.85 | 0.9 | 1.0 (0.85 — умеренный баланс)
+      contextLength: 2048 # 4096 (2048 — достаточно для контекста редактирования)
+      maxTokens: 256 # 256 | 512 (256 — оптимально для коротких дополнений)
+      temperature: 0.1 # 0.1 — точ
+      topP: 0.85
       stop:
         - </s>
-        - \n\n
+        - \n\n # для autocomplete
     autocompleteOptions:
-      maxPromptTokens: 500 # 300 | 500 | 800 (500 — баланс)
-      prefixPercentage: 0.6 # 0.5 | 0.6 | 0.8 (0.6 — достаточно кода до курсора)
-      maxSuffixPercentage: 0.3 # 0.1 | 0.2 | 0.3 (0.3 — ограничение)
+      maxPromptTokens: 500 # 300 | 800 (500 — баланс между объёмом контекста и скоростью обработки)
+      prefixPercentage: 0.6 # 0.5 | 0.8 (0.6 — больше внимания префиксу, помогает точнее продолжить существующий код)
+      maxSuffixPercentage: 0.2 # 0.1 | 0.3 (0.3 — достаточно суффикса для осмысленного продолжения, не перегружает модель)
       useCache: true
       useImports: true
       useRecentlyEdited: true
       useRecentlyOpened: false
       onlyMyCode: true
+    capabilities: []
 
-  # ========= Эмбеддинги =========
   - name: nomic-embed
     provider: ollama
     model: nomic-embed-text:latest

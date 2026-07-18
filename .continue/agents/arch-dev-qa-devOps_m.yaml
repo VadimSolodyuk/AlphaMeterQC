@@ -1,4 +1,4 @@
-name: Arch-Dev-QA-DevOps - Maximal
+name: Business Analyst - Maximal
 version: 1.0.0
 schema: v1
 
@@ -6,7 +6,7 @@ models:
   # ========= Чат и сабджент =========
   - name: Qwen3 235B
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/qwen3-235b-a22b-fp8
+    model: gpt://${{ secrets.AISTUDIO__FOLDER_ID }}/qwen3-235b-a22b-fp8
     apiBase: https://ai.api.cloud.yandex.net/v1
     apiKey: ${{ secrets.AISTUDIO_API_KEY }}
     requestOptions:
@@ -15,11 +15,14 @@ models:
     roles:
       - chat
       - subagent
+    capabilities:
+      - tool_use
+      - image_input
     defaultCompletionOptions:
-      contextLength: 32768
-      maxTokens: 2048 # 4096
-      temperature: 0.2
-      topP: 0.9
+      contextLength: 65536 # 32768 | 65536 | 131072 (65536 — макс. контекст для глубокого анализа требований)
+      maxTokens: 4096 # 2048 | 4096 (4096 — для развёрнутых ответов BA)
+      temperature: 0.3 # 0.3 — баланс точности и креативности для анализа требований
+      topP: 0.95
       reasoning: false
       promptCaching: true
     cacheBehavior:
@@ -29,7 +32,7 @@ models:
   # ========= Редактирование и применение =========
   - name: DeepSeek V4 Flash
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO__FOLDER_ID }}/deepseek-v4-flash/latest
+    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/deepseek-v4-flash/latest
     apiBase: https://ai.api.cloud.yandex.net/v1
     apiKey: ${{ secrets.AISTUDIO_API_KEY }}
     requestOptions:
@@ -38,10 +41,13 @@ models:
     roles:
       - edit
       - apply
+    capabilities:
+      - tool_use
+      - image_input
     defaultCompletionOptions:
-      contextLength: 32768
-      maxTokens: 2048
-      temperature: 0.1
+      contextLength: 32768 # 8192 | 16384 | 32768 (32768 — достаточно для правок документов BA)
+      maxTokens: 2048 # 1024 | 2048 | 4096 (2048 — для точных изменений без избыточности)
+      temperature: 0.1 # 0.0 | 0.1 | 0.2 (0.1 — макс. детерминированность для правок)
       topP: 0.9
       reasoning: false
       promptCaching: true
@@ -52,7 +58,7 @@ models:
   # ========= Суммаризация =========
   - name: Alice AI LLM Flash
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO__FOLDER_ID }}/aliceai-llm-flash/latest
+    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/aliceai-llm-flash/latest
     apiBase: https://ai.api.cloud.yandex.net/v1
     apiKey: ${{ secrets.AISTUDIO_API_KEY }}
     requestOptions:
@@ -61,9 +67,9 @@ models:
     roles:
       - summarize
     defaultCompletionOptions:
-      contextLength: 32768
-      maxTokens: 2048
-      temperature: 0.3
+      contextLength: 32768 # 8192 | 16384 | 32768 (32768 — для длинных логов/требований)
+      maxTokens: 2048 # 1024 | 2048 | 4096 (2048 — для полных итогов)
+      temperature: 0.3 # 0.0 | 0.1 | 0.2 | 0.3 (0.3 — лёгкое разнообразие при сохранении точности)
       topP: 0.9
       reasoning: false
       promptCaching: true
@@ -79,22 +85,23 @@ models:
     roles:
       - autocomplete
     defaultCompletionOptions:
-      contextLength: 2048 # 4096
-      maxTokens: 256 # Для автодополнения обычно нужно 256-512
-      temperature: 0.1
-      topP: 0.85
+      contextLength: 2048 # 4096 (2048 — достаточно для контекста редактирования)
+      maxTokens: 256 # 256 | 512 (256 — оптимально для коротких дополнений)
+      temperature: 0.1 # 0.1 — точ
+      topP: 0.85 # 0.8 | 0.95 (0.85 — стабильность, обеспечивает разнообразие без потери релевантности)
       stop:
-        - </s>
+        - Í
         - \n\n
     autocompleteOptions:
-      maxPromptTokens: 500
-      prefixPercentage: 0.6
-      maxSuffixPercentage: 0.3
+      maxPromptTokens: 500 # 300 | 800 (500 — баланс между объёмом контекста и скоростью обработки)
+      prefixPercentage: 0.6 # 0.5 | 0.8 (0.6 — больше внимания префиксу, помогает точнее продолжить существующий код)
+      maxSuffixPercentage: 0.2 # 0.1 | 0.3 (0.3 — достаточно суффикса для осмысленного продолжения, не перегружает модель)
       useCache: true
       useImports: true
       useRecentlyEdited: true
       useRecentlyOpened: false
       onlyMyCode: true
+    capabilities: []
 
   # ========= Эмбеддинги =========
   - name: nomic-embed

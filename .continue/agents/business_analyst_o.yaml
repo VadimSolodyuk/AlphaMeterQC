@@ -3,60 +3,121 @@ version: 1.0.0
 schema: v1
 
 models:
+  # ========= Чат и сабджент =========
   - name: Qwen3.6-35B
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO__FOLDER_ID }}/qwen3.6-35b-a3b
+    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/qwen3.6-35b-a3b
     apiBase: https://ai.api.cloud.yandex.net/v1
     apiKey: ${{ secrets.AISTUDIO_API_KEY }}
     requestOptions:
       headers:
-        OpenAI-Project: ${{ secrets.AISTUDIO__FOLDER_ID }}
+        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
     roles:
       - chat
-      - edit
-      - apply
-      - summarize
-      - subagent
-    capabilities:
-      - tool_use
-      - image_input
     defaultCompletionOptions:
-      contextLength: 65536 # 32768 #  131072
-      maxTokens: 4096 # 4096 # 4096
-      temperature: 0.3 # 0.3 — баланс точности и креативности для анализа требований (BA)
-      topP: 0.95
+      contextLength: 65536 # 32768 | 65536 | 131072 (65536 — достаточно для анализа требований)
+      maxTokens: 4096 # 2048 | 4096 (4096 — для развёрнутых ответов BA)
+      temperature: 0.3 # 0.2 | 0.3 | 0.5 (0.3 — баланс точности и креативности)
+      topP: 0.95 # 0.9 | 0.95 | 1.0 (0.95 — умеренная вариативность)
       reasoning: false
-      #   # reasoningBudgetTokens:
       promptCaching: true
     cacheBehavior:
-      cacheSystemMessage: true # Системные промпты (роли BA)
+      cacheSystemMessage: true
       cacheConversation: true
 
-  - name: qwen2.5-coder:3b-ac
+  # ========= Сабджент (подзадачи) =========
+  - name: gpt-oss-20b
+    provider: openai
+    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/gpt-oss-20b/latest
+    apiBase: https://ai.api.cloud.yandex.net/v1
+    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    requestOptions:
+      headers:
+        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+    roles:
+      - subagent
+    defaultCompletionOptions:
+      contextLength: 16384 # 8192 | 16384 | 32768 (16384 — достаточно для подзадач)
+      maxTokens: 2048 # 1024 | 2048 (2048 — компактные ответы)
+      temperature: 0.2 # 0.1 | 0.2 | 0.3 (0.2 — точность)
+      topP: 0.9
+      reasoning: false
+      promptCaching: true
+    cacheBehavior:
+      cacheSystemMessage: true
+      cacheConversation: true
+
+  # ========= Редактирование и применение =========
+  - name: gpt-oss-20b
+    provider: openai
+    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/gpt-oss-20b/latest
+    apiBase: https://ai.api.cloud.yandex.net/v1
+    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    requestOptions:
+      headers:
+        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+    roles:
+      - edit
+      - apply
+    defaultCompletionOptions:
+      contextLength: 16384 # 8192 | 16384 | 32768 (16384 — для правок средней сложности)
+      maxTokens: 2048 # 1024 | 2048 (2048 — достаточно для изменений)
+      temperature: 0.1 # 0.0 | 0.1 | 0.2 (0.1 — макс. детерминированность)
+      topP: 0.9
+      reasoning: false
+      promptCaching: true
+    cacheBehavior:
+      cacheSystemMessage: true
+      cacheConversation: true
+
+  # ========= Суммаризация =========
+  - name: Alice AI LLM Flash
+    provider: openai
+    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/aliceai-llm-flash/latest
+    apiBase: https://ai.api.cloud.yandex.net/v1
+    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    requestOptions:
+      headers:
+        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+    roles:
+      - summarize
+    defaultCompletionOptions:
+      contextLength: 32768 # 16384 | 32768 | 65536 (32768 — для длинных диалогов)
+      maxTokens: 2048 # 1024 | 2048 (2048 — полные итоги)
+      temperature: 0.3 # 0.2 | 0.3 | 0.5 (0.3 — лёгкое разнообразие)
+      topP: 0.9
+      reasoning: false
+      promptCaching: true
+    cacheBehavior:
+      cacheSystemMessage: true
+      cacheConversation: true
+
+  # ========= Автодополнение (локальный coder) =========
+  - name: qwen2.5-coder:3b
     provider: ollama
     model: qwen2.5-coder:3b
     apiBase: http://localhost:11434
     roles:
       - autocomplete
     defaultCompletionOptions:
-      contextLength: 2048 # 4096
-      maxTokens: 256 # 256 # Для автодополнения обычно нужно 256-512. Для чата — 2048-4096 достаточно.
-      temperature: 0.1 # 0.1 — точность для автодополнения кода
+      contextLength: 2048 # 1024 | 2048 | 4096 (2048 — достаточно для контекста редактирования)
+      maxTokens: 256 # 128 | 256 | 512 (256 — оптимально для коротких дополнений)
+      temperature: 0.1 # 0.0 | 0.1 | 0.2 (0.1 — предсказуемость)
       topP: 0.85
       stop:
         - </s>
-        - \n\n # для autocomplete
+        - \n\n
     autocompleteOptions:
-      maxPromptTokens: 500 # 300 | 800
-      prefixPercentage: 0.6 # 0.8 | 0.5
-      maxSuffixPercentage: 0.3 # 0.1 | 0.3
+      maxPromptTokens: 500 # 300 | 500 | 800 (500 — баланс)
+      prefixPercentage: 0.6
+      maxSuffixPercentage: 0.3
       useCache: true
       useImports: true
       useRecentlyEdited: true
       useRecentlyOpened: false
       onlyMyCode: true
-    capabilities: []
 
+  # ========= Эмбеддинги =========
   - name: nomic-embed
     provider: ollama
     model: nomic-embed-text:latest

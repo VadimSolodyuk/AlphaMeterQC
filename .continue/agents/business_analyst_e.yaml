@@ -1,0 +1,84 @@
+name: Business Analyst - Economical
+version: 1.0.0
+schema: v1
+
+models:
+  # ========= Чат и сабджент =========
+  - name: gpt-oss-20b
+    provider: openai
+    model: gpt://${{ secrets.AISTUDIO__FOLDER_ID }}/gpt-oss-20b/latest
+    apiBase: https://ai.api.cloud.yandex.net/v1
+    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    requestOptions:
+      headers:
+        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+    roles:
+      - chat
+      - subagent
+    defaultCompletionOptions:
+      contextLength: 16384 # 8192 | 16384 | 32768 (16384 — достаточно для лёгких диалогов BA)
+      maxTokens: 2048 # 1024 | 2048 | 4096 (2048 — для компактных ответов)
+      temperature: 0.3 # 0.3 — баланс точности и креативности
+      topP: 0.95
+      reasoning: false
+      promptCaching: true
+    cacheBehavior:
+      cacheSystemMessage: true
+      cacheConversation: true
+
+  # ========= Редактирование, применение и суммаризация =========
+  - name: Alice AI LLM Flash
+    provider: openai
+    model: gpt://${{ secrets.AISTUDIO__FOLDER_ID }}/alice-ai-llm-flash/latest
+    apiBase: https://ai.api.cloud.yandex.net/v1
+    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    requestOptions:
+      headers:
+        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+    roles:
+      - edit
+      - apply
+      - summarize
+    defaultCompletionOptions:
+      contextLength: 16384 # 8192 | 16384 | 32768 (16384 — достаточно для правок и итогов)
+      maxTokens: 2048 # 1024 | 2048 | 4096 (2048 — для точных изменений и суммаризации)
+      temperature: 0.1 # 0.0 | 0.1 | 0.2 (0.1 — макс. детерминированность для правок)
+      topP: 0.9
+      reasoning: false
+      promptCaching: true
+    cacheBehavior:
+      cacheSystemMessage: true
+      cacheConversation: true
+
+  # ========= Автодополнение (локальный coder) =========
+  - name: qwen2.5-coder:3b
+    provider: ollama
+    model: qwen2.5-coder:3b
+    apiBase: http://localhost:11434
+    roles:
+      - autocomplete
+    defaultCompletionOptions:
+      contextLength: 2048
+      maxTokens: 256
+      temperature: 0.1
+      topP: 0.85
+      stop:
+        - </s>
+        - \n\n
+    autocompleteOptions:
+      maxPromptTokens: 500
+      prefixPercentage: 0.6
+      maxSuffixPercentage: 0.2
+      useCache: true
+      useImports: true
+      useRecentlyEdited: true
+      useRecentlyOpened: false
+      onlyMyCode: true
+    capabilities: []
+
+  - name: nomic-embed
+    provider: ollama
+    model: nomic-embed-text:latest
+    apiBase: http://localhost:11434
+    roles:
+      - embed
