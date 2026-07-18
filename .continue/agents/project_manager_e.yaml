@@ -1,32 +1,9 @@
-name: Business Analyst - Advanced
+name: Project Manager - Optimal
 version: 1.0.0
 schema: v1
 
 models:
-  # ========= Чат и сабджент =========
-  - name: DeepSeek V4 Flash
-    provider: openai
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/deepseek-v4-flash/latest
-    apiBase: https://ai.api.cloud.yandex.net/v1
-    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
-    requestOptions:
-      headers:
-        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
-    roles:
-      - chat
-      - subagent
-    defaultCompletionOptions:
-      contextLength: 32768 # 8192 | 16384 | 32768 | 65536 (32768 — баланс для сложных диалогов)
-      maxTokens: 4096 # 1024 | 2048 | 4096 (2048 — достаточно для развёрнутых ответов)
-      temperature: 0.2 # 0.0 | 0.1 | 0.2 | 0.3 | 0.5 (0.2 — точность при генерации)
-      topP: 0.9 # 0.1 | 0.5 | 0.9 | 1.0 (0.9 — стабильность)
-      reasoning: false
-      promptCaching: true
-    cacheBehavior:
-      cacheSystemMessage: true
-      cacheConversation: true
-
-  # ========= Редактирование и применение =========
+  # ========= Чат =========
   - name: Qwen3.6-35B
     provider: openai
     model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/qwen3.6-35b/latest
@@ -36,13 +13,57 @@ models:
       headers:
         OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
     roles:
+      - chat
+    defaultCompletionOptions:
+      contextLength: 65536 # 32768 | 65536 | 131072 (65536 — макс. контекст для глубокого анализа требований)
+      maxTokens: 4096 # 2048 | 4096 (4096 — для развёрнутых ответов BA)
+      temperature: 0.3 # 0.2 | 0.3 | 0.5 (0.3 — баланс точности и креативности для анализа требований)
+      topP: 0.95
+      reasoning: false
+      promptCaching: true
+    cacheBehavior:
+      cacheSystemMessage: true
+      cacheConversation: true
+
+  # ========= Сабджент (подзадачи) =========
+  - name: gpt-oss-20b
+    provider: openai
+    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/gpt-oss-20b/latest
+    apiBase: https://ai.api.cloud.yandex.net/v1
+    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    requestOptions:
+      headers:
+        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+    roles:
+      - subagent
+    defaultCompletionOptions:
+      contextLength: 16384 # 8192 | 16384 | 32768 (16384 — достаточно для суммаризации и обновления статусов)
+      maxTokens: 2048 # 1024 | 2048 (2048 — компактные ответы)
+      temperature: 0.2 # 0.1 | 0.2 | 0.3 (0.2 — точность)
+      topP: 0.9
+      reasoning: false
+      promptCaching: true
+    cacheBehavior:
+      cacheSystemMessage: true
+      cacheConversation: true
+
+  # ========= Редактирование и применение =========
+  - name: Alice AI LLM Flash
+    provider: openai
+    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/aliceai-llm-flash/latest
+    apiBase: https://ai.api.cloud.yandex.net/v1
+    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    requestOptions:
+      headers:
+        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+    roles:
       - edit
       - apply
     defaultCompletionOptions:
-      contextLength: 32768 # 8192 | 16384 | 32768 | 65536 (32768 — макс. контекст для анализа кода)
-      maxTokens: 4096 # 1024 | 2048 | 4096 (4096 — для крупных правок)
-      temperature: 0.2 # 0.0 | 0.1 | 0.2 | 0.3 | 0.5 (0.3 — лёгкая вариативность)
-      topP: 0.95 # 0.1 | 0.5 | 0.9 | 0.95 | 1.0 (0.95 — баланс)
+      contextLength: 16384 # 8192 | 16384 | 32768 (16384 — для правок Markdown, списков, JSON-конфигов)
+      maxTokens: 2048 # 1024 | 2048 (2048 — достаточно для правок)
+      temperature: 0.1 # 0.0 | 0.1 | 0.2 (0.1 — макс. детерминированность)
+      topP: 0.9
       reasoning: false
       promptCaching: true
     cacheBehavior:
@@ -61,10 +82,10 @@ models:
     roles:
       - summarize
     defaultCompletionOptions:
-      contextLength: 32768 # 8192 | 16384 | 32768 | 65536 (32768 — длинный контекст)
-      maxTokens: 2048 # 1024 | 2048 | 4096 (2048 — для полных итогов)
-      temperature: 0.3 # 0.0 | 0.1 | 0.2 | 0.3 | 0.5 (0.3 — лёгкое разнообразие)
-      topP: 0.9 # 0.1 | 0.5 | 0.9 | 1.0 (0.9 — баланс)
+      contextLength: 32768
+      maxTokens: 2048 # 1024 | 2048 (2048 — полные итоги)
+      temperature: 0.3 # 0.2 | 0.3 | 0.5 (0.3 — лёгкое разнообразие)
+      topP: 0.9
       reasoning: false
       promptCaching: true
     cacheBehavior:
@@ -82,14 +103,14 @@ models:
       contextLength: 2048 # 1024 | 2048 | 4096 (2048 — достаточно для контекста редактирования)
       maxTokens: 256 # 128 | 256 | 512 (256 — оптимально для коротких дополнений)
       temperature: 0.1 # 0.0 | 0.1 | 0.2 (0.1 — предсказуемость)
-      topP: 0.85 # 0.5 | 0.85 | 0.9 | 1.0 (0.85 — умеренный баланс)
+      topP: 0.85
       stop:
         - </s>
         - \n\n
     autocompleteOptions:
       maxPromptTokens: 500 # 300 | 500 | 800 (500 — баланс)
-      prefixPercentage: 0.6 # 0.5 | 0.6 | 0.8 (0.6 — достаточно кода до курсора)
-      maxSuffixPercentage: 0.3 # 0.1 | 0.2 | 0.3 (0.3 — ограничение)
+      prefixPercentage: 0.6
+      maxSuffixPercentage: 0.3
       useCache: true
       useImports: true
       useRecentlyEdited: true
