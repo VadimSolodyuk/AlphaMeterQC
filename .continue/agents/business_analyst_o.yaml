@@ -15,7 +15,7 @@ models:
     roles:
       - chat
     defaultCompletionOptions:
-      contextLength: 65536 # 32768 | 65536 | 131072 (65536 — достаточно для анализа требований)
+      contextLength: 32768 # 32768 | 65536 | 131072 (65536 — достаточно для анализа требований)
       maxTokens: 4096 # 2048 | 4096 (4096 — для развёрнутых ответов BA)
       temperature: 0.3 # 0.2 | 0.3 | 0.5 (0.3 — баланс точности и креативности)
       topP: 0.95 # 0.9 | 0.95 | 1.0 (0.95 — умеренная вариативность)
@@ -37,7 +37,7 @@ models:
     roles:
       - subagent
     defaultCompletionOptions:
-      contextLength: 16384 # 8192 | 16384 | 32768 (16384 — достаточно для подзадач)
+      contextLength: 32768 # 8192 | 16384 | 32768 (16384 — достаточно для подзадач)
       maxTokens: 2048 # 1024 | 2048 (2048 — компактные ответы)
       temperature: 0.2 # 0.1 | 0.2 | 0.3 (0.2 — точность)
       topP: 0.9
@@ -106,7 +106,10 @@ models:
       topP: 0.85
       stop:
         - </s>
-        - \n\n
+        - "\n\n"
+        - ";"
+        - "}"
+        - "#"
     autocompleteOptions:
       maxPromptTokens: 500 # 300 | 500 | 800 (500 — баланс)
       prefixPercentage: 0.6

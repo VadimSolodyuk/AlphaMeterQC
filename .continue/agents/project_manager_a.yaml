@@ -106,7 +106,10 @@ models:
       topP: 0.85
       stop:
         - </s>
-        - \n\n
+        - "\n\n"
+        - ";"
+        - "}"
+        - "#"
     autocompleteOptions:
       maxPromptTokens: 500 # 300 | 500 | 800 (500 — баланс)
       prefixPercentage: 0.6

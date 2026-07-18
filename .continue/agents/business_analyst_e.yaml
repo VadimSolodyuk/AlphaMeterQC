@@ -16,7 +16,7 @@ models:
       - chat
       - subagent
     defaultCompletionOptions:
-      contextLength: 16384 # 8192 | 16384 | 32768 (16384 — достаточно для лёгких диалогов BA)
+      contextLength: 32768 # 8192 | 16384 | 32768 (16384 — достаточно для лёгких диалогов BA)
       maxTokens: 2048 # 1024 | 2048 | 4096 (2048 — для компактных ответов)
       temperature: 0.3 # 0.3 — баланс точности и креативности
       topP: 0.95
@@ -64,9 +64,12 @@ models:
       topP: 0.85
       stop:
         - </s>
-        - \n\n
+        - "\n\n"
+        - ";"
+        - "}"
+        - "#"
     autocompleteOptions:
-      maxPromptTokens: 500
+      maxPromptTokens: 300
       prefixPercentage: 0.6
       maxSuffixPercentage: 0.2
       useCache: true

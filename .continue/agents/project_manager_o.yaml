@@ -6,7 +6,7 @@ models:
   # ========= Чат =========
   - name: Qwen3.6-35B
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/qwen3.6-35b/latest
+    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/qwen3.6-35b-a3b
     apiBase: https://ai.api.cloud.yandex.net/v1
     apiKey: ${{ secrets.AISTUDIO_API_KEY }}
     requestOptions:
@@ -61,7 +61,7 @@ models:
       - apply
     defaultCompletionOptions:
       contextLength: 16384 # 8192 | 16384 | 32768 (16384 — для правок Markdown, списков, JSON-конфигов)
-      maxTokens: 2048 # 1024 | 2048 (2048 — достаточно для правок)
+      maxTokens: 1024 # 1024 | 2048 (2048 — достаточно для правок)
       temperature: 0.1 # 0.0 | 0.1 | 0.2 (0.1 — макс. детерминированность)
       topP: 0.9
       reasoning: false
@@ -106,11 +106,14 @@ models:
       topP: 0.85
       stop:
         - </s>
-        - \n\n
+        - "\n\n"
+        - ";"
+        - "}"
+        - "#"
     autocompleteOptions:
-      maxPromptTokens: 500 # 300 | 500 | 800 (500 — баланс)
+      maxPromptTokens: 300 # 300 | 500 | 800 (500 — баланс)
       prefixPercentage: 0.6
-      maxSuffixPercentage: 0.3
+      maxSuffixPercentage: 0.2
       useCache: true
       useImports: true
       useRecentlyEdited: true

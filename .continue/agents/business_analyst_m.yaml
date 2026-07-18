@@ -16,7 +16,7 @@ models:
       - chat
       - subagent
     defaultCompletionOptions:
-      contextLength: 65536 # 32768 | 65536 | 131072 (65536 — макс. контекст для глубокого анализа требований)
+      contextLength: 32768 # 32768 | 65536 | 131072 (65536 — макс. контекст для глубокого анализа требований)
       maxTokens: 4096 # 2048 | 4096 (4096 — для развёрнутых ответов BA)
       temperature: 0.3 # 0.3 — баланс точности и креативности для анализа требований
       topP: 0.95
@@ -29,7 +29,7 @@ models:
   # ========= Редактирование и применение =========
   - name: Qwen3.6-35B
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/qwen3.6-35b/latest
+    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/qwen3.6-35b-a3b
     apiBase: https://ai.api.cloud.yandex.net/v1
     apiKey: ${{ secrets.AISTUDIO_API_KEY }}
     requestOptions:
@@ -39,7 +39,7 @@ models:
       - edit
       - apply
     defaultCompletionOptions:
-      contextLength: 32768 # 8192 | 16384 | 32768 (32768 — достаточно для правок документов BA)
+      contextLength: 16384 # 8192 | 16384 | 32768 (32768 — достаточно для правок документов BA)
       maxTokens: 2048 # 1024 | 2048 | 4096 (2048 — для точных изменений без избыточности)
       temperature: 0.1 # 0.0 | 0.1 | 0.2 (0.1 — макс. детерминированность для правок)
       topP: 0.9
@@ -85,9 +85,12 @@ models:
       topP: 0.85
       stop:
         - </s>
-        - \n\n # для autocomplete
+        - "\n\n"
+        - ";"
+        - "}"
+        - "#"
     autocompleteOptions:
-      maxPromptTokens: 500 # 300 | 800 (500 — баланс между объёмом контекста и скоростью обработки)
+      maxPromptTokens: 300 # 300 | 800 (500 — баланс между объёмом контекста и скоростью обработки)
       prefixPercentage: 0.6 # 0.5 | 0.8 (0.6 — больше внимания префиксу, помогает точнее продолжить существующий код)
       maxSuffixPercentage: 0.2 # 0.1 | 0.3 (0.3 — достаточно суффикса для осмысленного продолжения, не перегружает модель)
       useCache: true

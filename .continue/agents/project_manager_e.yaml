@@ -1,31 +1,9 @@
-name: Project Manager - Optimal
+name: Project Manager - Economical
 version: 1.0.0
 schema: v1
 
 models:
   # ========= Чат =========
-  - name: Qwen3.6-35B
-    provider: openai
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/qwen3.6-35b/latest
-    apiBase: https://ai.api.cloud.yandex.net/v1
-    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
-    requestOptions:
-      headers:
-        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
-    roles:
-      - chat
-    defaultCompletionOptions:
-      contextLength: 65536 # 32768 | 65536 | 131072 (65536 — макс. контекст для глубокого анализа требований)
-      maxTokens: 4096 # 2048 | 4096 (4096 — для развёрнутых ответов BA)
-      temperature: 0.3 # 0.2 | 0.3 | 0.5 (0.3 — баланс точности и креативности для анализа требований)
-      topP: 0.95
-      reasoning: false
-      promptCaching: true
-    cacheBehavior:
-      cacheSystemMessage: true
-      cacheConversation: true
-
-  # ========= Сабджент (подзадачи) =========
   - name: gpt-oss-20b
     provider: openai
     model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/gpt-oss-20b/latest
@@ -35,11 +13,12 @@ models:
       headers:
         OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
     roles:
+      - chat
       - subagent
     defaultCompletionOptions:
-      contextLength: 16384 # 8192 | 16384 | 32768 (16384 — достаточно для суммаризации и обновления статусов)
+      contextLength: 32768 # 8192 | 16384 | 32768 (16384 — достаточно для суммаризации и обновления статусов)
       maxTokens: 2048 # 1024 | 2048 (2048 — компактные ответы)
-      temperature: 0.2 # 0.1 | 0.2 | 0.3 (0.2 — точность)
+      temperature: 0.3 # 0.1 | 0.2 | 0.3 (0.2 — точность)
       topP: 0.9
       reasoning: false
       promptCaching: true
@@ -61,7 +40,7 @@ models:
       - apply
     defaultCompletionOptions:
       contextLength: 16384 # 8192 | 16384 | 32768 (16384 — для правок Markdown, списков, JSON-конфигов)
-      maxTokens: 2048 # 1024 | 2048 (2048 — достаточно для правок)
+      maxTokens: 1024 # 1024 | 2048 (2048 — достаточно для правок)
       temperature: 0.1 # 0.0 | 0.1 | 0.2 (0.1 — макс. детерминированность)
       topP: 0.9
       reasoning: false
@@ -106,7 +85,10 @@ models:
       topP: 0.85
       stop:
         - </s>
-        - \n\n
+        - "\n\n"
+        - ";"
+        - "}"
+        - "#"
     autocompleteOptions:
       maxPromptTokens: 500 # 300 | 500 | 800 (500 — баланс)
       prefixPercentage: 0.6
