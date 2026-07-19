@@ -3,7 +3,7 @@ version: 1.0.0
 schema: v1
 
 models:
-  # ========= Чат и сабджент =========
+  # ========= Чат =========
   - name: Qwen3.6-35B
     provider: openai
     model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/qwen3.6-35b-a3b

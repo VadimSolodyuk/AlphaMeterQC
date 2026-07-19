@@ -15,9 +15,6 @@ models:
     roles:
       - chat
       - subagent
-    capabilities:
-      - tool_use
-      - image_input
     defaultCompletionOptions:
       contextLength: 32768 # 16384 | 65536 | 131072 (32768 — баланс скорость/качество)
       maxTokens: 4096 # 1024 | 4096 (2048 — достаточно для ответов)
@@ -41,9 +38,6 @@ models:
     roles:
       - edit
       - apply
-    capabilities:
-      - tool_use
-      - image_input
     defaultCompletionOptions:
       contextLength: 16384 # 16384 | 65536 (32768 — достаточно для правок)
       maxTokens: 2048 # 1024 | 4096 (2048 — типичный размер правки)
