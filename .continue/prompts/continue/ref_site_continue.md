@@ -1,8 +1,8 @@
 ---
 name: continue
 # globs: .continue/**/*.*
-alwaysApply: false
 description: Настройка continue
+alwaysApply: false
 ---
 
 ## Настройка continue

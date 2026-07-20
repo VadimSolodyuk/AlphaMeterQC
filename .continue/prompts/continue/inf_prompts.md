@@ -1,3 +1,11 @@
+---
+name: informations
+description: Информация по Continue
+alwaysApply: false
+invokable: false
+---
+
+
 Если `generate_docs` отображается как именованный промпт в интерфейсе Continue, а `assistant` и `context_transfer` — **не подсвечиваются и не распознаются**, возможны следующие причины:
 
 ---

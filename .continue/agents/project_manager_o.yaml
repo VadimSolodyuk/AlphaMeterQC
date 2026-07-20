@@ -16,7 +16,7 @@ models:
       - chat
     defaultCompletionOptions:
       contextLength: 32768 # 16384 | 32768 | 65536 (32768 — достаточно для планирования и коммуникаций PM)
-      maxTokens: 4096 # 2048 | 4096 (4096 — для развёрнутых ответов)
+      maxTokens: 2048 # 2048 | 4096 (4096 — для развёрнутых ответов)
       temperature: 0.3 # 0.2 | 0.3 | 0.5 (0.3 — баланс точности и креативности)
       topP: 0.95
       reasoning: false
@@ -101,8 +101,8 @@ models:
       - autocomplete
     defaultCompletionOptions:
       contextLength: 2048 # 1024 | 2048 | 4096 (2048 — достаточно для контекста редактирования)
-      maxTokens: 256 # 128 | 256 | 512 (256 — оптимально для коротких дополнений)
-      temperature: 0.1 # 0.0 | 0.1 | 0.2 (0.1 — предсказуемость)
+      maxTokens: 512 # 128 | 256 | 512 (256 — оптимально для коротких дополнений)
+      temperature: 0.2 # 0.0 | 0.1 | 0.2 (0.1 — предсказуемость)
       topP: 0.85
       stop:
         - </s>
@@ -111,9 +111,9 @@ models:
         - "}"
         - "#"
     autocompleteOptions:
-      maxPromptTokens: 300 # 300 | 500 | 800 (500 — баланс)
+      maxPromptTokens: 500 # 300 | 500 | 800 (500 — баланс)
       prefixPercentage: 0.6
-      maxSuffixPercentage: 0.2
+      maxSuffixPercentage: 0.3
       useCache: true
       useImports: true
       useRecentlyEdited: true
