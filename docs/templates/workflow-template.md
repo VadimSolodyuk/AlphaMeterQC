@@ -9,62 +9,59 @@
 
 ## Этапы
 
-### 1. Specification & Architecture (Spec Analyst)
-**Обязательные артефакты:**
-- [ ] **Концепция** — `docs/specs/<module>/01-concept-<module>.md` (если фича новая)
+> **Важно:** Каждый исполнитель (BA, Architect, Developer, QA, DevOps) самостоятельно определяет минимальный набор артефактов, руководствуясь лучшими отраслевыми практиками и спецификой задачи. Приведённые ниже чек-листы — рекомендательные.
+
+### 1. Business Analysis (BA)
+- [ ] **Концепция** — `docs/specs/<module>/01-concept-<module>.md`
 - [ ] **Use cases** — `docs/specs/<module>/02-use-cases-<module>.md` (минимум 1 UC)
 - [ ] **SRS** — `docs/specs/<module>/04-srs-<module>.md` (если есть функциональные требования)
-- [ ] **ADR** — `docs/adr/adr-<N>-<title>.md` (если есть архитектурное решение)
 - [ ] **RTM** — `docs/specs/<module>/rtm.md` (обновляется при изменении требований)
-- [ ] **Stage-output** — `docs/temp/<module>/<module>-spec-arch-<дата>.md`
-**Опционально (отметить нужное):**
+- [ ] **Stage-output** — `docs/temp/<module>/<module>-ba-<дата>.md`
 - [ ] UI-спецификация — `docs/specs/<module>/05-ui-<module>.md`
-- [ ] Доменная модель — `docs/specs/<module>/03-domain-<module>.md`
-- [ ] Другое (если нет — добавь): _________________________
 **Проверки:**
 - [ ] Все обязательные артефакты созданы/обновлены
-- [ ] Контекст передан Code Guardian через `@context_transfer`
+- [ ] Контекст передан Architect через `@context_transfer`
 
-### 2. Implementation (Code Guardian)
-**Обязательные артефакты:**
+### 2. Architecture Design (Architect)
+- [ ] **ADR** — `docs/adr/adr-<N>-<title>.md` (если есть архитектурное решение)
+- [ ] **Доменная модель** — `docs/specs/<module>/03-domain-<module>.md` (если требуется)
+- [ ] **Stage-output** — `docs/temp/<module>/<module>-arch-<дата>.md`
+- [ ] Выбор паттернов, оценка влияния на NFR
+**Проверки:**
+- [ ] ADR согласован с BA и Developer
+- [ ] Контекст передан Developer через `@context_transfer`
+
+### 3. Implementation (Developer)
 - [ ] **Код** — `src/<module>/` реализован согласно спецификациям
 - [ ] **Unit-тесты** — `tests/<module>/` покрывают ≥80% новой логики
 - [ ] **Stage-output** — `docs/temp/<module>/<module>-impl-<дата>.md`
-**Опционально:**
 - [ ] Интеграционные тесты
 - [ ] Документация API (OpenAPI/gRPC)
-- [ ] Другое (если нет — добавь): _________________________
 **Проверки:**
 - [ ] Код проходит линтеры и базовые проверки
-- [ ] Контекст передан DevOps (если есть изменения окружения) или Spec Analyst (если требуется уточнение)
+- [ ] Контекст передан QA через `@context_transfer`
 
-### 3. Quality Assurance (Code Guardian)
-**Обязательные артефакты:**
+### 4. Quality Assurance (QA)
 - [ ] **Stage-output** — `docs/temp/<module>/<module>-qa-<дата>.md` с описанием:
   - Результаты проверки уязвимостей (SAST, dependency scan)
   - Минимум 3 граничных случая
   - Покрытие тестами (≥80% новая логика, ≥60% изменённая)
-**Опционально:**
 - [ ] Нагрузочное тестирование
 - [ ] Безопасность (DAST, пентест)
-- [ ] Другое (если нет — добавь): _________________________
 **Проверки:**
 - [ ] Критических/высоких уязвимостей нет
-- [ ] Контекст передан DevOps
+- [ ] Контекст передан DevOps через `@context_transfer`
 
-### 4. Documentation & Environment (DevOps)
-**Обязательные артефакты:**
+### 5. Documentation & Environment (DevOps)
 - [ ] **README** — обновлён (инструкции по запуску/конфигурации)
 - [ ] **env.example** — синхронизирован с реальными переменными
 - [ ] **Stage-output** — `docs/temp/<module>/<module>-docs-<дата>.md`
-**Опционально:**
 - [ ] MkDocs — документация сгенерирована
 - [ ] CI/CD — пайплайны проходят
 - [ ] Dockerfile / docker-compose
-- [ ] Другое (если нет — добавь): _________________________
 **Проверки:**
 - [ ] Все обязательные артефакты созданы/обновлены
-- [ ] Контекст передан Spec Analyst (для закрытия фичи)
+- [ ] Контекст передан BA (для закрытия фичи)
 
 ## Итог
 - [ ] Все этапы завершены

@@ -2,8 +2,8 @@
 
 ## Общая информация
 - **Модуль/Фича:** [Название]
-- **Этап:** [Specification & Architecture | Implementation | Quality Assurance | Documentation & Environment]
-- **Роль:** [Spec Analyst | Code Guardian | DevOps]
+- **Этап:** [Business Analysis | Architecture Design | Implementation | Quality Assurance | Documentation & Environment]
+- **Роль:** [BA | Architect | Developer | QA | DevOps]
 - **Дата:** YYYY-MM-DD
 - **Статус:** [Завершено | Частично | Не требуется]
 
@@ -16,13 +16,17 @@
 ## Ключевые решения и замечания
 [Важные решения, trade-offs, граничные случаи, которые нужно передать дальше]
 
-## Передача контекста
+## Передача контекста (при необходимости)
+Заполняется **только** если этап завершён и есть следующая роль.
+Формат:
 [CONTEXT_TRANSFER]
-role: [Следующая роль]
+role: [Следующая роль: BA/Architect/Developer/QA/DevOps]
 reason: [Причина передачи]
 files: [Список файлов]
 details: [Доп. информация]
 [/CONTEXT_TRANSFER]
+
+Если контекст нужно передать нескольким ролям, используй несколько блоков подряд.
 
 ## Статус завершения этапа
 - [ ] Все задачи этапа выполнены
