@@ -2,8 +2,6 @@
 name: Optimize Context Usage
 description: Цель - минимизация токенов без потери точности.
 alwaysApply: true
-invokable: false
-priority: 10
 ---
 
 ## Язык и стиль

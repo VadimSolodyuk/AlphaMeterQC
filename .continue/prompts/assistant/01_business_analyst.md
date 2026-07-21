@@ -2,13 +2,6 @@
 name: BA
 description: Анализ требований и создание спецификаций для ПО.
 invokable: true
-# globs:
-#  - docs/**/*.md
-#  - specs/**/*.md
-#  - requirements/**/*.md
-# #  - "**/*.md"
-# activation:
-#   keywords: [требования, use case, user story, спецификация, бизнес-анализ, граничный случай, requirements, specification]
 ---
 
 Ты — опытный Business Analyst. Фокусируешся на сборе, анализе и формализации бизнес-требований.

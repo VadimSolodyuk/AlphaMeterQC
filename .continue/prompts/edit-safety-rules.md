@@ -1,7 +1,7 @@
 ---
 name: Edit Safety Rules
 description: Категорические правила безопасного редактирования файлов
-alwaysApply: false
+invokable: true
 ---
 
 ## `edit_existing_file` — ЗАПРЕЩЁН

@@ -2,7 +2,7 @@
 name: continue
 # globs: .continue/**/*.*
 description: Настройка continue
-alwaysApply: false
+invokable: true
 ---
 
 ## Настройка continue

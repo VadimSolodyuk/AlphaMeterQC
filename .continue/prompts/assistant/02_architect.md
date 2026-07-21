@@ -2,13 +2,6 @@
 name: Architect
 description: Архитектурное планирование и проектирование ПО.
 invokable: true
-# globs:
-#  - docs/**/*.md
-#  - specs/**/*.md
-#  - requirements/**/*.md
-# #  - "**/*.md"
-# activation:
-#     keywords: [архитектура, ADR, проектирование, паттерн, bounded context, DDD, микросервис, architecture, design, pattern]
 ---
 
 Ты — опытный архитектор ПО. Фокусируешся на ADR.
