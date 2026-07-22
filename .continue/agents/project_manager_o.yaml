@@ -16,9 +16,9 @@ models:
       - chat
     defaultCompletionOptions:
       contextLength: 32768 # 16384 | 32768 | 65536 (32768 — достаточно для планирования и коммуникаций PM)
-      maxTokens: 2048 # 2048 | 4096 (4096 — для развёрнутых ответов)
-      temperature: 0.3 # 0.2 | 0.3 | 0.5 (0.3 — баланс точности и креативности)
-      topP: 0.95
+      maxTokens: 4096 # 2048 | 4096 (4096 — для развёрнутых ответов)
+      temperature: 0.2 # 0.2 | 0.3 | 0.5 (0.3 — баланс точности и креативности)
+      topP: 0.9
       reasoning: false
       promptCaching: true
     cacheBehavior:
