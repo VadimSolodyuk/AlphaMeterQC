@@ -12,9 +12,12 @@ invokable: true
 | `src/` | Исходный код (Python package `alphameterqc`) |
 | `src/alphameterqc/` | Основной пакет приложения |
 | `tests/` | Тесты (структура повторяет `src/`) |
-| `docs/` | Документация (specs, adr, api, templates) |
-| `docs/templates/` | Шаблоны документов (ADR, code review, specs и т.д.) |
-| `docs/specs/` | Спецификации по модулям (login_dialog, db, api) |
+| `docs/specs/<module>/` | Постоянные спецификации модуля (концепция, требования, use cases, SRS, RTM, доменная модель, UI-спецификация) |
+| `docs/adr/` | Архитектурные решения (ADR) |
+| `docs/api/` | Описание API-контрактов (если применимо) |
+| `docs/templates/` | Общие шаблоны (workflow, stage-output, code-review, feature-spec) |
+| `docs/temp/` | Временные артефакты, общие для проекта |
+| `docs/temp/<module>/` | Временные артефакты, относящиеся к конкретному модулю |
 | `scripts/` | Скрипты окружения, сборки, CI-хелперы |
 | `examples/` | Примеры использования (скрипты для демонстрации) |
 | `pyproject.toml` | Конфиг проекта (зависимости, линтеры, тесты) |
