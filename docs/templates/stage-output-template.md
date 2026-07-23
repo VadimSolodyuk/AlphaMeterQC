@@ -1,11 +1,9 @@
-# Stage Output: [Название этапа]
-
-## Общая информация
-- **Модуль/Фича:** [Название]
-- **Этап:** [Business Analysis | Architecture Design | Implementation | Quality Assurance | Documentation & Environment]
-- **Роль:** [BA | Architect | Developer | QA | DevOps]
-- **Дата:** YYYY-MM-DD
-- **Статус:** [Завершено | Частично | Не требуется]
+# Stage Output
+**Модуль/Фича:** [Название]
+**Этап:** [Business Analysis | Architecture Design | Implementation | Quality Assurance | Documentation & Environment]
+**Роль:** [BA | Architect | Developer | QA | DevOps]
+**Дата:** YYYY-MM-DD
+**Статус:** [Завершено | Частично | Не требуется]
 
 ## Результаты этапа
 [Краткое описание того, что сделано]
