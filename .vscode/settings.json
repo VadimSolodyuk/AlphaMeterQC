@@ -54,5 +54,6 @@
     ],
     "python-envs.defaultEnvManager": "ms-python.python:venv",
     "remote.autoForwardPortsFallback": 0, // Автодополнение из src/
-    "python.terminal.useEnvFile": true //
+    "python.terminal.useEnvFile": true, //
+    "python.terminal.activateEnvironment": true,
 }
