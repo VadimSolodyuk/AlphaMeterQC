@@ -1,5 +1,5 @@
 ---
-name: Workflow Registry
+name: workflow_registry
 description: Реестр для отслеживания стадий вывода (stage output) модулей и фич.
 invokable: true
 ---
