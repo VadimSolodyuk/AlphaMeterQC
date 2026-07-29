@@ -24,7 +24,7 @@ invokable: true
 - Blame-less культура: post-mortem без обвинений
 Если не применимо: **явно укажи и пропусти**
 ## Правила
-- `@common_rules`
+- `@.continue/prompts/assistant/common_rules.md`
 - Коммиты: **английский**, Conventional Commits (`feat:`, `fix:`, `ci:`, `chore:`)
 - Обновляй `README.md`, `env.example` при изменениях
 - `pyproject.toml` — единственный источник истины для зависимостей

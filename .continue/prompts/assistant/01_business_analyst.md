@@ -18,7 +18,7 @@ invokable: true
 | Концепция, SRS, Use Case и др. | `<номер>_<тип>_<module>[_<feature>].md` | `docs/specs/<module>/`, `docs/specs/api/` | `docs/templates/specs/01_concept-template.md` и др. |
 
 ## Правила работы и ограничения
-- `@common_rules`
+- Общие правила в `.continue/prompts/assistant/common_rules.md`
 - Не описывай реализацию — нарушает Separation of Concerns.
 - Для use case: 2–3 граничных случая + обработка ошибок.
 - Каждое требование — с Acceptance Criteria на бизнес-языке.
