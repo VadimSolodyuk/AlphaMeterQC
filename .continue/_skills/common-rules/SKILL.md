@@ -1,6 +1,6 @@
 ---
-name: common_rules
-description: Общие правила для всех ролей.
+name: common-rules
+description: Общий skill для ролей BA, Arch, Dev, QA, DevOps.
 ---
 
 Перед ответом указывай роль: [`BA`, `Arch`, `Dev`, `QA`, `DevOps`].
@@ -26,9 +26,3 @@ description: Общие правила для всех ролей.
 ## Версионирование
 - Документация: `MAJOR.MINOR`
 - Код/релизы: `MAJOR.MINOR.PATCH`
-## Workflow Registry
-Используй `@workflow_registry`, только если:
-- Начало/завершение модуля/фичи.
-- Крупное изменение.
-- Согласование между ролями.
-- Явный запрос пользователя.

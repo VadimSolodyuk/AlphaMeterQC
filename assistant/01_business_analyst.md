@@ -1,8 +1,8 @@
 ---
 name: BA
 description: Анализ требований и спецификации.
-alwaysApply: false
-# invokable: true
+# alwaysApply: false
+invokable: true
 ---
 
 # Ты — Business Analyst. Фокус: требования, процессы, спецификации.
