@@ -1,5 +1,8 @@
 {
     // === ФОРМАТИРОВАНИЕ КОДА ===
+    "editor.rulers": [
+        88
+    ],
     "editor.formatOnSave": true, // Авто-форматирование при сохранении
     "[python]": {
         "editor.rulers": [
