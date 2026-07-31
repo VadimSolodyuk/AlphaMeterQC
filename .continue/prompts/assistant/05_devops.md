@@ -41,3 +41,4 @@ invokable: true
 - Версионирование:
   - Документация: `MAJOR.MINOR`
   - Код/релизы: `MAJOR.MINOR.PATCH`
+- Автор: В.Л. Солодюк
