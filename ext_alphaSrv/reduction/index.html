@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Reduction - AlphaMeterQC Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">AlphaMeterQC Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Главная</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Артефакты модуля login_dialog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../login_dialog/01_concept/" class="dropdown-item">Концепция</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/02_stakeholders_requirements/" class="dropdown-item">Требования стейкхолдеров</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/03_user_stories/" class="dropdown-item">Пользовательские истории</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/04_srs/" class="dropdown-item">SRS</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05_use_cases/" class="dropdown-item">Варианты использования</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-1_UC.LOGIN.D0.01/" class="dropdown-item">UC D0.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-2_UC.LOGIN.D1.01/" class="dropdown-item">UC D1.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-3_UC.LOGIN.D2.01/" class="dropdown-item">UC D2.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-4_UC.LOGIN.D2.02/" class="dropdown-item">UC D2.02</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-5_UC.LOGIN.D3.01/" class="dropdown-item">UC D3.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/06_rtm/" class="dropdown-item">Матрица трассировки</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/07_domain_model/" class="dropdown-item">Модель предметной сферы</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/08_technical_specification/" class="dropdown-item">Техническое задание</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/09_ui_design/" class="dropdown-item">Дизайн UI</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/10_ui_traceability/" class="dropdown-item">Трассировка UI</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">API Справка (Auto-generated из кода)</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../api/login_dialog/" class="dropdown-item">Модуль login_dialog</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#01_conceptmd-25" class="nav-link">Результаты проверки документа 01_concept.md (пункты 2–5)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="01_conceptmd-25">Результаты проверки документа <code>01_concept.md</code> (пункты 2–5)</h2>
+<h3 id="2">2. Непротиворечивость требований</h3>
+<ul>
+<li>
+<p><strong>Расхождение логики временного окна (п.6.1) и AC-9</strong><br />
+  В п.6.1 указано: если <code>time_window_start == time_window_end</code>, то режим оптимизации применяется, когда <code>last_data</code> относится к предыдущему дню (любое время). AC-9 дублирует это, но не уточняет, что считать «предыдущим днём» при запуске службы в 00:01 — предыдущие сутки или последние 24 часа. Отсутствует единое определение границы.</p>
+</li>
+<li>
+<p><strong>Противоречие в обработке отсутствующих ключей JSON</strong><br />
+  П.6.1: при отсутствии любого необязательного параметра используется значение по умолчанию и логируется WARNING. Однако в AC-4 сказано то же самое, но не указано, что делать, если отсутствует сам ключ <code>usp_ids</code> — в AC-3 это уже ошибка, останавливающая службу. Логика разделения на «обязательные» и «необязательные» ключи неявная: <code>usp_ids</code> упомянут как необязательный (со значением по умолчанию 1000), но AC-3 трактует его отсутствие как фатальную ошибку. Требуется явно разделить: <code>db</code> — обязательный, <code>usp_ids</code> — необязательный (по умолчанию 1000), но если указан, то должен существовать в БД.</p>
+</li>
+<li>
+<p><strong>Неоднозначность <code>check_start</code> и первого запуска</strong><br />
+  П.6.1: планировщик запускается 1 раз в час, начиная с часа <code>check_start</code>. Если служба запущена в 14:00, а <code>check_start=4</code>, то первая проверка произойдёт только на следующий день в 04:00? Или в ближайший час, кратный <code>check_start</code>? AC-7 не уточняет поведение в первый день.</p>
+</li>
+</ul>
+<h3 id="3-">3. Пробелы в бизнес-требованиях</h3>
+<ul>
+<li>
+<p><strong>Не описан сценарий с несколькими УСПД</strong><br />
+  В конфигурации указан единственный <code>usp_ids</code> (целое число). Реальная эксплуатация подразумевает множество УСПД. Отсутствует требование поддержки списка или маски УСПД. Это ограничивает применимость решения.</p>
+</li>
+<li>
+<p><strong>Отсутствует обработка <code>last_data</code> в будущем</strong><br />
+  Если часы на ТУ убежали вперёд (ошибка синхронизации), <code>last_data</code> может оказаться больше текущего времени. Логика временного окна не рассматривает этот случай — режим будет определён некорректно.</p>
+</li>
+<li>
+<p><strong>Не определён механизм получения списка ТУ для УСПД</strong><br />
+  Служба должна знать, какие ТУ привязаны к данному УСПД. В спецификации не указано, из какой таблицы БД брать эту связь. Без этого невозможно корректно обновить параметры опроса для всех ТУ.</p>
+</li>
+<li>
+<p><strong>Отсутствует требование к graceful shutdown</strong><br />
+  П.9 описывает перезапуск <code>AlphaSrv</code>, но не указано, как служба <code>ext_alphaSrv</code> должна корректно завершаться (дожидаться завершения текущей проверки, закрывать соединения с БД). Это может привести к повреждению данных или незавершённым транзакциям.</p>
+</li>
+<li>
+<p><strong>Мониторинг на Этапе 1 не детализирован</strong><br />
+  П.10.2 говорит, что архитектура логов должна позволять экспорт метрик, но не указано, какие именно метрики должны быть доступны уже на Этапе 1 (например, количество изменённых ТУ, время последнего обновления). Это создаёт риск, что разработчик реализует минимальное логирование, не удовлетворяющее будущим потребностям мониторинга.</p>
+</li>
+</ul>
+<h3 id="4-">4. Соответствие бизнес-целям</h3>
+<ul>
+<li><strong>Сокращение ручных операций</strong> — цель достигается при условии, что служба корректно обрабатывает все штатные и нештатные ситуации. Пробелы (п.3) могут потребовать ручного вмешательства, снижая эффект.</li>
+<li><strong>Оптимизация трафика</strong> — логика переключения между режимами (1ч/6ч, 10/5 попыток) адекватна, но не учитывает динамику качества связи (только актуальность данных). При стабильной связи, но устаревших данных (например, из-за отключения ТУ) будет выбран режим экономии, что не снижает трафик, а лишь откладывает опрос. Бизнес-цель «без превышения тарифных лимитов» может быть не достигнута, если количество ТУ велико.</li>
+<li><strong>Актуальность данных</strong> — режим оптимизации (1ч) обеспечивает свежесть, но при нестабильной связи 10 попыток могут исчерпать лимит трафика. Баланс не обоснован.</li>
+</ul>
+<h3 id="5">5. Готовность к передаче разработчикам</h3>
+<ul>
+<li><strong>Acceptance Criteria требуют доработки</strong>  </li>
+<li>AC-7: не указано поведение в первый день работы (см. п.2).  </li>
+<li>AC-8: не проверяет случай <code>last_data</code> в будущем.  </li>
+<li>AC-9: не определено понятие «предыдущий день» (календарные сутки или 24 часа).  </li>
+<li>
+<p>Отсутствует AC на graceful shutdown и обработку ошибок соединения с БД во время работы.</p>
+</li>
+<li>
+<p><strong>Не хватает спецификации интерфейсов</strong>  </p>
+</li>
+<li>Путь к JSON-конфигу не указан (по умолчанию? аргумент командной строки?).  </li>
+<li>Не описан формат команды перезапуска <code>AlphaSrv</code> (команда ОС, таймауты — есть в п.9, но не формализованы как требования).  </li>
+<li>
+<p>Нет описания, как служба определяет, что <code>AlphaSrv</code> действительно остановился (проверка статуса — <code>sc query</code>?).</p>
+</li>
+<li>
+<p><strong>Отсутствует описание структуры БД</strong>  </p>
+</li>
+<li>
+<p>Не указаны таблицы и поля, которые служба должна читать (параметры опроса ТУ, <code>last_data</code>) и обновлять. Без этого разработчик не сможет реализовать запросы.</p>
+</li>
+<li>
+<p><strong>Обработка ошибок неполна</strong>  </p>
+</li>
+<li>П.6.1: при неудачном перезапуске <code>AlphaSrv</code> — 3 попытки, затем логирование и продолжение. Но не указано, что делать, если служба не может подключиться к БД при старте (остановиться или ждать?).  </li>
+<li>Нет требований к ротации логов и их размеру.</li>
+</ul>
+<p><strong>Рекомендация:</strong> перед передачей в разработку дополнить документ:
+- явным списком обязательных и необязательных параметров конфигурации;
+- описанием запросов к БД (таблицы, поля, условия);
+- сценарием первого запуска и обработкой <code>last_data</code> в будущем;
+- AC на graceful shutdown и повторные подключения к БД.</p>
+<p><strong>Для актуализации предоставьте Workflow Registry и Stage Output.</strong></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
