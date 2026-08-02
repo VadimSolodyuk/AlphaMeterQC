@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>db AC - AlphaMeterQC Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">AlphaMeterQC Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Главная</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Артефакты модуля login_dialog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../login_dialog/01_concept/" class="dropdown-item">Концепция</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/02_stakeholders_requirements/" class="dropdown-item">Требования стейкхолдеров</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/03_user_stories/" class="dropdown-item">Пользовательские истории</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/04_srs/" class="dropdown-item">SRS</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05_use_cases/" class="dropdown-item">Варианты использования</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-1_UC.LOGIN.D0.01/" class="dropdown-item">UC D0.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-2_UC.LOGIN.D1.01/" class="dropdown-item">UC D1.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-3_UC.LOGIN.D2.01/" class="dropdown-item">UC D2.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-4_UC.LOGIN.D2.02/" class="dropdown-item">UC D2.02</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/05-5_UC.LOGIN.D3.01/" class="dropdown-item">UC D3.01</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/06_rtm/" class="dropdown-item">Матрица трассировки</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/07_domain_model/" class="dropdown-item">Модель предметной сферы</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/08_technical_specification/" class="dropdown-item">Техническое задание</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/09_ui_design/" class="dropdown-item">Дизайн UI</a>
+</li>
+                                    
+<li>
+    <a href="../../login_dialog/10_ui_traceability/" class="dropdown-item">Трассировка UI</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">API Справка (Auto-generated из кода)</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../api/login_dialog/" class="dropdown-item">Модуль login_dialog</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            
+            
+            
+            
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>Принято. Спасибо за важные уточнения от предметного эксперта! Это кардинально меняет архитектуру SQL-запросов и логику работы службы на Этапе 1. </p>
+<p>Ниже представлен <strong>пересмотренный и скорректированный анализ структуры БД</strong> для разработки <code>ext_alphaSrv</code> с учетом ваших правок. Таблицы <code>place2</code>, <code>param_sh</code> (в части <code>lasttime</code>), <code>sh.interv</code> и <code>place_id</code> исключены из логики Этапа 1. Таблица <code>param_oprsh2</code> отложена до Этапа 2.</p>
+<hr />
+<h3 id="1-">1. Обновленная матрица соответствия: Бизнес-термины ➔ Сущности БД</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Термин из Концепции</th>
+<th style="text-align: left;">Сущность в БД АльфаЦЕНТР</th>
+<th style="text-align: left;">Ключевые таблицы / поля</th>
+<th style="text-align: left;">Статус</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>УСПД</strong> (Контроллер)</td>
+<td style="text-align: left;">Справочник контроллеров</td>
+<td style="text-align: left;"><code>kontr</code> (<code>n_kon</code>, <code>txt</code>)</td>
+<td style="text-align: left;">YES</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ТУ</strong> (Счётчик)</td>
+<td style="text-align: left;">Справочник счётчиков</td>
+<td style="text-align: left;"><code>sh</code> (<code>n_sh</code>, <code>sost</code>, <code>txt</code>)</td>
+<td style="text-align: left;">YES</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Привязка ТУ к УСПД</strong></td>
+<td style="text-align: left;">Группы контроллеров</td>
+<td style="text-align: left;"><code>gr_kon</code> (<code>n_kon</code>, <code>n_sh</code>)</td>
+<td style="text-align: left;">YES</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>last_data</code></strong> (Время последних данных)</td>
+<td style="text-align: left;">Состояние опроса</td>
+<td style="text-align: left;"><code>amr_comm_state</code> (<code>n</code>, <code>tm</code> / <code>logtm</code>)</td>
+<td style="text-align: left;">YES</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Интервал опроса</strong></td>
+<td style="text-align: left;">План опроса (основные параметры)</td>
+<td style="text-align: left;"><code>plan_opr2</code> (<code>interv</code>)</td>
+<td style="text-align: left;">YES</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Попытки опроса (Retries)</strong></td>
+<td style="text-align: left;">План опроса (основные параметры)</td>
+<td style="text-align: left;"><code>plan_opr2</code> (<code>kol_pop</code> / <code>kol_pop_max</code>)</td>
+<td style="text-align: left;">YES</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Конфигурация опроса (Этап 2)</em></td>
+<td style="text-align: left;"><em>Расширенные параметры опроса</em></td>
+<td style="text-align: left;"><em><code>param_oprsh2</code></em></td>
+<td style="text-align: left;"><em>YES (отложено)</em></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="2-1">2. Детальный анализ ключевых таблиц для Этапа 1</h3>
+<h4 id="21">2.1. Таблицы для СВЯЗИ и ФИЛЬТРАЦИИ</h4>
+<ul>
+<li><strong><code>kontr</code></strong> (Справочник УСПД)<ul>
+<li><code>n_kon</code> — ID УСПД (используется для валидации <code>usp_ids</code> из конфига).</li>
+<li><code>txt</code> — наименование (для логов).</li>
+</ul>
+</li>
+<li><strong><code>gr_kon</code></strong> (Привязка ТУ к контроллеру)<ul>
+<li><code>n_kon</code> — ID УСПД.</li>
+<li><code>n_sh</code> — ID ТУ.</li>
+<li><em>Роль</em>: Главная таблица для получения списка всех ТУ, принадлежащих конкретному УСПД (<code>usp_ids</code>).</li>
+</ul>
+</li>
+<li><strong><code>sh</code></strong> (Справочник ТУ)<ul>
+<li><code>n_sh</code> — ID ТУ.</li>
+<li><code>sost</code> — состояние (в работе / выведен). <em>Критично: обновлять параметры нужно только для ТУ в активном состоянии.</em></li>
+<li><code>txt</code> — наименование ТУ (для логов).</li>
+</ul>
+</li>
+</ul>
+<h4 id="22-last_data">2.2. Таблицы для ЧТЕНИЯ (Анализ <code>last_data</code> и текущих настроек)</h4>
+<ul>
+<li><strong><code>amr_comm_state</code></strong> (Состояние опроса ТУ)<ul>
+<li><code>n</code> — предположительно ID ТУ (<code>n_sh</code>).</li>
+<li><strong><code>tm</code></strong> (или <code>logtm</code> / <code>stm</code>) — временная метка последнего успешного опроса/получения данных. Это и есть наш <strong><code>last_data</code></strong> из Концепции.</li>
+</ul>
+</li>
+<li><strong><code>plan_opr2</code></strong> (Основные параметры опроса ТУ)<ul>
+<li><code>n_sh</code> — ID ТУ.</li>
+<li><strong><code>interv</code></strong> — текущий интервал опроса.</li>
+<li><strong><code>kol_pop</code></strong> (или <code>kol_pop_max</code>) — текущее количество попыток опроса.</li>
+</ul>
+</li>
+</ul>
+<h4 id="23-1">2.3. Таблицы для ЗАПИСИ (Обновление параметров на Этапе 1)</h4>
+<ul>
+<li><strong><code>plan_opr2</code></strong><ul>
+<li>Обновление полей <code>interv</code> и <code>kol_pop</code> / <code>kol_pop_max</code> для переведения ТУ в режим оптимизации или экономии.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="3-sql-acceptance-criteria">3. Рекомендуемая SQL-логика для реализации Acceptance Criteria</h3>
+<h4 id="1-ac-3">Шаг 1: Проверка существования УСПД (AC-3)</h4>
+<pre><code class="language-sql">SELECT n_kon, txt FROM kontr WHERE n_kon = :usp_ids;
+-- Если записей 0 -&gt; Логировать ERROR и останавливать службу (AC-3).
+</code></pre>
+<h4 id="2">Шаг 2: Получение списка активных ТУ для данного УСПД</h4>
+<pre><code class="language-sql">SELECT gk.n_sh, sh.txt, sh.sost 
+FROM gr_kon gk
+JOIN sh ON gk.n_sh = sh.n_sh
+WHERE gk.n_kon = :usp_ids 
+  AND sh.sost = 1; -- Только ТУ в активном состоянии
+</code></pre>
+<h4 id="3-last_data">Шаг 3: Получение <code>last_data</code> и текущих параметров опроса</h4>
+<pre><code class="language-sql">SELECT 
+    po.n_sh, 
+    po.interv AS current_interval, 
+    po.kol_pop AS current_retries, -- Уточнить у эксперта: kol_pop или kol_pop_max
+    acs.tm AS last_data            -- Уточнить у эксперта: tm, logtm или stm
+FROM plan_opr2 po
+LEFT JOIN amr_comm_state acs ON po.n_sh = acs.n
+WHERE po.n_sh IN (:list_of_active_n_sh);
+</code></pre>
+<h4 id="4">Шаг 4: Пакетное обновление (Транзакционность)</h4>
+<p>Согласно п. 6.1 Концепции, изменения применяются пакетно.</p>
+<pre><code class="language-sql">BEGIN TRANSACTION;
+
+-- Обновление для ТУ, которым нужно сменить режим
+UPDATE plan_opr2 
+SET interv = :new_interval, 
+    kol_pop = :new_retries 
+WHERE n_sh IN (:list_of_n_sh_to_update);
+
+COMMIT;
+</code></pre>
+<p><em>После успешного <code>COMMIT</code> служба инициирует перезапуск <code>AlphaSrv</code> через ОС.</em></p>
+<hr />
+<h3 id="4_1">4. Критические вопросы к предметному эксперту (Перед стартом разработки)</h3>
+<p>Поскольку мы опираемся на новые таблицы, разработчику <strong>необходимо получить 100% подтверждение</strong> по следующим полям:</p>
+<ol>
+<li><strong>Поле <code>last_data</code> в <code>amr_comm_state</code></strong>: </li>
+<li>В таблице есть поля <code>tm</code>, <code>stm</code>, <code>logtm</code>, <code>synctm</code>. Какое именно из них содержит время получения последних <em>данных</em> (показаний), которое нужно сравнивать с временным окном (<code>star_thour</code> ... <code>end_hour</code>)?</li>
+<li><strong>Связь <code>amr_comm_state</code> и ТУ</strong>: </li>
+<li>Поле <code>n</code> в <code>amr_comm_state</code> — это гарантированно <code>n_sh</code> (ID счётчика)?</li>
+<li><strong>Поле "Попытки опроса" в <code>plan_opr2</code></strong>: </li>
+<li>Что именно нужно обновлять: <code>kol_pop</code> или <code>kol_pop_max</code>? (Обычно <code>kol_pop</code> — это текущее/базовое, а <code>kol_pop_max</code> — лимит, но нужно подтверждение).</li>
+<li><strong>Единицы измерения <code>interv</code> в <code>plan_opr2</code></strong>: </li>
+<li>В Концепции (п. 6.1) указано, что <code>interval_opt</code> / <code>interval_econ</code> задаются в <strong>часах</strong>. В каком формате <code>plan_opr2.interv</code> хранит значение в БД (в минутах, часах, секундах)? Потре ли конвертация при записи?</li>
+<li><strong>Триггеры и кэширование <code>AlphaSrv</code></strong>: </li>
+<li>Достаточно ли просто обновить <code>plan_opr2</code> и перезапустить <code>AlphaSrv</code> (через <code>sc stop/start</code>), чтобы он подхватил новые значения интервалов и попыток? Не требуется ли дополнительная очистка кэша или специфических таблиц состояния?</li>
+</ol>
+<h3 id="_1">Резюме для команды разработки</h3>
+<p>Архитектура упростилась и стала более прозрачной. 
+* <strong>Чтение</strong>: <code>kontr</code> -&gt; <code>gr_kon</code> + <code>sh</code> -&gt; <code>plan_opr2</code> + <code>amr_comm_state</code>.
+* <strong>Запись</strong>: Только <code>plan_opr2</code>.
+* <strong>Исключено</strong>: <code>place2</code>, <code>param_sh.lasttime</code>, <code>sh.interv</code>, <code>place_id</code>.
+* <strong>Этап 2</strong>: Зафиксировали, что для работы с расширенными параметрами (таймауты, специфические ретраи) будем использовать <code>param_oprsh2</code>.</p>
+<p>Готов подготовить техническое задание (ТЗ) на написание Python-кода для Этапа 1 на основе этой уточненной схемы, как только будут получены ответы на вопросы из п.4!</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
