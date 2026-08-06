@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Анализ структуры БД для разработки ext_alphaSrv. - AlphaMeterQC Documentation</title>
+        <title>Анализ структуры БД для разработки ext_alphaSrv - AlphaMeterQC Documentation</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -138,8 +138,12 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#ext_alphasrv" class="nav-link">Анализ структуры БД для разработки ext_alphaSrv.</a>
+            <li class="nav-item" data-bs-level="1"><a href="#ext_alphasrv" class="nav-link">Анализ структуры БД для разработки ext_alphaSrv</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-" class="nav-link">1. Бизнес-термины ➔ Сущности БД</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -147,8 +151,8 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="ext_alphasrv">Анализ структуры БД для разработки <code>ext_alphaSrv</code>.</h1>
-<h3 id="1-">1. Бизнес-термины ➔ Сущности БД</h3>
+<h1 id="ext_alphasrv">Анализ структуры БД для разработки <code>ext_alphaSrv</code></h1>
+<h2 id="1-">1. Бизнес-термины ➔ Сущности БД</h2>
 <table>
 <thead>
 <tr>
@@ -159,76 +163,66 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Привязка ТУ к УСПД</td>
-<td style="text-align: left;">Группы контроллеров</td>
-<td style="text-align: left;"><code>gr_kon</code> (<code>n_kon</code>, <code>n_sh</code>)</td>
+<td style="text-align: left;">Свойства опроса ТУ/УСПД</td>
+<td style="text-align: left;">Общие свойства опроса ТУ/УСПД</td>
+<td style="text-align: left;"><code>plan_opr2</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>last_data</code> (Время последних данных)</td>
-<td style="text-align: left;">Состояние опроса</td>
-<td style="text-align: left;"><code>amr_comm_state</code> (<code>n</code>, <code>tm</code> / <code>logtm</code>)</td>
+<td style="text-align: left;">Свойства ТО</td>
+<td style="text-align: left;">Свойства ТО</td>
+<td style="text-align: left;"><code>place2</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">Интервал опроса</td>
-<td style="text-align: left;">План опроса (основные параметры)</td>
-<td style="text-align: left;"><code>plan_opr2</code> (<code>interv</code>)</td>
-</tr>
-<tr>
-<td style="text-align: left;">Попытки опроса (Retries)</td>
-<td style="text-align: left;">План опроса (основные параметры)</td>
-<td style="text-align: left;"><code>plan_opr2</code> (<code>kol_pop</code> / <code>kol_pop_max</code>)</td>
-</tr>
-<tr>
-<td style="text-align: left;"><em>Конфигурация опроса (Этап 2)</em></td>
-<td style="text-align: left;"><em>Расширенные параметры опроса</em></td>
-<td style="text-align: left;"><em><code>param_oprsh2</code></em></td>
+<td style="text-align: left;">Конфигурация опроса (Этап 2)</td>
+<td style="text-align: left;">Расширенные параметры опроса</td>
+<td style="text-align: left;"><code>param_oprsh2</code>, <code>param_oprkontr2</code>, <code>place2</code></td>
 </tr>
 </tbody>
 </table>
+<p>| Привязка ТУ к УСПД | Группы контроллеров | <code>gr_kon</code> (<code>n_kon</code>, <code>n_sh</code>) |
+| <code>last_data</code> (Время последних данных) | Состояние опроса | <code>amr_comm_state</code> (<code>n</code>, <code>tm</code> / <code>logtm</code>) |</p>
 <hr />
-<h3 id="2-1">2. Детальный анализ ключевых таблиц для Этапа 1</h3>
-<h4 id="21">2.1. Таблица для СВЯЗИ и ФИЛЬТРАЦИИ</h4>
+<h3 id="23-1">2.3. Таблицы для ЗАПИСИ (Обновление параметров на Этапе 1)</h3>
+<p><strong><code>place2</code></strong> (Свойства ТО):</p>
 <ul>
-<li><strong><code>gr_kon</code></strong> (Привязка ТУ к контроллеру)<ul>
-<li><code>n_kon</code> — ID УСПД.</li>
-<li><code>n_sh</code> — ID ТУ.</li>
-<li><em>Роль</em>: Главная таблица для получения списка всех ТУ, принадлежащих конкретному УСПД (<code>usp_ids</code>).</li>
+<li><code>id</code>,  NUMBER: ID ТО.</li>
+<li><code>state</code>, NUMBER (0/1): если 0: данный данная ТО исключается из дальнейшего анализа.</li>
+<li><code>connectwait</code>, NUMBER: ожидать соединения (сек.). Необходимое значение: <strong>?????????????????????????</strong>.</li>
+<li><code>kol_pop</code>, NUMBER: количество попыток соединиться. Необходимое значение в зависимости от режима:</li>
+<li>econom: <code>3</code></li>
+<li>normal: если есть и валиден JSON:<code>connection_retries</code>: <code>connection_retries</code>, иначе: <code>5</code>.</li>
 </ul>
-</li>
-</ul>
-<h4 id="22-last_data">2.2. Таблицы для ЧТЕНИЯ (Анализ <code>last_data</code> и текущих настроек)</h4>
+<p><strong><code>plan_opr2</code></strong> (Общие свойства опроса ТУ/УСПД):</p>
 <ul>
-<li><strong><code>amr_comm_state</code></strong> (Состояние опроса ТУ)<ul>
-<li><code>n</code> — предположительно ID ТУ (<code>n_sh</code>).</li>
-<li><strong><code>tm</code></strong> (или <code>logtm</code> / <code>stm</code>) — временная метка последнего успешного опроса/получения данных. Это и есть наш <strong><code>last_data</code></strong> из Концепции.</li>
-</ul>
-</li>
-<li><strong><code>plan_opr2</code></strong> (Основные параметры опроса ТУ)<ul>
-<li><code>n_sh</code> — ID ТУ.</li>
-<li><code>interv</code> — текущий интервал опроса.</li>
-<li><code>kol_pop</code> (или <code>kol_pop_max</code>) — текущее количество попыток опроса.</li>
-</ul>
-</li>
-</ul>
-<h4 id="23-1">2.3. Таблицы для ЗАПИСИ (Обновление параметров на Этапе 1)</h4>
-<ul>
-<li><strong><code>plan_opr2</code></strong><ul>
-<li>Обновление полей <code>interv</code> и <code>kol_pop</code> / <code>kol_pop_max</code> для переведения ТУ в режим оптимизации или экономии.</li>
-</ul>
-</li>
+<li><code>place_id</code>, NUMBER: ID ТО.</li>
+<li><code>n_sh</code>, NUMBER: ID ТУ/УСПД.</li>
+<li><code>interv</code>, VARCHAR(4) (30m, 1h - 12h, 1d, 10d, 1n; где h - час, m - минта, d - день, n - месяц): интервал опроса.
+Необходимое значение: если значение &lt;= <code>1h</code>: не меняется, иначе: если есть и валиден JSON:<code>interval</code>: <code>interval</code>, иначе: <code>8h</code>.</li>
+<li><code>kol_pop_max</code>, NUMBER: количество повторов опроса в интервале при неудаче.
+Необходимое значение в зависимости от режима:</li>
+<li>econom: <code>1</code></li>
+<li>normal: если <code>interv</code> в часах (h) и &gt; 1: <code>interv</code> - 1, иначе: <code>1</code>.</li>
+<li><code>state</code>, NUMBER (0/1): если 0: данная ТУ исключается из дальнейшего анализа.</li>
+<li><code>dorder</code>, NUMBER: порядковый номер в списке опроса. Необходимое значение: <code>1</code>.</li>
+<li><code>pause_retry</code>, NUMBER: пауза перед повтором опроса (сек.). Необходимое значение: <code>interv</code>(сек.) / (<code>kol_pop_max</code> + 1).</li>
 </ul>
 <hr />
+<p><code>gr_kon</code> (Привязка ТУ к контроллеру):
+    - <code>n_kon</code> — ID УСПД
+    -   <code>n_sh</code> — ID ТУ.
+Роль: Главная таблица для получения списка всех ТУ, принадлежащих конкретному УСПД (<code>usp_ids</code>).</p>
+<h3 id="22-last_data">2.2. Таблицы для ЧТЕНИЯ (Анализ <code>last_data</code> и текущих настроек)</h3>
+<pre><code>*   `amr_comm_state` (Состояние опроса ТУ)
+*   `n` — предположительно ID ТУ (`n_sh`).
+*   `tm` (или `logtm` / `stm`) — временная метка последнего успешного опроса/получения данных. Это и есть наш **`last_data`** из Концепции.
+</code></pre>
 <h3 id="4">4. Критические вопросы к предметному эксперту (Перед стартом разработки)</h3>
 <p>Поскольку мы опираемся на новые таблицы, разработчику <strong>необходимо получить 100% подтверждение</strong> по следующим полям:</p>
 <ol>
-<li><strong>Поле <code>last_data</code> в <code>amr_comm_state</code></strong>: </li>
+<li><strong>Поле <code>last_data</code> в <code>amr_comm_state</code></strong>:</li>
 <li>В таблице есть поля <code>tm</code>, <code>stm</code>, <code>logtm</code>, <code>synctm</code>. Какое именно из них содержит время получения последних <em>данных</em> (показаний), которое нужно сравнивать с временным окном (<code>star_thour</code> ... <code>end_hour</code>)?</li>
-<li><strong>Связь <code>amr_comm_state</code> и ТУ</strong>: </li>
-<li>Поле <code>n</code> в <code>amr_comm_state</code> — это гарантированно <code>n_sh</code> (ID счётчика)?</li>
-<li><strong>Поле "Попытки опроса" в <code>plan_opr2</code></strong>: </li>
-<li>Что именно нужно обновлять: <code>kol_pop</code> или <code>kol_pop_max</code>? (Обычно <code>kol_pop</code> — это текущее/базовое, а <code>kol_pop_max</code> — лимит, но нужно подтверждение).</li>
-<li><strong>Единицы измерения <code>interv</code> в <code>plan_opr2</code></strong>: </li>
-<li>В Концепции (п. 6.1) указано, что <code>interval_opt</code> / <code>interval_econ</code> задаются в <strong>часах</strong>. В каком формате <code>plan_opr2.interv</code> хранит значение в БД (в минутах, часах, секундах)? Потре ли конвертация при записи?</li>
+<li><strong>Связь <code>amr_comm_state</code> и ТУ</strong>:</li>
+<li>Поле <code>n</code> в <code>amr_comm_state</code> — это гарантированно <code>n_sh</code> (ID счётчика)</li>
 </ol></div>
             </div>
         </div>
