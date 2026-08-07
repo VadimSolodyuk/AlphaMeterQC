@@ -50,12 +50,13 @@
 ### 6.1. Функциональные возможности
 
 - Конфигурация в JSON:
-  `{"db": {"ip": str, "port": int, "username": str, "password": str}, "interval": 8, "connection_retries": 5}`,
+  `{"db": {"ip": str, "port": int, "username": str, "password": str}, "interval": 60, "interval_amr": 8, "connection_retries": 5}`,
   где:
 
-  - `interval`: устанавливает значение в `plan_opr2.interv`
-  >- `interval_retry`: интервал повторов опроса в интервале при неудаче опроса (мин.)
-  
+  - `interval`: интервал запуска процессов анализа и коррекции данных в минутах (`ext_alphaSrv`).
+  - `interval_amr`: устанавливает значение в `plan_opr2.interv`
+  - `connection_retries`: устанавливает значение в `place2.kol_pop`
+  >
   Если указан в JSON - выполняется проверка :
   - `usp_ids` — целое положительное число.
   - `star_thour`, `end_hour`, `hour_check_start` — целое число 0–23 (час).
