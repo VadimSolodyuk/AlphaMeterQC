@@ -140,7 +140,11 @@
             
             <li class="nav-item" data-bs-level="1"><a href="#ext_alphasrv" class="nav-link">Анализ структуры БД для разработки ext_alphaSrv</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1-" class="nav-link">1. Бизнес-термины ➔ Сущности БД</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1-1" class="nav-link">1. Таблицы/поля (Этапе 1)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-2" class="nav-link">2. Таблицы/поля (Этап 2)</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -152,7 +156,60 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="ext_alphasrv">Анализ структуры БД для разработки <code>ext_alphaSrv</code></h1>
-<h2 id="1-">1. Бизнес-термины ➔ Сущности БД</h2>
+<h2 id="1-1">1. Таблицы/поля (Этапе 1)</h2>
+<p><strong><code>place2</code></strong> (Свойства ТО):</p>
+<ul>
+<li><code>id</code>,  NUMBER - ID ТО.</li>
+<li><code>state</code>, NUMBER (0 - вкл.; 1 - откл.) - состояние опроса. Если 0: данная ТО исключается из анализа.</li>
+<li><code>connectwait</code>, NUMBER - время ожидания соединения (сек.). Необходимое значение: <strong>?????????????????????????</strong>.</li>
+<li><code>kol_pop</code>, NUMBER - количество попыток соединиться. Необходимое значение в зависимости от режима:</li>
+<li>econom: <code>3</code></li>
+<li>normal: если есть и валиден JSON:<code>connection_retries</code>: <code>connection_retries</code>, иначе: <code>5</code>.</li>
+<li>advanced: если есть и валиден JSON:<code>connection_retries</code>: <code>connection_retries</code> х 2, иначе: <code>kol_pop</code> х 2.</li>
+</ul>
+<p><strong><code>plan_opr2</code></strong> (Общие свойства опроса ПУ или УСПД):</p>
+<ul>
+<li><code>place_id</code>, NUMBER - ID ТО.</li>
+<li><code>n_sh</code>, NUMBER - ID ПУ или УСПД.</li>
+<li><code>interv</code>, VARCHAR(4) (30m, 1h - 12h, 1d, 10d, 1n; где h - час, m - минта, d - день, n - месяц) - интервал опроса.
+Необходимое значение: если значение &lt;= <code>1h</code>: не меняется, иначе: если есть и валиден JSON:<code>interval_amr</code>: <code>interval_amr</code>, иначе: <code>8h</code>.</li>
+<li><code>kol_pop_max</code>, NUMBER - количество повторов опроса в интервале при неудаче.
+Необходимое значение в зависимости от режима:</li>
+<li>econom: <code>1</code></li>
+<li>normal: если <code>interv</code> в часах (h) и &gt; 1: <code>interv</code> - 1, иначе: <code>1</code>.</li>
+<li><code>state</code>, NUMBER  (0 - вкл.; 1 - откл.) - состояние опроса. Если 0: ПУ|УСПД исключается из анализа.</li>
+<li><code>dorder</code>, NUMBER - порядковый номер в списке опроса. Необходимое значение: <code>1</code>.</li>
+<li><code>pause_retry</code>, NUMBER - пауза перед повтором опроса (сек.). Необходимое значение: <code>interv</code>(сек.) / (<code>kol_pop_max</code> + 1).</li>
+</ul>
+<p><strong><code>`amr_comm_state</code></strong>  (Состояние опроса):</p>
+<ul>
+<li><code>n</code>, NUMBER - ID.</li>
+<li><code>t</code>, NUMBER - тип устройства: 1 - ПУ; 2 - УСПД; 4 - ТО.</li>
+<li><code>tm</code>, DATE (формат: 2026-02-20 06:06:53) - время последнего опроса.</li>
+<li><code>placeid</code>, NUMBER - ID ТО.</li>
+<li><code>st</code>, NUMBER (0|1) - состояние соединения: 0 - нет; 1 - да.</li>
+<li><code>stm</code>, DATE (формат: 2026-02-20 06:06:53) - время последнего изменения состояния соединения.</li>
+<li><code>cerr</code>, NUMBER - код ошибки соединения (0 - нет ошибки).</li>
+<li><code>perr</code>, NUMBER - код ошибки протокола обмена данных (0 - нет ошибки).</li>
+</ul>
+<p><strong><code>evlog_amr</code></strong> (Лог событий опроса):</p>
+<ul>
+<li><code>code</code>,  NUMBER - ID события. Если для хронологически последнего события <code>code</code> in (120, 136, 223): то к ПУ или УСПД (<code>ident1</code>, <code>ident2</code>) применяется режим опроса: econom.</li>
+<li><code>evtime</code>, DATE (формат: 2026-02-20 06:06:53) - время события.</li>
+<li><code>ident1</code>, NUMBER - если <code>ident2</code> = NULL, тогда это ID ПУ, иначе: ID УСПД.</li>
+<li><code>ident2</code>, VARCHAR(10) - ID ПУ.</li>
+</ul>
+<p><strong><code>amr_splog</code></strong> (Справочник событий: для расшифровки <code>evlog_amr.code</code>):</p>
+<ul>
+<li><code>code</code>,  NUMBER - ID события.</li>
+<li><code>txt</code>, VARCHAR(100) - название события</li>
+</ul>
+<hr />
+<p><code>gr_kon</code> (Привязка ПУ к контроллеру):
+    - <code>n_kon</code> — ID УСПД
+    -   <code>n_sh</code> — ID ТУ.
+Роль: Главная таблица для получения списка всех ТУ, принадлежащих конкретному УСПД (<code>usp_ids</code>).</p>
+<h2 id="2-2">2. Таблицы/поля (Этап 2)</h2>
 <table>
 <thead>
 <tr>
@@ -163,67 +220,12 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Свойства опроса ТУ/УСПД</td>
-<td style="text-align: left;">Общие свойства опроса ТУ/УСПД</td>
-<td style="text-align: left;"><code>plan_opr2</code></td>
-</tr>
-<tr>
-<td style="text-align: left;">Свойства ТО</td>
-<td style="text-align: left;">Свойства ТО</td>
-<td style="text-align: left;"><code>place2</code></td>
-</tr>
-<tr>
 <td style="text-align: left;">Конфигурация опроса (Этап 2)</td>
 <td style="text-align: left;">Расширенные параметры опроса</td>
 <td style="text-align: left;"><code>param_oprsh2</code>, <code>param_oprkontr2</code>, <code>place2</code></td>
 </tr>
 </tbody>
-</table>
-<p>| Привязка ТУ к УСПД | Группы контроллеров | <code>gr_kon</code> (<code>n_kon</code>, <code>n_sh</code>) |
-| <code>last_data</code> (Время последних данных) | Состояние опроса | <code>amr_comm_state</code> (<code>n</code>, <code>tm</code> / <code>logtm</code>) |</p>
-<hr />
-<h3 id="23-1">2.3. Таблицы для ЗАПИСИ (Обновление параметров на Этапе 1)</h3>
-<p><strong><code>place2</code></strong> (Свойства ТО):</p>
-<ul>
-<li><code>id</code>,  NUMBER: ID ТО.</li>
-<li><code>state</code>, NUMBER (0/1): если 0: данный данная ТО исключается из дальнейшего анализа.</li>
-<li><code>connectwait</code>, NUMBER: ожидать соединения (сек.). Необходимое значение: <strong>?????????????????????????</strong>.</li>
-<li><code>kol_pop</code>, NUMBER: количество попыток соединиться. Необходимое значение в зависимости от режима:</li>
-<li>econom: <code>3</code></li>
-<li>normal: если есть и валиден JSON:<code>connection_retries</code>: <code>connection_retries</code>, иначе: <code>5</code>.</li>
-</ul>
-<p><strong><code>plan_opr2</code></strong> (Общие свойства опроса ТУ/УСПД):</p>
-<ul>
-<li><code>place_id</code>, NUMBER: ID ТО.</li>
-<li><code>n_sh</code>, NUMBER: ID ТУ/УСПД.</li>
-<li><code>interv</code>, VARCHAR(4) (30m, 1h - 12h, 1d, 10d, 1n; где h - час, m - минта, d - день, n - месяц): интервал опроса.
-Необходимое значение: если значение &lt;= <code>1h</code>: не меняется, иначе: если есть и валиден JSON:<code>interval</code>: <code>interval</code>, иначе: <code>8h</code>.</li>
-<li><code>kol_pop_max</code>, NUMBER: количество повторов опроса в интервале при неудаче.
-Необходимое значение в зависимости от режима:</li>
-<li>econom: <code>1</code></li>
-<li>normal: если <code>interv</code> в часах (h) и &gt; 1: <code>interv</code> - 1, иначе: <code>1</code>.</li>
-<li><code>state</code>, NUMBER (0/1): если 0: данная ТУ исключается из дальнейшего анализа.</li>
-<li><code>dorder</code>, NUMBER: порядковый номер в списке опроса. Необходимое значение: <code>1</code>.</li>
-<li><code>pause_retry</code>, NUMBER: пауза перед повтором опроса (сек.). Необходимое значение: <code>interv</code>(сек.) / (<code>kol_pop_max</code> + 1).</li>
-</ul>
-<hr />
-<p><code>gr_kon</code> (Привязка ТУ к контроллеру):
-    - <code>n_kon</code> — ID УСПД
-    -   <code>n_sh</code> — ID ТУ.
-Роль: Главная таблица для получения списка всех ТУ, принадлежащих конкретному УСПД (<code>usp_ids</code>).</p>
-<h3 id="22-last_data">2.2. Таблицы для ЧТЕНИЯ (Анализ <code>last_data</code> и текущих настроек)</h3>
-<pre><code>*   `amr_comm_state` (Состояние опроса ТУ)
-*   `n` — предположительно ID ТУ (`n_sh`).
-*   `tm` (или `logtm` / `stm`) — временная метка последнего успешного опроса/получения данных. Это и есть наш **`last_data`** из Концепции.
-</code></pre>
-<h3 id="4">4. Критические вопросы к предметному эксперту (Перед стартом разработки)</h3>
-<p>Поскольку мы опираемся на новые таблицы, разработчику <strong>необходимо получить 100% подтверждение</strong> по следующим полям:</p>
-<ol>
-<li><strong>Поле <code>last_data</code> в <code>amr_comm_state</code></strong>:</li>
-<li>В таблице есть поля <code>tm</code>, <code>stm</code>, <code>logtm</code>, <code>synctm</code>. Какое именно из них содержит время получения последних <em>данных</em> (показаний), которое нужно сравнивать с временным окном (<code>star_thour</code> ... <code>end_hour</code>)?</li>
-<li><strong>Связь <code>amr_comm_state</code> и ТУ</strong>:</li>
-<li>Поле <code>n</code> в <code>amr_comm_state</code> — это гарантированно <code>n_sh</code> (ID счётчика)</li>
-</ol></div>
+</table></div>
             </div>
         </div>
 
