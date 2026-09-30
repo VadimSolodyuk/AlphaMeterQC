@@ -10,6 +10,8 @@ connection.json
 
 # === Секреты и API ключи (НИКОГДА не коммитить!) ===
 .env
+.env.*
+!.env.example
 .env.local
 *.secret
 *.secrets
@@ -47,7 +49,6 @@ venv/
 ENV/
 env/
 .venv
-.env
 
 # === IDE и редакторы ===
 .vscode/*.json
