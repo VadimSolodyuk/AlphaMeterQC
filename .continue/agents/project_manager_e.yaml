@@ -6,12 +6,12 @@ models:
   # ========= Чат =========
   - name: gpt-oss-20b
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/gpt-oss-20b/latest
+    model: gpt://${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}/gpt-oss-20b/latest
     apiBase: https://ai.api.cloud.yandex.net/v1
-    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    apiKey: ${{ secrets.YANDEX_AISTUDIO_API_KEY }}
     requestOptions:
       headers:
-        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+        OpenAI-Project: ${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}
     roles:
       - chat
       - subagent
@@ -104,12 +104,12 @@ models:
   # ========= Редактирование и применение =========
   - name: Alice AI LLM Flash
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/aliceai-llm-flash/latest
+    model: gpt://${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}/aliceai-llm-flash/latest
     apiBase: https://ai.api.cloud.yandex.net/v1
-    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    apiKey: ${{ secrets.YANDEX_AISTUDIO_API_KEY }}
     requestOptions:
       headers:
-        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+        OpenAI-Project: ${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}
     roles:
       - edit
       - apply
@@ -127,12 +127,12 @@ models:
   # ========= Суммаризация =========
   - name: Alice AI LLM Flash
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/aliceai-llm-flash/latest
+    model: gpt://${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}/aliceai-llm-flash/latest
     apiBase: https://ai.api.cloud.yandex.net/v1
-    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    apiKey: ${{ secrets.YANDEX_AISTUDIO_API_KEY }}
     requestOptions:
       headers:
-        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+        OpenAI-Project: ${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}
     roles:
       - summarize
     defaultCompletionOptions:
@@ -154,8 +154,8 @@ models:
     roles:
       - autocomplete
     defaultCompletionOptions:
-      contextLength: 2048 # 1024 | 2048 | 4096 (2048 — достаточно для контекста редактирования)
-      maxTokens: 512 # 128 | 256 | 512 (256 — оптимально для коротких дополнений)
+      contextLength: 1024 # 1024 | 2048 | 4096 (2048 — достаточно для контекста редактирования)
+      maxTokens: 256 # 128 | 256 | 512 (256 — оптимально для коротких дополнений)
       temperature: 0.1 # 0.0 | 0.1 | 0.2 (0.1 — предсказуемость)
       topP: 0.85
       stop:
@@ -166,7 +166,7 @@ models:
         - "#"
     autocompleteOptions:
       maxPromptTokens: 500 # 300 | 500 | 800 (500 — баланс)
-      prefixPercentage: 0.6
+      prefixPercentage: 0.4
       maxSuffixPercentage: 0.3
       useCache: true
       useImports: true

@@ -5,49 +5,49 @@ schema: v1
 models:
   # ====== Yandex Cloud Models ======
   - name: YC-Qwen3 235B
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/qwen3-235b-a22b-fp8
+    model: gpt://${{ secrets.YANDEX_YANDEX_AISTUDIO_FOLDER_ID }}/qwen3-235b-a22b-fp8
     provider: openai
     apiBase: https://ai.api.cloud.yandex.net/v1
-    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    apiKey: ${{ secrets.YANDEX_YANDEX_AISTUDIO_API_KEY }}
     requestOptions:
       headers:
-        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+        OpenAI-Project: ${{ secrets.YANDEX_YANDEX_AISTUDIO_FOLDER_ID }}
 
   - name: YC-DeepSeek V4 Flash
     provider: openai
     apiBase: https://ai.api.cloud.yandex.net/v1
-    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/deepseek-v4-flash/latest
+    apiKey: ${{ secrets.YANDEX_YANDEX_AISTUDIO_API_KEY }}
+    model: gpt://${{ secrets.YANDEX_YANDEX_AISTUDIO_FOLDER_ID }}/deepseek-v4-flash/latest
     requestOptions:
       headers:
-        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+        OpenAI-Project: ${{ secrets.YANDEX_YANDEX_AISTUDIO_FOLDER_ID }}
 
   - name: YC-Qwen3.6-35B
     provider: openai
     apiBase: https://ai.api.cloud.yandex.net/v1
-    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/qwen3.6-35b-a3b
+    apiKey: ${{ secrets.YANDEX_YANDEX_AISTUDIO_API_KEY }}
+    model: gpt://${{ secrets.YANDEX_YANDEX_AISTUDIO_FOLDER_ID }}/qwen3.6-35b-a3b
     requestOptions:
       headers:
-        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+        OpenAI-Project: ${{ secrets.YANDEX_YANDEX_AISTUDIO_FOLDER_ID }}
 
   - name: YC-gpt-oss-20b
     provider: openai
     apiBase: https://ai.api.cloud.yandex.net/v1
-    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/gpt-oss-20b/latest
+    apiKey: ${{ secrets.YANDEX_YANDEX_AISTUDIO_API_KEY }}
+    model: gpt://${{ secrets.YANDEX_YANDEX_AISTUDIO_FOLDER_ID }}/gpt-oss-20b/latest
     requestOptions:
       headers:
-        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+        OpenAI-Project: ${{ secrets.YANDEX_YANDEX_AISTUDIO_FOLDER_ID }}
 
   - name: YC-Alice AI LLM Flash
     provider: openai
     apiBase: https://ai.api.cloud.yandex.net/v1
-    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/aliceai-llm-flash/latest
+    apiKey: ${{ secrets.YANDEX_YANDEX_AISTUDIO_API_KEY }}
+    model: gpt://${{ secrets.YANDEX_YANDEX_AISTUDIO_FOLDER_ID }}/aliceai-llm-flash/latest
     requestOptions:
       headers:
-        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+        OpenAI-Project: ${{ secrets.YANDEX_YANDEX_AISTUDIO_FOLDER_ID }}
 
   # ====== Ollama Local Models ======
   - name: Ollama-mistral:7b

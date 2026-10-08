@@ -6,12 +6,12 @@ models:
   # ========= Чат и сабджент =========
   - name: DeepSeek V4 Flash
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/deepseek-v4-flash/latest
+    model: gpt://${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}/deepseek-v4-flash/latest
     apiBase: https://ai.api.cloud.yandex.net/v1
-    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    apiKey: ${{ secrets.YANDEX_AISTUDIO_API_KEY }}
     requestOptions:
       headers:
-        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+        OpenAI-Project: ${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}
     roles:
       - chat
       - subagent
@@ -106,12 +106,12 @@ models:
   # ========= Редактирование и применение =========
   - name: Qwen3.6-35B
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/qwen3.6-35b-a3b
+    model: gpt://${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}/qwen3.6-35b-a3b
     apiBase: https://ai.api.cloud.yandex.net/v1
-    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    apiKey: ${{ secrets.YANDEX_AISTUDIO_API_KEY }}
     requestOptions:
       headers:
-        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+        OpenAI-Project: ${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}
     roles:
       - edit
       - apply
@@ -131,12 +131,12 @@ models:
   # ========= Суммаризация =========
   - name: Alice AI LLM Flash
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO_FOLDER_ID }}/aliceai-llm-flash/latest
+    model: gpt://${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}/aliceai-llm-flash/latest
     apiBase: https://ai.api.cloud.yandex.net/v1
-    apiKey: ${{ secrets.AISTUDIO_API_KEY }}
+    apiKey: ${{ secrets.YANDEX_AISTUDIO_API_KEY }}
     requestOptions:
       headers:
-        OpenAI-Project: ${{ secrets.AISTUDIO_FOLDER_ID }}
+        OpenAI-Project: ${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}
     roles:
       - summarize
     defaultCompletionOptions:
