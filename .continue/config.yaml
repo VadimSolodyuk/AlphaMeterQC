@@ -3,6 +3,24 @@ version: 1.0.0
 schema: v1
 
 models:
+  # ====== ANTHROPIC Cloud Models ======
+  - name: Claude Sonnet 4.6
+    model: claude-sonnet-4-6
+    provider: anthropic
+    apiKey: ${{ secrets.ANTHROPIC_API_KEY }}
+    roles:
+      - chat
+      - edit
+      - apply
+
+  - name: YC-Qwen3 235B
+    model: gpt://${{ secrets.YANDEX_YANDEX_AISTUDIO_FOLDER_ID }}/qwen3-235b-a22b-fp8
+    provider: openai
+    apiBase: https://ai.api.cloud.yandex.net/v1
+    requestOptions:
+      headers:
+        OpenAI-Project: ${{ secrets.YANDEX_YANDEX_AISTUDIO_FOLDER_ID }}
+
   # ====== Yandex Cloud Models ======
   - name: YC-Qwen3 235B
     model: gpt://${{ secrets.YANDEX_YANDEX_AISTUDIO_FOLDER_ID }}/qwen3-235b-a22b-fp8
