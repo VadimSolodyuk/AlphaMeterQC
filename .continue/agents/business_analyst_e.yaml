@@ -6,7 +6,7 @@ models:
   # ========= Чат и сабджент =========
   - name: gpt-oss-20b
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO__FOLDER_ID }}/gpt-oss-20b/latest
+    model: gpt://${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}/gpt-oss-20b/latest
     apiBase: https://ai.api.cloud.yandex.net/v1
     apiKey: ${{ secrets.YANDEX_AISTUDIO_API_KEY }}
     requestOptions:
@@ -104,7 +104,7 @@ models:
   # ========= Редактирование, применение и суммаризация =========
   - name: Alice AI LLM Flash
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO__FOLDER_ID }}/alice-ai-llm-flash/latest
+    model: gpt://${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}/alice-ai-llm-flash/latest
     apiBase: https://ai.api.cloud.yandex.net/v1
     apiKey: ${{ secrets.YANDEX_AISTUDIO_API_KEY }}
     requestOptions:

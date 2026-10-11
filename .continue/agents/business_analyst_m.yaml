@@ -6,7 +6,7 @@ models:
   # ========= Чат и сабджент =========
   - name: Qwen3 235B
     provider: openai
-    model: gpt://${{ secrets.AISTUDIO__FOLDER_ID }}/qwen3-235b-a22b-fp8
+    model: gpt://${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}/qwen3-235b-a22b-fp8
     apiBase: https://ai.api.cloud.yandex.net/v1
     apiKey: ${{ secrets.YANDEX_AISTUDIO_API_KEY }}
     requestOptions:
