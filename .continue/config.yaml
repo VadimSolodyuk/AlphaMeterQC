@@ -4,9 +4,9 @@ schema: v1
 
 models:
   # ====== DeepSeek Cloud Models ======
-  - name: DeepSeek Chat
+  - name: DeepSeek-flash
     provider: deepseek
-    model: deepseek-chat
+    model: deepseek-flash
     apiKey: ${{ secrets.DEEPSEEK_API_KEY }}
     roles:
       - chat
@@ -15,17 +15,22 @@ models:
     defaultCompletionOptions:
       temperature: 0.3
       maxTokens: 4096
+    requestOptions:
+      extraBodyProperties:
+        thinking:
+          type: enabled # enabled | disabled
+        reasoning_effort: high # low | high | max
 
-  - name: DeepSeek Reasoner
+  - name: Deepseek-v4-pro
     provider: deepseek
-    model: deepseek-reasoner
+    model: deepseek-v4-pro
     apiKey: ${{ secrets.DEEPSEEK_API_KEY }}
     roles:
       - chat
     requestOptions:
       extraBodyProperties:
         thinking:
-          type: enabled
+          type: enabled # enabled | disabled
         reasoning_effort: high # low | high | max
 
   # ====== Yandex Cloud Models ======

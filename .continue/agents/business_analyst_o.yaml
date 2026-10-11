@@ -14,6 +14,8 @@ models:
         OpenAI-Project: ${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}
     roles:
       - chat
+      - edit
+      - apply
     defaultCompletionOptions:
       contextLength: 65536 # 32768 | 65536 | 131072 (65536 — достаточно для анализа требований)
       maxTokens: 4096 # 2048 | 4096 (4096 — для развёрнутых ответов BA)
@@ -99,51 +101,6 @@ models:
         Для массовых изменений используй `grep_search` + цикл или скрипт.
         Код-блоки — для демонстрации; реальные правки — через инструменты.
         При снижении эффективности из-за роста токенов и шума в контексте — рекомендуй начать новый чат, если выгода от сброса превышает цену потери истории (шаблон: «Продолжи в новом чате: [кратко что передать для продолжения] »).
-
-  # ========= Редактирование и применение =========
-  - name: gpt-oss-20b
-    provider: openai
-    model: gpt://${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}/gpt-oss-20b/latest
-    apiBase: https://ai.api.cloud.yandex.net/v1
-    apiKey: ${{ secrets.YANDEX_AISTUDIO_API_KEY }}
-    requestOptions:
-      headers:
-        OpenAI-Project: ${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}
-    roles:
-      - edit
-      - apply
-    defaultCompletionOptions:
-      contextLength: 16384 # 8192 | 16384 | 32768 (16384 — для правок средней сложности)
-      maxTokens: 2048 # 1024 | 2048 (2048 — достаточно для изменений)
-      temperature: 0.1 # 0.0 | 0.1 | 0.2 (0.1 — макс. детерминированность)
-      topP: 0.9
-      reasoning: false
-      promptCaching: true
-    cacheBehavior:
-      cacheSystemMessage: true
-      cacheConversation: true
-
-  # ========= Суммаризация =========
-  - name: Alice AI LLM Flash
-    provider: openai
-    model: gpt://${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}/aliceai-llm-flash/latest
-    apiBase: https://ai.api.cloud.yandex.net/v1
-    apiKey: ${{ secrets.YANDEX_AISTUDIO_API_KEY }}
-    requestOptions:
-      headers:
-        OpenAI-Project: ${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}
-    roles:
-      - summarize
-    defaultCompletionOptions:
-      contextLength: 32768 # 16384 | 32768 | 65536 (32768 — для длинных диалогов)
-      maxTokens: 2048 # 1024 | 2048 (2048 — полные итоги)
-      temperature: 0.3 # 0.2 | 0.3 | 0.5 (0.3 — лёгкое разнообразие)
-      topP: 0.9
-      reasoning: false
-      promptCaching: true
-    cacheBehavior:
-      cacheSystemMessage: true
-      cacheConversation: true
 
   # ========= Автодополнение (локальный coder) =========
   - name: qwen2.5-coder:3b

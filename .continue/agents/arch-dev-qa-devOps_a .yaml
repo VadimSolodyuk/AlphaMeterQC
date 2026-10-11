@@ -127,28 +127,6 @@ models:
       cacheSystemMessage: true
       cacheConversation: true
 
-  # ========= Суммаризация =========
-  - name: Alice AI LLM Flash
-    provider: openai
-    model: gpt://${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}/aliceai-llm-flash/latest
-    apiBase: https://ai.api.cloud.yandex.net/v1
-    apiKey: ${{ secrets.YANDEX_AISTUDIO_API_KEY }}
-    requestOptions:
-      headers:
-        OpenAI-Project: ${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}
-    roles:
-      - summarize
-    defaultCompletionOptions:
-      contextLength: 16384 # 16384 | 65536 (32768 — достаточно для контекста при суммаризации)
-      maxTokens: 1024 # 512 | 2048 (1024 — оптимальная длина для краткой суммаризации, сохраняет суть без излишеств)
-      temperature: 0.3 # 0.1 | 0.5 (0.3 — баланс между сжатием и связностью текста)
-      topP: 0.9 # 0.8 | 1.0 (0.9 — стабильность без излишней жёсткости)
-      reasoning: false
-      promptCaching: true
-    cacheBehavior:
-      cacheSystemMessage: true
-      cacheConversation: true
-
   # ========= Автодополнение (локальный coder) =========
   - name: qwen2.5-coder:3b
     provider: ollama
