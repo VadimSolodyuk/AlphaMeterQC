@@ -14,7 +14,6 @@ models:
         OpenAI-Project: ${{ secrets.YANDEX_AISTUDIO_FOLDER_ID }}
     roles:
       - chat
-      - subagent
     defaultCompletionOptions:
       contextLength: 32768 # 16384 | 65536 | 131072 (32768 — баланс скорость/качество)
       maxTokens: 2048 # 1024 | 4096 (2048 — достаточно для ответов)
