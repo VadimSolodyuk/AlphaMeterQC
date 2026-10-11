@@ -3,6 +3,31 @@ version: 1.0.0
 schema: v1
 
 models:
+  # ====== DeepSeek Cloud Models ======
+  - name: DeepSeek Chat
+    provider: deepseek
+    model: deepseek-chat
+    apiKey: ${{ secrets.DEEPSEEK_API_KEY }}
+    roles:
+      - chat
+      - edit
+      - apply
+    defaultCompletionOptions:
+      temperature: 0.3
+      maxTokens: 4096
+
+  - name: DeepSeek Reasoner
+    provider: deepseek
+    model: deepseek-reasoner
+    apiKey: ${{ secrets.DEEPSEEK_API_KEY }}
+    roles:
+      - chat
+    requestOptions:
+      extraBodyProperties:
+        thinking:
+          type: enabled
+        reasoning_effort: high # low | high | max
+
   # ====== Yandex Cloud Models ======
   - name: YC-DeepSeek V4 Flash
     provider: openai
