@@ -11,10 +11,13 @@ models:
     apiKey: ${{ secrets.ALI_API_KEY }}
     roles:
       - chat
+      - edit
     capabilities:
       - tool_use
     defaultCompletionOptions:
       maxTokens: 1024
+    # requestOptions:
+    #   proxy: "http://172.31.164.179:8080"
 
   # ====== DeepSeek Cloud Models ======
   - name: DeepSeek-flash
