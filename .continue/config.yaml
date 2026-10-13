@@ -9,15 +9,19 @@ models:
     model: qwen3.8-flash
     apiBase: ${{ secrets.ALI_API_BASE }}
     apiKey: ${{ secrets.ALI_API_KEY }}
+    useLegacyCompletionsEndpoint: false # после его добавления исчезла ошибка запроса Edit
     roles:
       - chat
       - edit
+      - apply
     capabilities:
       - tool_use
     defaultCompletionOptions:
       maxTokens: 1024
-    # requestOptions:
-    #   proxy: "http://172.31.164.179:8080"
+    requestOptions:
+      extraBodyProperties:
+        enable_thinking: false # после его добавления Edit стал возвращать чистый diff
+      # proxy: "http://172.31.164.179:8080"
 
   # ====== DeepSeek Cloud Models ======
   - name: DeepSeek-flash
