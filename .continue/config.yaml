@@ -86,7 +86,7 @@ models:
     requestOptions:
       extraBodyProperties:
         thinking:
-          type: enabled # enabled | disabled
+          type: disabled # enabled | disabled
         reasoning_effort: high # low | high | max
 
   - name: Deepseek-v4-pro
