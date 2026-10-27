@@ -71,6 +71,20 @@ models:
         и рекомендации; обоснования, риски и ограничения добавляй только
         при их наличии и влиянии на решение. Учитывай запрошенную подробность.
 
+  - name: "Qwen3.7 Plus | Requirements & Review"
+    provider: openai
+    model: qwen3.7-plus
+    apiBase: ${{ secrets.ALI_API_BASE }}
+    apiKey: ${{ secrets.ALI_API_KEY }}
+    useLegacyCompletionsEndpoint: false
+    roles:
+      - chat
+    defaultCompletionOptions:
+      maxTokens: 8192
+    requestOptions:
+      extraBodyProperties:
+        enable_thinking: true
+
   # ====== DeepSeek Cloud Models ======
   - name: DeepSeek-flash
     provider: deepseek
@@ -89,12 +103,28 @@ models:
           type: disabled # enabled | disabled
         reasoning_effort: high # low | high | max
 
+  - name: "DeepSeek-flash | Thinking"
+    provider: deepseek
+    model: deepseek-flash
+    apiKey: ${{ secrets.DEEPSEEK_API_KEY }}
+    roles:
+      - chat
+    defaultCompletionOptions:
+      maxTokens: 8192
+    requestOptions:
+      extraBodyProperties:
+        thinking:
+          type: enabled
+        reasoning_effort: high
+
   - name: Deepseek-v4-pro
     provider: deepseek
     model: deepseek-v4-pro
     apiKey: ${{ secrets.DEEPSEEK_API_KEY }}
     roles:
       - chat
+    defaultCompletionOptions:
+      maxTokens: 8192
     requestOptions:
       extraBodyProperties:
         thinking:
