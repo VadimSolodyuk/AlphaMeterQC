@@ -18,7 +18,7 @@ models:
       - tool_use
     defaultCompletionOptions:
       maxTokens: 4096
-      temperature: 0.2
+      temperature: 0.1
     requestOptions:
       extraBodyProperties:
         enable_thinking: false # после его добавления Edit стал возвращать чистый diff
@@ -129,7 +129,7 @@ models:
       - edit
       - apply
     defaultCompletionOptions:
-      temperature: 0.2
+      temperature: 0.0
       maxTokens: 4096
     requestOptions:
       extraBodyProperties:
