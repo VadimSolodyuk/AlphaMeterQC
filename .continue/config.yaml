@@ -171,7 +171,12 @@ models:
     roles:
       - chat
     defaultCompletionOptions:
-      maxTokens: 8192
+      maxTokens: 16384
+    requestOptions:
+      extraBodyProperties:
+        reasoning:
+          type: adaptive
+          effort_level: high
 
   - name: "Claude Opus 5.5 | Polza adaptive high"
     provider: openai
