@@ -4,7 +4,7 @@ schema: v1
 
 models:
   # ====== Alibaba Cloud Models ======
-  - name: "Qwen3.8 Max 0902 | Clean analysis test"
+  - name: "Qwen3.8 Max 0902 | Analysis · xhigh"
     provider: openai
     model: qwen3.8-max-0902
     apiBase: ${{ secrets.ALI_API_BASE }}
@@ -19,7 +19,7 @@ models:
         enable_thinking: true
         reasoning_effort: xhigh
 
-  - name: "Qwen3.8 Flash | Development test"
+  - name: "Qwen3.8 Flash | Dev · no thinking"
     provider: openai
     model: qwen3.8-flash
     apiBase: ${{ secrets.ALI_API_BASE }}
@@ -86,7 +86,7 @@ models:
         и рекомендации; обоснования, риски и ограничения добавляй только
         при их наличии и влиянии на решение. Учитывай запрошенную подробность.
 
-  - name: "Qwen3.8 Flash | Clean BA test"
+  - name: "Qwen3.8 Flash | Analysis · xhigh"
     provider: openai
     model: qwen3.8-flash
     apiBase: ${{ secrets.ALI_API_BASE }}
@@ -116,7 +116,7 @@ models:
         enable_thinking: true
 
   # ====== DeepSeek Cloud Models ======
-  - name: DeepSeek-flash
+  - name: "DeepSeek Flash | Dev · no thinking"
     provider: deepseek
     model: deepseek-flash
     apiKey: ${{ secrets.DEEPSEEK_API_KEY }}
@@ -133,7 +133,7 @@ models:
           type: disabled # enabled | disabled
         reasoning_effort: high # low | high | max
 
-  - name: "DeepSeek-flash | Thinking"
+  - name: "DeepSeek Flash | Analysis · high"
     provider: deepseek
     model: deepseek-flash
     apiKey: ${{ secrets.DEEPSEEK_API_KEY }}
@@ -147,7 +147,7 @@ models:
           type: enabled
         reasoning_effort: high
 
-  - name: Deepseek-v4-pro
+  - name: "DeepSeek Pro | Analysis · max"
     provider: deepseek
     model: deepseek-v4-pro
     apiKey: ${{ secrets.DEEPSEEK_API_KEY }}
@@ -162,7 +162,7 @@ models:
         reasoning_effort: max # low | high | max
 
   # ====== POLZA Cloud Models ======
-  - name: "Claude Sonnet 5.5 | Polza test"
+  - name: "Claude Sonnet 5.5 | Editor · high"
     provider: openai
     model: anthropic/claude-sonnet-5.5
     apiBase: https://polza.ai/api/v1
@@ -178,7 +178,7 @@ models:
           type: adaptive
           effort_level: high
 
-  - name: "Claude Opus 5.5 | Polza adaptive high"
+  - name: "Claude Opus 5.5 | Expert editor · high"
     provider: openai
     model: anthropic/claude-opus-5.5
     apiBase: https://polza.ai/api/v1
