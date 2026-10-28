@@ -17,7 +17,7 @@ models:
     capabilities:
       - tool_use
     defaultCompletionOptions:
-      maxTokens: 1024
+      maxTokens: 4096
     requestOptions:
       extraBodyProperties:
         enable_thinking: false # после его добавления Edit стал возвращать чистый diff
