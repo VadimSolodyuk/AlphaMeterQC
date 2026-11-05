@@ -78,18 +78,70 @@ pip install -e .[dev]
 
 ### Через PyInstaller (единый исполняемый файл)
 
-Проект содержит готовый spec-файл `login_dialog.spec`,
-который автоматически определяет путь к CustomTkinter
-и корректно работает на любой платформе.
+Готового файла `login_dialog.spec` в репозитории нет.
+Ниже приведён способ локальной сборки модуля `login_dialog`
+через отдельный стартовый скрипт. Сборку необходимо выполнять
+на целевой ОС: Windows-версию — на Windows, Linux-версию — на Linux.
+
+Выполняйте команды из корня репозитория в активированном
+виртуальном окружении:
 
 ```bash
-pip install pyinstaller
-pyinstaller login_dialog.spec
+python -m pip install -e .
+python -m pip install pyinstaller
 ```
 
-Готовый файл будет в папке `dist/`:
-- Linux: `dist/login_dialog`
-- Windows: `dist/login_dialog.exe`
+Создайте в корне репозитория локальный файл
+`build_login_dialog.py` со следующим содержимым:
+
+```python
+from alphameterqc.login_dialog.__main__ import main
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+```
+
+Отдельный стартовый скрипт сохраняет пакетный контекст импортов.
+Не передавайте `src/alphameterqc/login_dialog/__main__.py`
+напрямую: этот файл содержит относительный импорт `.controller`.
+
+Запустите сборку следующей командой в одну строку
+(подходит для Bash, PowerShell и cmd):
+
+```bash
+python -m PyInstaller --clean --noconfirm --onefile --name login_dialog --collect-all customtkinter build_login_dialog.py
+```
+
+Параметр `--collect-all customtkinter` включает в сборку
+подмодули, файлы данных и бинарные компоненты CustomTkinter.
+Не добавляйте `--windowed` или `--noconsole`: режим subprocess
+использует стандартный вывод для передачи результата в JSON.
+
+Ожидаемый результат:
+- Linux: `dist/login_dialog`;
+- Windows: `dist/login_dialog.exe`.
+
+После сборки проверьте запуск, подтверждение ввода и отмену:
+
+```bash
+# Linux
+./dist/login_dialog
+```
+
+```powershell
+# Windows PowerShell
+.\dist\login_dialog.exe
+```
+
+Локальный launcher `build_login_dialog.py` можно удалить после
+сборки. PyInstaller также создаёт `build/`, `dist/`
+и файл `login_dialog.spec`; не добавляйте эти результаты
+сборки в коммит без отдельной необходимости.
+
+Эта инструкция не является подтверждением успешной сборки
+и запуска на конкретной ОС: требуется проверка в целевой среде.
+Текущий CI использует прямую упаковку `__main__.py`;
+его согласование с этой инструкцией выполняется отдельно.
 
 ---
 
