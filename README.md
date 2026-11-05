@@ -3,7 +3,7 @@
 [![CI/CD Pipeline](https://github.com/VadimSolodyuk/AlphaMeterQC/actions/workflows/ci.yml/badge.svg)](https://github.com/VadimSolodyuk/AlphaMeterQC/actions/workflows/ci.yml)
 [![Docs](https://github.com/VadimSolodyuk/AlphaMeterQC/actions/workflows/docs.yml/badge.svg)](https://github.com/VadimSolodyuk/AlphaMeterQC/actions/workflows/docs.yml)
 
-**Версия:** 0.2.0  
+**Версия:** 0.1.0  
 **Статус:** Разработка  
 **Автор:** Солодюк В.Л.  
 **Дата:** 2026-06-11  
