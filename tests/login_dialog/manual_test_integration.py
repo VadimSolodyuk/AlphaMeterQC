@@ -6,6 +6,6 @@ print("Запуск диалога...")
 result = show_dialog(debug=True)
 
 if result:
-    print(f"✅ Успех: {result}")
+    print("✅ Успех: данные получены (без вывода параметров подключения)")
 else:
     print("❌ Отмена или ошибка")
