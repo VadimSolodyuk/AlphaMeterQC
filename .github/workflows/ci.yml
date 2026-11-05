@@ -73,16 +73,16 @@ jobs:
           pip install -e .[dev]
 
       - name: Check formatting with Black
-        run: black --check src/ tests/
+        run: black --check src/ tests/ prototypes/login_dialog/prototype.py
 
       - name: Check imports with isort
-        run: isort --check-only src/ tests/
+        run: isort --check-only src/ tests/ prototypes/login_dialog/prototype.py
 
       - name: Type checking with MyPy
-        run: mypy src/ --strict
+        run: mypy src/ prototypes/login_dialog/prototype.py --strict
 
       - name: Lint with Flake8
-        run: flake8 src/ tests/ --max-line-length=88
+        run: flake8 src/ tests/ prototypes/login_dialog/prototype.py --max-line-length=88
 
   # ============================================
   # Сборка PyInstaller (Windows + Linux)
