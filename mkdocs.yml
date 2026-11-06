@@ -12,7 +12,7 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
-          paths: [../src] # Путь к исходному коду относительно файла mkdocs.yml
+          paths: [src] # Путь к исходному коду относительно файла mkdocs.yml
           options:
             docstring_style: google # Мы договорились использовать Google style
             show_root_heading: true
