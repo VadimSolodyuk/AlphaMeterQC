@@ -10,7 +10,7 @@ build-backend = "setuptools.build_meta"
 name = "alphameterqc"
 version = "0.1.0"
 description = "Система анализа и контроля данных АСКУЭ"
-requires-python = ">=3.9"  # Поддержка Python 3.9-3.12
+requires-python = ">=3.12"  # Базовая версия Python — 3.12
 dependencies = [
     "customtkinter>=5.2.0",  # GUI библиотека
 #    "requests>=2.28.0",      # HTTP-запросы (AI Service)
@@ -35,7 +35,7 @@ where = ["src"]  # Поиск пакетов в папке src/
 
 [tool.black]
 line-length = 88  # Длина строки
-target-version = ['py39', 'py310', 'py311', 'py312']
+target-version = ['py312']
 skip-string-normalization = true  # Нормализует кавычки
 
 [tool.isort]
