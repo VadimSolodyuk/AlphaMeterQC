@@ -27,8 +27,7 @@
 |                         | `tests/`                                        | Директория с тестами (зеркалирует `src/`)                                  | —                         | —                                           |
 | **Pre-commit**          | `.pre-commit-config.yaml`                       | Конфигурация pre-commit хуков (black, flake8, mypy, isort)                 | —                         | —                                           |
 | **Инфраструктура**      | `.lingma/rules/optimize_context.md`             | Правила оптимизации контекста для Lingma                                   | —                         | —                                           |
-|                         | `examples/ollama_example.py`                    | Пример использования Ollama                                                | —                         | —                                           |
-|                         | `examples/test_ollama.py`                       | Тестовый скрипт для Ollama                                                 | —                         | —                                           |
+—                                           |
 |                         | `pyproject.toml`                                | Конфигурация проекта (зависимости, метаданные, инструменты)                | —                         | —                                           |
 | **Резервное копирование БД** | `docs/specs/db/16_backup_script.sh`        | Резервное копирование PostgreSQL                                           | —                         | —                                           |
 |                         | `docs/specs/db/17_restore_script.sh`            | Восстановление PostgreSQL                                                  | —                         | —                                           |
