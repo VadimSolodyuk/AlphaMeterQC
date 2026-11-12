@@ -117,27 +117,27 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           pyinstaller --onefile \
-            --name login_dialog \
+            --name AlphaMeterQC \
             --hidden-import customtkinter \
             --hidden-import customtkinter.windows.widgets \
             --hidden-import customtkinter.windows.widgets.theme \
             --collect-all customtkinter \
-            src/alphameterqc/login_dialog/__main__.py
+            src/alphameterqc/__main__.py
 
       - name: Build with PyInstaller (Windows)
         if: runner.os == 'Windows'
         run: |
           pyinstaller --onefile `
-            --name login_dialog `
+            --name AlphaMeterQC `
             --hidden-import customtkinter `
             --hidden-import customtkinter.windows.widgets `
             --hidden-import customtkinter.windows.widgets.theme `
             --collect-all customtkinter `
-            src/alphameterqc/login_dialog/__main__.py
+            src/alphameterqc/__main__.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: login_dialog-${{ matrix.os }}
-          path: dist/login_dialog*
+          name: AlphaMeterQC-${{ matrix.os }}
+          path: dist/AlphaMeterQC*
           retention-days: 30
