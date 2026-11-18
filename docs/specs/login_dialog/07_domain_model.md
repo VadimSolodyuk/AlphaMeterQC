@@ -3,7 +3,7 @@
 **Версия:** 2.5 (итоговая)  
 **Дата:** 2026-06-06  
 **Автор:** Солодюк В.Л.  
-**Проект:** ПО «AlphaMeterQC» / Модуль ввода данных для подключения к БД
+**Проект:** AlphaMeterQC / Модуль ввода данных для подключения к БД
 
 ---
 
@@ -18,7 +18,7 @@
 | En.LOGIN.D2.01 | ConnectionData | Завершение сеанса | - ipAddress: string <br> - port: int <br> - username: string <br> - **password: string** <br> - serviceName: string | + toJson() <br> + fromJson(json) <br> + toStruct() | → En.LOGIN.D0.02 (сохраняется в: 1 → 0..1) <br> → En.LOGIN.D3.01 (передаётся) | **Полная структура данных подключения (включая пароль).** Используется только транзитно для передачи результатов вызывающей системе. **Никогда не сериализуется в файл целиком** (пароль исключается при сохранении). |
 | En.LOGIN.D2.02 | CancelSignal | Завершение сеанса | - signalType: enum (CANCEL) | + getSignal() <br> + toJson() | → En.LOGIN.D3.01 (передаётся) | Сигнал отмены (F-6). В режиме subprocess сериализуется в JSON `{"status": "cancelled"}`. |
 | En.LOGIN.D3.01 | IConnectionDialog | Интеграция | - | + showDialog(): ConnectionData / CancelSignal | ← En.LOGIN.D0.01 (реализует) <br> → En.LOGIN.D2.01 (возвращает) <br> → En.LOGIN.D2.02 (возвращает) | Интерфейс (API) для интеграции. Возвращает данные или сигнал отмены. |
-| En.LOGIN.D3.02 | CallerSystem | Интеграция | - | + callModule() <br> + processResult(result) | → En.LOGIN.D3.01 (вызывает) | Внешняя вызывающая система (ПО «AlphaMeterQC»). |
+| En.LOGIN.D3.02 | CallerSystem | Интеграция | - | + callModule() <br> + processResult(result) | → En.LOGIN.D3.01 (вызывает) | Внешняя вызывающая система (AlphaMeterQC). |
 | En.LOGIN.D3.03 | User | Интеграция | - | + enterData() <br> + confirm() <br> + cancel() | → En.LOGIN.D1.01 (взаимодействует) | Пользователь, взаимодействующий с графическим интерфейсом. |
 
 ---
