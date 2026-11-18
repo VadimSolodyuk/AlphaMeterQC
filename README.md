@@ -344,4 +344,4 @@ AlphaMeterQC распространяется на индивидуальных 
 **Репозиторий:** https://github.com/VadimSolodyuk/AlphaMeterQC  
 **Документация:** https://vadimsolodyuk.github.io/AlphaMeterQC/  
 **Проект:** AlphaMeterQC — система анализа и контроля
-данных АСКУЭ
+данных АСКУЭР

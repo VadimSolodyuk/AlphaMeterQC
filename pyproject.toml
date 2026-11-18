@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "alphameterqc"
 version = "0.1.0"
-description = "Система анализа и контроля данных АСКУЭ"
+description = "Система анализа и контроля данных АСКУЭР"
 requires-python = ">=3.12"  # Базовая версия Python — 3.12
 dependencies = [
     "customtkinter>=5.2.0",  # GUI библиотека
